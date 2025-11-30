@@ -1,0 +1,8 @@
+logback-classic-1.2.3.jar -> JDK removed internal API
+   ch.qos.logback.classic.spi.PackagingDataCalculator -> sun.reflect.Reflection                             JDK removed internal API
+objenesis-3.2.jar -> jdk.unsupported
+   org.objenesis.instantiator.sun.UnsafeFactoryInstantiator -> sun.misc.Unsafe                                    JDK internal API (jdk.unsupported)
+   org.objenesis.instantiator.util.UnsafeUtils        -> sun.misc.Unsafe                                    JDK internal API (jdk.unsupported)
+xstream-1.4.18.jar -> jdk.unsupported
+   com.thoughtworks.xstream.converters.reflection.SunLimitedUnsafeReflectionProvider -> sun.misc.Unsafe                                    JDK internal API (jdk.unsupported)
+   com.thoughtworks.xstream.converters.reflection.SunUnsafeReflectionProvider -> sun.misc.Unsafe                                    JDK internal API (jdk.unsupported)

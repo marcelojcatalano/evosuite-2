@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -15,14 +16,15 @@
         <profile>
             <id>java9</id>
             <activation>
-                <jdk>[9,)</jdk>
+                <activeByDefault>true</activeByDefault>
+                <!--                <jdk>[9,)</jdk>-->
             </activation>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>jaxb2-maven-plugin</artifactId>
-                        <version>1.6</version>
+                        <version>3.3.0</version>
                         <executions>
                             <execution>
                                 <id>xjc</id>
@@ -32,31 +34,63 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
+                            <sources>
+                                <source>${project.basedir}/src/main/resources/xsd/ctg_project_report.xsd</source>
+                            </sources>
                             <packageName>org.evosuite.xsd</packageName>
+                            <outputDirectory>${project.build.directory}/generated-sources/jaxb</outputDirectory>
                         </configuration>
                         <dependencies>
                             <dependency>
                                 <!-- Needed to compile with Java 9 -->
-                                <groupId>javax.activation</groupId>
-                                <artifactId>javax.activation-api</artifactId>
-                                <version>1.2.0</version>
+                                <groupId>jakarta.activation</groupId>
+                                <artifactId>jakarta.activation-api</artifactId>
+                                <version>${jakarta.activation-api.version}</version>
                             </dependency>
                         </dependencies>
                     </plugin>
+                    <!-- <plugin>
+                         <groupId>org.codehaus.mojo</groupId>
+                         <artifactId>jaxb2-maven-plugin</artifactId>
+                         <version>3.3.0</version>
+                         <executions>
+                             <execution>
+                                 <id>xjc</id>
+                                 <goals>
+                                     <goal>xjc</goal>
+                                 </goals>
+                             </execution>
+                         </executions>
+                         <configuration>
+                             <sources>
+                                 <source>${project.basedir}/src/main/resources/xsd/ctg_project_report.xsd</source>
+                             </sources>
+                             <packageName>org.evosuite.xsd</packageName>
+                         </configuration>
+                         <dependencies>
+                             <dependency>
+                                 &lt;!&ndash; Needed to compile with Java 9 &ndash;&gt;
+                                 <groupId>jakarta.activation</groupId>
+                                 <artifactId>jakarta.activation-api</artifactId>
+                                 <version>2.1.1</version>
+                             </dependency>
+                         </dependencies>
+                     </plugin>-->
                 </plugins>
             </build>
         </profile>
 
         <profile>
             <id>Java-8</id>
-            <activation><jdk>1.8</jdk></activation>
+            <activation>
+                <jdk>1.8</jdk>
+            </activation>
             <build>
                 <plugins>
-                    <plugin>
+                    <!--<plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>jaxb2-maven-plugin</artifactId>
-                        <version>1.6</version>
+                        <version>3.2.0</version>
                         <executions>
                             <execution>
                                 <id>xjc</id>
@@ -66,9 +100,47 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
+                            <sources>
+                                <source>${project.basedir}/src/main/resources/xsd/ctg_project_report.xsd</source>
+                            </sources>
                             <packageName>org.evosuite.xsd</packageName>
                         </configuration>
+                        <dependencies>
+                            <dependency>
+                                &lt;!&ndash; Needed to compile with Java 9 &ndash;&gt;
+                                <groupId>jakarta.activation</groupId>
+                                <artifactId>jakarta.activation-api</artifactId>
+                                <version>2.1.1</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>-->
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>jaxb2-maven-plugin</artifactId>
+                        <version>3.3.0</version>
+                        <executions>
+                            <execution>
+                                <id>xjc</id>
+                                <goals>
+                                    <goal>xjc</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <sources>
+                                <source>${project.basedir}/src/main/resources/xsd/ctg_project_report.xsd</source>
+                            </sources>
+                            <packageName>org.evosuite.xsd</packageName>
+                            <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+                        </configuration>
+                        <dependencies>
+                            <dependency>
+                                <!-- Needed to compile with Java 9 -->
+                                <groupId>jakarta.activation</groupId>
+                                <artifactId>jakarta.activation-api</artifactId>
+                                <version>${jakarta.activation-api.version}</version>
+                            </dependency>
+                        </dependencies>
                     </plugin>
                 </plugins>
             </build>
@@ -86,14 +158,14 @@
             <version>${project.version}</version>
         </dependency>
 
-<!--        <dependency>
-            <groupId>org.evosuite</groupId>
-            <artifactId>evosuite-standalone-runtime</artifactId>
-            <version>${project.version}</version>
-            <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
-        -->
+        <!--        <dependency>
+                    <groupId>org.evosuite</groupId>
+                    <artifactId>evosuite-standalone-runtime</artifactId>
+                    <version>${project.version}</version>
+                    <type>test-jar</type>
+                    <scope>test</scope>
+                </dependency>
+                -->
         <dependency> <!--  FIXME this is temporary -->
             <groupId>org.evosuite</groupId>
             <artifactId>evosuite-client</artifactId>
@@ -108,9 +180,9 @@
         </dependency>
         <dependency> <!--TODO: this is added in parent pom too -->
             <!-- FindBugs Jsr305 -->
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-            <version>3.0.2</version>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs-annotations</artifactId>
+            <version>${jsr305.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -136,53 +208,56 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
         </dependency>
+
         <dependency>
             <groupId>commons-cli</groupId>
             <artifactId>commons-cli</artifactId>
         </dependency>
+
+        <!--   <dependency>
+               <groupId>com.sun.xml.bind</groupId>
+               <artifactId>jaxb-core</artifactId>
+               <version>2.3.0</version>
+           </dependency>-->
         <dependency>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-core</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.xml.bind</groupId>
-            <artifactId>jaxb-impl</artifactId>
-            <version>2.3.0</version>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <!-- GPL, but classpath exception -->
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.0</version>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <scope>compile</scope>
         </dependency>
+
+
+        <!-- Needed to compile with Java 9 -->
         <dependency>
-            <groupId>javax.activation</groupId>
-            <artifactId>javax.activation-api</artifactId>
-            <version>1.2.0</version>
+            <groupId>jakarta.activation</groupId>
+            <artifactId>jakarta.activation-api</artifactId>
+            <version>${jakarta.activation-api.version}</version>
         </dependency>
+
+
     </dependencies>
 
 
     <build>
         <plugins>
-
-
-
-
             <!-- be sure classes get shaded -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-		<configuration>
-		  <artifactSet>
-                    <excludes>
-                      <!-- the eclipse plugin needs this -->
-                      <exclude>*:xml-apis</exclude>
-                    </excludes>
-                  </artifactSet>
-		</configuration>
-            </plugin>
+            <!--  <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-shade-plugin</artifactId>
+          <configuration>
+            <artifactSet>
+                      <excludes>
+                        &lt;!&ndash; the eclipse plugin needs this &ndash;&gt;
+                        <exclude>*:xml-apis</exclude>
+                      </excludes>
+                    </artifactSet>
+          </configuration>
+              </plugin>-->
 
             <!-- create single jar with also shaded classes, eg ASM -->
             <!-- Need to activate the Java Agent in the manifest of the jar-->
@@ -257,7 +332,7 @@
                 </executions>
             </plugin>
     -->
-            
+
             <!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.evosuite</groupId>
@@ -13,7 +14,7 @@
 
     <licenses>
         <license>
-            <name> GNU Lesser General Public License (LGPL), version 3</name>
+            <name>GNU Lesser General Public License (LGPL), version 3</name>
             <url>http://www.gnu.org/licenses/lgpl-3.0.en.html</url>
             <distribution>repo</distribution>
         </license>
@@ -118,8 +119,8 @@
                 <integrationTests>**/*IntTest.java</integrationTests>
             </properties -->
             <properties>
-                <systemTests />
-                <integrationTests />
+                <systemTests/>
+                <integrationTests/>
             </properties>
         </profile>
         <profile>
@@ -199,7 +200,7 @@
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>findbugs-maven-plugin</artifactId>
-                        <version>3.0.2</version>
+                        <version>${findbugs-maven-plugin.version}</version>
                         <configuration>
                             <xmlOutput>true</xmlOutput>
                             <!-- tmp disabled due to issues that it does not get found in the submodules, eg Maven Plugin
@@ -213,7 +214,7 @@
                         <artifactId>maven-pmd-plugin</artifactId>
                         <version>3.9.0</version>
                         <configuration>
-                            <targetJdk>1.8</targetJdk>
+                            <targetJdk>11</targetJdk>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -224,7 +225,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-report-plugin</artifactId>
-                        <version>2.22.2</version>
+                        <version>${maven-surefire-report-plugin.version}</version>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -245,8 +246,6 @@
                 <jdk>[9,)</jdk>
             </activation>
             <properties>
-                <compiler.target>1.8</compiler.target>
-                <compiler.source>1.8</compiler.source>
                 <exclude.tests.concolic>**/*Concolic*.java</exclude.tests.concolic>
                 <exclude.tests.mimeType>**/*TestMIMEType.java</exclude.tests.mimeType>
             </properties>
@@ -263,8 +262,8 @@
             <properties>
                 <compiler.target>1.8</compiler.target>
                 <compiler.source>1.8</compiler.source>
-                <exclude.tests.concolic />
-                <exclude.tests.mimeType />
+                <exclude.tests.concolic/>
+                <exclude.tests.mimeType/>
             </properties>
         </profile>
     </profiles>
@@ -276,22 +275,22 @@
             libraries: https://glassfish.java.net/public/CDDL+GPL_1_1.html For each library
             you want to add, add a comment regarding its used license. -->
         <dependencies>
-            <dependency>
+          <!--  <dependency>
                 <groupId>com.sun.xml.bind</groupId>
                 <artifactId>jaxb-core</artifactId>
                 <version>2.3.0</version>
+            </dependency>-->
+
+            <dependency>
+                <groupId>jakarta.annotation</groupId>
+                <artifactId>jakarta.annotation-api</artifactId>
+                <version>2.1.1</version>
             </dependency>
 
             <dependency>
-                <groupId>com.sun.xml.bind</groupId>
-                <artifactId>jaxb-impl</artifactId>
-                <version>2.3.0</version>
-            </dependency>
-            <dependency>
-                <!-- GPL, but classpath exception -->
-                <groupId>javax.xml.bind</groupId>
-                <artifactId>jaxb-api</artifactId>
-                <version>2.3.0</version>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>${jaxb-runtime.version}</version>
             </dependency>
             <dependency>
                 <!-- Apache 2 -->
@@ -309,7 +308,7 @@
                 <!-- MIT -->
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>1.7.32</version>
+                <version>2.0.12</version>
             </dependency>
             <dependency>
                 <!-- EPL/LGPL -->
@@ -320,7 +319,7 @@
                     update it (eg after 1.1.7), need to make sure tests (eg,
                     JobExecutorIntTest and all the Maven ones) work fine
                     on Windows -->
-                <version>1.2.3</version>
+                <version>1.5.0</version>
                 <optional>true</optional>
             </dependency>
             <dependency>
@@ -349,31 +348,31 @@
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm</artifactId>
-                <version>9.2</version>
+                <version>9.5</version>
             </dependency>
             <dependency>
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm-commons</artifactId>
-                <version>9.2</version>
+                <version>9.5</version>
             </dependency>
             <dependency>
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm-tree</artifactId>
-                <version>9.2</version>
+                <version>9.5</version>
             </dependency>
             <dependency>
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm-analysis</artifactId>
-                <version>9.2</version>
+                <version>9.5</version>
             </dependency>
             <dependency>
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm-util</artifactId>
-                <version>9.2</version>
+                <version>9.5</version>
             </dependency>
             <dependency>
                 <!-- Apache 2 -->
@@ -381,8 +380,9 @@
                 <artifactId>gentyref</artifactId>
                 <version>1.2.0</version>
             </dependency>
+
+            <!-- LGPL -->
             <dependency>
-                <!-- LGPL -->
                 <groupId>net.sf.jgrapht</groupId>
                 <artifactId>jgrapht</artifactId>
                 <version>0.8.3</version>
@@ -392,7 +392,7 @@
                 <!-- BSD -->
                 <groupId>com.thoughtworks.xstream</groupId>
                 <artifactId>xstream</artifactId>
-                <version>1.4.18</version>
+                <version>1.4.20</version>
             </dependency>
             <dependency>
                 <!-- Apache 2 -->
@@ -446,6 +446,22 @@
                 <artifactId>system-rules</artifactId>
                 <version>1.19.0</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.jnr</groupId>
+                <artifactId>jnr-posix</artifactId>
+                <version>${jnr-posix.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.xml.bind</groupId>
+                <artifactId>jakarta.xml.bind-api</artifactId>
+                <version>${jakarta.xml.bind-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.xml.ws</groupId>
+                <artifactId>jakarta.xml.ws-api</artifactId>
+                <version>${jakarta.xml.ws-api-version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -460,7 +476,6 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-
 
 
     <build>
@@ -552,7 +567,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
-                <version>3.0.5</version>
+                <version>${findbugs-maven-plugin.version}</version>
                 <configuration>
                     <xmlOutput>true</xmlOutput>
                     <excludeFilterFile>findbugs-exclude.xml</excludeFilterFile>
@@ -601,10 +616,8 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>${compiler.source}</source>
-                    <target>${compiler.target}</target>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
@@ -625,7 +638,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>3.0.2</version>
+                <version>${maven-resources-plugin.version}</version>
                 <configuration>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
@@ -651,7 +664,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.21.0</version>
+                <version>${surefire-plugin.version}</version>
                 <configuration>
                     <!--<rerunFailingTestsCount>${rerunFailingTestsCount}</rerunFailingTestsCount>-->
                     <forkCount>1</forkCount>
@@ -668,7 +681,7 @@
                         <exclude>${exclude.tests.concolic}</exclude>
                         <exclude>${exclude.tests.mimeType}</exclude>
                     </excludes>
-                    <argLine>-Djdk.attach.allowAttachSelf=true -Xms512m -Xmx4096m </argLine>
+                    <argLine>-Djdk.attach.allowAttachSelf=true -Xms512m -Xmx4096m</argLine>
                 </configuration>
             </plugin>
             <!-- pluging to run tests after 'package' phase in 'integration-test' -->
@@ -711,11 +724,53 @@
         <pluginManagement>
             <plugins>
                 <plugin>
+                    <groupId>org.apache.cxf</groupId>
+                    <artifactId>cxf-xjc-plugin</artifactId>
+                    <version>3.3.0</version>
+                    <executions>
+                        <execution>
+                            <id>xjc</id>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>xsdtojava</goal>
+                            </goals>
+                            <configuration>
+                                <xsdOptions>
+                                    <xsdOption>
+                                        <xsd>${project.basedir}/src/main/resources/xsd/ctg_project_report.xsd</xsd>
+                                        <packagename>org.evosuite.xsd</packagename>
+                                    </xsdOption>
+                                </xsdOptions>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.openrewrite.maven</groupId>
+                    <artifactId>rewrite-maven-plugin</artifactId>
+                    <version>6.22.0</version>
+                    <configuration>
+                        <exportDatatables>true</exportDatatables>
+                        <activeRecipes>
+                            <recipe>org.openrewrite.java.migrate.jakarta.JavaxMigrationToJakarta</recipe>
+                        </activeRecipes>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.openrewrite.recipe</groupId>
+                            <artifactId>rewrite-migrate-java</artifactId>
+                            <version>3.22.0</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+
+                <plugin>
                     <!-- This is used differently in "runtime" pom-->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.2</version>
+                    <version>${maven-jar-plugin.version}</version>
                 </plugin>
+
                 <!-- <plugin> <groupId>org.jacoco</groupId> <artifactId>jacoco-maven-plugin</artifactId>
                     <version>0.7.1.201405082137</version> <executions> <execution> <id>default-prepare-agent</id>
                     <goals> <goal>prepare-agent</goal> </goals> </execution> <execution> <id>default-report</id>
@@ -804,7 +859,8 @@
                                         <shadedPattern>org.evosuite.shaded.org.apache</shadedPattern>
                                         <excludes>
                                             <!-- Important, otherwise AntInitializingListener would not work in Ant -->
-                                            <exclude>org.apache.tools.ant.taskdefs.optional.junit.JUnitResultFormatter</exclude>
+                                            <exclude>org.apache.tools.ant.taskdefs.optional.junit.JUnitResultFormatter
+                                            </exclude>
                                             <exclude>org.apache.tools.ant.taskdefs.optional.junit.JUnitTest</exclude>
                                             <exclude>org.apache.tools.ant.BuildException</exclude>
                                         </excludes>
@@ -818,12 +874,12 @@
                                         <shadedPattern>org.evosuite.shaded.org.objenesis</shadedPattern>
                                     </relocation>
                                     <!--<relocation>-->
-                                        <!--<pattern>org.slf4j</pattern>-->
-                                        <!--<shadedPattern>org.evosuite.shaded.org.slf4j</shadedPattern>-->
+                                    <!--<pattern>org.slf4j</pattern>-->
+                                    <!--<shadedPattern>org.evosuite.shaded.org.slf4j</shadedPattern>-->
                                     <!--</relocation>-->
                                     <!--<relocation>-->
-                                        <!--<pattern>ch.qos.logback</pattern>-->
-                                        <!--<shadedPattern>org.evosuite.shaded.ch.qos.logback</shadedPattern>-->
+                                    <!--<pattern>ch.qos.logback</pattern>-->
+                                    <!--<shadedPattern>org.evosuite.shaded.ch.qos.logback</shadedPattern>-->
                                     <!--</relocation>-->
                                 </relocations>
                             </configuration>
@@ -845,6 +901,22 @@
         <integrationTests>**/*IntTest.java</integrationTests>
         <rerunFailingTestsCount>0</rerunFailingTestsCount>
 
+        <jakarta.activation-api.version>2.1.2</jakarta.activation-api.version>
+        <jaxb-core.version>2.3.0</jaxb-core.version>
+        <jakarta.xml.bind-api.version>4.0.1</jakarta.xml.bind-api.version>
+        <jakarta.xml.ws-api-version>2.3.3</jakarta.xml.ws-api-version>
+        <jnr-posix.version>3.1.19</jnr-posix.version>
+        <jaxb-runtime.version>4.0.4</jaxb-runtime.version>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven-jar-plugin.version>3.4.1</maven-jar-plugin.version>
+        <surefire-plugin.version>3.5.4</surefire-plugin.version>
+        <maven-surefire-report-plugin.version>3.2.5</maven-surefire-report-plugin.version>
+        <jsr305.version>4.8.3</jsr305.version>
+        <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+        <findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <maven-plugin-plugin.version>3.11.0</maven-plugin-plugin.version>
     </properties>
 
 </project>

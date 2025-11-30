@@ -19,6 +19,9 @@
  */
 package org.evosuite.utils;
 
+import jnr.constants.platform.Signal;
+import jnr.posix.POSIX;
+import jnr.posix.POSIXFactory;
 import org.evosuite.ClientProcess;
 import org.evosuite.ConsoleProgressBar;
 import org.evosuite.Properties;
@@ -30,8 +33,6 @@ import org.evosuite.rmi.service.ClientState;
 import org.evosuite.runtime.sandbox.Sandbox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.misc.Signal;
-import sun.misc.SignalHandler;
 
 import java.io.*;
 import java.rmi.ConnectException;
@@ -639,23 +640,24 @@ public class ExternalProcessGroupHandler {
      * @param processIndex index of process
      */
     protected void startSignalHandler(final int processIndex) {
-        Signal.handle(new Signal("INT"), new SignalHandler() {
 
-            private boolean interrupted = false;
+        final POSIX posix = POSIXFactory.getPOSIX();
+        final int SIGINT = 2;
 
-            @Override
-            public void handle(Signal arg0) {
-                if (interrupted)
-                    System.exit(0);
-                try {
-                    interrupted = true;
-                    if (processGroup[processIndex] != null)
-                        processGroup[processIndex].waitFor();
-                } catch (InterruptedException e) {
-                    logger.warn("", e);
-                }
+        final boolean[] interrupted = {false};
+
+        posix.signal(Signal.valueOf(SIGINT), signal -> {
+            if (interrupted[0]) {
+                System.exit(0);
             }
-
+            try {
+                interrupted[0] = true;
+                if (processGroup[processIndex] != null) {
+                    processGroup[processIndex].waitFor();
+                }
+            } catch (InterruptedException e) {
+                logger.warn("", e);
+            }
         });
     }
 

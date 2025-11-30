@@ -41,7 +41,7 @@
                     version="${evosuiteVersion}"
                     scope="test"/>
         <dependency groupId="junit" artifactId="junit" version="4.12" scope="test"/>
-        <dependency groupId="ch.qos.logback" artifactId="logback-classic" version="1.1.6" />
+        <dependency groupId="ch.qos.logback" artifactId="logback-classic" version="1.5.0" />
     </artifact:dependencies>
 
     <!-- The directories for compilation targets -->
@@ -53,8 +53,8 @@
     <property name="compile.debug"           value="true"/>
     <property name="compile.deprecation"     value="false"/>
     <property name="compile.optimize"        value="false"/>
-    <property name="compile.source"          value="1.8"/>
-    <property name="compile.target"          value="1.8"/>
+    <property name="compile.source"          value="11"/>
+    <property name="compile.target"          value="11"/>
     <property name="compile.encoding"        value="utf-8"/>
     <property name="compile.nowarn"          value="false"/>
     <property name="compile.fork"            value="false"/>

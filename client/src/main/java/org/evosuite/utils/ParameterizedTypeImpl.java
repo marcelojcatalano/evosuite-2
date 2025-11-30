@@ -36,6 +36,7 @@ package org.evosuite.utils;
  * the License.
  */
 
+
 import com.googlecode.gentyref.CaptureType;
 import com.googlecode.gentyref.GenericTypeReflector;
 

@@ -19,7 +19,7 @@
  */
 package org.evosuite.utils.generic;
 
-import com.googlecode.gentyref.GenericTypeReflector;
+
 import org.evosuite.Properties;
 import org.evosuite.ga.ConstructionFailedException;
 

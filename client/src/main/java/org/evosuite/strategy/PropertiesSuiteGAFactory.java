@@ -19,6 +19,9 @@
  */
 package org.evosuite.strategy;
 
+import jnr.posix.POSIX;
+import jnr.posix.POSIXFactory;
+import jnr.posix.SignalHandler;
 import org.evosuite.Properties;
 import org.evosuite.Properties.Criterion;
 import org.evosuite.Properties.Strategy;
@@ -59,7 +62,6 @@ import org.evosuite.testsuite.factories.TestSuiteChromosomeFactory;
 import org.evosuite.testsuite.secondaryobjectives.TestSuiteSecondaryObjective;
 import org.evosuite.utils.ArrayUtil;
 import org.evosuite.utils.ResourceController;
-import sun.misc.Signal;
 
 /**
  * Factory for GA on test suites
@@ -375,9 +377,27 @@ public class PropertiesSuiteGAFactory
                 ga.addStoppingCondition(ss);
             }
 
-            // Runtime.getRuntime().addShutdownHook(writer);
-            Signal.handle(new Signal("INT"), writer);
+            // Reemplazo de sun.misc.Signal
+            try {
+                POSIX posix = POSIXFactory.getPOSIX();
+
+                posix.signal(jnr.constants.platform.Signal.SIGINT, new SignalHandler() {
+                    @Override
+                    public void handle(int sig) {
+                        try {
+                            writer.handle(sig); // ← sencillo y funcional
+                        } catch (Throwable t) {
+                            logger.warn("Error en ShutdownTestWriter.handle()", t);
+                        }
+                    }
+                });
+
+                logger.info("SIGINT handler registered via jnr-posix");
+            } catch (Throwable t) {
+                logger.error("Error registrando handler POSIX", t);
+            }
         }
+
 
         ga.addListener(new ResourceController<>());
         return ga;

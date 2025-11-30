@@ -26,11 +26,15 @@
     <contextName>ContextForTests</contextName>
 
     <root level="WARN">
-        <appender  class="ch.qos.logback.core.ConsoleAppender">
-            <target>System.out</target>
+        <appender  name= "STDOUT" class="ch.qos.logback.core.ConsoleAppender">
             <encoder>
                 <pattern>%-5level %logger - %msg%n</pattern>
             </encoder>
         </appender>
     </root>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+
 </configuration>

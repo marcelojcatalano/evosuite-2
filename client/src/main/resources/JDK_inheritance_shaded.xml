@@ -1574,7 +1574,7 @@
     <string>java.util.AbstractSet</string>
     <string>java.nio.ShortBuffer</string>
     <string>java.security.cert.CertificateFactorySpi</string>
-    <string>javax.xml.bind.WhiteSpaceProcessor</string>
+    <string>jakarta.xml.bind.WhiteSpaceProcessor</string>
     <string>org.omg.PortableServer.CurrentPackage.NoContextHelper</string>
     <string>java.awt.event.FocusAdapter</string>
     <string>org.omg.CORBA.PolicyListHelper</string>
@@ -1679,7 +1679,7 @@
     <string>javax.xml.crypto.dsig.TransformService</string>
     <string>java.util.stream.ReduceOps$ReduceOp</string>
     <string>java.util.jar.Pack200</string>
-    <string>javax.xml.bind.SchemaOutputResolver</string>
+    <string>jakarta.xml.bind.SchemaOutputResolver</string>
     <string>java.util.stream.AbstractPipeline</string>
     <string>java.util.stream.SortedOps$AbstractIntSortingSink</string>
     <string>org.omg.CORBA.Environment</string>
@@ -1791,14 +1791,14 @@
     <string>org.omg.CORBA.CompletionStatusHelper</string>
     <string>org.omg.CORBA.LongLongSeqHelper</string>
     <string>java.util.EnumMap$EnumMapIterator</string>
-    <string>javax.xml.bind.attachment.AttachmentMarshaller</string>
-    <string>javax.xml.bind.JAXBContext</string>
+    <string>jakarta.xml.bind.attachment.AttachmentMarshaller</string>
+    <string>jakarta.xml.bind.JAXBContext</string>
     <string>org.omg.CORBA.ExceptionList</string>
-    <string>javax.xml.bind.annotation.adapters.XmlAdapter</string>
-    <string>javax.xml.bind.helpers.AbstractMarshallerImpl</string>
+    <string>jakarta.xml.bind.annotation.adapters.XmlAdapter</string>
+    <string>jakarta.xml.bind.helpers.AbstractMarshallerImpl</string>
     <string>java.security.cert.CertPath</string>
     <string>javax.security.cert.X509Certificate</string>
-    <string>javax.xml.bind.Marshaller$Listener</string>
+    <string>jakarta.xml.bind.Marshaller$Listener</string>
     <string>java.nio.channels.ServerSocketChannel</string>
     <string>java.awt.event.ComponentAdapter</string>
     <string>javax.sql.rowset.spi.SyncProvider</string>
@@ -1826,7 +1826,7 @@
     <string>javax.naming.ReferralException</string>
     <string>javax.swing.plaf.synth.SynthStyleFactory</string>
     <string>javax.xml.validation.SchemaFactoryLoader</string>
-    <string>javax.xml.bind.Binder</string>
+    <string>jakarta.xml.bind.Binder</string>
     <string>org.jcp.xml.dsig.internal.dom.DOMStructure</string>
     <string>java.nio.charset.CharsetDecoder</string>
     <string>javax.print.attribute.ResolutionSyntax</string>
@@ -2054,7 +2054,7 @@
     <string>java.time.chrono.AbstractChronology</string>
     <string>org.omg.PortableServer.POAPackage.ServantNotActiveHelper</string>
     <string>org.omg.DynamicAny.NameValuePairHelper</string>
-    <string>javax.xml.bind.attachment.AttachmentUnmarshaller</string>
+    <string>jakarta.xml.bind.attachment.AttachmentUnmarshaller</string>
     <string>java.nio.FloatBuffer</string>
     <string>javax.xml.ws.spi.Provider</string>
     <string>org.omg.PortableInterceptor.ObjectReferenceFactoryHelper</string>
@@ -5638,7 +5638,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.JAXBIntrospector</string>
+      <string>jakarta.xml.bind.JAXBIntrospector</string>
       <set>
         <string>isElement(Ljava/lang/Object;)Z</string>
         <string>getElementName(Ljava/lang/Object;)Ljavax/xml/namespace/QName;</string>
@@ -5683,7 +5683,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.DatatypeConverter</string>
+      <string>jakarta.xml.bind.DatatypeConverter</string>
       <set>
         <string>initConverter()V</string>
         <string>parseHexBinary(Ljava/lang/String;)[B</string>
@@ -6240,7 +6240,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.annotation.XmlSchemaType$DEFAULT</string>
+      <string>jakarta.xml.bind.annotation.XmlSchemaType$DEFAULT</string>
       <set>
         <string>&lt;init&gt;()V</string>
       </set>
@@ -7855,7 +7855,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.Messages</string>
+      <string>jakarta.xml.bind.Messages</string>
       <set>
         <string>format(Ljava/lang/String;)Ljava/lang/String;</string>
         <string>format(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;</string>
@@ -11084,7 +11084,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.helpers.ParseConversionEventImpl</string>
+      <string>jakarta.xml.bind.helpers.ParseConversionEventImpl</string>
       <set>
         <string>&lt;init&gt;(ILjava/lang/String;Ljavax/xml/bind/ValidationEventLocator;Ljava/lang/Throwable;)V</string>
         <string>&lt;init&gt;(ILjava/lang/String;Ljavax/xml/bind/ValidationEventLocator;)V</string>
@@ -11712,7 +11712,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.helpers.PrintConversionEventImpl</string>
+      <string>jakarta.xml.bind.helpers.PrintConversionEventImpl</string>
       <set>
         <string>&lt;init&gt;(ILjava/lang/String;Ljavax/xml/bind/ValidationEventLocator;Ljava/lang/Throwable;)V</string>
         <string>&lt;init&gt;(ILjava/lang/String;Ljavax/xml/bind/ValidationEventLocator;)V</string>
@@ -12791,7 +12791,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.PropertyException</string>
+      <string>jakarta.xml.bind.PropertyException</string>
       <set>
         <string>&lt;init&gt;(Ljava/lang/String;Ljava/lang/Object;)V</string>
         <string>&lt;init&gt;(Ljava/lang/String;)V</string>
@@ -13797,7 +13797,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.attachment.AttachmentMarshaller</string>
+      <string>jakarta.xml.bind.attachment.AttachmentMarshaller</string>
       <set>
         <string>addMtomAttachment([BIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</string>
         <string>addMtomAttachment(Ljavax/activation/DataHandler;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;</string>
@@ -14465,7 +14465,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.Binder</string>
+      <string>jakarta.xml.bind.Binder</string>
       <set>
         <string>updateXML(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;</string>
         <string>getJAXBNode(Ljava/lang/Object;)Ljava/lang/Object;</string>
@@ -15910,7 +15910,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.annotation.XmlNsForm</string>
+      <string>jakarta.xml.bind.annotation.XmlNsForm</string>
       <set>
         <string>valueOf(Ljava/lang/String;)Ljavax/xml/bind/annotation/XmlNsForm;</string>
         <string>&lt;clinit&gt;()V</string>
@@ -20023,7 +20023,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.MarshalException</string>
+      <string>jakarta.xml.bind.MarshalException</string>
       <set>
         <string>&lt;init&gt;(Ljava/lang/String;)V</string>
         <string>&lt;init&gt;(Ljava/lang/String;Ljava/lang/Throwable;)V</string>
@@ -24014,7 +24014,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.annotation.XmlAccessType</string>
+      <string>jakarta.xml.bind.annotation.XmlAccessType</string>
       <set>
         <string>values()[Ljavax/xml/bind/annotation/XmlAccessType;</string>
         <string>&lt;clinit&gt;()V</string>
@@ -26109,7 +26109,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.helpers.Messages</string>
+      <string>jakarta.xml.bind.helpers.Messages</string>
       <set>
         <string>format(Ljava/lang/String;)Ljava/lang/String;</string>
         <string>format(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;</string>
@@ -29010,7 +29010,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.helpers.ValidationEventImpl</string>
+      <string>jakarta.xml.bind.helpers.ValidationEventImpl</string>
       <set>
         <string>getMessage()Ljava/lang/String;</string>
         <string>setLocator(Ljavax/xml/bind/ValidationEventLocator;)V</string>
@@ -30407,7 +30407,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.Unmarshaller$Listener</string>
+      <string>jakarta.xml.bind.Unmarshaller$Listener</string>
       <set>
         <string>afterUnmarshal(Ljava/lang/Object;Ljava/lang/Object;)V</string>
         <string>beforeUnmarshal(Ljava/lang/Object;Ljava/lang/Object;)V</string>
@@ -31150,7 +31150,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.util.Messages</string>
+      <string>jakarta.xml.bind.util.Messages</string>
       <set>
         <string>format(Ljava/lang/String;)Ljava/lang/String;</string>
         <string>format(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;</string>
@@ -32390,7 +32390,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.annotation.XmlElementRef$DEFAULT</string>
+      <string>jakarta.xml.bind.annotation.XmlElementRef$DEFAULT</string>
       <set>
         <string>&lt;init&gt;()V</string>
       </set>
@@ -34844,7 +34844,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.TypeConstraintException</string>
+      <string>jakarta.xml.bind.TypeConstraintException</string>
       <set>
         <string>&lt;init&gt;(Ljava/lang/String;)V</string>
         <string>printStackTrace(Ljava/io/PrintStream;)V</string>
@@ -35596,7 +35596,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.DatatypeConverterImpl$CalendarFormatter</string>
+      <string>jakarta.xml.bind.DatatypeConverterImpl$CalendarFormatter</string>
       <set>
         <string>formatSeconds(Ljava/util/Calendar;Ljava/lang/StringBuilder;)V</string>
         <string>formatTimeZone(Ljava/util/Calendar;Ljava/lang/StringBuilder;)V</string>
@@ -36476,7 +36476,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.annotation.XmlType$DEFAULT</string>
+      <string>jakarta.xml.bind.annotation.XmlType$DEFAULT</string>
       <set>
         <string>&lt;init&gt;()V</string>
       </set>
@@ -36492,7 +36492,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.JAXBContext</string>
+      <string>jakarta.xml.bind.JAXBContext</string>
       <set>
         <string>createValidator()Ljavax/xml/bind/Validator;</string>
         <string>getContextClassLoader()Ljava/lang/ClassLoader;</string>
@@ -36562,7 +36562,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.annotation.adapters.XmlAdapter</string>
+      <string>jakarta.xml.bind.annotation.adapters.XmlAdapter</string>
       <set>
         <string>marshal(Ljava/lang/Object;)Ljava/lang/Object;</string>
         <string>&lt;init&gt;()V</string>
@@ -36591,7 +36591,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.helpers.AbstractMarshallerImpl</string>
+      <string>jakarta.xml.bind.helpers.AbstractMarshallerImpl</string>
       <set>
         <string>setAdapter(Ljava/lang/Class;Ljavax/xml/bind/annotation/adapters/XmlAdapter;)V</string>
         <string>setEventHandler(Ljavax/xml/bind/ValidationEventHandler;)V</string>
@@ -38997,7 +38997,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.JAXBPermission</string>
+      <string>jakarta.xml.bind.JAXBPermission</string>
       <set>
         <string>&lt;init&gt;(Ljava/lang/String;)V</string>
       </set>
@@ -39797,7 +39797,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.ValidationException</string>
+      <string>jakarta.xml.bind.ValidationException</string>
       <set>
         <string>&lt;init&gt;(Ljava/lang/String;)V</string>
         <string>&lt;init&gt;(Ljava/lang/String;Ljava/lang/Throwable;)V</string>
@@ -42802,7 +42802,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter$DEFAULT</string>
+      <string>jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter$DEFAULT</string>
       <set>
         <string>&lt;init&gt;()V</string>
       </set>
@@ -49024,7 +49024,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.util.ValidationEventCollector</string>
+      <string>jakarta.xml.bind.util.ValidationEventCollector</string>
       <set>
         <string>getEvents()[Ljavax/xml/bind/ValidationEvent;</string>
         <string>handleEvent(Ljavax/xml/bind/ValidationEvent;)Z</string>
@@ -49335,7 +49335,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.helpers.AbstractUnmarshallerImpl</string>
+      <string>jakarta.xml.bind.helpers.AbstractUnmarshallerImpl</string>
       <set>
         <string>unmarshal(Ljava/io/File;)Ljava/lang/Object;</string>
         <string>unmarshal(Ljavax/xml/transform/Source;Ljava/lang/Class;)Ljavax/xml/bind/JAXBElement;</string>
@@ -52587,7 +52587,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.JAXB</string>
+      <string>jakarta.xml.bind.JAXB</string>
       <set>
         <string>unmarshal(Ljava/net/URI;Ljava/lang/Class;)Ljava/lang/Object;</string>
         <string>marshal(Ljava/lang/Object;Ljava/net/URL;)V</string>
@@ -55797,7 +55797,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.SchemaOutputResolver</string>
+      <string>jakarta.xml.bind.SchemaOutputResolver</string>
       <set>
         <string>createOutput(Ljava/lang/String;Ljava/lang/String;)Ljavax/xml/transform/Result;</string>
         <string>&lt;init&gt;()V</string>
@@ -56597,7 +56597,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.UnmarshalException</string>
+      <string>jakarta.xml.bind.UnmarshalException</string>
       <set>
         <string>&lt;init&gt;(Ljava/lang/String;)V</string>
         <string>&lt;init&gt;(Ljava/lang/String;Ljava/lang/Throwable;)V</string>
@@ -60174,7 +60174,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.annotation.adapters.HexBinaryAdapter</string>
+      <string>jakarta.xml.bind.annotation.adapters.HexBinaryAdapter</string>
       <set>
         <string>marshal(Ljava/lang/Object;)Ljava/lang/Object;</string>
         <string>marshal([B)Ljava/lang/String;</string>
@@ -60225,7 +60225,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.annotation.W3CDomHandler</string>
+      <string>jakarta.xml.bind.annotation.W3CDomHandler</string>
       <set>
         <string>marshal(Lorg/w3c/dom/Element;Ljavax/xml/bind/ValidationEventHandler;)Ljavax/xml/transform/Source;</string>
         <string>getElement(Ljavax/xml/transform/dom/DOMResult;)Lorg/w3c/dom/Element;</string>
@@ -61893,7 +61893,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.JAXBElement$GlobalScope</string>
+      <string>jakarta.xml.bind.JAXBElement$GlobalScope</string>
       <set>
         <string>&lt;init&gt;()V</string>
       </set>
@@ -65207,7 +65207,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.DataBindingException</string>
+      <string>jakarta.xml.bind.DataBindingException</string>
       <set>
         <string>&lt;init&gt;(Ljava/lang/String;Ljava/lang/Throwable;)V</string>
         <string>&lt;init&gt;(Ljava/lang/Throwable;)V</string>
@@ -66949,7 +66949,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.attachment.AttachmentUnmarshaller</string>
+      <string>jakarta.xml.bind.attachment.AttachmentUnmarshaller</string>
       <set>
         <string>getAttachmentAsByteArray(Ljava/lang/String;)[B</string>
         <string>isXOPPackage()Z</string>
@@ -67070,7 +67070,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.annotation.adapters.CollapsedStringAdapter</string>
+      <string>jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter</string>
       <set>
         <string>unmarshal(Ljava/lang/String;)Ljava/lang/String;</string>
         <string>marshal(Ljava/lang/Object;)Ljava/lang/Object;</string>
@@ -68661,7 +68661,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.ContextFinder</string>
+      <string>jakarta.xml.bind.ContextFinder</string>
       <set>
         <string>lookupJaxbContextUsingOsgiServiceLoader()Ljava/lang/Class;</string>
         <string>getContextClassLoader()Ljava/lang/ClassLoader;</string>
@@ -72035,7 +72035,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.DatatypeConverterImpl</string>
+      <string>jakarta.xml.bind.DatatypeConverterImpl</string>
       <set>
         <string>_parseDouble(Ljava/lang/CharSequence;)D</string>
         <string>parseHexBinary(Ljava/lang/String;)[B</string>
@@ -72459,7 +72459,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.helpers.ValidationEventLocatorImpl</string>
+      <string>jakarta.xml.bind.helpers.ValidationEventLocatorImpl</string>
       <set>
         <string>&lt;init&gt;(Lorg/xml/sax/SAXParseException;)V</string>
         <string>setLineNumber(I)V</string>
@@ -74683,7 +74683,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.annotation.XmlAccessOrder</string>
+      <string>jakarta.xml.bind.annotation.XmlAccessOrder</string>
       <set>
         <string>valueOf(Ljava/lang/String;)Ljavax/xml/bind/annotation/XmlAccessOrder;</string>
         <string>&lt;clinit&gt;()V</string>
@@ -76321,7 +76321,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.WhiteSpaceProcessor</string>
+      <string>jakarta.xml.bind.WhiteSpaceProcessor</string>
       <set>
         <string>isWhiteSpaceExceptSpace(C)Z</string>
         <string>isWhiteSpace(Ljava/lang/CharSequence;)Z</string>
@@ -79034,7 +79034,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.JAXBException</string>
+      <string>jakarta.xml.bind.JAXBException</string>
       <set>
         <string>getCause()Ljava/lang/Throwable;</string>
         <string>&lt;init&gt;(Ljava/lang/String;Ljava/lang/Throwable;)V</string>
@@ -81015,7 +81015,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.util.JAXBSource</string>
+      <string>jakarta.xml.bind.util.JAXBSource</string>
       <set>
         <string>access$000(Ljavax/xml/bind/util/JAXBSource;)Ljava/lang/Object;</string>
         <string>assertionFailed(Ljava/lang/String;)Ljavax/xml/bind/Marshaller;</string>
@@ -82073,7 +82073,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.Marshaller$Listener</string>
+      <string>jakarta.xml.bind.Marshaller$Listener</string>
       <set>
         <string>beforeMarshal(Ljava/lang/Object;)V</string>
         <string>&lt;init&gt;()V</string>
@@ -84207,7 +84207,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.JAXB$Cache</string>
+      <string>jakarta.xml.bind.JAXB$Cache</string>
       <set>
         <string>&lt;init&gt;(Ljava/lang/Class;)V</string>
       </set>
@@ -85814,7 +85814,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.annotation.XmlElement$DEFAULT</string>
+      <string>jakarta.xml.bind.annotation.XmlElement$DEFAULT</string>
       <set>
         <string>&lt;init&gt;()V</string>
       </set>
@@ -86454,7 +86454,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.annotation.XmlElementDecl$GLOBAL</string>
+      <string>jakarta.xml.bind.annotation.XmlElementDecl$GLOBAL</string>
       <set>
         <string>&lt;init&gt;()V</string>
       </set>
@@ -86974,7 +86974,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.JAXBElement</string>
+      <string>jakarta.xml.bind.JAXBElement</string>
       <set>
         <string>setNil(Z)V</string>
         <string>&lt;init&gt;(Ljavax/xml/namespace/QName;Ljava/lang/Class;Ljava/lang/Object;)V</string>
@@ -89172,7 +89172,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.helpers.DefaultValidationEventHandler</string>
+      <string>jakarta.xml.bind.helpers.DefaultValidationEventHandler</string>
       <set>
         <string>handleEvent(Ljavax/xml/bind/ValidationEvent;)Z</string>
         <string>getLocation(Ljavax/xml/bind/ValidationEvent;)Ljava/lang/String;</string>
@@ -89192,7 +89192,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.GetPropertyAction</string>
+      <string>jakarta.xml.bind.GetPropertyAction</string>
       <set>
         <string>run()Ljava/lang/Object;</string>
         <string>&lt;init&gt;(Ljava/lang/String;)V</string>
@@ -89963,7 +89963,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.annotation.adapters.NormalizedStringAdapter</string>
+      <string>jakarta.xml.bind.annotation.adapters.NormalizedStringAdapter</string>
       <set>
         <string>isWhiteSpaceExceptSpace(C)Z</string>
         <string>unmarshal(Ljava/lang/String;)Ljava/lang/String;</string>
@@ -90011,7 +90011,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.util.JAXBResult</string>
+      <string>jakarta.xml.bind.util.JAXBResult</string>
       <set>
         <string>&lt;init&gt;(Ljavax/xml/bind/JAXBContext;)V</string>
         <string>getResult()Ljava/lang/Object;</string>
@@ -91156,7 +91156,7 @@
       </set>
     </entry>
     <entry>
-      <string>javax.xml.bind.helpers.NotIdentifiableEventImpl</string>
+      <string>jakarta.xml.bind.helpers.NotIdentifiableEventImpl</string>
       <set>
         <string>&lt;init&gt;(ILjava/lang/String;Ljavax/xml/bind/ValidationEventLocator;Ljava/lang/Throwable;)V</string>
         <string>&lt;init&gt;(ILjava/lang/String;Ljavax/xml/bind/ValidationEventLocator;)V</string>
@@ -121247,959 +121247,959 @@
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.Binder</target>
+          <target class="string">jakarta.xml.bind.Binder</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.RuntimeException</source>
-          <target class="string">javax.xml.bind.DataBindingException</target>
+          <target class="string">jakarta.xml.bind.DataBindingException</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.DatatypeConverter</target>
+          <target class="string">jakarta.xml.bind.DatatypeConverter</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.DatatypeConverterInterface</target>
+          <target class="string">jakarta.xml.bind.DatatypeConverterInterface</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.Element</target>
+          <target class="string">jakarta.xml.bind.Element</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.JAXB</target>
+          <target class="string">jakarta.xml.bind.JAXB</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.JAXBContext</target>
+          <target class="string">jakarta.xml.bind.JAXBContext</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.JAXBElement$GlobalScope</target>
+          <target class="string">jakarta.xml.bind.JAXBElement$GlobalScope</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.JAXBElement</target>
+          <target class="string">jakarta.xml.bind.JAXBElement</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.io.Serializable</source>
-          <target class="string">javax.xml.bind.JAXBElement</target>
+          <target class="string">jakarta.xml.bind.JAXBElement</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Exception</source>
-          <target class="string">javax.xml.bind.JAXBException</target>
+          <target class="string">jakarta.xml.bind.JAXBException</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.JAXBIntrospector</target>
+          <target class="string">jakarta.xml.bind.JAXBIntrospector</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.security.BasicPermission</source>
-          <target class="string">javax.xml.bind.JAXBPermission</target>
+          <target class="string">jakarta.xml.bind.JAXBPermission</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.JAXBException</source>
-          <target class="string">javax.xml.bind.MarshalException</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.Marshaller$Listener</target>
+          <source class="string">jakarta.xml.bind.JAXBException</source>
+          <target class="string">jakarta.xml.bind.MarshalException</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.Marshaller</target>
+          <target class="string">jakarta.xml.bind.Marshaller$Listener</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.NotIdentifiableEvent</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.ValidationEvent</source>
-          <target class="string">javax.xml.bind.NotIdentifiableEvent</target>
+          <target class="string">jakarta.xml.bind.Marshaller</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.ParseConversionEvent</target>
+          <target class="string">jakarta.xml.bind.NotIdentifiableEvent</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.ValidationEvent</source>
-          <target class="string">javax.xml.bind.ParseConversionEvent</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.PrintConversionEvent</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.ValidationEvent</source>
-          <target class="string">javax.xml.bind.PrintConversionEvent</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.JAXBException</source>
-          <target class="string">javax.xml.bind.PropertyException</target>
+          <source class="string">jakarta.xml.bind.ValidationEvent</source>
+          <target class="string">jakarta.xml.bind.NotIdentifiableEvent</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.SchemaOutputResolver</target>
+          <target class="string">jakarta.xml.bind.ParseConversionEvent</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">jakarta.xml.bind.ValidationEvent</source>
+          <target class="string">jakarta.xml.bind.ParseConversionEvent</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">java.lang.Object</source>
+          <target class="string">jakarta.xml.bind.PrintConversionEvent</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">jakarta.xml.bind.ValidationEvent</source>
+          <target class="string">jakarta.xml.bind.PrintConversionEvent</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">jakarta.xml.bind.JAXBException</source>
+          <target class="string">jakarta.xml.bind.PropertyException</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">java.lang.Object</source>
+          <target class="string">jakarta.xml.bind.SchemaOutputResolver</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.RuntimeException</source>
-          <target class="string">javax.xml.bind.TypeConstraintException</target>
+          <target class="string">jakarta.xml.bind.TypeConstraintException</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.JAXBException</source>
-          <target class="string">javax.xml.bind.UnmarshalException</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.Unmarshaller$Listener</target>
+          <source class="string">jakarta.xml.bind.JAXBException</source>
+          <target class="string">jakarta.xml.bind.UnmarshalException</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.Unmarshaller</target>
+          <target class="string">jakarta.xml.bind.Unmarshaller$Listener</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.UnmarshallerHandler</target>
+          <target class="string">jakarta.xml.bind.Unmarshaller</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">java.lang.Object</source>
+          <target class="string">jakarta.xml.bind.UnmarshallerHandler</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">org.xml.sax.ContentHandler</source>
-          <target class="string">javax.xml.bind.UnmarshallerHandler</target>
+          <target class="string">jakarta.xml.bind.UnmarshallerHandler</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.ValidationEvent</target>
+          <target class="string">jakarta.xml.bind.ValidationEvent</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.ValidationEventHandler</target>
+          <target class="string">jakarta.xml.bind.ValidationEventHandler</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.ValidationEventLocator</target>
+          <target class="string">jakarta.xml.bind.ValidationEventLocator</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.JAXBException</source>
-          <target class="string">javax.xml.bind.ValidationException</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.Validator</target>
+          <source class="string">jakarta.xml.bind.JAXBException</source>
+          <target class="string">jakarta.xml.bind.ValidationException</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.DomHandler</target>
+          <target class="string">jakarta.xml.bind.Validator</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.W3CDomHandler</target>
+          <target class="string">jakarta.xml.bind.annotation.DomHandler</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.annotation.DomHandler</source>
-          <target class="string">javax.xml.bind.annotation.W3CDomHandler</target>
+          <source class="string">java.lang.Object</source>
+          <target class="string">jakarta.xml.bind.annotation.W3CDomHandler</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">jakarta.xml.bind.annotation.DomHandler</source>
+          <target class="string">jakarta.xml.bind.annotation.W3CDomHandler</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Enum</source>
-          <target class="string">javax.xml.bind.annotation.XmlAccessOrder</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlAccessOrder</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Enum</source>
-          <target class="string">javax.xml.bind.annotation.XmlAccessType</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlAccessType</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlAccessorOrder</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlAccessorOrder</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlAccessorOrder</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlAccessorOrder</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlAccessorType</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlAccessorType</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlAccessorType</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlAccessorType</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlAnyAttribute</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlAnyAttribute</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlAnyAttribute</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlAnyAttribute</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlAnyElement</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlAnyElement</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlAnyElement</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlAnyElement</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlAttachmentRef</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlAttachmentRef</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlAttachmentRef</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlAttachmentRef</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlAttribute</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlAttribute</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlAttribute</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlAttribute</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlElement$DEFAULT</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElement$DEFAULT</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlElement</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElement</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlElement</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElement</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlElementDecl$GLOBAL</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElementDecl$GLOBAL</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlElementDecl</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElementDecl</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlElementDecl</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElementDecl</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlElementRef$DEFAULT</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElementRef$DEFAULT</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlElementRef</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElementRef</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlElementRef</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElementRef</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlElementRefs</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElementRefs</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlElementRefs</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElementRefs</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlElementWrapper</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElementWrapper</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlElementWrapper</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElementWrapper</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlElements</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElements</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlElements</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlElements</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlEnum</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlEnum</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlEnum</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlEnum</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlEnumValue</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlEnumValue</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlEnumValue</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlEnumValue</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlID</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlID</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlID</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlID</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlIDREF</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlIDREF</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlIDREF</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlIDREF</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlInlineBinaryData</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlInlineBinaryData</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlInlineBinaryData</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlInlineBinaryData</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlList</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlList</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlList</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlList</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlMimeType</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlMimeType</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlMimeType</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlMimeType</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlMixed</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlMixed</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlMixed</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlMixed</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlNs</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlNs</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlNs</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlNs</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Enum</source>
-          <target class="string">javax.xml.bind.annotation.XmlNsForm</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlNsForm</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlRegistry</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlRegistry</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlRegistry</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlRegistry</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlRootElement</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlRootElement</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlRootElement</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlRootElement</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlSchema</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlSchema</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlSchema</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlSchema</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlSchemaType$DEFAULT</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlSchemaType$DEFAULT</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlSchemaType</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlSchemaType</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlSchemaType</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlSchemaType</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlSchemaTypes</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlSchemaTypes</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlSchemaTypes</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlSchemaTypes</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlSeeAlso</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlSeeAlso</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlSeeAlso</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlSeeAlso</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlTransient</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlTransient</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlTransient</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlTransient</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlType$DEFAULT</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlType$DEFAULT</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlType</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlType</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlType</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlType</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.XmlValue</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlValue</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.XmlValue</target>
+          <target class="string">jakarta.xml.bind.annotation.XmlValue</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.annotation.adapters.XmlAdapter</source>
-          <target class="string">javax.xml.bind.annotation.adapters.CollapsedStringAdapter</target>
+          <source class="string">jakarta.xml.bind.annotation.adapters.XmlAdapter</source>
+          <target class="string">jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.annotation.adapters.XmlAdapter</source>
-          <target class="string">javax.xml.bind.annotation.adapters.HexBinaryAdapter</target>
+          <source class="string">jakarta.xml.bind.annotation.adapters.XmlAdapter</source>
+          <target class="string">jakarta.xml.bind.annotation.adapters.HexBinaryAdapter</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.annotation.adapters.XmlAdapter</source>
-          <target class="string">javax.xml.bind.annotation.adapters.NormalizedStringAdapter</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.adapters.XmlAdapter</target>
+          <source class="string">jakarta.xml.bind.annotation.adapters.XmlAdapter</source>
+          <target class="string">jakarta.xml.bind.annotation.adapters.NormalizedStringAdapter</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter$DEFAULT</target>
+          <target class="string">jakarta.xml.bind.annotation.adapters.XmlAdapter</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter</target>
+          <target class="string">jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter$DEFAULT</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">java.lang.Object</source>
+          <target class="string">jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter</target>
+          <target class="string">jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters</target>
+          <target class="string">jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapters</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.annotation.Annotation</source>
-          <target class="string">javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters</target>
+          <target class="string">jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapters</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.attachment.AttachmentMarshaller</target>
+          <target class="string">jakarta.xml.bind.attachment.AttachmentMarshaller</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.attachment.AttachmentUnmarshaller</target>
+          <target class="string">jakarta.xml.bind.attachment.AttachmentUnmarshaller</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.helpers.AbstractMarshallerImpl</target>
+          <target class="string">jakarta.xml.bind.helpers.AbstractMarshallerImpl</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.Marshaller</source>
-          <target class="string">javax.xml.bind.helpers.AbstractMarshallerImpl</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.helpers.AbstractUnmarshallerImpl</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.Unmarshaller</source>
-          <target class="string">javax.xml.bind.helpers.AbstractUnmarshallerImpl</target>
+          <source class="string">jakarta.xml.bind.Marshaller</source>
+          <target class="string">jakarta.xml.bind.helpers.AbstractMarshallerImpl</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.helpers.DefaultValidationEventHandler</target>
+          <target class="string">jakarta.xml.bind.helpers.AbstractUnmarshallerImpl</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.ValidationEventHandler</source>
-          <target class="string">javax.xml.bind.helpers.DefaultValidationEventHandler</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.helpers.ValidationEventImpl</source>
-          <target class="string">javax.xml.bind.helpers.NotIdentifiableEventImpl</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.NotIdentifiableEvent</source>
-          <target class="string">javax.xml.bind.helpers.NotIdentifiableEventImpl</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.helpers.ValidationEventImpl</source>
-          <target class="string">javax.xml.bind.helpers.ParseConversionEventImpl</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.ParseConversionEvent</source>
-          <target class="string">javax.xml.bind.helpers.ParseConversionEventImpl</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.helpers.ValidationEventImpl</source>
-          <target class="string">javax.xml.bind.helpers.PrintConversionEventImpl</target>
-        </org.jgrapht.graph.DefaultEdge>
-        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
-      </entry>
-      <entry>
-        <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.PrintConversionEvent</source>
-          <target class="string">javax.xml.bind.helpers.PrintConversionEventImpl</target>
+          <source class="string">jakarta.xml.bind.Unmarshaller</source>
+          <target class="string">jakarta.xml.bind.helpers.AbstractUnmarshallerImpl</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.helpers.ValidationEventImpl</target>
+          <target class="string">jakarta.xml.bind.helpers.DefaultValidationEventHandler</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.ValidationEvent</source>
-          <target class="string">javax.xml.bind.helpers.ValidationEventImpl</target>
+          <source class="string">jakarta.xml.bind.ValidationEventHandler</source>
+          <target class="string">jakarta.xml.bind.helpers.DefaultValidationEventHandler</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">jakarta.xml.bind.helpers.ValidationEventImpl</source>
+          <target class="string">jakarta.xml.bind.helpers.NotIdentifiableEventImpl</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">jakarta.xml.bind.NotIdentifiableEvent</source>
+          <target class="string">jakarta.xml.bind.helpers.NotIdentifiableEventImpl</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">jakarta.xml.bind.helpers.ValidationEventImpl</source>
+          <target class="string">jakarta.xml.bind.helpers.ParseConversionEventImpl</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">jakarta.xml.bind.ParseConversionEvent</source>
+          <target class="string">jakarta.xml.bind.helpers.ParseConversionEventImpl</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">jakarta.xml.bind.helpers.ValidationEventImpl</source>
+          <target class="string">jakarta.xml.bind.helpers.PrintConversionEventImpl</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">jakarta.xml.bind.PrintConversionEvent</source>
+          <target class="string">jakarta.xml.bind.helpers.PrintConversionEventImpl</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.helpers.ValidationEventLocatorImpl</target>
+          <target class="string">jakarta.xml.bind.helpers.ValidationEventImpl</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.ValidationEventLocator</source>
-          <target class="string">javax.xml.bind.helpers.ValidationEventLocatorImpl</target>
+          <source class="string">jakarta.xml.bind.ValidationEvent</source>
+          <target class="string">jakarta.xml.bind.helpers.ValidationEventImpl</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">java.lang.Object</source>
+          <target class="string">jakarta.xml.bind.helpers.ValidationEventLocatorImpl</target>
+        </org.jgrapht.graph.DefaultEdge>
+        <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
+      </entry>
+      <entry>
+        <org.jgrapht.graph.DefaultEdge>
+          <source class="string">jakarta.xml.bind.ValidationEventLocator</source>
+          <target class="string">jakarta.xml.bind.helpers.ValidationEventLocatorImpl</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">javax.xml.transform.sax.SAXResult</source>
-          <target class="string">javax.xml.bind.util.JAXBResult</target>
+          <target class="string">jakarta.xml.bind.util.JAXBResult</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">javax.xml.transform.sax.SAXSource</source>
-          <target class="string">javax.xml.bind.util.JAXBSource</target>
+          <target class="string">jakarta.xml.bind.util.JAXBSource</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
           <source class="string">java.lang.Object</source>
-          <target class="string">javax.xml.bind.util.ValidationEventCollector</target>
+          <target class="string">jakarta.xml.bind.util.ValidationEventCollector</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
       <entry>
         <org.jgrapht.graph.DefaultEdge>
-          <source class="string">javax.xml.bind.ValidationEventHandler</source>
-          <target class="string">javax.xml.bind.util.ValidationEventCollector</target>
+          <source class="string">jakarta.xml.bind.ValidationEventHandler</source>
+          <target class="string">jakarta.xml.bind.util.ValidationEventCollector</target>
         </org.jgrapht.graph.DefaultEdge>
         <org.jgrapht.graph.DefaultEdge reference="../org.jgrapht.graph.DefaultEdge"/>
       </entry>
@@ -222962,7 +222962,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.Binder</string>
+          <string>jakarta.xml.bind.Binder</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -222986,7 +222986,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.DataBindingException</string>
+          <string>jakarta.xml.bind.DataBindingException</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223010,7 +223010,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.DatatypeConverter</string>
+          <string>jakarta.xml.bind.DatatypeConverter</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223034,7 +223034,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.DatatypeConverterInterface</string>
+          <string>jakarta.xml.bind.DatatypeConverterInterface</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223058,7 +223058,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.Element</string>
+          <string>jakarta.xml.bind.Element</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223082,7 +223082,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.JAXB</string>
+          <string>jakarta.xml.bind.JAXB</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223106,7 +223106,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.JAXBContext</string>
+          <string>jakarta.xml.bind.JAXBContext</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223130,7 +223130,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.JAXBElement$GlobalScope</string>
+          <string>jakarta.xml.bind.JAXBElement$GlobalScope</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223154,7 +223154,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.JAXBElement</string>
+          <string>jakarta.xml.bind.JAXBElement</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223179,7 +223179,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.JAXBException</string>
+          <string>jakarta.xml.bind.JAXBException</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223207,7 +223207,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.JAXBIntrospector</string>
+          <string>jakarta.xml.bind.JAXBIntrospector</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223231,7 +223231,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.JAXBPermission</string>
+          <string>jakarta.xml.bind.JAXBPermission</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223255,7 +223255,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.MarshalException</string>
+          <string>jakarta.xml.bind.MarshalException</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223279,7 +223279,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.Marshaller$Listener</string>
+          <string>jakarta.xml.bind.Marshaller$Listener</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223303,7 +223303,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.Marshaller</string>
+          <string>jakarta.xml.bind.Marshaller</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223328,7 +223328,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.NotIdentifiableEvent</string>
+          <string>jakarta.xml.bind.NotIdentifiableEvent</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223354,7 +223354,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.ValidationEvent</string>
+          <string>jakarta.xml.bind.ValidationEvent</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223382,7 +223382,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.ParseConversionEvent</string>
+          <string>jakarta.xml.bind.ParseConversionEvent</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223408,7 +223408,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.PrintConversionEvent</string>
+          <string>jakarta.xml.bind.PrintConversionEvent</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223434,7 +223434,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.PropertyException</string>
+          <string>jakarta.xml.bind.PropertyException</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223458,7 +223458,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.SchemaOutputResolver</string>
+          <string>jakarta.xml.bind.SchemaOutputResolver</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223482,7 +223482,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.TypeConstraintException</string>
+          <string>jakarta.xml.bind.TypeConstraintException</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223506,7 +223506,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.UnmarshalException</string>
+          <string>jakarta.xml.bind.UnmarshalException</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223530,7 +223530,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.Unmarshaller$Listener</string>
+          <string>jakarta.xml.bind.Unmarshaller$Listener</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223554,7 +223554,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.Unmarshaller</string>
+          <string>jakarta.xml.bind.Unmarshaller</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223579,7 +223579,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.UnmarshallerHandler</string>
+          <string>jakarta.xml.bind.UnmarshallerHandler</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223635,7 +223635,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.ValidationEventHandler</string>
+          <string>jakarta.xml.bind.ValidationEventHandler</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223661,7 +223661,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.ValidationEventLocator</string>
+          <string>jakarta.xml.bind.ValidationEventLocator</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223686,7 +223686,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.ValidationException</string>
+          <string>jakarta.xml.bind.ValidationException</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223710,7 +223710,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.Validator</string>
+          <string>jakarta.xml.bind.Validator</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223734,7 +223734,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.DomHandler</string>
+          <string>jakarta.xml.bind.annotation.DomHandler</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223759,7 +223759,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.W3CDomHandler</string>
+          <string>jakarta.xml.bind.annotation.W3CDomHandler</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223784,7 +223784,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlAccessOrder</string>
+          <string>jakarta.xml.bind.annotation.XmlAccessOrder</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223808,7 +223808,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlAccessType</string>
+          <string>jakarta.xml.bind.annotation.XmlAccessType</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223832,7 +223832,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlAccessorOrder</string>
+          <string>jakarta.xml.bind.annotation.XmlAccessorOrder</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223857,7 +223857,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlAccessorType</string>
+          <string>jakarta.xml.bind.annotation.XmlAccessorType</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223882,7 +223882,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlAnyAttribute</string>
+          <string>jakarta.xml.bind.annotation.XmlAnyAttribute</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223907,7 +223907,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlAnyElement</string>
+          <string>jakarta.xml.bind.annotation.XmlAnyElement</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223932,7 +223932,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlAttachmentRef</string>
+          <string>jakarta.xml.bind.annotation.XmlAttachmentRef</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223957,7 +223957,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlAttribute</string>
+          <string>jakarta.xml.bind.annotation.XmlAttribute</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -223982,7 +223982,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlElement$DEFAULT</string>
+          <string>jakarta.xml.bind.annotation.XmlElement$DEFAULT</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224006,7 +224006,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlElement</string>
+          <string>jakarta.xml.bind.annotation.XmlElement</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224031,7 +224031,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlElementDecl$GLOBAL</string>
+          <string>jakarta.xml.bind.annotation.XmlElementDecl$GLOBAL</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224055,7 +224055,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlElementDecl</string>
+          <string>jakarta.xml.bind.annotation.XmlElementDecl</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224080,7 +224080,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlElementRef$DEFAULT</string>
+          <string>jakarta.xml.bind.annotation.XmlElementRef$DEFAULT</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224104,7 +224104,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlElementRef</string>
+          <string>jakarta.xml.bind.annotation.XmlElementRef</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224129,7 +224129,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlElementRefs</string>
+          <string>jakarta.xml.bind.annotation.XmlElementRefs</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224154,7 +224154,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlElementWrapper</string>
+          <string>jakarta.xml.bind.annotation.XmlElementWrapper</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224179,7 +224179,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlElements</string>
+          <string>jakarta.xml.bind.annotation.XmlElements</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224204,7 +224204,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlEnum</string>
+          <string>jakarta.xml.bind.annotation.XmlEnum</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224229,7 +224229,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlEnumValue</string>
+          <string>jakarta.xml.bind.annotation.XmlEnumValue</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224254,7 +224254,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlID</string>
+          <string>jakarta.xml.bind.annotation.XmlID</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224279,7 +224279,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlIDREF</string>
+          <string>jakarta.xml.bind.annotation.XmlIDREF</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224304,7 +224304,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlInlineBinaryData</string>
+          <string>jakarta.xml.bind.annotation.XmlInlineBinaryData</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224329,7 +224329,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlList</string>
+          <string>jakarta.xml.bind.annotation.XmlList</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224354,7 +224354,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlMimeType</string>
+          <string>jakarta.xml.bind.annotation.XmlMimeType</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224379,7 +224379,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlMixed</string>
+          <string>jakarta.xml.bind.annotation.XmlMixed</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224404,7 +224404,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlNs</string>
+          <string>jakarta.xml.bind.annotation.XmlNs</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224429,7 +224429,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlNsForm</string>
+          <string>jakarta.xml.bind.annotation.XmlNsForm</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224453,7 +224453,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlRegistry</string>
+          <string>jakarta.xml.bind.annotation.XmlRegistry</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224478,7 +224478,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlRootElement</string>
+          <string>jakarta.xml.bind.annotation.XmlRootElement</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224503,7 +224503,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlSchema</string>
+          <string>jakarta.xml.bind.annotation.XmlSchema</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224528,7 +224528,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlSchemaType$DEFAULT</string>
+          <string>jakarta.xml.bind.annotation.XmlSchemaType$DEFAULT</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224552,7 +224552,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlSchemaType</string>
+          <string>jakarta.xml.bind.annotation.XmlSchemaType</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224577,7 +224577,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlSchemaTypes</string>
+          <string>jakarta.xml.bind.annotation.XmlSchemaTypes</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224602,7 +224602,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlSeeAlso</string>
+          <string>jakarta.xml.bind.annotation.XmlSeeAlso</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224627,7 +224627,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlTransient</string>
+          <string>jakarta.xml.bind.annotation.XmlTransient</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224652,7 +224652,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlType$DEFAULT</string>
+          <string>jakarta.xml.bind.annotation.XmlType$DEFAULT</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224676,7 +224676,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlType</string>
+          <string>jakarta.xml.bind.annotation.XmlType</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224701,7 +224701,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.XmlValue</string>
+          <string>jakarta.xml.bind.annotation.XmlValue</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224726,7 +224726,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.adapters.CollapsedStringAdapter</string>
+          <string>jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224750,7 +224750,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.adapters.XmlAdapter</string>
+          <string>jakarta.xml.bind.annotation.adapters.XmlAdapter</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224777,7 +224777,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.adapters.HexBinaryAdapter</string>
+          <string>jakarta.xml.bind.annotation.adapters.HexBinaryAdapter</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224801,7 +224801,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.adapters.NormalizedStringAdapter</string>
+          <string>jakarta.xml.bind.annotation.adapters.NormalizedStringAdapter</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224825,7 +224825,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter$DEFAULT</string>
+          <string>jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter$DEFAULT</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224849,7 +224849,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter</string>
+          <string>jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224874,7 +224874,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters</string>
+          <string>jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapters</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224899,7 +224899,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.attachment.AttachmentMarshaller</string>
+          <string>jakarta.xml.bind.attachment.AttachmentMarshaller</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224923,7 +224923,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.attachment.AttachmentUnmarshaller</string>
+          <string>jakarta.xml.bind.attachment.AttachmentUnmarshaller</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224947,7 +224947,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.helpers.AbstractMarshallerImpl</string>
+          <string>jakarta.xml.bind.helpers.AbstractMarshallerImpl</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224972,7 +224972,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.helpers.AbstractUnmarshallerImpl</string>
+          <string>jakarta.xml.bind.helpers.AbstractUnmarshallerImpl</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -224997,7 +224997,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.helpers.DefaultValidationEventHandler</string>
+          <string>jakarta.xml.bind.helpers.DefaultValidationEventHandler</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -225022,7 +225022,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.helpers.NotIdentifiableEventImpl</string>
+          <string>jakarta.xml.bind.helpers.NotIdentifiableEventImpl</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -225047,7 +225047,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.helpers.ValidationEventImpl</string>
+          <string>jakarta.xml.bind.helpers.ValidationEventImpl</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -225075,7 +225075,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.helpers.ParseConversionEventImpl</string>
+          <string>jakarta.xml.bind.helpers.ParseConversionEventImpl</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -225100,7 +225100,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.helpers.PrintConversionEventImpl</string>
+          <string>jakarta.xml.bind.helpers.PrintConversionEventImpl</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -225125,7 +225125,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.helpers.ValidationEventLocatorImpl</string>
+          <string>jakarta.xml.bind.helpers.ValidationEventLocatorImpl</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -225150,7 +225150,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.util.JAXBResult</string>
+          <string>jakarta.xml.bind.util.JAXBResult</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -225200,7 +225200,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.util.JAXBSource</string>
+          <string>jakarta.xml.bind.util.JAXBSource</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>
@@ -225250,7 +225250,7 @@
           </org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
         </entry>
         <entry>
-          <string>javax.xml.bind.util.ValidationEventCollector</string>
+          <string>jakarta.xml.bind.util.ValidationEventCollector</string>
           <org.jgrapht.graph.AbstractBaseGraph_-DirectedEdgeContainer>
             <incoming class="org.jgrapht.util.ArrayUnenforcedSet" serialization="custom">
               <unserializable-parents/>

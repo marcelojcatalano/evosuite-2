@@ -35,7 +35,7 @@ public class TestLogbackConfiguration {
     public void resetDefaultPrinters() {
         System.setOut(defaultOut);
         System.setErr(defaultErr);
-        LoggingUtils.changeLogbackFile("logback.xml");
+        LoggingUtils.changeLogbackFile("logback-test.xml");
     }
 
     @Test

@@ -68675,7 +68675,7 @@
         <string>newInstance([Ljava/lang/Class;Ljava/util/Map;Ljava/lang/String;)Ljavax/xml/bind/JAXBContext;</string>
         <string>safeLoadClass(Ljava/lang/String;Ljava/lang/ClassLoader;)Ljava/lang/Class;</string>
         <string>&lt;clinit&gt;()V</string>
-        <string>handleClassCastException(Ljava/lang/Class;Ljava/lang/Class;)Ljavax/xml/bind/JAXBException;</string>
+        <string>handleClassCastException(Ljava/lang/Class;Ljava/lang/Class;)Ljakarta/xml/bind/JAXBException;</string>
         <string>which(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/net/URL;</string>
         <string>newInstance(Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/util/Map;)Ljavax/xml/bind/JAXBContext;</string>
         <string>&lt;init&gt;()V</string>

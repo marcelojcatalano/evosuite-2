@@ -49,7 +49,7 @@ public class BaseDeterminismSystemTest {
 
     @AfterClass
     public static void tearDownClass() {
-        LoggingUtils.changeLogbackFile("logback.xml");
+        LoggingUtils.changeLogbackFile("logback-test.xml");
         Properties.IS_RUNNING_A_SYSTEM_TEST = false;
     }
 

@@ -52,7 +52,7 @@ public class SUTPrintingThatShouldBeMutedSystemTest extends SystemTestBase {
         Properties.PRINT_TO_SYSTEM = defaultPrintToSystem;
 
         System.setOut(defaultOut);
-        LoggingUtils.changeLogbackFile("logback.xml");
+        LoggingUtils.changeLogbackFile("logback-test.xml");
     }
 
 

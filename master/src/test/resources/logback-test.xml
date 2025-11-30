@@ -25,12 +25,14 @@
 
     <contextName>ContextForTests</contextName>
 
-    <root level="WARN">
-        <appender  class="ch.qos.logback.core.ConsoleAppender">
-            <target>System.out</target>
-            <encoder>
-                <pattern>%-5level %logger - %msg%n</pattern>
-            </encoder>
-        </appender>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <!-- The ref attribute in appender-ref must match the name attribute above -->
+        <appender-ref ref="CONSOLE"/>
     </root>
 </configuration>

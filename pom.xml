@@ -220,7 +220,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-project-info-reports-plugin</artifactId>
-                        <version>3.1.2</version>
+                        <version>${maven-project-info-reports-plugin.version}</version>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -230,7 +230,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-jxr-plugin</artifactId>
-                        <version>2.5</version>
+                        <version>${maven-jxr-plugin.version}</version>
                     </plugin>
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
@@ -319,7 +319,7 @@
                     update it (eg after 1.1.7), need to make sure tests (eg,
                     JobExecutorIntTest and all the Maven ones) work fine
                     on Windows -->
-                <version>1.5.0</version>
+                <version>1.5.10</version>
                 <optional>true</optional>
             </dependency>
             <dependency>
@@ -507,7 +507,7 @@
                 <inherited>true</inherited>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
-                <version>3.0.0-M3</version>
+                <version>${maven-enforcer-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>enforce-maven-3</id>
@@ -624,9 +624,8 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>${maven-javadoc-plugin.version}</version>
                 <configuration>
-                    <source>${compiler.source}</source>
                     <additionalOptions>-Xdoclint:none</additionalOptions>
                 </configuration>
             </plugin>
@@ -688,7 +687,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>${maven-failsafe-plugin.version}</version>
                 <configuration>
                     <!--<rerunFailingTestsCount>${rerunFailingTestsCount}</rerunFailingTestsCount>-->
                     <!-- includes>
@@ -791,7 +790,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>3.1.0</version>
+                    <version>${maven-shade-plugin.version}</version>
                     <executions>
                         <execution>
                             <phase>package</phase>
@@ -917,6 +916,12 @@
         <findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <maven-plugin-plugin.version>3.11.0</maven-plugin-plugin.version>
+        <maven-shade-plugin.version>3.6.0</maven-shade-plugin.version>
+        <maven-failsafe-plugin.version>3.5.2</maven-failsafe-plugin.version>
+        <maven-project-info-reports-plugin.version>3.8.0</maven-project-info-reports-plugin.version>
+        <maven-jxr-plugin.version>3.4.0</maven-jxr-plugin.version>
+        <maven-javadoc-plugin.version>3.7.0</maven-javadoc-plugin.version>
+        <maven-enforcer-plugin.version>3.5.0</maven-enforcer-plugin.version>
     </properties>
 
 </project>

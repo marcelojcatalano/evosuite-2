@@ -41,7 +41,7 @@
                     version="${evosuiteVersion}"
                     scope="test"/>
         <dependency groupId="junit" artifactId="junit" version="4.12" scope="test"/>
-        <dependency groupId="ch.qos.logback" artifactId="logback-classic" version="1.5.0" />
+        <dependency groupId="ch.qos.logback" artifactId="logback-classic" version="1.5.10" />
     </artifact:dependencies>
 
     <!-- The directories for compilation targets -->

@@ -113,7 +113,6 @@ public class PermissionStatistics {
                 return;
             recentAccess.add(fp.getName());
         } catch (Exception e) {
-            return;
         }
     }
 
@@ -438,7 +437,7 @@ public class PermissionStatistics {
                  */
                 final int MAX_TO_PRINT = 4;
                 int counter = 0;
-                int total = deniedCount.get(name).keySet().size();
+                int total = deniedCount.get(name).size();
                 boolean printAll = (total <= MAX_TO_PRINT);
                 for (String type : deniedCount.get(name).keySet()) {
                     inputLog.info("         "

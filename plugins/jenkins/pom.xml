@@ -83,9 +83,13 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${maven-compiler-plugin.version}</version>
         <configuration>
-          <source>${jdk.version}</source>
-          <target>${jdk.version}</target>
           <encoding>${project.build.sourceEncoding}</encoding>
+          <showWarnings>true</showWarnings>
+          <showDeprecation>true</showDeprecation>
+          <compilerArgs>
+            <arg>-Xlint:all</arg>
+            <arg>-Xlint:-processing</arg>
+          </compilerArgs>
         </configuration>
       </plugin>
       <plugin>
@@ -94,7 +98,6 @@
         <version>1.99</version>
         <extensions>true</extensions>
         <configuration>
-          <showDeprecation>true</showDeprecation>
           <disabledTestInjection>true</disabledTestInjection>
         </configuration>
       </plugin>

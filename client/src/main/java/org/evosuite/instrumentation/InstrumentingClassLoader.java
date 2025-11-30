@@ -175,11 +175,13 @@ public class InstrumentingClassLoader extends ClassLoader {
         int i = className.lastIndexOf('.');
         if (i != -1) {
             String pkgname = className.substring(0, i);
-            // Check if package already loaded.
-            Package pkg = getPackage(pkgname);
+
+            // Use modern API instead of deprecated ClassLoader#getPackage
+            Package pkg = getDefinedPackage(pkgname);
+
             if (pkg == null) {
                 definePackage(pkgname, null, null, null, null, null, null, null);
-                logger.info("Defined package (3): " + getPackage(pkgname) + ", " + getPackage(pkgname).hashCode());
+                logger.info("Defined package: " + getDefinedPackage(pkgname));
             }
         }
     }

@@ -71,12 +71,12 @@ public class PreferencesImpl extends AbstractPreferences {
 
     @Override
     protected String[] keysSpi() throws BackingStoreException {
-        return values.keySet().stream().toArray(String[]::new);
+        return values.keySet().toArray(String[]::new);
     }
 
     @Override
     protected String[] childrenNamesSpi() throws BackingStoreException {
-        return children.keySet().stream().toArray(String[]::new);
+        return children.keySet().toArray(String[]::new);
     }
 
     @Override

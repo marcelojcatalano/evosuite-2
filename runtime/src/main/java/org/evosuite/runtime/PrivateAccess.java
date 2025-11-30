@@ -410,7 +410,7 @@ public class PrivateAccess {
         try {
             return PrivateAccess.class.getDeclaredMethod("callMethod", types.toArray(new Class[0]));
         } catch (NoSuchMethodException e) {
-            logger.error("" + e.getMessage());
+            logger.error(e.getMessage());
             return null;
         }
     }

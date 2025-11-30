@@ -151,7 +151,6 @@ public class MockInstant implements StaticReplacementMock {
         return instant.minusNanos(nanosToSubtract);
     }
 
-    @SuppressWarnings("unchecked")
     public static <R> R query(Instant instant, TemporalQuery<R> query) {
         return instant.query(query);
     }

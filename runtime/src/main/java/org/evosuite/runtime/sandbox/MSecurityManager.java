@@ -440,7 +440,6 @@ public class MSecurityManager extends SecurityManager {
             }
         }
 
-        return;
     }
 
     // ------------------------------------------------------------------------------------------

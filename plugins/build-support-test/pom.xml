@@ -41,6 +41,11 @@
             <artifactId>ant-junit</artifactId>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
 </project>

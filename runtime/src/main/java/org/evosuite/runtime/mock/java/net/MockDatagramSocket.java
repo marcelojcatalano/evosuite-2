@@ -127,7 +127,7 @@ public class MockDatagramSocket extends DatagramSocket implements OverrideMock{
                 IMPL.set(this, null);
                 CREATE_IMPL.invoke(this);
             } catch (InvocationTargetException e) {
-                throw new SocketException(""+e.getCause().getMessage());
+                throw new SocketException(e.getCause().getMessage());
             } catch (IllegalAccessException e) {
                 //should never happen
                 logger.error("Failed reflection");
@@ -142,8 +142,6 @@ public class MockDatagramSocket extends DatagramSocket implements OverrideMock{
             bind(new MockInetSocketAddress(0));
         } catch (SocketException se) {
             throw se;
-        } catch(IOException e) {
-            throw new SocketException(e.getMessage());
         }
     }
 
@@ -156,7 +154,7 @@ public class MockDatagramSocket extends DatagramSocket implements OverrideMock{
                 IMPL.set(this, null);
                 CREATE_IMPL.invoke(this);
             } catch (InvocationTargetException e) {
-                throw new SocketException(""+e.getCause().getMessage());
+                throw new SocketException(e.getCause().getMessage());
             } catch (IllegalAccessException e) {
                 //should never happen
                 logger.error("Failed reflection");

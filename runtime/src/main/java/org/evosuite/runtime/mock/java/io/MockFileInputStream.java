@@ -58,8 +58,8 @@ public class MockFileInputStream extends FileInputStream implements LeakingResou
 
 	public MockFileInputStream(String name) throws FileNotFoundException {
 		this( name != null ? 
-						(!MockFramework.isEnabled() ? new File(name) : new MockFile(name)) : 
-				(File)null
+						(!MockFramework.isEnabled() ? new File(name) : new MockFile(name)) :
+                        null
 				);
 	}
 

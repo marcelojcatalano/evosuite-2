@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -50,7 +50,7 @@ public class MD5 {
             m.update(s.getBytes(), 0, s.length());
 
             BigInteger i = new BigInteger(1, m.digest());
-            return String.format("%1$032x", i);
+            return "%1$032x".formatted(i);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
@@ -66,7 +66,7 @@ public class MD5 {
      */
     public static String hash(File f) {
         try {
-            byte[] encoded = Files.readAllBytes(Paths.get(f.getAbsolutePath()));
+            byte[] encoded = Files.readAllBytes(Path.of(f.getAbsolutePath()));
             String content = new String(encoded, Charset.defaultCharset());
 
             return MD5.hash(content);

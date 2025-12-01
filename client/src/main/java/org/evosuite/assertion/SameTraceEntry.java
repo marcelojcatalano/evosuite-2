@@ -69,12 +69,10 @@ public class SameTraceEntry implements OutputTraceEntry {
      */
     @Override
     public boolean differs(OutputTraceEntry other) {
-        if (other instanceof SameTraceEntry) {
-            if (!((SameTraceEntry) other).var.equals(var)) {
+        if (other instanceof SameTraceEntry otherEntry) {
+            if (!otherEntry.var.equals(var)) {
                 return false;
             }
-
-            SameTraceEntry otherEntry = (SameTraceEntry) other;
             for (VariableReference otherVar : equalityMap.keySet()) {
                 if (!otherEntry.equalityMap.containsKey(otherVar)) {
                     continue;
@@ -100,8 +98,7 @@ public class SameTraceEntry implements OutputTraceEntry {
     public Set<Assertion> getAssertions(OutputTraceEntry other) {
         Set<Assertion> assertions = new HashSet<>();
 
-        if (other instanceof SameTraceEntry) {
-            SameTraceEntry otherEntry = (SameTraceEntry) other;
+        if (other instanceof SameTraceEntry otherEntry) {
             for (Integer otherVar : equalityMapIntVar.keySet()) {
                 if (!otherEntry.equalityMapIntVar.containsKey(otherVar)) {
                     continue;
@@ -156,8 +153,7 @@ public class SameTraceEntry implements OutputTraceEntry {
      */
     @Override
     public boolean isDetectedBy(Assertion assertion) {
-        if (assertion instanceof SameAssertion) {
-            SameAssertion ass = (SameAssertion) assertion;
+        if (assertion instanceof SameAssertion ass) {
             if (ass.source.equals(var)) {
                 if (equalityMap.containsKey(ass.dest)) {
                     return !equalityMap.get(ass.dest).equals(ass.value);

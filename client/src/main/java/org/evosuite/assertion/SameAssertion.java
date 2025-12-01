@@ -25,6 +25,7 @@ import org.evosuite.testcase.execution.CodeUnderTestException;
 import org.evosuite.testcase.execution.Scope;
 import org.evosuite.testcase.variable.VariableReference;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -35,6 +36,7 @@ import java.util.Set;
  */
 public class SameAssertion extends Assertion {
 
+    @Serial
     private static final long serialVersionUID = -8575378209167070678L;
 
     protected VariableReference dest;

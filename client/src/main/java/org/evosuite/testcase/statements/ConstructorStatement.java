@@ -36,6 +36,7 @@ import org.evosuite.utils.generic.GenericConstructor;
 import org.objectweb.asm.Type;
 
 import java.io.PrintStream;
+import java.io.Serial;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
 import java.util.*;
@@ -49,6 +50,7 @@ import java.util.*;
  */
 public class ConstructorStatement extends EntityWithParametersStatement {
 
+    @Serial
     private static final long serialVersionUID = -3035570485633271957L;
 
     private GenericConstructor constructor;

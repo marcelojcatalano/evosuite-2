@@ -23,10 +23,12 @@ import org.evosuite.testcase.TestCase;
 import org.evosuite.testcase.execution.CodeUnderTestException;
 import org.evosuite.testcase.execution.Scope;
 
+import java.io.Serial;
 import java.lang.reflect.Array;
 
 public class ArrayLengthAssertion extends Assertion {
 
+    @Serial
     private static final long serialVersionUID = -3524688649310294677L;
 
     public int length = 0;

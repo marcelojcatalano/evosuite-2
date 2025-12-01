@@ -22,10 +22,13 @@ package org.evosuite.ga.metaheuristics;
 import org.evosuite.ga.ChromosomeFactory;
 import org.evosuite.ga.NSGAChromosome;
 
+import java.io.Serial;
+
 /**
  * @author José Campos
  */
 public class RandomFactory implements ChromosomeFactory<NSGAChromosome> {
+    @Serial
     private static final long serialVersionUID = -6984639266849566298L;
 
     private final double upperBound;

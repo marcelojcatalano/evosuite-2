@@ -48,9 +48,11 @@ import com.examples.with.different.packagename.coverage.IndirectlyCoverableBranc
 public class AmbiguityFitnessSystemTest extends SystemTestBase {
 
     private static String MATRIX_CONTENT =
-            "1 0 0 1 +\n" +
-                    "0 1 1 0 -\n" +
-                    "0 0 1 0 +\n";
+            """
+            1 0 0 1 +
+            0 1 1 0 -
+            0 0 1 0 +
+            """;
 
     private void writeMatrix(String MATRIX_CONTENT) {
         String path = Properties.REPORT_DIR + File.separator;
@@ -159,8 +161,10 @@ public class AmbiguityFitnessSystemTest extends SystemTestBase {
         Properties.TARGET_CLASS = targetClass;
 
         String previous_tmp_coverage =
-                "1 1 1 1 1 1 1 1 1 1 1 +\n" +
-                        "1 1 1 1 0 0 0 0 0 0 0 -\n";
+                """
+                1 1 1 1 1 1 1 1 1 1 1 +
+                1 1 1 1 0 0 0 0 0 0 0 -
+                """;
         this.writeMatrix(previous_tmp_coverage);
         Properties.USE_EXISTING_COVERAGE = true;
 

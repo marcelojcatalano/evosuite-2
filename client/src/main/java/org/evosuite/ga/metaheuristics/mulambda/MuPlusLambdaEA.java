@@ -23,6 +23,7 @@ import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.ChromosomeFactory;
 import org.evosuite.ga.FitnessFunction;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,7 @@ import java.util.List;
  */
 public class MuPlusLambdaEA<T extends Chromosome<T>> extends AbstractMuLambda<T> {
 
+    @Serial
     private static final long serialVersionUID = -8685698059226067598L;
 
     public MuPlusLambdaEA(ChromosomeFactory<T> factory, int mu, int lambda) {

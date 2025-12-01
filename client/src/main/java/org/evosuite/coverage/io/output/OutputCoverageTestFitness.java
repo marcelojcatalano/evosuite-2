@@ -30,6 +30,7 @@ import org.objectweb.asm.Type;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.Objects;
 import java.util.Set;
 
@@ -40,6 +41,7 @@ import static org.evosuite.coverage.io.IOCoverageConstants.*;
  */
 public class OutputCoverageTestFitness extends TestFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = 1383064944691491355L;
 
     protected static final Logger logger = LoggerFactory.getLogger(OutputCoverageTestFitness.class);
@@ -248,8 +250,7 @@ public class OutputCoverageTestFitness extends TestFitnessFunction {
      */
     @Override
     public int compareTo(TestFitnessFunction other) {
-        if (other instanceof OutputCoverageTestFitness) {
-            OutputCoverageTestFitness otherOutputFitness = (OutputCoverageTestFitness) other;
+        if (other instanceof OutputCoverageTestFitness otherOutputFitness) {
             return goal.compareTo(otherOutputFitness.goal);
         }
         return compareClassName(other);

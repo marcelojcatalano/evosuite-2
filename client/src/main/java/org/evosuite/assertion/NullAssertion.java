@@ -23,8 +23,11 @@ import org.evosuite.testcase.TestCase;
 import org.evosuite.testcase.execution.CodeUnderTestException;
 import org.evosuite.testcase.execution.Scope;
 
+import java.io.Serial;
+
 public class NullAssertion extends Assertion {
 
+    @Serial
     private static final long serialVersionUID = 8486987896764253928L;
 
     /**

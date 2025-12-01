@@ -22,6 +22,7 @@ package org.evosuite.ga;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -33,6 +34,7 @@ import java.io.Serializable;
  */
 public abstract class SecondaryObjective<T extends Chromosome<T>> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -4117187516650844086L;
 
     /**

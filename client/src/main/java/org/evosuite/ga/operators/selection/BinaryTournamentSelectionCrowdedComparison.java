@@ -23,6 +23,7 @@ import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.comparators.RankAndCrowdingDistanceComparator;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
 import java.util.List;
 
 /**
@@ -32,6 +33,7 @@ import java.util.List;
  */
 public class BinaryTournamentSelectionCrowdedComparison<T extends Chromosome<T>>
         extends SelectionFunction<T> {
+    @Serial
     private static final long serialVersionUID = -6887165634607218631L;
 
     /**

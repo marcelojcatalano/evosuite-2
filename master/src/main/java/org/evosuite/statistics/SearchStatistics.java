@@ -51,6 +51,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.*;
 
 
@@ -61,6 +62,7 @@ import java.util.*;
  */
 public class SearchStatistics implements Listener<ClientStateInformation> {
 
+    @Serial
     private static final long serialVersionUID = -1859683466333302151L;
 
     /**

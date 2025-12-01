@@ -31,6 +31,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.*;
 
 import static java.util.Comparator.comparing;
@@ -48,6 +49,7 @@ import static java.util.Comparator.comparing;
  */
 public class SPEA2<T extends Chromosome<T>> extends GeneticAlgorithm<T> {
 
+    @Serial
     private static final long serialVersionUID = -7638497183625040479L;
 
     private static final Logger logger = LoggerFactory.getLogger(SPEA2.class);

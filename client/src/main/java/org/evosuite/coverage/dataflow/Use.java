@@ -21,6 +21,8 @@ package org.evosuite.coverage.dataflow;
 
 import org.evosuite.graphs.cfg.BytecodeInstruction;
 
+import java.io.Serial;
+
 /**
  * An object of this class corresponds to a Use inside the class under test.
  * <p>
@@ -30,6 +32,7 @@ import org.evosuite.graphs.cfg.BytecodeInstruction;
  */
 public class Use extends DefUse {
 
+    @Serial
     private static final long serialVersionUID = -4951547090794898658L;
 
     Use(BytecodeInstruction wrap) {

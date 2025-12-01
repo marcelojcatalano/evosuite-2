@@ -27,6 +27,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 
+import java.io.Serial;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -46,6 +47,7 @@ import java.util.Map.Entry;
 
 public class CBranchSuiteFitness extends TestSuiteFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = -4745892521350308986L;
 
     private final List<CBranchTestFitness> branchGoals;

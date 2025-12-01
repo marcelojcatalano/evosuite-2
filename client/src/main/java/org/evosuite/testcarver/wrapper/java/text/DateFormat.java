@@ -27,6 +27,7 @@ import org.evosuite.testcarver.instrument.Instrumenter;
 import org.evosuite.testcarver.wrapper.java.util.Calendar;
 import org.evosuite.testcarver.wrapper.java.util.Date;
 
+import java.io.Serial;
 import java.text.FieldPosition;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -36,6 +37,7 @@ import java.util.TimeZone;
 
 public abstract class DateFormat extends java.text.DateFormat {
 
+    @Serial
     private static final long serialVersionUID = -5974612860032396630L;
 
     public final StringBuffer format_final(Object obj, StringBuffer toAppendTo,
@@ -64,8 +66,8 @@ public abstract class DateFormat extends java.text.DateFormat {
     public Object parseObject(String source, ParsePosition pos) {
         Capturer.capture(Instrumenter.CAPTURE_ID_JAVA_TEXT_DATEFORMAT, this, "parse", "(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Object;", new Object[]{source, pos});
         Object ret = super.parseObject(source, pos);
-        if (ret instanceof java.util.Date) {
-            long time = ((java.util.Date) ret).getTime();
+        if (ret instanceof java.util.Date date) {
+            long time = date.getTime();
             ret = new Date(time);
         }
         Capturer.enable(Instrumenter.CAPTURE_ID_JAVA_TEXT_DATEFORMAT, this, ret);

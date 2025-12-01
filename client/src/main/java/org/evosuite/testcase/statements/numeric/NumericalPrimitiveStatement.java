@@ -26,6 +26,7 @@ import org.evosuite.testcase.statements.PrimitiveStatement;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.lang.reflect.Type;
 
 /**
@@ -35,6 +36,7 @@ import java.lang.reflect.Type;
  */
 public abstract class NumericalPrimitiveStatement<T> extends PrimitiveStatement<T> {
 
+    @Serial
     private static final long serialVersionUID = 476613542969677702L;
 
     /**

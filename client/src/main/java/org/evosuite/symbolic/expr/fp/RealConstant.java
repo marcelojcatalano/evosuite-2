@@ -23,10 +23,12 @@ import org.evosuite.symbolic.expr.AbstractExpression;
 import org.evosuite.symbolic.expr.ExpressionVisitor;
 import org.evosuite.symbolic.expr.Variable;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
 public final class RealConstant extends AbstractExpression<Double> implements RealValue {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /**
@@ -53,8 +55,7 @@ public final class RealConstant extends AbstractExpression<Double> implements Re
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof RealConstant) {
-            RealConstant v = (RealConstant) obj;
+        if (obj instanceof RealConstant v) {
             return this.concreteValue.equals(v.concreteValue);
         }
         return false;

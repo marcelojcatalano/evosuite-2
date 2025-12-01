@@ -183,8 +183,7 @@ public class ClassControlFlowGraph extends EvoSuiteGraph<CCFGNode, CCFGEdge> {
         // used for skipping intermediate nodes for CCFGMethodCallNodes
         CCFGNode nextNode = currentNode;
 
-        if (currentNode instanceof CCFGFieldClassCallNode) {
-            CCFGFieldClassCallNode fieldCall = (CCFGFieldClassCallNode) currentNode;
+        if (currentNode instanceof CCFGFieldClassCallNode fieldCall) {
             // TODO for now we will have to ignore classes that we are not able
             // to analyze.
             // this should only happen for classes in java.*
@@ -230,15 +229,13 @@ public class ClassControlFlowGraph extends EvoSuiteGraph<CCFGNode, CCFGEdge> {
             }
 
             // otherwise proceed
-        } else if (currentNode instanceof CCFGCodeNode) {
-            CCFGCodeNode codeNode = (CCFGCodeNode) currentNode;
+        } else if (currentNode instanceof CCFGCodeNode codeNode) {
             // it this node alters the state of this object this method is
             // impure
             if (codeNode.getCodeInstruction().isFieldDefinition())
                 return false;
             // otherwise proceed
-        } else if (currentNode instanceof CCFGMethodExitNode) {
-            CCFGMethodExitNode methodExit = (CCFGMethodExitNode) currentNode;
+        } else if (currentNode instanceof CCFGMethodExitNode methodExit) {
             // if we encounter the end of the analyzed method and have not
             // detected
             // impurity yet then the method is pure
@@ -247,8 +244,7 @@ public class ClassControlFlowGraph extends EvoSuiteGraph<CCFGNode, CCFGEdge> {
             else
                 throw new IllegalStateException(
                         "MethodExitNodes from methods other then the currently analyzed one should not be reached");
-        } else if (currentNode instanceof CCFGMethodCallNode) {
-            CCFGMethodCallNode callNode = (CCFGMethodCallNode) currentNode;
+        } else if (currentNode instanceof CCFGMethodCallNode callNode) {
             // avoid loops in analysis
             String toAnalyze = className + "." + callNode.getCalledMethod();
             if (!methodsInPurityAnalysis.contains(toAnalyze)) {

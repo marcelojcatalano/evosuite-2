@@ -43,6 +43,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -57,6 +58,7 @@ import java.util.stream.Collectors;
  */
 public class LIPS extends GeneticAlgorithm<TestChromosome> {
 
+    @Serial
     private static final long serialVersionUID = 146182080947267628L;
 
     private static final Logger logger = LoggerFactory.getLogger(LIPS.class);

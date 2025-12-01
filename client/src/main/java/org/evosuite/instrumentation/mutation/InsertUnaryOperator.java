@@ -219,13 +219,12 @@ public class InsertUnaryOperator implements MutationOperator {
 
     private String getName(MethodNode mn, AbstractInsnNode node)
             throws VariableNotFoundException {
-        if (node instanceof VarInsnNode) {
-            LocalVariableNode var = getLocal(mn, node, ((VarInsnNode) node).var);
+        if (node instanceof VarInsnNode insnNode1) {
+            LocalVariableNode var = getLocal(mn, node, insnNode1.var);
             return var.name;
-        } else if (node instanceof FieldInsnNode) {
-            return ((FieldInsnNode) node).name;
-        } else if (node instanceof IincInsnNode) {
-            IincInsnNode incNode = (IincInsnNode) node;
+        } else if (node instanceof FieldInsnNode insnNode) {
+            return insnNode.name;
+        } else if (node instanceof IincInsnNode incNode) {
             LocalVariableNode var = getLocal(mn, node, incNode.var);
             return var.name;
 

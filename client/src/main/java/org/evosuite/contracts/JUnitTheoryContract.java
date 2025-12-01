@@ -32,6 +32,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class JUnitTheoryContract extends Contract {
@@ -94,7 +95,7 @@ public class JUnitTheoryContract extends Contract {
             Statement st1 = new ConstructorStatement(test, constructor, new ArrayList<>());
             VariableReference receiver = test.addStatement(st1, position + 1);
 
-            Statement st2 = new MethodStatement(test, theoryMethod, receiver, Arrays.asList(test.getStatement(pos).getReturnValue()));
+            Statement st2 = new MethodStatement(test, theoryMethod, receiver, Collections.singletonList(test.getStatement(pos).getReturnValue()));
             test.addStatement(st2, position + 2);
             st2.addComment("Violates theory: " + theoryMethod.getName());
 

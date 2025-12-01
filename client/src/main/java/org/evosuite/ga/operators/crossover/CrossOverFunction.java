@@ -24,6 +24,7 @@ import org.evosuite.ga.ConstructionFailedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -33,6 +34,7 @@ import java.io.Serializable;
  */
 public abstract class CrossOverFunction<T extends Chromosome<T>> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -4765602400132319324L;
 
     /**

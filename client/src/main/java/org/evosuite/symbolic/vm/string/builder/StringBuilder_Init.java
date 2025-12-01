@@ -47,8 +47,7 @@ public final class StringBuilder_Init extends SymbolicFunction {
         String conc_str = (String) this.getConcArgument(0);
         ReferenceExpression symb_str = this.getSymbArgument(0);
 
-        if (symb_str instanceof ReferenceConstant) {
-            ReferenceConstant non_null_symb_string = (ReferenceConstant) symb_str;
+        if (symb_str instanceof ReferenceConstant non_null_symb_string) {
             assert conc_str != null;
 
             StringValue strExpr = env.heap.getField(Types.JAVA_LANG_STRING,

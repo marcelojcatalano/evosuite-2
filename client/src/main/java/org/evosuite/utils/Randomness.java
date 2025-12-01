@@ -23,6 +23,7 @@ import org.evosuite.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
@@ -36,6 +37,7 @@ import java.util.Random;
  */
 public class Randomness implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -5934455398558935937L;
 
     private static final Logger logger = LoggerFactory.getLogger(Randomness.class);

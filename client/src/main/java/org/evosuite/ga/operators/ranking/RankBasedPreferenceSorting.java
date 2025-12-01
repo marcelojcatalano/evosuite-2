@@ -44,6 +44,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -57,6 +58,7 @@ import java.util.Set;
  */
 public class RankBasedPreferenceSorting<T extends Chromosome<T>> implements RankingFunction<T> {
 
+    @Serial
     private static final long serialVersionUID = -6636175563989586394L;
 
     private static final Logger logger = LoggerFactory.getLogger(RankBasedPreferenceSorting.class);

@@ -169,8 +169,7 @@ public class ControlFlowDistanceCalculator {
             return false;
         }
         Statement statement = result.test.getStatement(exceptionPosition);
-        if (statement instanceof ConstructorStatement) {
-            ConstructorStatement c = (ConstructorStatement) statement;
+        if (statement instanceof ConstructorStatement c) {
             String constructorClassName = c.getConstructor().getName();
             String constructorMethodName = "<init>"
                     + Type.getConstructorDescriptor(c.getConstructor().getConstructor());

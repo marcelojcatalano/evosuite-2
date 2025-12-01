@@ -100,8 +100,8 @@ public class TestSuiteWriterUtils {
 
         TestCase test = tests.get(position);
         String testName = null;
-        if (test instanceof CarvedTestCase) {
-            testName = ((CarvedTestCase) test).getName();
+        if (test instanceof CarvedTestCase case1) {
+            testName = case1.getName();
         } else {
             int totalNumberOfTests = tests.size();
             String totalNumberOfTestsString = String.valueOf(totalNumberOfTests - 1);

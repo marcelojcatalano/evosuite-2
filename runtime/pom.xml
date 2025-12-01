@@ -16,7 +16,7 @@
         As such, it should have no reference to any other EvoSuite module, and we
         should try to keep the number of external dependencies to a minimum -->
 
-    <profiles>
+<!--    <profiles>
         <profile>
             <id>Java8</id>
             <activation>
@@ -29,7 +29,7 @@
                 </dependency>
             </dependencies>
         </profile>
-    </profiles>
+    </profiles>-->
 
     <dependencies>
 
@@ -161,6 +161,7 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
+
        <!-- <dependency>
             <groupId>com.sun.xml.ws</groupId>
             <artifactId>jaxws-rt</artifactId>
@@ -204,6 +205,7 @@
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
+   <scope>provided</scope>
         </dependency>
 
         <dependency>

@@ -23,6 +23,7 @@ package org.evosuite.ga.localsearch;
 import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.FitnessFunction;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,7 @@ import java.util.List;
 public class DefaultLocalSearchObjective<T extends Chromosome<T>> implements LocalSearchObjective<T>,
         Serializable {
 
+    @Serial
     private static final long serialVersionUID = -8640106627078837108L;
 
     private final List<FitnessFunction<T>> fitnessFunctions = new ArrayList<>();

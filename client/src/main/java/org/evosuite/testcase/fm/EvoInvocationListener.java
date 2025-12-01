@@ -26,6 +26,7 @@ import org.mockito.invocation.InvocationOnMock;
 import org.mockito.listeners.InvocationListener;
 import org.mockito.listeners.MethodInvocationReport;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
@@ -43,6 +44,7 @@ import java.util.stream.Collectors;
  */
 public class EvoInvocationListener implements InvocationListener, Serializable {
 
+    @Serial
     private static final long serialVersionUID = 8351121388007697168L;
 
     private final Map<String, MethodDescriptor> map = new LinkedHashMap<>();
@@ -98,8 +100,7 @@ public class EvoInvocationListener implements InvocationListener, Serializable {
         DescribedInvocation di = methodInvocationReport.getInvocation();
         MethodDescriptor md = null;
 
-        if (di instanceof InvocationOnMock) {
-            InvocationOnMock impl = (InvocationOnMock) di;
+        if (di instanceof InvocationOnMock impl) {
             Method method = impl.getMethod();
             md = new MethodDescriptor(method, retvalType);
         } else {

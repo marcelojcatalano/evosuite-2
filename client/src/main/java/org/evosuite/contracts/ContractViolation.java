@@ -133,8 +133,7 @@ public class ContractViolation {
     }
 
     public boolean resultsFromMethod(String methodName) {
-        if (statement instanceof MethodStatement) {
-            MethodStatement ms = (MethodStatement) statement;
+        if (statement instanceof MethodStatement ms) {
             String target = ms.getMethodName() + ms.getDescriptor();
             return target.equals(methodName);
         } else if (statement instanceof ConstructorStatement) {
@@ -235,19 +234,17 @@ public class ContractViolation {
         }
 
         // Same method call / constructor?
-        if (statement instanceof MethodStatement) {
-            MethodStatement ms1 = (MethodStatement) statement;
+        if (statement instanceof MethodStatement ms1) {
             MethodStatement ms2 = (MethodStatement) other.statement;
             return ms1.getMethod().getMethod().equals(ms2.getMethod().getMethod());
-        } else if (statement instanceof ConstructorStatement) {
-            ConstructorStatement ms1 = (ConstructorStatement) statement;
+        } else if (statement instanceof ConstructorStatement ms1) {
             ConstructorStatement ms2 = (ConstructorStatement) other.statement;
             return ms1.getConstructor().getConstructor().equals(ms2.getConstructor().getConstructor());
         } else if (statement instanceof AssignmentStatement) {
             VariableReference var1 = statement.getReturnValue();
             VariableReference var2 = other.statement.getReturnValue();
-            if (var1 instanceof FieldReference && var2 instanceof FieldReference) {
-                return ((FieldReference) var1).getField().getField().equals(((FieldReference) var2).getField().getField());
+            if (var1 instanceof FieldReference reference && var2 instanceof FieldReference reference1) {
+                return reference.getField().getField().equals(reference1.getField().getField());
             }
         }
         return false;

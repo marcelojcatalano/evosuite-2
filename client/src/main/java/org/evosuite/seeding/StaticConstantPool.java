@@ -155,8 +155,7 @@ public class StaticConstantPool implements ConstantPool {
         if (object == null)
             return;
 
-        if (object instanceof String) {
-            String string = (String) object;
+        if (object instanceof String string) {
             if (string.length() > Properties.MAX_STRING)
                 return;
             // String literals are constrained to 65535 bytes
@@ -164,46 +163,42 @@ public class StaticConstantPool implements ConstantPool {
             if (string.length() > 65535)
                 return;
             stringPool.add(string);
-        } else if (object instanceof Type) {
-            while (((Type) object).getSort() == Type.ARRAY) {
-                object = ((Type) object).getElementType();
+        } else if (object instanceof Type type) {
+            while (type.getSort() == Type.ARRAY) {
+                object = type.getElementType();
             }
-            typePool.add((Type) object);
-        } else if (object instanceof Integer) {
+            typePool.add(type);
+        } else if (object instanceof Integer val) {
             if (Properties.RESTRICT_POOL) {
-                int val = (Integer) object;
                 if (Math.abs(val) < Properties.MAX_INT) {
-                    intPool.add((Integer) object);
+                    intPool.add(val);
                 }
             } else {
-                intPool.add((Integer) object);
+                intPool.add(val);
             }
-        } else if (object instanceof Long) {
+        } else if (object instanceof Long val) {
             if (Properties.RESTRICT_POOL) {
-                long val = (Long) object;
                 if (Math.abs(val) < Properties.MAX_INT) {
-                    longPool.add((Long) object);
+                    longPool.add(val);
                 }
             } else {
-                longPool.add((Long) object);
+                longPool.add(val);
             }
-        } else if (object instanceof Float) {
+        } else if (object instanceof Float val) {
             if (Properties.RESTRICT_POOL) {
-                float val = (Float) object;
                 if (Math.abs(val) < Properties.MAX_INT) {
-                    floatPool.add((Float) object);
+                    floatPool.add(val);
                 }
             } else {
-                floatPool.add((Float) object);
+                floatPool.add(val);
             }
-        } else if (object instanceof Double) {
+        } else if (object instanceof Double val) {
             if (Properties.RESTRICT_POOL) {
-                double val = (Double) object;
                 if (Math.abs(val) < Properties.MAX_INT) {
-                    doublePool.add((Double) object);
+                    doublePool.add(val);
                 }
             } else {
-                doublePool.add((Double) object);
+                doublePool.add(val);
             }
         } else {
             LoggingUtils.getEvoLogger().info("Constant of unknown type: "

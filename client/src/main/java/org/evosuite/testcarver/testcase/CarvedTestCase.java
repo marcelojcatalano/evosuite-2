@@ -21,10 +21,13 @@ package org.evosuite.testcarver.testcase;
 
 import org.evosuite.testcase.DefaultTestCase;
 
+import java.io.Serial;
+
 /**
  * Created by jmr on 26/10/2015.
  */
 public class CarvedTestCase extends DefaultTestCase {
+    @Serial
     private static final long serialVersionUID = -1780509246634782226L;
     private String name = "";
 

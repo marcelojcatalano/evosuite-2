@@ -36,6 +36,7 @@ import org.evosuite.utils.ArrayUtil;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.util.Objects;
 import java.util.Set;
 
@@ -162,6 +163,7 @@ public class DefUseCoverageTestFitness extends TestFitnessFunction {
         INTRA_METHOD, INTER_METHOD, INTRA_CLASS, PARAMETER
     }
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /**
@@ -641,8 +643,7 @@ public class DefUseCoverageTestFitness extends TestFitnessFunction {
      */
     @Override
     public int compareTo(TestFitnessFunction other) {
-        if (other instanceof DefUseCoverageTestFitness) {
-            DefUseCoverageTestFitness otherFitness = (DefUseCoverageTestFitness) other;
+        if (other instanceof DefUseCoverageTestFitness otherFitness) {
             // goalDefinition can be null for parameter goals
             if (goalDefinition == null || otherFitness.getGoalDefinition() == null)
                 return goalUse.compareTo(otherFitness.getGoalUse());

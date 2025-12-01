@@ -27,6 +27,7 @@ import org.evosuite.testcase.statements.Statement;
 import org.evosuite.utils.generic.GenericClass;
 import org.evosuite.utils.generic.GenericClassFactory;
 
+import java.io.Serial;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,6 +41,7 @@ import java.util.List;
  */
 public class ArrayReference extends VariableReferenceImpl {
 
+    @Serial
     private static final long serialVersionUID = 3309591356542131910L;
 
     private int[] lengths;
@@ -155,8 +157,7 @@ public class ArrayReference extends VariableReferenceImpl {
     @Override
     public VariableReference copy(TestCase newTestCase, int offset) {
         VariableReference newRef = newTestCase.getStatement(getStPosition() + offset).getReturnValue();
-        if (newRef instanceof ArrayReference) {
-            ArrayReference otherArray = (ArrayReference) newRef;
+        if (newRef instanceof ArrayReference otherArray) {
             otherArray.setLengths(lengths);
             return otherArray;
         } else {
@@ -212,8 +213,7 @@ public class ArrayReference extends VariableReferenceImpl {
 
         for (Statement s : testCase) {
             for (VariableReference var : s.getVariableReferences()) {
-                if (var instanceof ArrayIndex) {
-                    ArrayIndex index = (ArrayIndex) var;
+                if (var instanceof ArrayIndex index) {
                     if (index.getArray().equals(this)) {
                         max = Math.max(max, index.getArrayIndex());
                     }
@@ -235,8 +235,7 @@ public class ArrayReference extends VariableReferenceImpl {
 
             if (s instanceof AssignmentStatement) {
                 VariableReference ret = s.getReturnValue();
-                if (ret instanceof ArrayIndex) {
-                    ArrayIndex ai = (ArrayIndex) ret;
+                if (ret instanceof ArrayIndex ai) {
                     if (ai.getArray().equals(this) && ai.getArrayIndex() == index)
                         return true;
                 }

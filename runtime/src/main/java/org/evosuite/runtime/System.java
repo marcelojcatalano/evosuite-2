@@ -239,7 +239,7 @@ public class System {
         if (o == null)
             throw new NullPointerException();
 
-        return o.getClass().getName() + "@" + String.format("%010d", identityHashCode(o));
+        return o.getClass().getName() + "@" + "%010d".formatted(identityHashCode(o));
     }
 
     /**

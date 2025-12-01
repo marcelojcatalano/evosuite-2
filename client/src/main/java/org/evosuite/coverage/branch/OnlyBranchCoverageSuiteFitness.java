@@ -30,6 +30,7 @@ import org.evosuite.testsuite.TestSuiteFitnessFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -40,6 +41,7 @@ import java.util.Map.Entry;
  */
 public class OnlyBranchCoverageSuiteFitness extends TestSuiteFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = 2991632394620406243L;
 
     private final static Logger logger = LoggerFactory.getLogger(TestSuiteFitnessFunction.class);

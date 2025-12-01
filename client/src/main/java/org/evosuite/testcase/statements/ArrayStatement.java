@@ -35,6 +35,7 @@ import org.evosuite.utils.generic.GenericAccessibleObject;
 import org.evosuite.utils.generic.GenericClassFactory;
 
 import java.io.PrintStream;
+import java.io.Serial;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
@@ -52,6 +53,7 @@ import java.util.*;
  */
 public class ArrayStatement extends AbstractStatement {
 
+    @Serial
     private static final long serialVersionUID = -2858236370873914156L;
 
     private static int[] createRandom(int dimensions) {

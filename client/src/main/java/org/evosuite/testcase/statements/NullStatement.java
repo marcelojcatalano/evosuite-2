@@ -28,6 +28,7 @@ import org.evosuite.utils.generic.GenericAccessibleObject;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.PrintStream;
+import java.io.Serial;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -44,6 +45,7 @@ import java.util.Set;
  */
 public class NullStatement extends PrimitiveStatement<Void> {
 
+    @Serial
     private static final long serialVersionUID = -7141670041216163032L;
 
     /**

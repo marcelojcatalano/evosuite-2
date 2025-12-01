@@ -19,9 +19,12 @@
  */
 package org.evosuite.dse;
 
+import java.io.Serial;
+
 public abstract class StopVMException extends RuntimeException {
 
 
+    @Serial
     private static final long serialVersionUID = 9179045415806106855L;
 
     public StopVMException(String msg) {

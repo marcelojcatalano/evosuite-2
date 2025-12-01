@@ -19,9 +19,12 @@
  */
 package org.evosuite.symbolic.solver;
 
+import java.io.Serial;
+
 public final class SolverTimeoutException extends Exception {
 
 
+    @Serial
     private static final long serialVersionUID = 437518700827698182L;
 
     public SolverTimeoutException() {

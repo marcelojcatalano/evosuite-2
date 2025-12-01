@@ -84,8 +84,8 @@ public class ContainsTraceObserver extends AssertionTraceObserver<ContainsTraceE
 
             for (VariableReference other : otherVariables) {
                 Object otherObject;
-                if (other instanceof ConstantValue)
-                    otherObject = ((ConstantValue) other).getValue();
+                if (other instanceof ConstantValue value)
+                    otherObject = value.getValue();
                 else
                     otherObject = other.getObject(scope);
 
@@ -98,8 +98,8 @@ public class ContainsTraceObserver extends AssertionTraceObserver<ContainsTraceE
 
                 Statement otherStatement = currentTest.getStatement(otherPos);
 
-                if (otherStatement instanceof MethodStatement) {
-                    if (((MethodStatement) otherStatement).getMethodName().equals("hashCode"))
+                if (otherStatement instanceof MethodStatement methodStatement) {
+                    if (methodStatement.getMethodName().equals("hashCode"))
                         continue; // No comparison against hashCode, as the hashCode return value will not be in the test
                 }
 

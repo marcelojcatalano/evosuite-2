@@ -30,6 +30,7 @@ import org.jgrapht.graph.DefaultDirectedGraph;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -41,6 +42,7 @@ import static java.util.stream.Collectors.toSet;
  */
 public class BranchFitnessGraph implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -8020578778906420503L;
 
     private static final Logger logger = LoggerFactory.getLogger(BranchFitnessGraph.class);

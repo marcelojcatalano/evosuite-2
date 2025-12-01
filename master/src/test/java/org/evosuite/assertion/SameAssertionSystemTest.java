@@ -107,9 +107,9 @@ public class SameAssertionSystemTest extends SystemTestBase {
         TestSuiteChromosome best = ga.getBestIndividual();
         for (TestChromosome testChromosome : best.getTestChromosomes()) {
             for (Assertion assertion : testChromosome.getTestCase().getAssertions()) {
-                if (assertion instanceof SameAssertion) {
+                if (assertion instanceof SameAssertion sameAssertion) {
                     hasSameAssertion = true;
-                    Assert.assertEquals(false, ((SameAssertion) assertion).value);
+                    Assert.assertEquals(false, sameAssertion.value);
                 }
             }
         }
@@ -149,9 +149,9 @@ public class SameAssertionSystemTest extends SystemTestBase {
         System.out.println("EvolvedTestSuite:\n" + best);
         for (TestChromosome testChromosome : best.getTestChromosomes()) {
             for (Assertion assertion : testChromosome.getTestCase().getAssertions()) {
-                if (assertion instanceof SameAssertion) {
+                if (assertion instanceof SameAssertion sameAssertion) {
                     hasSameAssertion = true;
-                    Assert.assertEquals(true, ((SameAssertion) assertion).value);
+                    Assert.assertEquals(true, sameAssertion.value);
                 }
             }
         }
@@ -189,9 +189,9 @@ public class SameAssertionSystemTest extends SystemTestBase {
         TestSuiteChromosome best = ga.getBestIndividual();
         for (TestChromosome testChromosome : best.getTestChromosomes()) {
             for (Assertion assertion : testChromosome.getTestCase().getAssertions()) {
-                if (assertion instanceof SameAssertion) {
+                if (assertion instanceof SameAssertion sameAssertion) {
                     hasSameAssertion = true;
-                    Assert.assertEquals(false, ((SameAssertion) assertion).value);
+                    Assert.assertEquals(false, sameAssertion.value);
                 }
             }
         }

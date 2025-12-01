@@ -26,11 +26,13 @@ import org.evosuite.testcase.statements.ConstructorStatement;
 import org.evosuite.testcase.statements.MethodStatement;
 import org.evosuite.testcase.statements.Statement;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Arrays;
 
 public class Failure implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -6308624160029658643L;
 
     private final String className;
@@ -62,10 +64,10 @@ public class Failure implements Serializable {
 
     private String getMethodName(TestCase test, int position) {
         Statement statement = test.getStatement(position);
-        if (statement instanceof MethodStatement) {
-            return ((MethodStatement) statement).getMethod().getName();
-        } else if (statement instanceof ConstructorStatement) {
-            return ((ConstructorStatement) statement).getConstructor().getName();
+        if (statement instanceof MethodStatement methodStatement) {
+            return methodStatement.getMethod().getName();
+        } else if (statement instanceof ConstructorStatement constructorStatement) {
+            return constructorStatement.getConstructor().getName();
         } else {
             return "";
         }

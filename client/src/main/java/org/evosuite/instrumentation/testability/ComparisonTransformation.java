@@ -68,8 +68,7 @@ public class ComparisonTransformation {
         AbstractInsnNode node = mn.instructions.getFirst();
         while (node != mn.instructions.getLast()) {
             AbstractInsnNode next = node.getNext();
-            if (node instanceof InsnNode) {
-                InsnNode in = (InsnNode) node;
+            if (node instanceof InsnNode in) {
                 if (in.getOpcode() == Opcodes.LCMP) {
                     insertLongComparison(in, mn.instructions);
                     TransformationStatistics.transformedComparison();

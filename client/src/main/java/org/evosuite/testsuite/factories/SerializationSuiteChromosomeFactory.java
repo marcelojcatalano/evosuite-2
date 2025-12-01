@@ -29,12 +29,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SerializationSuiteChromosomeFactory
         implements ChromosomeFactory<TestSuiteChromosome> {
 
+    @Serial
     private static final long serialVersionUID = -569338946355072318L;
 
     private static final Logger logger = LoggerFactory.getLogger(SerializationSuiteChromosomeFactory.class);

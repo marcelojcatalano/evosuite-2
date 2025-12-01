@@ -57,8 +57,8 @@ public final class FieldRegistry {
         try {
             final Class<?> clazz;
 
-            if (instance instanceof Class) {
-                clazz = (Class<?>) instance;
+            if (instance instanceof Class<?> class1) {
+                clazz = class1;
             } else {
                 clazz = instance.getClass();
             }

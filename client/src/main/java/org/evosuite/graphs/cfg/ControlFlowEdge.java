@@ -22,8 +22,11 @@ package org.evosuite.graphs.cfg;
 import org.evosuite.coverage.branch.Branch;
 import org.jgrapht.graph.DefaultEdge;
 
+import java.io.Serial;
+
 public class ControlFlowEdge extends DefaultEdge {
 
+    @Serial
     private static final long serialVersionUID = -5009449930477928101L;
 
     private ControlDependency cd;

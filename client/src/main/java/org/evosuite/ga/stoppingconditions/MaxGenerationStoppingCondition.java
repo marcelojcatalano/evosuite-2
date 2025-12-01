@@ -23,6 +23,8 @@ import org.evosuite.Properties;
 import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 
+import java.io.Serial;
+
 /**
  * Stop search after a predefined number of iterations
  *
@@ -30,6 +32,7 @@ import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
  */
 public class MaxGenerationStoppingCondition<T extends Chromosome<T>> extends StoppingConditionImpl<T> {
 
+    @Serial
     private static final long serialVersionUID = 251196904115160351L;
 
     /**

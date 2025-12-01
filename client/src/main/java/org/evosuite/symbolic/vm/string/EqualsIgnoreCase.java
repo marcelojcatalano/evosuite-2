@@ -51,8 +51,7 @@ public final class EqualsIgnoreCase extends SymbolicFunction {
         StringValue left_expr = env.heap.getField(Types.JAVA_LANG_STRING,
                 SymbolicHeap.$STRING_VALUE, conc_left, symb_left, conc_left);
 
-        if (symb_right instanceof ReferenceConstant && conc_right != null) {
-            ReferenceConstant ref_constant_right = (ReferenceConstant) symb_right;
+        if (symb_right instanceof ReferenceConstant ref_constant_right && conc_right != null) {
 
             StringValue right_expr = env.heap.getField(Types.JAVA_LANG_STRING,
                     SymbolicHeap.$STRING_VALUE, conc_right,

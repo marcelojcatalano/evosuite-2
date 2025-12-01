@@ -19,10 +19,7 @@
  */
 package org.evosuite.runtime.mock.java.io;
 
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FilenameFilter;
-import java.io.IOException;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
@@ -49,7 +46,8 @@ import org.evosuite.runtime.vfs.VirtualFileSystem;
  */
 public class MockFile extends File implements OverrideMock {
 
-	private static final long serialVersionUID = -8217763202925800733L;
+    @Serial
+    private static final long serialVersionUID = -8217763202925800733L;
 
 	/*
 	 *  Constructors, with same inputs as in File. Note: it is not possible to inherit JavaDocs for constructors.

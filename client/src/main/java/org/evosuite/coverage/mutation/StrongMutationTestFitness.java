@@ -30,6 +30,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testcase.execution.ExecutionTrace;
 import org.evosuite.testcase.execution.TestCaseExecutor;
 
+import java.io.Serial;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -45,6 +46,7 @@ import java.util.Set;
  */
 public class StrongMutationTestFitness extends MutationTestFitness {
 
+    @Serial
     private static final long serialVersionUID = -262199037689935052L;
 
     /**

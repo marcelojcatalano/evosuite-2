@@ -30,6 +30,7 @@ import org.evosuite.symbolic.expr.str.StringValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -44,6 +45,7 @@ public final class StringNextTokenExpr extends AbstractExpression<String> implem
         StringValue {
 
 
+    @Serial
     private static final long serialVersionUID = -4594444543728364120L;
 
     protected static Logger log = LoggerFactory.getLogger(StringNextTokenExpr.class);
@@ -83,8 +85,7 @@ public final class StringNextTokenExpr extends AbstractExpression<String> implem
         if (obj == null) {
             return false;
         }
-        if (obj instanceof StringNextTokenExpr) {
-            StringNextTokenExpr other = (StringNextTokenExpr) obj;
+        if (obj instanceof StringNextTokenExpr other) {
             return this.tokenizerExpr.equals(other.tokenizerExpr);
         }
 

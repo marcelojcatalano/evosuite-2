@@ -69,16 +69,15 @@ public class ContainerHelper {
             else {
                 if (o2 != null && o1 != null) {
                     if (o2.getClass().equals(o1.getClass())) {
-                        if (o1 instanceof Number) {
-                            Number n1 = (Number) o1;
+                        if (o1 instanceof Number n1) {
                             Number n2 = (Number) o2;
                             min_distance = Math.min(min_distance,
                                     Math.abs(n1.doubleValue()
                                             - n2.doubleValue()));
-                        } else if (o2 instanceof String) {
+                        } else if (o2 instanceof String string) {
                             ConstantPoolManager.getInstance().addDynamicConstant(o1);
                             min_distance = Math.min(min_distance,
-                                    StringHelper.editDistance((String) o1, (String) o2));
+                                    StringHelper.editDistance((String) o1, string));
                         }
                     }
                 }

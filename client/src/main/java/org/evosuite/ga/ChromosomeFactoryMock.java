@@ -19,6 +19,7 @@
  */
 package org.evosuite.ga;
 
+import java.io.Serial;
 import java.util.Objects;
 
 /**
@@ -36,6 +37,7 @@ import java.util.Objects;
 public class ChromosomeFactoryMock<T extends Chromosome<T>, U extends Chromosome<U>>
         implements ChromosomeFactory<U> {
 
+    @Serial
     private static final long serialVersionUID = -2238400329508854324L;
     /**
      * The wrapped chromosome factory.

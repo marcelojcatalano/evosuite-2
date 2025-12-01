@@ -403,8 +403,7 @@ final class StringAVM extends VariableAVM {
         Set<StringValue> delimiters = new HashSet<>();
         for (Constraint<?> constraint : constraints) {
 
-            if (constraint instanceof StringConstraint) {
-                StringConstraint stringConstraint = (StringConstraint) constraint;
+            if (constraint instanceof StringConstraint stringConstraint) {
 
                 if (stringConstraint.getLeftOperand() instanceof HasMoreTokensExpr) {
                     HasMoreTokensExpr hasMoreTokensExpr = (HasMoreTokensExpr) stringConstraint.getLeftOperand();

@@ -56,8 +56,7 @@ public class PrimitiveTraceEntry implements OutputTraceEntry {
      */
     @Override
     public boolean differs(OutputTraceEntry other) {
-        if (other instanceof PrimitiveTraceEntry) {
-            PrimitiveTraceEntry otherEntry = (PrimitiveTraceEntry) other;
+        if (other instanceof PrimitiveTraceEntry otherEntry) {
             return !value.equals(otherEntry.value);
         }
         return false;
@@ -73,8 +72,7 @@ public class PrimitiveTraceEntry implements OutputTraceEntry {
     @Override
     public Set<Assertion> getAssertions(OutputTraceEntry other) {
         Set<Assertion> assertions = new HashSet<>();
-        if (other instanceof PrimitiveTraceEntry) {
-            PrimitiveTraceEntry otherEntry = (PrimitiveTraceEntry) other;
+        if (other instanceof PrimitiveTraceEntry otherEntry) {
             if (otherEntry != null && otherEntry.value != null && value != null
                     && var.getStPosition() == otherEntry.var.getStPosition()) {
                 if (!value.equals(otherEntry.value)) {
@@ -117,8 +115,7 @@ public class PrimitiveTraceEntry implements OutputTraceEntry {
      */
     @Override
     public boolean isDetectedBy(Assertion assertion) {
-        if (assertion instanceof PrimitiveAssertion) {
-            PrimitiveAssertion ass = (PrimitiveAssertion) assertion;
+        if (assertion instanceof PrimitiveAssertion ass) {
             if (var.same(ass.source)) {
                 return !value.equals(ass.value);
             }

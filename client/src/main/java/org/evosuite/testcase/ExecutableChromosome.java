@@ -27,11 +27,13 @@ import org.evosuite.testsuite.TestSuiteFitnessFunction;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.Serial;
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class ExecutableChromosome<E extends ExecutableChromosome<E>> extends Chromosome<E> {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     protected transient ExecutionResult lastExecutionResult = null;

@@ -22,6 +22,8 @@ package org.evosuite.ga.stoppingconditions;
 import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 
+import java.io.Serial;
+
 /**
  * Stop the search when the fitness has reached 0 (assuming minimization)
  *
@@ -29,6 +31,7 @@ import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
  */
 public class ZeroFitnessStoppingCondition<T extends Chromosome<T>> extends StoppingConditionImpl<T> {
 
+    @Serial
     private static final long serialVersionUID = -6925872054053635256L;
 
     /**

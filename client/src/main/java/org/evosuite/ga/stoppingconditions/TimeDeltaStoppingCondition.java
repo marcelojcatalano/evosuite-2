@@ -25,8 +25,11 @@ import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 public class TimeDeltaStoppingCondition<T extends Chromosome<T>> extends StoppingConditionImpl<T> {
 
+    @Serial
     private static final long serialVersionUID = -7029615280866928031L;
 
     /**

@@ -32,6 +32,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -44,6 +45,7 @@ import static java.util.stream.Collectors.toList;
 public abstract class AbstractTestSuiteChromosome<T extends AbstractTestSuiteChromosome<T, E>,
         E extends ExecutableChromosome<E>> extends Chromosome<T> {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private static final Logger logger = LoggerFactory.getLogger(AbstractTestSuiteChromosome.class);

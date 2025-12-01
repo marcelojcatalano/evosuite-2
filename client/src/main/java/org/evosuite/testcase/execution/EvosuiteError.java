@@ -19,6 +19,8 @@
  */
 package org.evosuite.testcase.execution;
 
+import java.io.Serial;
+
 /**
  * This error can be used to signal an throwable from evosuite code, below the
  * class under test. E.g. the class under tests is instrumented to call the
@@ -30,6 +32,7 @@ package org.evosuite.testcase.execution;
  * @author Sebastian Steenbuck
  */
 public class EvosuiteError extends Error {
+    @Serial
     private static final long serialVersionUID = 454018150971425158L;
 
     /**

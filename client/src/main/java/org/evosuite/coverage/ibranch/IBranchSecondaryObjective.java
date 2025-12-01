@@ -22,6 +22,8 @@ package org.evosuite.coverage.ibranch;
 import org.evosuite.ga.SecondaryObjective;
 import org.evosuite.testsuite.TestSuiteChromosome;
 
+import java.io.Serial;
+
 /**
  * <p>
  * IBranchSecondaryObjective class.
@@ -33,6 +35,7 @@ public class IBranchSecondaryObjective extends SecondaryObjective<TestSuiteChrom
 
     //Ibranch fitness
     private final IBranchSuiteFitness ff;
+    @Serial
     private static final long serialVersionUID = 7211557650429998223L;
 
     public IBranchSecondaryObjective() {

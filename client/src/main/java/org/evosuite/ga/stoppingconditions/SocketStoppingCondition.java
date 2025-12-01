@@ -27,6 +27,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.io.Serial;
 import java.net.ServerSocket;
 
 /**
@@ -36,6 +37,7 @@ import java.net.ServerSocket;
  */
 public class SocketStoppingCondition<T extends Chromosome<T>> implements StoppingCondition<T> {
 
+    @Serial
     private static final long serialVersionUID = -8260473153410290373L;
 
     // There should only be one instance that opens the socket -> singleton design pattern

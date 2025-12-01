@@ -132,9 +132,9 @@ public class FloatLocalSearch<T extends Number> extends StatementLocalSearch {
         ExecutionResult oldResult = test.getLastExecutionResult();
 
         if (p.getValue().getClass().equals(Float.class))
-            p.setValue((T) (new Float(newValue)));
+            p.setValue((T) (Float.valueOf((float) newValue)));
         else
-            p.setValue((T) (new Double(newValue)));
+            p.setValue((T) (Double.valueOf(newValue)));
 
         logger.info("Trying to chop precision " + precision + ": " + value + " -> "
                 + newValue);

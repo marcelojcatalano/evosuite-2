@@ -62,8 +62,7 @@ public class BooleanIfTransformer extends MethodNodeTransformer {
                 AbstractInsnNode insn = mn.instructions.get(insnPosition - 1);
                 BooleanTestabilityTransformation.logger.info("Current node: " + mn.instructions.get(insnPosition));
                 BooleanTestabilityTransformation.logger.info("Previous node: " + insn);
-                if (insn instanceof MethodInsnNode) {
-                    MethodInsnNode mi = (MethodInsnNode) insn;
+                if (insn instanceof MethodInsnNode mi) {
                     if (Type.getReturnType(DescriptorMapping.getInstance().getMethodDesc(mi.owner,
                             mi.name,
                             mi.desc)) == Type.BOOLEAN_TYPE) {
@@ -90,8 +89,7 @@ public class BooleanIfTransformer extends MethodNodeTransformer {
                 Frame frame = this.booleanTestabilityTransformation.currentFrames[insnPosition];
                 AbstractInsnNode insn = mn.instructions.get(insnPosition - 1);
                 BooleanTestabilityTransformation.logger.info("Previous node: " + insn);
-                if (insn instanceof MethodInsnNode) {
-                    MethodInsnNode mi = (MethodInsnNode) insn;
+                if (insn instanceof MethodInsnNode mi) {
                     BooleanTestabilityTransformation.logger.info("Method: " + mi.name);
                     if (Type.getReturnType(BooleanTestabilityTransformation.getOriginalDesc(mi.owner, mi.name, mi.desc)) == Type.BOOLEAN_TYPE) {
                         BooleanTestabilityTransformation.logger.info("Changing IFEQ");

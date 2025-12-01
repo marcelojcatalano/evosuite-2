@@ -93,10 +93,7 @@ public class ClassReInitializer {
                         moreClassesForStaticReset.add(fieldReference.getField().getOwnerClass().getClassName());
                     }
                 }
-            } else if (statement instanceof FieldStatement) {
-                // Check if we are invoking a non-pure method on a static field
-                // variable
-                FieldStatement fieldStatement = (FieldStatement) statement;
+            } else if (statement instanceof FieldStatement fieldStatement) {
                 if (fieldStatement.getField().isStatic()) {
                     VariableReference fieldReference = fieldStatement.getReturnValue();
                     if (Properties.RESET_STATIC_FIELD_GETS) {
@@ -107,10 +104,10 @@ public class ClassReInitializer {
                         for (int i = fieldStatement.getPosition() + 1; i < result.getExecutedStatements(); i++) {
                             Statement invokedStatement = tc.getStatement(i);
                             if (invokedStatement.references(fieldReference)) {
-                                if (invokedStatement instanceof MethodStatement) {
-                                    if (fieldReference.equals(((MethodStatement) invokedStatement).getCallee())) {
+                                if (invokedStatement instanceof MethodStatement methodStatement) {
+                                    if (fieldReference.equals(methodStatement.getCallee())) {
                                         if (!CheapPurityAnalyzer.getInstance()
-                                                .isPure(((MethodStatement) invokedStatement).getMethod().getMethod())) {
+                                                .isPure(methodStatement.getMethod().getMethod())) {
                                             moreClassesForStaticReset
                                                     .add(fieldStatement.getField().getOwnerClass().getClassName());
                                             break;
@@ -121,8 +118,7 @@ public class ClassReInitializer {
                         }
                     }
                 }
-            } else if (statement instanceof PrivateFieldStatement) {
-                PrivateFieldStatement fieldStatement = (PrivateFieldStatement) statement;
+            } else if (statement instanceof PrivateFieldStatement fieldStatement) {
                 if (fieldStatement.isStaticField()) {
                     moreClassesForStaticReset.add(fieldStatement.getOwnerClassName());
                 }
@@ -167,8 +163,7 @@ public class ClassReInitializer {
                 Collections.sort(classesToReset);
 
                 ClassLoader loader = null;
-                if (executedTestCase instanceof DefaultTestCase) {
-                    DefaultTestCase defaultTestCase = (DefaultTestCase) executedTestCase;
+                if (executedTestCase instanceof DefaultTestCase defaultTestCase) {
                     ClassLoader changedClassLoader = defaultTestCase.getChangedClassLoader();
                     if (changedClassLoader != null) {
                         loader = changedClassLoader;

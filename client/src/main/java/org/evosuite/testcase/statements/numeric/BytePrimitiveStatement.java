@@ -26,6 +26,7 @@ import org.evosuite.seeding.ConstantPoolManager;
 import org.evosuite.testcase.TestCase;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
 import java.lang.reflect.Type;
 
 /**
@@ -72,6 +73,7 @@ public class BytePrimitiveStatement extends NumericalPrimitiveStatement<Byte> {
         super(tc, type, (byte) 0);
     }
 
+    @Serial
     private static final long serialVersionUID = -8123457944460041347L;
 
     /* (non-Javadoc)

@@ -27,6 +27,7 @@ import org.evosuite.symbolic.expr.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -40,6 +41,7 @@ import java.util.Set;
 public final class StringBinaryComparison extends AbstractExpression<Long> implements
         StringComparison {
 
+    @Serial
     private static final long serialVersionUID = -2959676064390810341L;
 
     protected static final Logger log = LoggerFactory.getLogger(StringBinaryComparison.class);
@@ -80,8 +82,7 @@ public final class StringBinaryComparison extends AbstractExpression<Long> imple
         if (obj == this) {
             return true;
         }
-        if (obj instanceof StringBinaryComparison) {
-            StringBinaryComparison other = (StringBinaryComparison) obj;
+        if (obj instanceof StringBinaryComparison other) {
             return this.op.equals(other.op) && this.left.equals(other.left)
                     && this.right.equals(other.right);
         }

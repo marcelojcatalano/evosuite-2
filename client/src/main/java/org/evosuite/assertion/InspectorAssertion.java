@@ -26,8 +26,11 @@ import org.evosuite.testcase.statements.Statement;
 import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.utils.NumberFormatter;
 
+import java.io.Serial;
+
 public class InspectorAssertion extends Assertion {
 
+    @Serial
     private static final long serialVersionUID = -4080051661226820222L;
 
     // VariableReference value;

@@ -196,13 +196,13 @@ public class TestRunnable implements InterfaceTestRunnable {
         } catch (TimeoutException | TestCaseExecutor.TimeoutExceeded e) {
             logger.info("Test timed out!");
         } catch (Throwable e) {
-            if (e instanceof EvosuiteError) {
+            if (e instanceof EvosuiteError error) {
                 logger.info("Evosuite Error!", e);
-                throw (EvosuiteError) e;
+                throw error;
             }
-            if (e instanceof VMError) {
+            if (e instanceof VMError error) {
                 logger.info("VM Error!", e);
-                throw (VMError) e;
+                throw error;
             }
             logger.info("Exception at statement " + num + "! " + e);
             for (StackTraceElement elem : e.getStackTrace()) {
@@ -212,12 +212,12 @@ public class TestRunnable implements InterfaceTestRunnable {
                 logger.info("Cause: " + e.getCause().toString(), e);
                 e = e.getCause();
             }
-            if (e instanceof AssertionError
+            if (e instanceof AssertionError error
                     && e.getStackTrace()[0].getClassName().contains(PackageInfo.getEvoSuitePackage())) {
                 logger.error("Assertion Error in evosuitecode, for statement \n"
                         + test.getStatement(num.get()).getCode() + " \n which is number: "
                         + num + " testcase \n" + test.toCode(), e);
-                throw (AssertionError) e;
+                throw error;
             }
 
             logger.error("Suppressed/ignored exception during test case execution on class "
@@ -288,11 +288,11 @@ public class TestRunnable implements InterfaceTestRunnable {
             if (exceptionThrown != null) {
                 // if internal error, then throw exception
                 // -------------------------------------------------------
-                if (exceptionThrown instanceof VMError) {
-                    throw (VMError) exceptionThrown;
+                if (exceptionThrown instanceof VMError error) {
+                    throw error;
                 }
-                if (exceptionThrown instanceof EvosuiteError) {
-                    throw (EvosuiteError) exceptionThrown;
+                if (exceptionThrown instanceof EvosuiteError error) {
+                    throw error;
                 }
                 // -------------------------------------------------------
 

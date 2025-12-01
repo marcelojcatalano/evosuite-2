@@ -28,6 +28,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testcase.execution.TestCaseExecutor;
 import org.objectweb.asm.Type;
 
+import java.io.Serial;
 import java.util.Objects;
 import java.util.Set;
 
@@ -38,6 +39,7 @@ import static org.evosuite.coverage.io.IOCoverageConstants.*;
  */
 public class InputCoverageTestFitness extends TestFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = 6630097528288524492L;
 
     /**
@@ -282,8 +284,7 @@ public class InputCoverageTestFitness extends TestFitnessFunction {
      */
     @Override
     public int compareTo(TestFitnessFunction other) {
-        if (other instanceof InputCoverageTestFitness) {
-            InputCoverageTestFitness otherInputFitness = (InputCoverageTestFitness) other;
+        if (other instanceof InputCoverageTestFitness otherInputFitness) {
             return goal.compareTo(otherInputFitness.goal);
         }
         return compareClassName(other);

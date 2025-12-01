@@ -22,6 +22,7 @@ package com.examples.with.different.packagename.purity;
 import java.security.SecureRandom;
 import java.util.Random;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class ImpureRandomness {
 
@@ -47,6 +48,6 @@ public class ImpureRandomness {
     }
 
     public double randomMath() {
-        return Math.random();
+        return ThreadLocalRandom.current().nextDouble();
     }
 }

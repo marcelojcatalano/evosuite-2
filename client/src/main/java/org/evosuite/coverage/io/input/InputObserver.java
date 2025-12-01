@@ -65,8 +65,7 @@ public class InputObserver extends ExecutionObserver {
     @Override
     public void afterStatement(Statement statement, Scope scope,
                                Throwable exception) {
-        if (statement instanceof EntityWithParametersStatement) {
-            EntityWithParametersStatement parameterisedStatement = (EntityWithParametersStatement) statement;
+        if (statement instanceof EntityWithParametersStatement parameterisedStatement) {
             List<VariableReference> parRefs = parameterisedStatement.getParameterReferences();
 
             List<Object> argObjects = new ArrayList<>(parRefs.size());
@@ -75,8 +74,8 @@ public class InputObserver extends ExecutionObserver {
                 try {
                     if (parRef instanceof ArrayIndex || parRef instanceof FieldReference) {
                         parObject = parRef.getObject(scope);
-                    } else if (parRef instanceof ConstantValue) {
-                        parObject = ((ConstantValue) parRef).getValue();
+                    } else if (parRef instanceof ConstantValue value) {
+                        parObject = value.getValue();
                     } else {
                         parObject = parRef.getObject(scope);
                     }

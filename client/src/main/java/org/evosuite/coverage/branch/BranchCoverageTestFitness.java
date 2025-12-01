@@ -29,6 +29,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testcase.execution.MethodCall;
 import org.evosuite.utils.ArrayUtil;
 
+import java.io.Serial;
 import java.util.Objects;
 
 /**
@@ -38,6 +39,7 @@ import java.util.Objects;
  */
 public class BranchCoverageTestFitness extends TestFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = -6310967747257242580L;
 
     /**
@@ -225,8 +227,7 @@ public class BranchCoverageTestFitness extends TestFitnessFunction {
      */
     @Override
     public int compareTo(TestFitnessFunction other) {
-        if (other instanceof BranchCoverageTestFitness) {
-            BranchCoverageTestFitness otherBranchFitness = (BranchCoverageTestFitness) other;
+        if (other instanceof BranchCoverageTestFitness otherBranchFitness) {
             return goal.compareTo(otherBranchFitness.goal);
         }
         return compareClassName(other);

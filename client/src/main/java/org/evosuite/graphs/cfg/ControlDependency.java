@@ -21,11 +21,13 @@ package org.evosuite.graphs.cfg;
 
 import org.evosuite.coverage.branch.Branch;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
 public class ControlDependency implements Serializable, Comparable<ControlDependency> {
 
+    @Serial
     private static final long serialVersionUID = 6288839964561655730L;
 
     private final Branch branch;

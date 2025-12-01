@@ -21,9 +21,11 @@ package org.evosuite.testcase.fm;
 
 import org.evosuite.utils.generic.GenericClass;
 
+import java.io.Serial;
 import java.lang.reflect.Type;
 
 public class EvoAbstractMethodInvocationListener extends EvoInvocationListener {
+    @Serial
     private static final long serialVersionUID = -8389668702984369978L;
 
     public EvoAbstractMethodInvocationListener(Type retvalType) {

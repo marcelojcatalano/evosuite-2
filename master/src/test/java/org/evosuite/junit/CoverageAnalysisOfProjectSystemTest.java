@@ -26,7 +26,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.Collections;
 import java.util.List;
@@ -240,8 +240,8 @@ public class CoverageAnalysisOfProjectSystemTest extends SystemTestBase {
         // create structure
         new File(tmp, clazz.getPackage().getName().replace(".", File.separator)).mkdirs();
         // copy .class file
-        Files.copy(Paths.get(root + clazz.getCanonicalName().replace(".", File.separator) + ".class"),
-                Paths.get(tmp + File.separator + clazz.getCanonicalName().replace(".", File.separator) + ".class"),
+        Files.copy(Path.of(root + clazz.getCanonicalName().replace(".", File.separator) + ".class"),
+                Path.of(tmp + File.separator + clazz.getCanonicalName().replace(".", File.separator) + ".class"),
                 StandardCopyOption.COPY_ATTRIBUTES);
     }
 }

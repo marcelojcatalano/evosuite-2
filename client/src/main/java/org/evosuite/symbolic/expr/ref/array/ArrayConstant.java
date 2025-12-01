@@ -45,8 +45,7 @@ public abstract class ArrayConstant extends ReferenceConstant implements ArrayVa
          */
         @Override
         public boolean equals(Object obj) {
-            if (obj instanceof ArrayConstant.IntegerArrayConstant) {
-                ArrayConstant.IntegerArrayConstant v = (ArrayConstant.IntegerArrayConstant) obj;
+            if (obj instanceof ArrayConstant.IntegerArrayConstant v) {
                 return this.concreteValue.equals(v.concreteValue);
             }
             return false;
@@ -70,8 +69,7 @@ public abstract class ArrayConstant extends ReferenceConstant implements ArrayVa
          */
         @Override
         public boolean equals(Object obj) {
-            if (obj instanceof ArrayConstant.RealArrayConstant) {
-                ArrayConstant.RealArrayConstant v = (ArrayConstant.RealArrayConstant) obj;
+            if (obj instanceof ArrayConstant.RealArrayConstant v) {
                 return this.concreteValue.equals(v.concreteValue);
             }
             return false;
@@ -94,8 +92,7 @@ public abstract class ArrayConstant extends ReferenceConstant implements ArrayVa
          */
         @Override
         public boolean equals(Object obj) {
-            if (obj instanceof ArrayConstant.StringArrayConstant) {
-                ArrayConstant.StringArrayConstant v = (ArrayConstant.StringArrayConstant) obj;
+            if (obj instanceof ArrayConstant.StringArrayConstant v) {
                 return this.concreteValue.equals(v.concreteValue);
             }
             return false;
@@ -118,8 +115,7 @@ public abstract class ArrayConstant extends ReferenceConstant implements ArrayVa
          */
         @Override
         public boolean equals(Object obj) {
-            if (obj instanceof ArrayConstant.ReferenceArrayConstant) {
-                ArrayConstant.ReferenceArrayConstant v = (ArrayConstant.ReferenceArrayConstant) obj;
+            if (obj instanceof ArrayConstant.ReferenceArrayConstant v) {
                 return this.concreteValue.equals(v.concreteValue);
             }
             return false;

@@ -57,6 +57,7 @@ import org.evosuite.utils.LoggingUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.*;
 
@@ -67,6 +68,7 @@ public class MultiCriteriaManager extends StructuralGoalManager implements Seria
 
     private static final Logger logger = LoggerFactory.getLogger(MultiCriteriaManager.class);
 
+    @Serial
     private static final long serialVersionUID = 8161137239404885564L;
 
     protected BranchFitnessGraph graph;
@@ -153,8 +155,7 @@ public class MultiCriteriaManager extends StructuralGoalManager implements Seria
     private void addDependencies4TryCatch() {
         logger.debug("Added dependencies for Try-Catch");
         for (FitnessFunction<TestChromosome> ff : this.getUncoveredGoals()) {
-            if (ff instanceof TryCatchCoverageTestFitness) {
-                TryCatchCoverageTestFitness stmt = (TryCatchCoverageTestFitness) ff;
+            if (ff instanceof TryCatchCoverageTestFitness stmt) {
                 BranchCoverageTestFitness branch = new BranchCoverageTestFitness(stmt.getBranchGoal());
                 this.dependencies.get(branch).add(stmt);
             }
@@ -183,8 +184,7 @@ public class MultiCriteriaManager extends StructuralGoalManager implements Seria
     private void addDependencies4Output() {
         logger.debug("Added dependencies for Output");
         for (TestFitnessFunction ff : this.getUncoveredGoals()) {
-            if (ff instanceof OutputCoverageTestFitness) {
-                OutputCoverageTestFitness output = (OutputCoverageTestFitness) ff;
+            if (ff instanceof OutputCoverageTestFitness output) {
                 ClassLoader loader = TestGenerationContext.getInstance().getClassLoaderForSUT();
                 BytecodeInstructionPool pool = BytecodeInstructionPool.getInstance(loader);
                 if (pool.getInstructionsIn(output.getClassName(), output.getMethod()) == null) {
@@ -215,8 +215,7 @@ public class MultiCriteriaManager extends StructuralGoalManager implements Seria
     private void addDependencies4Input() {
         logger.debug("Added dependencies for Input");
         for (TestFitnessFunction ff : this.getUncoveredGoals()) {
-            if (ff instanceof InputCoverageTestFitness) {
-                InputCoverageTestFitness input = (InputCoverageTestFitness) ff;
+            if (ff instanceof InputCoverageTestFitness input) {
                 ClassLoader loader = TestGenerationContext.getInstance().getClassLoaderForSUT();
                 BytecodeInstructionPool pool = BytecodeInstructionPool.getInstance(loader);
                 if (pool.getInstructionsIn(input.getClassName(), input.getMethod()) == null) {
@@ -287,8 +286,7 @@ public class MultiCriteriaManager extends StructuralGoalManager implements Seria
     private void addDependencies4WeakMutation() {
         logger.debug("Added dependencies for Weak-Mutation");
         for (TestFitnessFunction ff : this.getUncoveredGoals()) {
-            if (ff instanceof WeakMutationTestFitness) {
-                WeakMutationTestFitness mutation = (WeakMutationTestFitness) ff;
+            if (ff instanceof WeakMutationTestFitness mutation) {
                 Set<BranchCoverageGoal> goals = mutation.getMutation().getControlDependencies();
                 if (goals.size() == 0) {
                     this.currentGoals.add(ff);
@@ -309,8 +307,7 @@ public class MultiCriteriaManager extends StructuralGoalManager implements Seria
     private void addDependencies4StrongMutation() {
         logger.debug("Added dependencies for Strong-Mutation");
         for (TestFitnessFunction ff : this.getUncoveredGoals()) {
-            if (ff instanceof StrongMutationTestFitness) {
-                StrongMutationTestFitness mutation = (StrongMutationTestFitness) ff;
+            if (ff instanceof StrongMutationTestFitness mutation) {
                 Set<BranchCoverageGoal> goals = mutation.getMutation().getControlDependencies();
                 if (goals.size() == 0) {
                     this.currentGoals.add(ff);
@@ -331,8 +328,7 @@ public class MultiCriteriaManager extends StructuralGoalManager implements Seria
     private void addDependencies4Line() {
         logger.debug("Added dependencies for Lines");
         for (TestFitnessFunction ff : this.getUncoveredGoals()) {
-            if (ff instanceof LineCoverageTestFitness) {
-                LineCoverageTestFitness line = (LineCoverageTestFitness) ff;
+            if (ff instanceof LineCoverageTestFitness line) {
                 ClassLoader loader = TestGenerationContext.getInstance().getClassLoaderForSUT();
                 BytecodeInstructionPool pool = BytecodeInstructionPool.getInstance(loader);
                 BytecodeInstruction instruction = pool.getFirstInstructionAtLineNumber(line.getClassName(), line.getMethod(), line.getLine());
@@ -356,8 +352,7 @@ public class MultiCriteriaManager extends StructuralGoalManager implements Seria
     private void addDependencies4Statement() {
         logger.debug("Added dependencies for Statements");
         for (TestFitnessFunction ff : this.getUncoveredGoals()) {
-            if (ff instanceof StatementCoverageTestFitness) {
-                StatementCoverageTestFitness stmt = (StatementCoverageTestFitness) ff;
+            if (ff instanceof StatementCoverageTestFitness stmt) {
                 if (stmt.getBranchFitnesses().size() == 0)
                     this.currentGoals.add(ff);
                 else {

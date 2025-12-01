@@ -73,8 +73,8 @@ public class ComparisonTraceObserver extends AssertionTraceObserver<ComparisonTr
                 if (statement instanceof PrimitiveStatement && otherStatement instanceof PrimitiveStatement)
                     continue; // Don't compare two primitives
 
-                if (otherStatement instanceof MethodStatement) {
-                    if (((MethodStatement) otherStatement).getMethodName().equals("hashCode"))
+                if (otherStatement instanceof MethodStatement methodStatement) {
+                    if (methodStatement.getMethodName().equals("hashCode"))
                         continue; // No comparison against hashCode, as the hashCode return value will not be in the test
                 }
 

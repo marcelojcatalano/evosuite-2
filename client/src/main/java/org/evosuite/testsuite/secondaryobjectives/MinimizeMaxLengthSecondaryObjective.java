@@ -23,6 +23,8 @@ import org.evosuite.ga.SecondaryObjective;
 import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testsuite.TestSuiteChromosome;
 
+import java.io.Serial;
+
 
 /**
  * <p>MinimizeMaxLengthSecondaryObjective class.</p>
@@ -31,6 +33,7 @@ import org.evosuite.testsuite.TestSuiteChromosome;
  */
 public class MinimizeMaxLengthSecondaryObjective extends SecondaryObjective<TestSuiteChromosome> {
 
+    @Serial
     private static final long serialVersionUID = 2270058273932360617L;
 
     private int getMaxLength(TestSuiteChromosome chromosome) {

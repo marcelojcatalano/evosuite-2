@@ -60,22 +60,17 @@ public final class ReplaceFirst extends SymbolicFunction {
                 Types.JAVA_LANG_STRING, SymbolicHeap.$STRING_VALUE,
                 conc_receiver, symb_receiver, conc_receiver);
 
-        if (symb_regex instanceof ReferenceConstant
-                && symb_replacement instanceof ReferenceConstant) {
-
-            ReferenceConstant non_null_symb_regex = (ReferenceConstant) symb_regex;
+        if (symb_regex instanceof ReferenceConstant non_null_symb_regex
+                && symb_replacement instanceof ReferenceConstant non_null_symb_replacement) {
             StringValue regexExpr = env.heap.getField(Types.JAVA_LANG_STRING,
                     SymbolicHeap.$STRING_VALUE, conc_regex,
                     non_null_symb_regex, conc_regex);
-
-            ReferenceConstant non_null_symb_replacement = (ReferenceConstant) symb_replacement;
             StringValue replacementExpr = env.heap.getField(
                     Types.JAVA_LANG_STRING, SymbolicHeap.$STRING_VALUE,
                     conc_replacement, non_null_symb_replacement,
                     conc_replacement);
 
-            if (symb_ret_val instanceof ReferenceConstant) {
-                ReferenceConstant non_null_symb_ret_val = (ReferenceConstant) symb_ret_val;
+            if (symb_ret_val instanceof ReferenceConstant non_null_symb_ret_val) {
 
                 StringMultipleExpression symb_value = new StringMultipleExpression(
                         stringReceiverExpr, Operator.REPLACEFIRST, regexExpr,

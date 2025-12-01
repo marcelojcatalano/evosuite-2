@@ -42,8 +42,8 @@ public class EqualsHashCode {
         if (x == 42)
             return true;
 
-        if (other instanceof EqualsHashCode) {
-            return ((EqualsHashCode) other).x == x;
+        if (other instanceof EqualsHashCode code) {
+            return code.x == x;
         } else {
             return other.equals(this);
         }

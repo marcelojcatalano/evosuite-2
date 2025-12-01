@@ -185,18 +185,18 @@ public class ValueMinimizer extends TestVisitor {
     /* Generics, blargh */
     @SuppressWarnings("unchecked")
     private <N extends Number> N increment(N n, int x) {
-        if (n instanceof Double) {
-            return (N) (Double) (((Double) n) + x);
-        } else if (n instanceof Float) {
-            return (N) (Float) (((Float) n) + x);
-        } else if (n instanceof Integer) {
-            return (N) (Integer) (((Integer) n) + x);
-        } else if (n instanceof Long) {
-            return (N) (Long) (((Long) n) + x);
-        } else if (n instanceof Short) {
-            return (N) (Short) (short) (((Short) n) + (short) x);
-        } else if (n instanceof Byte) {
-            return (N) (Byte) (byte) (((Byte) n) + (byte) x);
+        if (n instanceof Double double1) {
+            return (N) (Double) (double1 + x);
+        } else if (n instanceof Float float1) {
+            return (N) (Float) (float1 + x);
+        } else if (n instanceof Integer integer) {
+            return (N) (Integer) (integer + x);
+        } else if (n instanceof Long long1) {
+            return (N) (Long) (long1 + x);
+        } else if (n instanceof Short short1) {
+            return (N) (Short) (short) (short1 + (short) x);
+        } else if (n instanceof Byte byte1) {
+            return (N) (Byte) (byte) (byte1 + (byte) x);
         } else if (n == null) {
             throw new NullPointerException();
         } else {
@@ -209,18 +209,18 @@ public class ValueMinimizer extends TestVisitor {
      */
     @SuppressWarnings("unchecked")
     private <N extends Number> N getMid(N min, N max) {
-        if (min instanceof Double) {
-            return (N) (Double) (((Double) min) + (((Double) max - (Double) min) / 2.0));
-        } else if (min instanceof Float) {
-            return (N) (Float) (((Float) min) + (((Float) max - (Float) min) / 2F));
-        } else if (min instanceof Integer) {
-            return (N) (Integer) (((Integer) min) + (((Integer) max - (Integer) min) / 2));
-        } else if (min instanceof Long) {
-            return (N) (Long) (((Long) min) + (((Long) max - (Long) min) / 2L));
-        } else if (min instanceof Short) {
-            return (N) (Short) (short) (((Short) min) + (((Short) max - (Short) min) / (short) 2));
-        } else if (min instanceof Byte) {
-            return (N) (Byte) (byte) (((Byte) min) + (((Byte) max - (Byte) min) / (byte) 2));
+        if (min instanceof Double double1) {
+            return (N) (Double) (double1 + (((Double) max - double1) / 2.0));
+        } else if (min instanceof Float float1) {
+            return (N) (Float) (float1 + (((Float) max - float1) / 2F));
+        } else if (min instanceof Integer integer) {
+            return (N) (Integer) (integer + (((Integer) max - integer) / 2));
+        } else if (min instanceof Long long1) {
+            return (N) (Long) (long1 + (((Long) max - long1) / 2L));
+        } else if (min instanceof Short short1) {
+            return (N) (Short) (short) (short1 + (((Short) max - short1) / (short) 2));
+        } else if (min instanceof Byte byte1) {
+            return (N) (Byte) (byte) (byte1 + (((Byte) max - byte1) / (byte) 2));
         } else if (min == null) {
             throw new NullPointerException();
         } else {
@@ -269,10 +269,10 @@ public class ValueMinimizer extends TestVisitor {
             if (lastValue != null && lastValue.equals(newValue)) {
                 break;
             }
-            if (lastValue instanceof Double) {
-                double oldVal = Math.abs((Double) lastValue);
+            if (lastValue instanceof Double double1) {
+                double oldVal = Math.abs(double1);
                 if (oldVal < 1.0) {
-                    newValue = (T) new Double(0.0);
+                    newValue = (T) Double.valueOf(0.0);
                     constantValue.setValue(newValue);
                     if (!objective.isNotWorse()) {
                         constantValue.setValue(lastValue);
@@ -280,10 +280,10 @@ public class ValueMinimizer extends TestVisitor {
                     break;
                 }
             }
-            if (lastValue instanceof Float) {
-                double oldVal = Math.abs((Float) lastValue);
+            if (lastValue instanceof Float float1) {
+                double oldVal = Math.abs(float1);
                 if (oldVal < 1.0F) {
-                    newValue = (T) new Float(0.0F);
+                    newValue = (T) Float.valueOf(0.0F);
                     constantValue.setValue(newValue);
                     if (!objective.isNotWorse()) {
                         constantValue.setValue(lastValue);
@@ -411,8 +411,7 @@ public class ValueMinimizer extends TestVisitor {
     @Override
     public void visitStatement(Statement statement) {
         for (VariableReference var : statement.getVariableReferences()) {
-            if (var instanceof ConstantValue) {
-                ConstantValue constantValue = (ConstantValue) var;
+            if (var instanceof ConstantValue constantValue) {
                 Object value = constantValue.getValue();
                 if (value instanceof String) {
                     logger.info("Statement before minimization: " + statement.getCode());

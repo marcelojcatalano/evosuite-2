@@ -203,8 +203,7 @@ public abstract class AbstractConverter implements Converter {
                 return null;
             }
         }
-        if (value instanceof Collection) {
-            Collection collection = (Collection) value;
+        if (value instanceof Collection collection) {
             if (collection.size() > 0) {
                 return collection.iterator().next();
             } else {
@@ -233,8 +232,8 @@ public abstract class AbstractConverter implements Converter {
         }
 
         ConversionException cex = null;
-        if (cause instanceof ConversionException) {
-            cex = (ConversionException) cause;
+        if (cause instanceof ConversionException exception) {
+            cex = exception;
         } else {
             String msg = "Error converting from '" + toString(value.getClass()) +
                     "' to '" + toString(type) + "' " + cause.getMessage();

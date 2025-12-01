@@ -261,15 +261,15 @@ public class DSEStatistics {
 
     private void logSolverQueryCacheStatistics() {
         logger.info("* Solver Query Cache:");
-        logger.info(String.format("  - Query Cache size: %s", querycacheSize));
-        logger.info(String.format("  - Query Cache calls: %s", queryCacheCalls));
-        logger.info(String.format("  - Query Cache hitRare: %s", getQueryCacheHitRate(queryCacheHits, queryCacheCalls)));
+        logger.info("  - Query Cache size: %s".formatted(querycacheSize));
+        logger.info("  - Query Cache calls: %s".formatted(queryCacheCalls));
+        logger.info("  - Query Cache hitRare: %s".formatted(getQueryCacheHitRate(queryCacheHits, queryCacheCalls)));
     }
 
     private void logPathsExploredStatistics() {
         logger.info("* Paths exploration:");
-        logger.info(String.format("  - paths explored: %s", pathsExploredCounter));
-        logger.info(String.format("  - diverged paths: %s", pathDivergencesCounter));
+        logger.info("  - paths explored: %s".formatted(pathsExploredCounter));
+        logger.info("  - diverged paths: %s".formatted(pathDivergencesCounter));
     }
 
     private void logAdaptationStatistics() {
@@ -298,25 +298,25 @@ public class DSEStatistics {
 
         } else {
 
-            logger.info(String.format("  - Stored SAT constraints: %s", numberOfSATs));
+            logger.info("  - Stored SAT constraints: %s".formatted(numberOfSATs));
 
-            logger.info(String.format("  - Stored UNSAT constraints: %s", numberOfUNSATs));
+            logger.info("  - Stored UNSAT constraints: %s".formatted(numberOfUNSATs));
 
             NumberFormat percentFormat = NumberFormat.getPercentInstance();
             percentFormat.setMaximumFractionDigits(1);
             String hit_rate_str = percentFormat.format(SolverCache.getInstance().getHitRate());
-            logger.info(String.format("  - Cache hit rate: %s", hit_rate_str));
+            logger.info("  - Cache hit rate: %s".formatted(hit_rate_str));
         }
     }
 
     private void logTimeStatistics() {
         logger.info("* Time Statistics");
-        logger.info(String.format("  - Time spent executing test cases: %sms", totalTestExecutionTime));
-        logger.info(String.format("  - Time spent executing test concolically: %sms",
-                totalConcolicExecutionTimeMillis));
-        logger.info(String.format("  - Time spent executing non concolic test cases: %sms",
-                totalTestExecutionTime - totalConcolicExecutionTimeMillis));
-        logger.info(String.format("  - Time spent solving constraints: %sms", totalSolvingTimeMillis));
+        logger.info("  - Time spent executing test cases: %sms".formatted(totalTestExecutionTime));
+        logger.info("  - Time spent executing test concolically: %sms".formatted(
+            totalConcolicExecutionTimeMillis));
+        logger.info("  - Time spent executing non concolic test cases: %sms".formatted(
+            totalTestExecutionTime - totalConcolicExecutionTimeMillis));
+        logger.info("  - Time spent solving constraints: %sms".formatted(totalSolvingTimeMillis));
     }
 
     private void logSolverStatistics() {
@@ -353,20 +353,20 @@ public class DSEStatistics {
         }
 
         logger.info("* Solving statistics");
-        logger.info(String.format("  - SAT: %s (%s)", getSAT(),
-                SAT_ratio_str));
-        logger.info(String.format("  - Useful Tests: %s (%s)",
-                getUsefulTests(), useful_tests_ratio_str));
-        logger.info(String.format("  - Unuseful Tests:  %s (%s)",
-                getUnusefulTests(), unuseful_tests_ratio_str));
-        logger.info(String.format("  - UNSAT: %s (%s)",
-                getUNSAT(), UNSAT_ratio_str));
-        logger.info(String.format("  - Timeouts: %s (%s)",
-                timeout_ratio_str, getTimeouts()));
+        logger.info("  - SAT: %s (%s)".formatted(getSAT(),
+            SAT_ratio_str));
+        logger.info("  - Useful Tests: %s (%s)".formatted(
+            getUsefulTests(), useful_tests_ratio_str));
+        logger.info("  - Unuseful Tests:  %s (%s)".formatted(
+            getUnusefulTests(), unuseful_tests_ratio_str));
+        logger.info("  - UNSAT: %s (%s)".formatted(
+            getUNSAT(), UNSAT_ratio_str));
+        logger.info("  - Timeouts: %s (%s)".formatted(
+            timeout_ratio_str, getTimeouts()));
 
-        logger.info(String.format("  - # Constraint solvings: %s (%s+%s)",
-                total_constraint_solvings, getSAT(),
-                getUNSAT()));
+        logger.info("  - # Constraint solvings: %s (%s+%s)".formatted(
+            total_constraint_solvings, getSAT(),
+            getUNSAT()));
 
     }
 
@@ -384,19 +384,19 @@ public class DSEStatistics {
         int integerRealStringConstraints = constraintTypeCounter.getIntegerRealAndStringConstraints();
 
         if (total == 0) {
-            logger.info(String.format("  - no constraints {}", avgConstraintSize));
+            logger.info("  - no constraints {}".formatted(avgConstraintSize));
         } else {
-            String line1 = String.format("  - Number of integer only constraints : %s / %s ", integerOnly, total);
-            String line2 = String.format("  - Number of real only constraints : %s", realOnly, total);
-            String line3 = String.format("  - Number of string only constraints : %s", stringOnly, total);
-            String line4 = String.format("  - Number of integer+real constraints : %s / %s ", integerRealOnly,
-                    total);
-            String line5 = String.format("  - Number of integer+string constraints : %s / %s ", integerStringOnly,
-                    total);
-            String line6 = String.format("  - Number of real+string constraints : %s / %s ", realStringOnly,
-                    total);
-            String line7 = String.format("  - Number of integer+real+string constraints : %s / %s ",
-                    integerRealStringConstraints, total);
+            String line1 = "  - Number of integer only constraints : %s / %s ".formatted(integerOnly, total);
+            String line2 = "  - Number of real only constraints : %s".formatted(realOnly, total);
+            String line3 = "  - Number of string only constraints : %s".formatted(stringOnly, total);
+            String line4 = "  - Number of integer+real constraints : %s / %s ".formatted(integerRealOnly,
+                total);
+            String line5 = "  - Number of integer+string constraints : %s / %s ".formatted(integerStringOnly,
+                total);
+            String line6 = "  - Number of real+string constraints : %s / %s ".formatted(realStringOnly,
+                total);
+            String line7 = "  - Number of integer+real+string constraints : %s / %s ".formatted(
+                integerRealStringConstraints, total);
 
             logger.info(line1);
             logger.info(line2);
@@ -411,18 +411,18 @@ public class DSEStatistics {
 
     private void logConstraintSizeStatistics() {
         logger.info("* Constraint size:");
-        logger.info(String.format("  - max constraint size: %s", maxConstraintSize));
-        logger.info(String.format("  - min constraint size: %s", minConstraintSize));
-        logger.info(String.format("  - avg constraint size: %s", avgConstraintSize));
-        logger.info(String.format("  - Too big constraints: %s (max size %s)",
-                getConstraintTooLongCounter(), Properties.DSE_CONSTRAINT_LENGTH));
+        logger.info("  - max constraint size: %s".formatted(maxConstraintSize));
+        logger.info("  - min constraint size: %s".formatted(minConstraintSize));
+        logger.info("  - avg constraint size: %s".formatted(avgConstraintSize));
+        logger.info("  - Too big constraints: %s (max size %s)".formatted(
+            getConstraintTooLongCounter(), Properties.DSE_CONSTRAINT_LENGTH));
     }
 
     private void logPathConditionLengthStatistics() {
         logger.info("* Path condition length:");
-        logger.info(String.format("  - max path condition length: %s", maxPathConditionLength));
-        logger.info(String.format("  - min path condition length: %s", minPathConditionLength));
-        logger.info(String.format("  - avg path condition length: %s", avgPathConditionLength));
+        logger.info("  - max path condition length: %s".formatted(maxPathConditionLength));
+        logger.info("  - min path condition length: %s".formatted(minPathConditionLength));
+        logger.info("  - avg path condition length: %s".formatted(avgPathConditionLength));
     }
 
     private int getConstraintTooLongCounter() {

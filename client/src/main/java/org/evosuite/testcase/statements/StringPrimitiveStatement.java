@@ -28,10 +28,7 @@ import org.evosuite.testcase.execution.CodeUnderTestException;
 import org.evosuite.testcase.execution.Scope;
 import org.evosuite.utils.Randomness;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 
 /**
@@ -43,6 +40,7 @@ import java.lang.reflect.InvocationTargetException;
  */
 public class StringPrimitiveStatement extends PrimitiveStatement<String> {
 
+    @Serial
     private static final long serialVersionUID = 274445526699835887L;
 
     /**

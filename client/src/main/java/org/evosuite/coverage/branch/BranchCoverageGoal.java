@@ -25,10 +25,7 @@ import org.evosuite.graphs.cfg.BytecodeInstructionPool;
 import org.evosuite.graphs.cfg.ControlDependency;
 import org.evosuite.testcase.execution.ExecutionResult;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 
 /**
  * A single branch coverage goal Either true/false evaluation of a jump
@@ -38,6 +35,7 @@ import java.io.Serializable;
  */
 public class BranchCoverageGoal implements Serializable, Comparable<BranchCoverageGoal> {
 
+    @Serial
     private static final long serialVersionUID = 2962922303111452419L;
 
     /**

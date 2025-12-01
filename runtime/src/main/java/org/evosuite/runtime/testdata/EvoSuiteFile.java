@@ -21,6 +21,7 @@
 package org.evosuite.runtime.testdata;
 
 import java.io.File;
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -30,6 +31,7 @@ import java.io.Serializable;
  */
 public class EvoSuiteFile implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -4900126189189434483L;
 
     private final String path;

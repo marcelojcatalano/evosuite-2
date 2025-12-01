@@ -21,8 +21,11 @@ package org.evosuite.ga.operators.mutation;
 
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
+
 public class UniformMutation extends MutationDistribution {
 
+    @Serial
     private static final long serialVersionUID = -2352083320831156232L;
 
     public UniformMutation(int sizeOfDistribution) {

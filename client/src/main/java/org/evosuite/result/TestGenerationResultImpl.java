@@ -25,6 +25,7 @@ import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 import org.evosuite.symbolic.dse.algorithm.ExplorationAlgorithmBase;
 import org.evosuite.testcase.TestCase;
 
+import java.io.Serial;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -32,6 +33,7 @@ import java.util.Set;
 
 class TestGenerationResultImpl<T extends Chromosome<T>> implements TestGenerationResult<T> {
 
+    @Serial
     private static final long serialVersionUID = 1306033906557741929L;
 
     private Status status = Status.ERROR;

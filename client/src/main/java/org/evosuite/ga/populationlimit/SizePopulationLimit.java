@@ -22,6 +22,7 @@ package org.evosuite.ga.populationlimit;
 import org.evosuite.Properties;
 import org.evosuite.ga.Chromosome;
 
+import java.io.Serial;
 import java.util.List;
 
 
@@ -32,6 +33,7 @@ import java.util.List;
  */
 public class SizePopulationLimit<T extends Chromosome<T>> implements PopulationLimit<T> {
 
+    @Serial
     private static final long serialVersionUID = 7978512501601348014L;
 
     public SizePopulationLimit() {

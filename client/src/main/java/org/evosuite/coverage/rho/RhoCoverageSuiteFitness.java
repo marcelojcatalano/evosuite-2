@@ -24,6 +24,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 
+import java.io.Serial;
 import java.util.*;
 
 /**
@@ -31,6 +32,7 @@ import java.util.*;
  */
 public class RhoCoverageSuiteFitness extends TestSuiteFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = 5460600509431741746L;
 
     private int previous_number_of_ones = 0;

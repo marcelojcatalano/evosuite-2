@@ -23,9 +23,12 @@ import org.evosuite.ga.ConstructionFailedException;
 import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 
+import java.io.Serial;
+
 public abstract class AbstractTestChromosome<E extends AbstractTestChromosome<E>> extends ExecutableChromosome<E> {
 
 
+    @Serial
     private static final long serialVersionUID = 8274081309132365034L;
     /**
      * The test case encoded in this chromosome

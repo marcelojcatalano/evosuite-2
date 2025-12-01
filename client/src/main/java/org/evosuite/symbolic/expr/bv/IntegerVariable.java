@@ -23,12 +23,14 @@ import org.evosuite.symbolic.expr.AbstractExpression;
 import org.evosuite.symbolic.expr.ExpressionVisitor;
 import org.evosuite.symbolic.expr.Variable;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
 public final class IntegerVariable extends AbstractExpression<Long> implements
         IntegerValue, Variable<Long> {
 
+    @Serial
     private static final long serialVersionUID = 6302073364874210525L;
 
     private final String name;
@@ -102,8 +104,7 @@ public final class IntegerVariable extends AbstractExpression<Long> implements
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof IntegerVariable) {
-            IntegerVariable v = (IntegerVariable) obj;
+        if (obj instanceof IntegerVariable v) {
             return this.getName().equals(v.getName());
         }
         return false;

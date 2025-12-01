@@ -34,6 +34,7 @@ import org.evosuite.testcase.execution.TestCaseExecutor;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -46,6 +47,7 @@ import java.util.Set;
  */
 public abstract class MutationTestFitness extends TestFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = 596930765039928708L;
 
     protected transient Mutation mutation;
@@ -204,8 +206,8 @@ public abstract class MutationTestFitness extends TestFitnessFunction {
      */
     @Override
     public int compareTo(TestFitnessFunction other) {
-        if (other instanceof MutationTestFitness) {
-            return mutation.compareTo(((MutationTestFitness) other).getMutation());
+        if (other instanceof MutationTestFitness fitness) {
+            return mutation.compareTo(fitness.getMutation());
         }
         return compareClassName(other);
     }

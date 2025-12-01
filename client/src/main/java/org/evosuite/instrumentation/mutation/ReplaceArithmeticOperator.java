@@ -125,8 +125,7 @@ public class ReplaceArithmeticOperator implements MutationOperator {
         int index = 0;
         while (it.hasNext()) {
             AbstractInsnNode node = it.next();
-            if (node instanceof VarInsnNode) {
-                VarInsnNode varNode = (VarInsnNode) node;
+            if (node instanceof VarInsnNode varNode) {
                 int varIndex = varNode.var;
                 switch (varNode.getOpcode()) {
                     case Opcodes.ALOAD:

@@ -227,23 +227,23 @@ public abstract class NumberConverter extends AbstractConverter {
 
         Class sourceType = value.getClass();
         // Handle Number
-        if (value instanceof Number) {
-            return toNumber(sourceType, targetType, (Number) value);
+        if (value instanceof Number number) {
+            return toNumber(sourceType, targetType, number);
         }
 
         // Handle Boolean
-        if (value instanceof Boolean) {
-            return toNumber(sourceType, targetType, (Boolean) value ? ONE : ZERO);
+        if (value instanceof Boolean boolean1) {
+            return toNumber(sourceType, targetType, boolean1 ? ONE : ZERO);
         }
 
         // Handle Date --> Long
-        if (value instanceof Date && Long.class.equals(targetType)) {
-            return ((Date) value).getTime();
+        if (value instanceof Date date && Long.class.equals(targetType)) {
+            return date.getTime();
         }
 
         // Handle Calendar --> Long
-        if (value instanceof Calendar && Long.class.equals(targetType)) {
-            return ((Calendar) value).getTime().getTime();
+        if (value instanceof Calendar calendar && Long.class.equals(targetType)) {
+            return calendar.getTime().getTime();
         }
 
         // Convert all other types to String & handle
@@ -359,8 +359,8 @@ public abstract class NumberConverter extends AbstractConverter {
         if (targetType.equals(BigDecimal.class)) {
             if (value instanceof Float || value instanceof Double) {
                 return new BigDecimal(value.toString());
-            } else if (value instanceof BigInteger) {
-                return new BigDecimal((BigInteger) value);
+            } else if (value instanceof BigInteger integer) {
+                return new BigDecimal(integer);
             } else {
                 return BigDecimal.valueOf(value.longValue());
             }
@@ -368,8 +368,8 @@ public abstract class NumberConverter extends AbstractConverter {
 
         // BigInteger
         if (targetType.equals(BigInteger.class)) {
-            if (value instanceof BigDecimal) {
-                return ((BigDecimal) value).toBigInteger();
+            if (value instanceof BigDecimal decimal) {
+                return decimal.toBigInteger();
             } else {
                 return BigInteger.valueOf(value.longValue());
             }
@@ -405,32 +405,32 @@ public abstract class NumberConverter extends AbstractConverter {
 
         // Byte
         if (targetType.equals(Byte.class)) {
-            return new Byte(value);
+            return Byte.valueOf(value);
         }
 
         // Short
         if (targetType.equals(Short.class)) {
-            return new Short(value);
+            return Short.valueOf(value);
         }
 
         // Integer
         if (targetType.equals(Integer.class)) {
-            return new Integer(value);
+            return Integer.valueOf(value);
         }
 
         // Long
         if (targetType.equals(Long.class)) {
-            return new Long(value);
+            return Long.valueOf(value);
         }
 
         // Float
         if (targetType.equals(Float.class)) {
-            return new Float(value);
+            return Float.valueOf(value);
         }
 
         // Double
         if (targetType.equals(Double.class)) {
-            return new Double(value);
+            return Double.valueOf(value);
         }
 
         // BigDecimal
@@ -514,8 +514,8 @@ public abstract class NumberConverter extends AbstractConverter {
         Number parsedNumber = format.parse(value, pos);
         if (pos.getErrorIndex() >= 0 || pos.getIndex() != value.length() || parsedNumber == null) {
             String msg = "Error converting from '" + toString(sourceType) + "' to '" + toString(targetType) + "'";
-            if (format instanceof DecimalFormat) {
-                msg += " using pattern '" + ((DecimalFormat) format).toPattern() + "'";
+            if (format instanceof DecimalFormat decimalFormat) {
+                msg += " using pattern '" + decimalFormat.toPattern() + "'";
             }
             if (locale != null) {
                 msg += " for locale=[" + locale + "]";

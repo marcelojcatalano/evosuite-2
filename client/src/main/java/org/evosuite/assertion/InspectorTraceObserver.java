@@ -89,25 +89,25 @@ public class InspectorTraceObserver extends AssertionTraceObserver<InspectorTrac
                     logger.debug("Inspector " + i.getMethodCall() + " is: " + value);
 
                     // We need no assertions that include the memory location
-                    if (value instanceof String) {
+                    if (value instanceof String string) {
                         // String literals may not be longer than 32767
-                        if (((String) value).length() >= 32767)
+                        if (string.length() >= 32767)
                             continue;
 
                         // Maximum length of strings we look at
-                        if (((String) value).length() > Properties.MAX_STRING)
+                        if (string.length() > Properties.MAX_STRING)
                             continue;
 
                         // If we suspect an Object hashCode not use this, as it may lead to flaky tests
-                        if (addressPattern.matcher((String) value).find())
+                        if (addressPattern.matcher(string).find())
                             continue;
                         // The word "hashCode" is also suspicious
-                        if (((String) value).toLowerCase().contains("hashcode"))
+                        if (string.toLowerCase().contains("hashcode"))
                             continue;
                         // Avoid asserting anything on values referring to mockito proxy objects
-                        if (((String) value).toLowerCase().contains("EnhancerByMockito"))
+                        if (string.toLowerCase().contains("EnhancerByMockito"))
                             continue;
-                        if (((String) value).toLowerCase().contains("$MockitoMock$"))
+                        if (string.toLowerCase().contains("$MockitoMock$"))
                             continue;
 
                         if (target instanceof URL) {

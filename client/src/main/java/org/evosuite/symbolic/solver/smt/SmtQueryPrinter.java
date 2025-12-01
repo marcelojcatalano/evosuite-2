@@ -39,7 +39,7 @@ public class SmtQueryPrinter {
 
         for (String optionName : query.getOptions()) {
             String optionValue = query.getOptionValue(optionName);
-            buff.append(String.format("(set-option %s %s)%n", optionName, optionValue));
+            buff.append("(set-option %s %s)%n".formatted(optionName, optionValue));
             buff.append("\n");
         }
         buff.append("\n");
@@ -85,28 +85,26 @@ public class SmtQueryPrinter {
         SmtExprPrinter printer = new SmtExprPrinter();
         SmtExpr expr = smtAssertion.getFormula();
         String exprStr = expr.accept(printer, null);
-        String str = String.format("(assert %s)", exprStr);
+        String str = "(assert %s)".formatted(exprStr);
         return str;
     }
 
     public String print(SmtFunctionDefinition functionDeclaration) {
-        String str = String.format("(define-fun %s)", functionDeclaration.getFunctionDefinition());
+        String str = "(define-fun %s)".formatted(functionDeclaration.getFunctionDefinition());
         return str;
     }
 
     public String print(SmtFunctionDeclaration functionDeclaration) {
-        String str = String.format(
-                "(declare-fun %s () %s)",
-                functionDeclaration.getFunctionName(),
-                buildSortsString(functionDeclaration.getFunctionSorts()));
+        String str = "(declare-fun %s () %s)".formatted(
+            functionDeclaration.getFunctionName(),
+            buildSortsString(functionDeclaration.getFunctionSorts()));
         return str;
     }
 
     public String print(SmtConstantDeclaration constantDeclaration) {
-        String str = String.format(
-                "(declare-const %s %s)",
-                constantDeclaration.getConstantName(),
-                buildSortsString(constantDeclaration.getConstantSorts()));
+        String str = "(declare-const %s %s)".formatted(
+            constantDeclaration.getConstantName(),
+            buildSortsString(constantDeclaration.getConstantSorts()));
         return str;
     }
 

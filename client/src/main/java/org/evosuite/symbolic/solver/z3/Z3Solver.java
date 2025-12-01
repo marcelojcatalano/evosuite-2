@@ -147,7 +147,7 @@ public class Z3Solver extends SmtSolver {
             String str = String.valueOf(c);
             String encodedStr = encodeString(str);
             if (i < ASCII_TABLE_LENGTH - 1) {
-                String iteStr = String.format("(ite (= x!1 %s) \"%s\"", i, encodedStr);
+                String iteStr = "(ite (= x!1 %s) \"%s\"".formatted(i, encodedStr);
                 buff.append(iteStr);
                 buff.append("\n");
             } else {
@@ -170,7 +170,7 @@ public class Z3Solver extends SmtSolver {
             String str = String.valueOf(c);
             String encodedStr = encodeString(str);
             if (i < ASCII_TABLE_LENGTH - 1) {
-                String iteStr = String.format("(ite (= x!1 \"%s\") %s", encodedStr, i);
+                String iteStr = "(ite (= x!1 \"%s\") %s".formatted(encodedStr, i);
                 buff.append(iteStr);
                 buff.append("\n");
             } else {

@@ -69,11 +69,9 @@ public class GenericUtils {
     }
 
     public static Type replaceTypeVariablesWithWildcards(Type targetType) {
-        if (targetType instanceof TypeVariable) {
-            TypeVariable<?> typeVariable = (TypeVariable<?>) targetType;
+        if (targetType instanceof TypeVariable<?> typeVariable) {
             return new WildcardTypeImpl(typeVariable.getBounds(), new Type[]{});
-        } else if (targetType instanceof ParameterizedType) {
-            ParameterizedType parameterizedType = (ParameterizedType) targetType;
+        } else if (targetType instanceof ParameterizedType parameterizedType) {
             Type owner = null;
             if (parameterizedType.getOwnerType() != null)
                 owner = replaceTypeVariablesWithWildcards(parameterizedType.getOwnerType());
@@ -92,14 +90,12 @@ public class GenericUtils {
                                            Type variableType) {
         if (targetType instanceof Class<?>)
             return targetType;
-        else if (targetType instanceof GenericArrayType) {
-            GenericArrayType gType = (GenericArrayType) targetType;
+        else if (targetType instanceof GenericArrayType gType) {
             Type componentType = replaceTypeVariable(gType.getGenericComponentType(),
                     variable, variableType);
             return GenericArrayTypeImpl.createArrayType(componentType);
 
-        } else if (targetType instanceof ParameterizedType) {
-            ParameterizedType pType = (ParameterizedType) targetType;
+        } else if (targetType instanceof ParameterizedType pType) {
             Type ownerType = null;
             if (pType.getOwnerType() != null) {
                 ownerType = replaceTypeVariable(pType.getOwnerType(), variable,
@@ -135,8 +131,7 @@ public class GenericUtils {
             return new ParameterizedTypeImpl((Class<?>) pType.getRawType(),
                     parameterTypes, ownerType);
 
-        } else if (targetType instanceof WildcardType) {
-            WildcardType wType = (WildcardType) targetType;
+        } else if (targetType instanceof WildcardType wType) {
             Type[] originalUpperBounds = wType.getUpperBounds();
             Type[] originalLowerBounds = wType.getLowerBounds();
             Type[] upperBounds = new Type[originalUpperBounds.length];
@@ -215,12 +210,12 @@ public class GenericUtils {
                     Type a = p2TypesA[i];
                     Type b = p2TypesB[i];
                     logger.debug("Should be mapping " + a + " and " + b);
-                    if (a instanceof TypeVariable<?>) {
-                        logger.debug(a + " is a type variable: " + ((TypeVariable<?>) a).getGenericDeclaration());
-                        if (b instanceof TypeVariable<?>) {
-                            logger.debug(b + " is a type variable: " + ((TypeVariable<?>) b).getGenericDeclaration());
+                    if (a instanceof TypeVariable<?> variable1) {
+                        logger.debug(a + " is a type variable: " + variable1.getGenericDeclaration());
+                        if (b instanceof TypeVariable<?> variable) {
+                            logger.debug(b + " is a type variable: " + variable.getGenericDeclaration());
                             if (commonsMap.containsKey(a) && !(commonsMap.get(a) instanceof WildcardType) && !(commonsMap.get(a) instanceof TypeVariable<?>))
-                                map.put((TypeVariable<?>) b, commonsMap.get(a));
+                                map.put(variable, commonsMap.get(a));
                             //else
                             //	map.put((TypeVariable<?>)a, b);
                         }
@@ -261,14 +256,14 @@ public class GenericUtils {
             if (t1 == t2)
                 continue;
             logger.debug("First match: " + t1 + " - " + t2);
-            if (t1 instanceof TypeVariable<?>) {
-                map.put((TypeVariable<?>) t1, t2);
+            if (t1 instanceof TypeVariable<?> variable) {
+                map.put(variable, t2);
             }
-            if (t2 instanceof TypeVariable<?>) {
-                map.put((TypeVariable<?>) t2, t1);
-            } else if (t2 instanceof ParameterizedType && t1 instanceof ParameterizedType) {
-                map.putAll(getMatchingTypeParameters((ParameterizedType) t1,
-                        (ParameterizedType) t2));
+            if (t2 instanceof TypeVariable<?> variable) {
+                map.put(variable, t1);
+            } else if (t2 instanceof ParameterizedType type && t1 instanceof ParameterizedType type1) {
+                map.putAll(getMatchingTypeParameters(type1,
+                        type));
             }
             logger.debug("Updated map: " + map);
 

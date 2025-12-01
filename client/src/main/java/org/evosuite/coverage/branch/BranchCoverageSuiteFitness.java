@@ -37,6 +37,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -47,6 +48,7 @@ import java.util.Map.Entry;
  */
 public class BranchCoverageSuiteFitness extends TestSuiteFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = 2991632394620406243L;
 
     private final static Logger logger = LoggerFactory.getLogger(BranchCoverageSuiteFitness.class);
@@ -166,8 +168,7 @@ public class BranchCoverageSuiteFitness extends TestSuiteFitnessFunction {
         if (result.test.hasStatement(exceptionPosition)) {
             statement = result.test.getStatement(exceptionPosition);
         }
-        if (statement instanceof ConstructorStatement) {
-            ConstructorStatement c = (ConstructorStatement) statement;
+        if (statement instanceof ConstructorStatement c) {
             String className = c.getConstructor().getName();
             String methodName = "<init>" + Type.getConstructorDescriptor(c.getConstructor().getConstructor());
             String name = className + "." + methodName;

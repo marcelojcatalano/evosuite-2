@@ -294,11 +294,11 @@ public final class CVC4Solver extends SmtSolver {
             }
             String escapedHexStr = "\\x" + hexStr;
             if (i < ASCII_TABLE_LENGTH - 1) {
-                String iteStr = String.format("(ite (= !x %s) \"%s\"", i, escapedHexStr);
+                String iteStr = "(ite (= !x %s) \"%s\"".formatted(i, escapedHexStr);
                 buff.append(iteStr);
                 buff.append("\n");
             } else {
-                buff.append(String.format("\"%s\"", escapedHexStr));
+                buff.append("\"%s\"".formatted(escapedHexStr));
             }
         }
         for (int i = 0; i < ASCII_TABLE_LENGTH - 1; i++) {
@@ -320,7 +320,7 @@ public final class CVC4Solver extends SmtSolver {
             }
             String escapedHexStr = "\\x" + hexStr;
             if (i < ASCII_TABLE_LENGTH - 1) {
-                String iteStr = String.format("(ite (= !x \"%s\") %s", escapedHexStr, i);
+                String iteStr = "(ite (= !x \"%s\") %s".formatted(escapedHexStr, i);
                 buff.append(iteStr);
                 buff.append("\n");
             } else {

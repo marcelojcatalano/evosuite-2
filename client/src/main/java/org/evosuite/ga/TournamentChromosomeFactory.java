@@ -22,6 +22,8 @@ package org.evosuite.ga;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 /**
  * <p>
  * TournamentChromosomeFactory class.
@@ -33,6 +35,7 @@ import org.slf4j.LoggerFactory;
 public class TournamentChromosomeFactory<T extends Chromosome<T>> implements
         ChromosomeFactory<T> {
 
+    @Serial
     private static final long serialVersionUID = -2493386206236363431L;
 
     private static final Logger logger = LoggerFactory.getLogger(TournamentChromosomeFactory.class);

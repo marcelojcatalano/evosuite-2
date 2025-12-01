@@ -30,14 +30,11 @@ import org.evosuite.symbolic.expr.ref.ReferenceExpression;
 public class OperandUtils {
 
     public static Expression<?> retrieveOperandExpression(Operand operand) {
-        if (operand instanceof IntegerOperand) {
-            IntegerOperand intOp = (IntegerOperand) operand;
+        if (operand instanceof IntegerOperand intOp) {
             return intOp.getIntegerExpression();
-        } else if (operand instanceof RealOperand) {
-            RealOperand realOp = (RealOperand) operand;
+        } else if (operand instanceof RealOperand realOp) {
             return realOp.getRealExpression();
-        } else if (operand instanceof ReferenceOperand) {
-            ReferenceOperand referenceOperand = (ReferenceOperand) operand;
+        } else if (operand instanceof ReferenceOperand referenceOperand) {
             return referenceOperand.getReference();
         } else {
             throw new IllegalStateException("Unexpected operandType: " + operand.getClass().getName() + " is not a supported operand.");
@@ -45,14 +42,11 @@ public class OperandUtils {
     }
 
     public static Operand expressionToOperand(Expression expression) {
-        if (expression instanceof IntegerValue) {
-            IntegerValue intExpression = (IntegerValue) expression;
+        if (expression instanceof IntegerValue intExpression) {
             return new Bv64Operand(intExpression);
-        } else if (expression instanceof RealValue) {
-            RealValue realExpression = (RealValue) expression;
+        } else if (expression instanceof RealValue realExpression) {
             return new Fp64Operand(realExpression);
-        } else if (expression instanceof ReferenceExpression) {
-            ReferenceExpression referenceExpression = (ReferenceExpression) expression;
+        } else if (expression instanceof ReferenceExpression referenceExpression) {
             return new ReferenceOperand(referenceExpression);
         } else {
             throw new IllegalStateException("Unexpected expression type: " + expression.getClass().getName() + " is not a supported operand.");

@@ -28,6 +28,7 @@ import org.evosuite.utils.generic.GenericClass;
 import org.evosuite.utils.generic.GenericClassFactory;
 import org.evosuite.utils.generic.GenericClassImpl;
 
+import java.io.Serial;
 import java.lang.reflect.Type;
 
 
@@ -38,6 +39,7 @@ import java.lang.reflect.Type;
  */
 public class ConstantValue extends VariableReferenceImpl {
 
+    @Serial
     private static final long serialVersionUID = -3760942087575495415L;
 
     /**
@@ -135,8 +137,7 @@ public class ConstantValue extends VariableReferenceImpl {
     public String getName() {
         if (value == null) {
             return "null";
-        } else if (value instanceof Class<?>) {
-            Class<?> cl = (Class<?>) value;
+        } else if (value instanceof Class<?> cl) {
             String name = cl.getSimpleName();
             return name + ".class";
         }
@@ -164,8 +165,7 @@ public class ConstantValue extends VariableReferenceImpl {
         if (!this.type.equals(r.getGenericClass()))
             return false;
 
-        if (r instanceof ConstantValue) {
-            ConstantValue v = (ConstantValue) r;
+        if (r instanceof ConstantValue v) {
             if (this.value == null) {
                 return v.getValue() == null;
             } else {
@@ -179,8 +179,8 @@ public class ConstantValue extends VariableReferenceImpl {
     @Override
     public void changeClassLoader(ClassLoader loader) {
         super.changeClassLoader(loader);
-        if (value instanceof Class<?>) {
-            GenericClass<?> genericClass = GenericClassFactory.get((Class<?>) value);
+        if (value instanceof Class<?> class1) {
+            GenericClass<?> genericClass = GenericClassFactory.get(class1);
             genericClass.changeClassLoader(loader);
             value = genericClass.getRawClass();
 

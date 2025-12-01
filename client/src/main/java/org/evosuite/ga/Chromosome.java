@@ -25,6 +25,7 @@ import org.evosuite.utils.PublicCloneable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -40,6 +41,7 @@ import static java.util.stream.Collectors.averagingDouble;
 public abstract class Chromosome<T extends Chromosome<T>>
         implements Comparable<T>, Serializable, PublicCloneable<T>, SelfTyped<T> {
 
+    @Serial
     private static final long serialVersionUID = -6921897301005213358L;
 
     /**

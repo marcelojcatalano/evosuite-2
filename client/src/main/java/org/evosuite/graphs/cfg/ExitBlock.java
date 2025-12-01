@@ -19,8 +19,11 @@
  */
 package org.evosuite.graphs.cfg;
 
+import java.io.Serial;
+
 public class ExitBlock extends BasicBlock {
 
+    @Serial
     private static final long serialVersionUID = 970110985248711972L;
 
     /**

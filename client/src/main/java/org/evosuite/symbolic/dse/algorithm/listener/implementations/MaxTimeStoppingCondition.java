@@ -22,6 +22,8 @@ package org.evosuite.symbolic.dse.algorithm.listener.implementations;
 import org.evosuite.Properties;
 import org.evosuite.symbolic.dse.algorithm.ExplorationAlgorithmBase;
 
+import java.io.Serial;
+
 /**
  * Taken from {@link org.evosuite.ga.stoppingconditions.MaxTimeStoppingCondition} for using on the DSE module.
  *
@@ -29,6 +31,7 @@ import org.evosuite.symbolic.dse.algorithm.ExplorationAlgorithmBase;
  */
 public class MaxTimeStoppingCondition extends StoppingConditionImpl {
 
+    @Serial
     private static final long serialVersionUID = 5262082660819074690L;
 
     /**

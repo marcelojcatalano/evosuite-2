@@ -34,6 +34,7 @@ import org.evosuite.utils.generic.GenericClassFactory;
 import org.evosuite.utils.generic.GenericMethod;
 
 import java.io.PrintStream;
+import java.io.Serial;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -50,6 +51,7 @@ import java.util.List;
  */
 public class PrivateFieldStatement extends MethodStatement {
 
+    @Serial
     private static final long serialVersionUID = 5152490398872348493L;
 
     private static final Method setVariable;

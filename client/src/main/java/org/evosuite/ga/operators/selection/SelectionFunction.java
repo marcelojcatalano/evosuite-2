@@ -23,6 +23,7 @@ import org.evosuite.ga.Chromosome;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,7 @@ import static java.util.stream.Collectors.toCollection;
  */
 public abstract class SelectionFunction<T extends Chromosome<T>> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -2514933149542277609L;
 
     /**

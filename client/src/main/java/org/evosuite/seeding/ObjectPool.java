@@ -42,6 +42,7 @@ import java.util.*;
  */
 public class ObjectPool implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 2016387518459994272L;
 
     /**

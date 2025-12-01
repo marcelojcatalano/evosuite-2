@@ -26,6 +26,7 @@ import org.evosuite.utils.ParameterizedTypeImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.lang.reflect.*;
 import java.util.*;
@@ -44,6 +45,7 @@ public abstract class GenericAccessibleObject<T extends GenericAccessibleObject<
 
     protected static final Logger logger = LoggerFactory.getLogger(GenericAccessibleObject.class);
 
+    @Serial
     private static final long serialVersionUID = 7069749492563662621L;
 
     /**
@@ -113,21 +115,21 @@ public abstract class GenericAccessibleObject<T extends GenericAccessibleObject<
     }
 
     protected static Type getTypeFromExactReturnType(Type returnType, Type type) {
-        if (returnType instanceof ParameterizedType && type instanceof ParameterizedType)
-            return getTypeFromExactReturnType((ParameterizedType) returnType,
-                    (ParameterizedType) type);
-        else if (returnType instanceof GenericArrayType
-                && type instanceof GenericArrayType)
-            return getTypeFromExactReturnType((GenericArrayType) returnType,
-                    (GenericArrayType) type);
-        else if (returnType instanceof ParameterizedType
-                && type instanceof GenericArrayType)
-            return getTypeFromExactReturnType((ParameterizedType) returnType,
-                    (GenericArrayType) type);
-        else if (returnType instanceof GenericArrayType
-                && type instanceof ParameterizedType)
-            return getTypeFromExactReturnType((GenericArrayType) returnType,
-                    (ParameterizedType) type);
+        if (returnType instanceof ParameterizedType parameterizedType2 && type instanceof ParameterizedType parameterizedType3)
+            return getTypeFromExactReturnType(parameterizedType2,
+                    parameterizedType3);
+        else if (returnType instanceof GenericArrayType arrayType2
+                && type instanceof GenericArrayType arrayType3)
+            return getTypeFromExactReturnType(arrayType2,
+                    arrayType3);
+        else if (returnType instanceof ParameterizedType parameterizedType1
+                && type instanceof GenericArrayType arrayType1)
+            return getTypeFromExactReturnType(parameterizedType1,
+                    arrayType1);
+        else if (returnType instanceof GenericArrayType arrayType
+                && type instanceof ParameterizedType parameterizedType)
+            return getTypeFromExactReturnType(arrayType,
+                    parameterizedType);
         else if (returnType instanceof Class<?>)
             return returnType;
         else if (type instanceof Class<?>)
@@ -142,8 +144,8 @@ public abstract class GenericAccessibleObject<T extends GenericAccessibleObject<
      * parameters, but doesn't. In other words, if it's a really raw type.
      */
     protected static boolean isMissingTypeParameters(Type type) {
-        if (type instanceof Class) {
-            for (Class<?> clazz = (Class<?>) type; clazz != null; clazz = clazz.getEnclosingClass()) {
+        if (type instanceof Class<?> clazz) {
+            for (; clazz != null; clazz = clazz.getEnclosingClass()) {
                 if (clazz.getTypeParameters().length != 0)
                     return true;
             }
@@ -301,21 +303,21 @@ public abstract class GenericAccessibleObject<T extends GenericAccessibleObject<
         logger.debug("Getting generic instantiation for return type " + generatedType
                 + " of method: " + this);
 
-        if (genericReturnType instanceof ParameterizedType
+        if (genericReturnType instanceof ParameterizedType type
                 && generatedType.isParameterizedType()) {
             logger.debug("Return value is a parameterized type, matching variables");
             generatorTypes.putAll(GenericUtils.getMatchingTypeParameters((ParameterizedType) generatedType.getType(),
-                    (ParameterizedType) genericReturnType));
-        } else if (genericReturnType instanceof TypeVariable<?>) {
-            generatorTypes.put((TypeVariable<?>) genericReturnType,
+                    type));
+        } else if (genericReturnType instanceof TypeVariable<?> variable) {
+            generatorTypes.put(variable,
                     generatedType.getType());
         }
 
         if (genericReturnType instanceof ParameterizedType) {
             for (Type parameterType : getGenericParameterTypes()) {
                 logger.debug("Checking parameter " + parameterType);
-                if (parameterType instanceof ParameterizedType) {
-                    Map<TypeVariable<?>, Type> matchedMap = GenericUtils.getMatchingTypeParameters((ParameterizedType) parameterType,
+                if (parameterType instanceof ParameterizedType type) {
+                    Map<TypeVariable<?>, Type> matchedMap = GenericUtils.getMatchingTypeParameters(type,
                             (ParameterizedType) genericReturnType);
                     for (TypeVariable<?> var : matchedMap.keySet()) {
                         if (!generatorTypes.containsKey(var))

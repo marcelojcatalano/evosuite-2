@@ -27,6 +27,7 @@ import org.evosuite.testsuite.TestSuiteChromosome;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.List;
 import java.util.Set;
 
@@ -37,6 +38,7 @@ import java.util.Set;
  */
 public class MethodNoExceptionCoverageSuiteFitness extends MethodCoverageSuiteFitness {
 
+    @Serial
     private static final long serialVersionUID = -704561530935529634L;
 
     private final static Logger logger = LoggerFactory.getLogger(MethodNoExceptionCoverageSuiteFitness.class);

@@ -30,6 +30,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 
+import java.io.Serial;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -44,6 +45,7 @@ import java.util.Set;
  */
 public abstract class MutationSuiteFitness extends TestSuiteFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = -8320078404661057113L;
 
     protected final BranchCoverageSuiteFitness branchFitness;

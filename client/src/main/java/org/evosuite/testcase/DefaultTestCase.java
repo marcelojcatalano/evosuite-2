@@ -44,6 +44,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.Serial;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -59,6 +60,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class DefaultTestCase implements TestCase, Serializable {
 
+    @Serial
     private static final long serialVersionUID = -689512549778944250L;
 
     private static final Logger logger = LoggerFactory.getLogger(DefaultTestCase.class);
@@ -226,8 +228,7 @@ public class DefaultTestCase implements TestCase, Serializable {
                     logger.info(s.getCode());
                 } catch (AssertionError e2) {
                     logger.info("Found error in: " + s);
-                    if (s instanceof MethodStatement) {
-                        MethodStatement ms = (MethodStatement) s;
+                    if (s instanceof MethodStatement ms) {
                         if (!ms.isStatic()) {
                             logger.info("Callee: ");
                             logger.info(ms.getCallee().toString());
@@ -450,18 +451,15 @@ public class DefaultTestCase implements TestCase, Serializable {
                     accessedClasses.add(clazz);
                 }
             }
-            if (s instanceof MethodStatement) {
-                MethodStatement ms = (MethodStatement) s;
+            if (s instanceof MethodStatement ms) {
                 accessedClasses.addAll(Arrays.asList(ms.getMethod().getMethod().getExceptionTypes()));
                 accessedClasses.add(ms.getMethod().getMethod().getDeclaringClass());
                 accessedClasses.add(ms.getMethod().getMethod().getReturnType());
                 accessedClasses.addAll(Arrays.asList(ms.getMethod().getMethod().getParameterTypes()));
-            } else if (s instanceof FieldStatement) {
-                FieldStatement fs = (FieldStatement) s;
+            } else if (s instanceof FieldStatement fs) {
                 accessedClasses.add(fs.getField().getField().getDeclaringClass());
                 accessedClasses.add(fs.getField().getField().getType());
-            } else if (s instanceof ConstructorStatement) {
-                ConstructorStatement cs = (ConstructorStatement) s;
+            } else if (s instanceof ConstructorStatement cs) {
                 accessedClasses.add(cs.getConstructor().getConstructor().getDeclaringClass());
                 accessedClasses.addAll(Arrays.asList(cs.getConstructor().getConstructor().getExceptionTypes()));
                 accessedClasses.addAll(Arrays.asList(cs.getConstructor().getConstructor().getParameterTypes()));
@@ -603,9 +601,9 @@ public class DefaultTestCase implements TestCase, Serializable {
             if (value == null)
                 continue;
             // TODO: Need to support arrays that were not self-created
-            if (value instanceof ArrayReference) { // &&
-                for (int index = 0; index < ((ArrayReference) value).getArrayLength(); index++) {
-                    variables.add(new ArrayIndex(this, (ArrayReference) value, index));
+            if (value instanceof ArrayReference reference) { // &&
+                for (int index = 0; index < reference.getArrayLength(); index++) {
+                    variables.add(new ArrayIndex(this, reference, index));
                 }
             } else if (!(value instanceof ArrayIndex)) {
                 variables.add(value);
@@ -632,15 +630,15 @@ public class DefaultTestCase implements TestCase, Serializable {
         Class<?> rawClass = genericClass.getRawClass();
         for (int i = 0; i < position && i < size(); i++) {
             Statement statement = statements.get(i);
-            if (statement instanceof MethodStatement) {
-                if (((MethodStatement) statement).getMethod().getName().equals("hashCode"))
+            if (statement instanceof MethodStatement methodStatement) {
+                if (methodStatement.getMethod().getName().equals("hashCode"))
                     continue;
             }
             VariableReference value = statement.getReturnValue();
 
             if (value == null)
                 continue;
-            if (value instanceof ArrayReference) {
+            if (value instanceof ArrayReference reference) {
 
                 // For some reason, TypeUtils/ClassUtils sometimes claims
                 // that an array is assignable to its component type
@@ -664,9 +662,9 @@ public class DefaultTestCase implements TestCase, Serializable {
                         continue;
                     }
 
-                    for (int index = 0; index < ((ArrayReference) value).getArrayLength(); index++) {
-                        if (((ArrayReference) value).isInitialized(index, position))
-                            variables.add(new ArrayIndex(this, (ArrayReference) value,
+                    for (int index = 0; index < reference.getArrayLength(); index++) {
+                        if (reference.isInitialized(index, position))
+                            variables.add(new ArrayIndex(this, reference,
                                     index));
                     }
                 }
@@ -1139,14 +1137,12 @@ public class DefaultTestCase implements TestCase, Serializable {
 
     private boolean assertionsNeedDownCast(Statement s, VariableReference var, Class<?> abstractClass) {
         for (Assertion assertion : s.getAssertions()) {
-            if (assertion instanceof InspectorAssertion && assertion.getSource().equals(var)) {
-                InspectorAssertion inspectorAssertion = (InspectorAssertion) assertion;
+            if (assertion instanceof InspectorAssertion inspectorAssertion && assertion.getSource().equals(var)) {
                 Method inspectorMethod = inspectorAssertion.getInspector().getMethod();
                 if (MethodUtils.getAccessibleMethod(abstractClass, inspectorMethod.getName(), inspectorMethod.getParameterTypes()) == null) {
                     return true;
                 }
-            } else if (assertion instanceof PrimitiveFieldAssertion && assertion.getSource().equals(var)) {
-                PrimitiveFieldAssertion fieldAssertion = (PrimitiveFieldAssertion) assertion;
+            } else if (assertion instanceof PrimitiveFieldAssertion fieldAssertion && assertion.getSource().equals(var)) {
                 if (!fieldAssertion.getField().getDeclaringClass().isAssignableFrom(abstractClass)) {
                     return true;
                 }
@@ -1157,8 +1153,7 @@ public class DefaultTestCase implements TestCase, Serializable {
 
     public void removeDownCasts() {
         for (Statement s : statements) {
-            if (s instanceof MethodStatement) {
-                MethodStatement ms = (MethodStatement) s;
+            if (s instanceof MethodStatement ms) {
                 VariableReference retVal = s.getReturnValue();
                 Class<?> variableClass = retVal.getVariableClass();
                 Class<?> methodReturnClass = ms.getMethod().getRawGeneratedType();
@@ -1172,17 +1167,17 @@ public class DefaultTestCase implements TestCase, Serializable {
                         if (assertionsNeedDownCast(usageStatement, retVal, methodReturnClass)) {
                             return;
                         }
-                        if (usageStatement instanceof MethodStatement) {
-                            if (methodNeedsDownCast((MethodStatement) usageStatement, retVal, methodReturnClass)) {
+                        if (usageStatement instanceof MethodStatement statement2) {
+                            if (methodNeedsDownCast(statement2, retVal, methodReturnClass)) {
                                 return;
                             }
-                        } else if (usageStatement instanceof ConstructorStatement) {
-                            if (constructorNeedsDownCast((ConstructorStatement) usageStatement, retVal, methodReturnClass)) {
+                        } else if (usageStatement instanceof ConstructorStatement statement1) {
+                            if (constructorNeedsDownCast(statement1, retVal, methodReturnClass)) {
                                 return;
                             }
 
-                        } else if (usageStatement instanceof FieldStatement) {
-                            if (fieldNeedsDownCast((FieldStatement) usageStatement, retVal, methodReturnClass)) {
+                        } else if (usageStatement instanceof FieldStatement statement) {
+                            if (fieldNeedsDownCast(statement, retVal, methodReturnClass)) {
                                 return;
                             }
                         }

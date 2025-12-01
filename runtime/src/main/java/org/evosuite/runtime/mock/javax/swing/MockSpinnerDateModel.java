@@ -24,6 +24,8 @@ import org.evosuite.runtime.mock.java.util.MockCalendar;
 import org.evosuite.runtime.mock.java.util.MockDate;
 
 import javax.swing.*;
+
+import java.io.Serial;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -32,6 +34,7 @@ import java.util.Date;
  */
 public class MockSpinnerDateModel extends SpinnerDateModel implements OverrideMock {
 
+    @Serial
     private static final long serialVersionUID = -7236911608512230647L;
 
     public MockSpinnerDateModel(Date value, Comparable start, Comparable end, int calendarField) {

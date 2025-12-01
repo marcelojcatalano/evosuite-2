@@ -25,11 +25,13 @@ import org.evosuite.symbolic.dse.DSEStatistics;
 import org.evosuite.symbolic.expr.*;
 import org.evosuite.symbolic.expr.bv.IntegerValue;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
 public final class IntegerToRealCast extends AbstractExpression<Double> implements
         RealValue, Cast<Long> {
+    @Serial
     private static final long serialVersionUID = -3070453617714122236L;
 
     private final IntegerValue expr;
@@ -76,8 +78,7 @@ public final class IntegerToRealCast extends AbstractExpression<Double> implemen
         if (obj == this) {
             return true;
         }
-        if (obj instanceof IntegerToRealCast) {
-            IntegerToRealCast other = (IntegerToRealCast) obj;
+        if (obj instanceof IntegerToRealCast other) {
             return this.expr.equals(other.expr);
             // && this.getSize() == other.getSize();
         }

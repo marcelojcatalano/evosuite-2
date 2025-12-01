@@ -23,6 +23,8 @@ package org.evosuite.testcase.statements.numeric;
 import org.evosuite.testcase.TestCase;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
+
 
 /**
  * <p>BooleanPrimitiveStatement class.</p>
@@ -50,6 +52,7 @@ public class BooleanPrimitiveStatement extends NumericalPrimitiveStatement<Boole
         super(tc, boolean.class, false);
     }
 
+    @Serial
     private static final long serialVersionUID = 2864789903354543815L;
 
     /* (non-Javadoc)

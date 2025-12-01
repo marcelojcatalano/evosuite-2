@@ -268,8 +268,7 @@ public class Scaffolding {
         Set<String> mockStatements = new LinkedHashSet<>();
         for (ExecutionResult er : results) {
             for (Statement st : er.test) {
-                if (st instanceof FunctionalMockStatement) {
-                    FunctionalMockStatement fms = (FunctionalMockStatement) st;
+                if (st instanceof FunctionalMockStatement fms) {
                     String name = GenericClassFactory.get(fms.getReturnType()).getRawClass().getTypeName();
                     mockStatements.add("mock(Class.forName(\"" + name + "\", false, " + testClassName + ".class.getClassLoader()));");
                 }

@@ -25,6 +25,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 /**
@@ -87,8 +90,7 @@ public class ClassPathHandler {
      * @throws IllegalArgumentException if values in <code>elements</code> are not valid classpath entries
      */
     public void setEvoSuiteClassPath(String[] elements) throws IllegalArgumentException {
-        String cp = getClassPath(elements);
-        evosuiteClassPath = cp;
+        evosuiteClassPath = getClassPath(elements);
     }
 
 
@@ -109,18 +111,18 @@ public class ClassPathHandler {
             throw new IllegalArgumentException("No classpath elements");
         }
 
-        String cp = "";
+        StringBuilder cp = new StringBuilder();
         boolean first = true;
         for (String entry : elements) {
             checkIfValidClasspathEntry(entry);
             if (first) {
                 first = false;
             } else {
-                cp += File.pathSeparator;
+                cp.append(File.pathSeparator);
             }
-            cp += entry;
+            cp.append(entry);
         }
-        return cp;
+        return cp.toString();
     }
 
     /**
@@ -202,11 +204,12 @@ public class ClassPathHandler {
             throw new IllegalArgumentException("Empty input element");
         }
 
-        File file = new File(element);
-        if (!file.exists()) {
+        Path elementPath = Paths.get(element);
+        if (!elementPath.toFile().exists()) {
             throw new IllegalArgumentException("Classpath element does not exist on disk at: " + element);
         }
-        if (!element.endsWith(".jar") && !file.isDirectory()) {
+
+        if (!element.endsWith(".jar") && !elementPath.toFile().isDirectory()) {
             throw new IllegalArgumentException("A classpath element should either be a jar or a folder: " + element);
         }
     }
@@ -229,18 +232,23 @@ public class ClassPathHandler {
      * classpath of EvoSuite itself
      */
     public void changeTargetCPtoTheSameAsEvoSuite() {
+        Path path = Paths.get("target" + File.separator + "classes");
+        try {
+            Path createdDirectoryPath = Files.createDirectories(path);
+            if (createdDirectoryPath.toFile().isDirectory() && createdDirectoryPath.toFile().exists()) {
+                changeTargetClassPath(new String[]{createdDirectoryPath.toAbsolutePath().toString()});
 
-        File outDir = new File("target" + File.separator + "classes");
-        if (outDir.exists()) {
-            changeTargetClassPath(new String[]{outDir.getAbsolutePath()});
+                Path testDirectoryPath = Paths.get("target" + File.separator + "test-classes");
 
-            File testDir = new File("target" + File.separator + "test-classes");
-            if (testDir.exists()) {
-                addElementToTargetProjectClassPath(testDir.getAbsolutePath());
+                if (testDirectoryPath.toFile().isDirectory() && testDirectoryPath.toFile().exists()) {
+                    addElementToTargetProjectClassPath(testDirectoryPath.toAbsolutePath().toString());
+                }
+            } else {
+                changeTargetClassPath(getEvoSuiteClassPath().split(File.pathSeparator));
             }
-        } else {
-            //TODO: just in case... not sure it would work properly
-            changeTargetClassPath(getEvoSuiteClassPath().split(File.pathSeparator));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
     }
 }

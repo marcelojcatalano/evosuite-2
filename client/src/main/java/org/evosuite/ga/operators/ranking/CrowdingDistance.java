@@ -40,6 +40,7 @@ import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.FitnessFunction;
 import org.evosuite.ga.comparators.SortByFitness;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +53,7 @@ import java.util.Set;
  */
 public class CrowdingDistance<T extends Chromosome<T>> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 5700682318003298299L;
 
     /**

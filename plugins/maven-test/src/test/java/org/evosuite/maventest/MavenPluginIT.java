@@ -29,7 +29,6 @@ import org.junit.Test;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Properties;
 
@@ -41,7 +40,7 @@ public class MavenPluginIT {
 
     private static final long timeoutInMs = 3 * 60 * 1_000;
 
-    private final Path projects = Paths.get("projects");
+    private final Path projects = Path.of("projects");
     private final Path simple = projects.resolve("SimpleModule");
     private final Path dependency = projects.resolve("ModuleWithOneDependency");
     private final Path env = projects.resolve("EnvModule");

@@ -23,6 +23,8 @@ import org.evosuite.Properties;
 import org.evosuite.testcase.TestCase;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
+
 
 /**
  * <p>CharPrimitiveStatement class.</p>
@@ -31,6 +33,7 @@ import org.evosuite.utils.Randomness;
  */
 public class CharPrimitiveStatement extends NumericalPrimitiveStatement<Character> {
 
+    @Serial
     private static final long serialVersionUID = -1960567565801078784L;
 
     /**

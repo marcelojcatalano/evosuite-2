@@ -51,10 +51,8 @@ public final class Equals extends SymbolicFunction {
         StringValue left_expr = env.heap.getField(Types.JAVA_LANG_STRING,
                 SymbolicHeap.$STRING_VALUE, conc_left, symb_left, conc_left);
 
-        if (symb_right instanceof ReferenceConstant
-                && conc_right instanceof String) {
-            ReferenceConstant non_null_symb_right = (ReferenceConstant) symb_right;
-            String conc_right_str = (String) conc_right;
+        if (symb_right instanceof ReferenceConstant non_null_symb_right
+                && conc_right instanceof String conc_right_str) {
 
             StringValue right_expr = env.heap.getField(Types.JAVA_LANG_STRING,
                     SymbolicHeap.$STRING_VALUE, conc_right_str,

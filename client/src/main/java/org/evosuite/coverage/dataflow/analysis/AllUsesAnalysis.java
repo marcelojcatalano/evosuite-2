@@ -355,8 +355,7 @@ public class AllUsesAnalysis {
                 } else if (child instanceof CCFGFrameNode) {
                     handleFrameNodeChild(child);
                     continue;
-                } else if (child instanceof CCFGMethodCallNode) {
-                    CCFGMethodCallNode callNode = (CCFGMethodCallNode) child;
+                } else if (child instanceof CCFGMethodCallNode callNode) {
                     if (alreadyAnalzedMethod(callNode.getCalledMethod())) {
 
                         nextCallStack = copyCallStack(callStack);
@@ -897,16 +896,16 @@ public class AllUsesAnalysis {
     }
 
     private boolean nodeBelongsToMethod(CCFGNode node, String method) {
-        if (node instanceof CCFGCodeNode)
-            return ((CCFGCodeNode) node).getMethod().equals(method);
-        else if (node instanceof CCFGMethodCallNode)
-            return ((CCFGMethodCallNode) node).getMethod().equals(method);
-        else if (node instanceof CCFGMethodReturnNode)
-            return ((CCFGMethodReturnNode) node).getMethod().equals(method);
-        else if (node instanceof CCFGMethodEntryNode)
-            return ((CCFGMethodEntryNode) node).getMethod().equals(method);
-        else if (node instanceof CCFGMethodExitNode)
-            return ((CCFGMethodExitNode) node).getMethod().equals(method);
+        if (node instanceof CCFGCodeNode codeNode)
+            return codeNode.getMethod().equals(method);
+        else if (node instanceof CCFGMethodCallNode callNode)
+            return callNode.getMethod().equals(method);
+        else if (node instanceof CCFGMethodReturnNode returnNode)
+            return returnNode.getMethod().equals(method);
+        else if (node instanceof CCFGMethodEntryNode entryNode)
+            return entryNode.getMethod().equals(method);
+        else if (node instanceof CCFGMethodExitNode exitNode)
+            return exitNode.getMethod().equals(method);
         // frame nodes belong to no method
         return false;
     }

@@ -24,6 +24,7 @@ import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.populationlimit.PopulationLimit;
 import org.evosuite.testcase.TestChromosome;
 
+import java.io.Serial;
 import java.util.List;
 
 
@@ -35,6 +36,7 @@ import java.util.List;
 public class StatementsPopulationLimit<T extends Chromosome<T>>
         implements PopulationLimit<T> {
 
+    @Serial
     private static final long serialVersionUID = 4794704248615412859L;
 
     public StatementsPopulationLimit() {
@@ -65,8 +67,8 @@ public class StatementsPopulationLimit<T extends Chromosome<T>>
         int numStatements = population.stream().map(x -> {
                     if (x instanceof TestSuiteChromosome)
                         return x;
-                    if (x instanceof TestChromosome)
-                        return ((TestChromosome) x).toSuite();
+                    if (x instanceof TestChromosome chromosome)
+                        return chromosome.toSuite();
                     throw new IllegalArgumentException("Could not transform population to TestSuites");
                 })
                 .mapToInt(x -> ((TestSuiteChromosome) x).totalLengthOfTestCases())

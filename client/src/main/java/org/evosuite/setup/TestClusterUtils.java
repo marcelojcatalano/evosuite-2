@@ -24,7 +24,7 @@ import org.evosuite.TestGenerationContext;
 import org.evosuite.runtime.Reflection;
 import org.evosuite.runtime.mock.MockList;
 import org.evosuite.runtime.util.ReflectionUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runners.Suite;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

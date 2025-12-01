@@ -39,6 +39,7 @@ import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.FitnessFunction;
 import org.evosuite.ga.comparators.DominanceComparator;
 
+import java.io.Serial;
 import java.util.*;
 
 /**
@@ -50,6 +51,7 @@ import java.util.*;
 
 public class FastNonDominatedSorting<T extends Chromosome<T>> implements RankingFunction<T> {
 
+    @Serial
     private static final long serialVersionUID = -5649595833522859850L;
 
     /**

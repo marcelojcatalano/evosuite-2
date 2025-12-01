@@ -79,12 +79,10 @@ public class InspectorTraceEntry implements OutputTraceEntry {
      */
     @Override
     public boolean differs(OutputTraceEntry other) {
-        if (other instanceof InspectorTraceEntry) {
-            if (!((InspectorTraceEntry) other).var.equals(var)) {
+        if (other instanceof InspectorTraceEntry otherEntry) {
+            if (!otherEntry.var.equals(var)) {
                 return false;
             }
-
-            InspectorTraceEntry otherEntry = (InspectorTraceEntry) other;
             for (Inspector inspector : inspectorMap.keySet()) {
                 logger.debug("Current inspector: " + inspector);
                 if (!otherEntry.inspectorMap.containsKey(inspector)
@@ -116,8 +114,7 @@ public class InspectorTraceEntry implements OutputTraceEntry {
     public Set<Assertion> getAssertions(OutputTraceEntry other) {
         Set<Assertion> assertions = new HashSet<>();
 
-        if (other instanceof InspectorTraceEntry) {
-            InspectorTraceEntry otherEntry = (InspectorTraceEntry) other;
+        if (other instanceof InspectorTraceEntry otherEntry) {
             for (String inspector : methodInspectorMap.keySet()) {
                 if (!otherEntry.inspectorMap.containsKey(otherEntry.methodInspectorMap.get(inspector))
                         || otherEntry.inspectorMap.get(otherEntry.methodInspectorMap.get(inspector)) == null
@@ -171,8 +168,7 @@ public class InspectorTraceEntry implements OutputTraceEntry {
      */
     @Override
     public boolean isDetectedBy(Assertion assertion) {
-        if (assertion instanceof InspectorAssertion) {
-            InspectorAssertion ass = (InspectorAssertion) assertion;
+        if (assertion instanceof InspectorAssertion ass) {
             if (ass.source.same(var)) {
                 if (inspectorMap.containsKey(ass.inspector)
                         && inspectorMap.get(ass.inspector) != null && ass.value != null) {

@@ -27,6 +27,8 @@ import org.evosuite.symbolic.expr.bv.StringComparison;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 public final class StringConstraint extends Constraint<String> {
 
     static Logger log = LoggerFactory.getLogger(StringConstraint.class);
@@ -47,6 +49,7 @@ public final class StringConstraint extends Constraint<String> {
     private final IntegerConstant right;
 
 
+    @Serial
     private static final long serialVersionUID = -3187023627540040535L;
 
     @Override

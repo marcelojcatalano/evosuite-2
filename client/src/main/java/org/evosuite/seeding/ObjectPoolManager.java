@@ -27,11 +27,13 @@ import org.evosuite.utils.generic.GenericClass;
 import org.evosuite.utils.generic.GenericClassFactory;
 
 import java.io.File;
+import java.io.Serial;
 import java.util.List;
 import java.util.Set;
 
 public class ObjectPoolManager extends ObjectPool {
 
+    @Serial
     private static final long serialVersionUID = 6287216639197977371L;
 
     private static ObjectPoolManager instance = null;

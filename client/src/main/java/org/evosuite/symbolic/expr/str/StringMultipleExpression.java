@@ -27,6 +27,7 @@ import org.evosuite.symbolic.expr.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -41,6 +42,7 @@ import java.util.Set;
 public final class StringMultipleExpression extends AbstractExpression<String> implements
         StringValue, MultipleExpression<String> {
 
+    @Serial
     private static final long serialVersionUID = 7172041118401792672L;
 
     private final ArrayList<Expression<?>> other_v;
@@ -139,8 +141,7 @@ public final class StringMultipleExpression extends AbstractExpression<String> i
         if (obj == this) {
             return true;
         }
-        if (obj instanceof StringMultipleExpression) {
-            StringMultipleExpression other = (StringMultipleExpression) obj;
+        if (obj instanceof StringMultipleExpression other) {
 
             return this.op.equals(other.op) && this.left.equals(other.left)
                     && this.right.equals(other.right)

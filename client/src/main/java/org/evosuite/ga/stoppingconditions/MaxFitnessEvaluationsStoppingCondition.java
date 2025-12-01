@@ -24,6 +24,8 @@ import org.evosuite.ga.Chromosome;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 /**
  * Stop search after a predefined maximum search depth
  *
@@ -33,6 +35,7 @@ public class MaxFitnessEvaluationsStoppingCondition<T extends Chromosome<T>> ext
 
     private static final Logger logger = LoggerFactory.getLogger(MaxFitnessEvaluationsStoppingCondition.class);
 
+    @Serial
     private static final long serialVersionUID = 208241490252275613L;
 
     /**

@@ -26,6 +26,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testcase.execution.ExecutionTrace;
 import org.evosuite.testsuite.TestSuiteChromosome;
 
+import java.io.Serial;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -38,6 +39,7 @@ import java.util.Map.Entry;
  */
 public class StrongMutationSuiteFitness extends MutationSuiteFitness {
 
+    @Serial
     private static final long serialVersionUID = -9124328839917834720L;
 
     public StrongMutationSuiteFitness() {

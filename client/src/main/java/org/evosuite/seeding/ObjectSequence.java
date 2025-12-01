@@ -22,10 +22,12 @@ package org.evosuite.seeding;
 import org.evosuite.testcase.TestCase;
 import org.evosuite.utils.generic.GenericClass;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 class ObjectSequence implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 346185306757522598L;
 
     private final GenericClass<?> generatedType;

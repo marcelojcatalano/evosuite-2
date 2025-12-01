@@ -24,6 +24,7 @@ import org.evosuite.PackageInfo;
 import org.evosuite.Properties;
 import org.evosuite.testcase.execution.MethodCall;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.*;
 
@@ -45,6 +46,7 @@ import java.util.*;
 public class CallContext implements Serializable {
 
 
+    @Serial
     private static final long serialVersionUID = 8650619230188403356L;
 
     private final List<Call> context;
@@ -179,9 +181,7 @@ public class CallContext implements Serializable {
             return;
         List<String> values = new ArrayList<>(Arrays.asList(excludedPackages));
         values.add("org.junit");
-        for (String junitClass : Properties.JUNIT.split(":")) {
-            values.add(junitClass);
-        }
+        values.addAll(Arrays.asList(Properties.JUNIT.split(":")));
         excludedPackages = new String[values.size()];
         excludedPackages = values.toArray(excludedPackages);
     }

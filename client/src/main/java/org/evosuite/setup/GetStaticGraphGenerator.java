@@ -147,12 +147,12 @@ public class GetStaticGraphGenerator {
         // TODO: This really shouldn't be here but in its own class
         while (iterator.hasNext()) {
             AbstractInsnNode insn = iterator.next();
-            if (insn instanceof MethodInsnNode) {
+            if (insn instanceof MethodInsnNode node1) {
                 handleMethodInsnNode(staticUsageTree, cn, mn,
-                        (MethodInsnNode) insn, depth + 1);
-            } else if (insn instanceof FieldInsnNode) {
+                        node1, depth + 1);
+            } else if (insn instanceof FieldInsnNode node) {
                 handleFieldInsnNode(staticUsageTree, cn, mn,
-                        (FieldInsnNode) insn, depth + 1);
+                        node, depth + 1);
             }
 
         }

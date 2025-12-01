@@ -22,6 +22,7 @@ package org.evosuite.testcase.statements.environment;
 import org.evosuite.testcase.TestCase;
 import org.evosuite.testcase.statements.PrimitiveStatement;
 
+import java.io.Serial;
 import java.lang.reflect.Type;
 
 /**
@@ -29,6 +30,7 @@ import java.lang.reflect.Type;
  */
 public abstract class EnvironmentDataStatement<T> extends PrimitiveStatement<T> {
 
+    @Serial
     private static final long serialVersionUID = -348689954506405873L;
 
     protected EnvironmentDataStatement(TestCase tc, Type clazz, T value) {

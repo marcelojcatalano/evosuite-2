@@ -81,9 +81,7 @@ public abstract class ValueOf extends SymbolicFunction {
             ReferenceExpression symb_ret_val = this.getSymbRetVal();
             String conc_ret_val = (String) this.getConcRetVal();
 
-            if (conc_arg != null && conc_arg instanceof String) {
-
-                String conc_str_arg = (String) conc_arg;
+            if (conc_arg != null && conc_arg instanceof String conc_str_arg) {
                 ReferenceConstant symb_non_null_str = (ReferenceConstant) symb_arg;
 
                 StringValue strExpr = env.heap.getField(Types.JAVA_LANG_STRING,

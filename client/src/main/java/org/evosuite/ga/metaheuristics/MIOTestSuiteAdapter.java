@@ -25,11 +25,13 @@ import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
 public class MIOTestSuiteAdapter extends MOSATestSuiteAdapter {
+    @Serial
     private static final long serialVersionUID = 3297246957849185819L;
 
     public MIOTestSuiteAdapter(final MIO algorithm) {

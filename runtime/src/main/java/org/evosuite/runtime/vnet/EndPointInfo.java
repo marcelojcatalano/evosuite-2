@@ -21,6 +21,7 @@ package org.evosuite.runtime.vnet;
 
 import org.evosuite.runtime.vnet.VirtualNetwork.ConnectionType;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -28,6 +29,7 @@ import java.io.Serializable;
  */
 public class EndPointInfo implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 3226166594839299797L;
     private final String host;
     private final int port;

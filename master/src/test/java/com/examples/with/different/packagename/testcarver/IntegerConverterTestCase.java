@@ -45,10 +45,10 @@ public class IntegerConverterTestCase extends NumberConverterTestBase {
 
     public void setUp() throws Exception {
         converter = makeConverter();
-        numbers[0] = new Integer("-12");
-        numbers[1] = new Integer("13");
-        numbers[2] = new Integer("-22");
-        numbers[3] = new Integer("23");
+        numbers[0] = Integer.valueOf("-12");
+        numbers[1] = Integer.valueOf("13");
+        numbers[2] = Integer.valueOf("-22");
+        numbers[3] = Integer.valueOf("23");
     }
 
     public static TestSuite suite() {

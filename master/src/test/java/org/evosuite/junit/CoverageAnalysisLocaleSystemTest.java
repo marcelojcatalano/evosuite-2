@@ -25,7 +25,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
 
@@ -84,7 +84,7 @@ public class CoverageAnalysisLocaleSystemTest extends SystemTestBase {
                 Properties.Criterion.LINE.name() + File.separator + Properties.COVERAGE_MATRIX_FILENAME;
         System.out.println("CoverageMatrix file " + coveragematrix_file);
 
-        List<String> lines = Files.readAllLines(Paths.get(coveragematrix_file));
+        List<String> lines = Files.readAllLines(Path.of(coveragematrix_file));
         // coverage of one test case
         assertEquals(1, lines.size());
         // all components have been covered ("1"), and the test case pass ("+")

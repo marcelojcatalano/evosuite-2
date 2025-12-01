@@ -25,6 +25,7 @@ import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.TestFitnessFunction;
 import org.evosuite.testcase.execution.ExecutionResult;
 
+import java.io.Serial;
 import java.util.Map;
 
 /**
@@ -37,6 +38,7 @@ import java.util.Map;
  */
 public class AllDefsCoverageTestFitness extends TestFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = 1L;
     /**
      * Constant <code>singleFitnessTime=0l</code>
@@ -129,8 +131,7 @@ public class AllDefsCoverageTestFitness extends TestFitnessFunction {
      */
     @Override
     public int compareTo(TestFitnessFunction other) {
-        if (other instanceof AllDefsCoverageTestFitness) {
-            AllDefsCoverageTestFitness otherFitness = (AllDefsCoverageTestFitness) other;
+        if (other instanceof AllDefsCoverageTestFitness otherFitness) {
             return targetDef.compareTo(otherFitness.targetDef);
         }
         return compareClassName(other);

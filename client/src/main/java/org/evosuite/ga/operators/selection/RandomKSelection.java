@@ -22,6 +22,7 @@ package org.evosuite.ga.operators.selection;
 import org.evosuite.ga.Chromosome;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
 import java.util.List;
 
 /**
@@ -29,6 +30,7 @@ import java.util.List;
  */
 public class RandomKSelection<T extends Chromosome<T>> extends SelectionFunction<T> {
 
+    @Serial
     private static final long serialVersionUID = -2459623722712044154L;
 
     public RandomKSelection() {

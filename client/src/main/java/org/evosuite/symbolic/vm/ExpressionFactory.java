@@ -129,9 +129,8 @@ public abstract class ExpressionFactory {
         /*
          * (add a (add b x)) --> (add (a+b) x)
          */
-        if (right instanceof IntegerBinaryExpression
-                && ((IntegerBinaryExpression) right).getOperator() == Operator.PLUS) {
-            IntegerBinaryExpression add = (IntegerBinaryExpression) right;
+        if (right instanceof IntegerBinaryExpression add
+                && add.getOperator() == Operator.PLUS) {
             if (add.getLeftOperand() instanceof IntegerConstant) {
                 long a = left.getConcreteValue();
                 long b = add.getLeftOperand().getConcreteValue();
@@ -180,9 +179,8 @@ public abstract class ExpressionFactory {
         /*
          * (add a (add b x)) --> (add (a+b) x)
          */
-        if (right instanceof RealBinaryExpression
-                && ((RealBinaryExpression) right).getOperator() == Operator.PLUS) {
-            RealBinaryExpression add = (RealBinaryExpression) right;
+        if (right instanceof RealBinaryExpression add
+                && add.getOperator() == Operator.PLUS) {
             if (add.getLeftOperand() instanceof RealConstant) {
                 double a = left.getConcreteValue();
                 double b = add.getLeftOperand().getConcreteValue();

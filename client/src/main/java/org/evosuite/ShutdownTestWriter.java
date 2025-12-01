@@ -24,6 +24,8 @@ import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.stoppingconditions.StoppingConditionImpl;
 import org.evosuite.utils.LoggingUtils;
 
+import java.io.Serial;
+
 /**
  * <p>
  * ShutdownTestWriter class.
@@ -34,6 +36,7 @@ import org.evosuite.utils.LoggingUtils;
 @SuppressWarnings("restriction")
 public class ShutdownTestWriter<T extends Chromosome<T>> extends StoppingConditionImpl<T> implements SignalHandler {
 
+    @Serial
     private static final long serialVersionUID = -5703624299360241009L;
 
     private static boolean interrupted = false;

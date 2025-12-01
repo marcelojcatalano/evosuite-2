@@ -44,6 +44,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.*;
 
 /**
@@ -53,6 +54,7 @@ import java.util.*;
  */
 public abstract class AbstractMOSA extends GeneticAlgorithm<TestChromosome> {
 
+    @Serial
     private static final long serialVersionUID = 146182080947267628L;
 
     private static final Logger logger = LoggerFactory.getLogger(AbstractMOSA.class);
@@ -113,8 +115,8 @@ public abstract class AbstractMOSA extends GeneticAlgorithm<TestChromosome> {
 
     @Override
     public void addFitnessFunction(final FitnessFunction<TestChromosome> function) {
-        if (function instanceof TestFitnessFunction) {
-            fitnessFunctions.add((TestFitnessFunction) function);
+        if (function instanceof TestFitnessFunction fitnessFunction) {
+            fitnessFunctions.add(fitnessFunction);
         } else {
             throw new IllegalArgumentException("Only TestFitnessFunctions are supported");
         }
@@ -241,15 +243,13 @@ public abstract class AbstractMOSA extends GeneticAlgorithm<TestChromosome> {
         boolean flag = false;
         TestCase tc = test.getTestCase();
         for (Statement s : tc) {
-            if (s instanceof MethodStatement) {
-                MethodStatement ms = (MethodStatement) s;
+            if (s instanceof MethodStatement ms) {
                 boolean isTargetMethod = ms.getDeclaringClassName().equals(Properties.TARGET_CLASS);
                 if (isTargetMethod) {
                     return true;
                 }
             }
-            if (s instanceof ConstructorStatement) {
-                ConstructorStatement ms = (ConstructorStatement) s;
+            if (s instanceof ConstructorStatement ms) {
                 boolean isTargetMethod = ms.getDeclaringClassName().equals(Properties.TARGET_CLASS);
                 if (isTargetMethod) {
                     return true;

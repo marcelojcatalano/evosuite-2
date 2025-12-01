@@ -19,8 +19,11 @@
  */
 package org.evosuite.symbolic;
 
+import java.io.Serial;
+
 public class StringBuilderException extends RuntimeException {
 
+    @Serial
     private static final long serialVersionUID = 1483727613653631273L;
 
 

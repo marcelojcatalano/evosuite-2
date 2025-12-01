@@ -28,6 +28,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +44,7 @@ import java.util.List;
  */
 public class BreederGA<T extends Chromosome<T>> extends StandardGA<T> {
 
+    @Serial
     private static final long serialVersionUID = 8305884372813786175L;
     private final Logger logger = LoggerFactory.getLogger(BreederGA.class);
 

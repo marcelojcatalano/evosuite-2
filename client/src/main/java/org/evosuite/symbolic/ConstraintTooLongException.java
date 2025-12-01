@@ -21,9 +21,12 @@ package org.evosuite.symbolic;
 
 import org.evosuite.dse.StopVMException;
 
+import java.io.Serial;
+
 public class ConstraintTooLongException extends StopVMException {
 
 
+    @Serial
     private static final long serialVersionUID = 4788691891779076515L;
 
     private final int constraint_size;

@@ -27,6 +27,7 @@ import org.evosuite.testcase.variable.VariableReferenceImpl;
 import org.evosuite.utils.generic.GenericAccessibleObject;
 
 import java.io.PrintStream;
+import java.io.Serial;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
@@ -82,6 +83,7 @@ public class PrimitiveExpression extends AbstractStatement {
         }
     }
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private VariableReference leftOperand;

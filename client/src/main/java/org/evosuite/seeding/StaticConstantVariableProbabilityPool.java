@@ -149,8 +149,7 @@ public class StaticConstantVariableProbabilityPool implements ConstantPool {
         if (object == null)
             return;
 
-        if (object instanceof String) {
-            String string = (String) object;
+        if (object instanceof String string) {
             if (string.length() > Properties.MAX_STRING)
                 return;
             // String literals are constrained to 65535 bytes
@@ -158,46 +157,42 @@ public class StaticConstantVariableProbabilityPool implements ConstantPool {
             if (string.length() > 65535)
                 return;
             stringPool.addConstant(string);
-        } else if (object instanceof Type) {
-            while (((Type) object).getSort() == Type.ARRAY) {
-                object = ((Type) object).getElementType();
+        } else if (object instanceof Type type) {
+            while (type.getSort() == Type.ARRAY) {
+                object = type.getElementType();
             }
-            typePool.addConstant((Type) object);
-        } else if (object instanceof Integer) {
+            typePool.addConstant(type);
+        } else if (object instanceof Integer val) {
             if (Properties.RESTRICT_POOL) {
-                int val = (Integer) object;
                 if (Math.abs(val) < Properties.MAX_INT) {
-                    intPool.addConstant((Integer) object);
+                    intPool.addConstant(val);
                 }
             } else {
-                intPool.addConstant((Integer) object);
+                intPool.addConstant(val);
             }
-        } else if (object instanceof Long) {
+        } else if (object instanceof Long val) {
             if (Properties.RESTRICT_POOL) {
-                long val = (Long) object;
                 if (Math.abs(val) < Properties.MAX_INT) {
-                    longPool.addConstant((Long) object);
+                    longPool.addConstant(val);
                 }
             } else {
-                longPool.addConstant((Long) object);
+                longPool.addConstant(val);
             }
-        } else if (object instanceof Float) {
+        } else if (object instanceof Float val) {
             if (Properties.RESTRICT_POOL) {
-                float val = (Float) object;
                 if (Math.abs(val) < Properties.MAX_INT) {
-                    floatPool.addConstant((Float) object);
+                    floatPool.addConstant(val);
                 }
             } else {
-                floatPool.addConstant((Float) object);
+                floatPool.addConstant(val);
             }
-        } else if (object instanceof Double) {
+        } else if (object instanceof Double val) {
             if (Properties.RESTRICT_POOL) {
-                double val = (Double) object;
                 if (Math.abs(val) < Properties.MAX_INT) {
-                    doublePool.addConstant((Double) object);
+                    doublePool.addConstant(val);
                 }
             } else {
-                doublePool.addConstant((Double) object);
+                doublePool.addConstant(val);
             }
         } else {
             LoggingUtils.getEvoLogger().info("Constant of unknown type: "

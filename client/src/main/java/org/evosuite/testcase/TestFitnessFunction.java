@@ -24,6 +24,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testcase.execution.TestCaseExecutor;
 import org.evosuite.testsuite.TestSuiteChromosome;
 
+import java.io.Serial;
 import java.util.List;
 
 /**
@@ -35,6 +36,7 @@ public abstract class TestFitnessFunction
         extends FitnessFunction<TestChromosome>
         implements Comparable<TestFitnessFunction> {
 
+    @Serial
     private static final long serialVersionUID = 5602125855207061901L;
 
     static boolean warnedAboutIsSimilarTo = false;

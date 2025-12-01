@@ -19,6 +19,7 @@
  */
 package org.evosuite.runtime.mock.java.util;
 
+import java.io.Serial;
 import java.util.TimeZone;
 
 /**
@@ -30,6 +31,7 @@ import java.util.TimeZone;
 public abstract class MockTimeZone extends TimeZone{
 
     private static final TimeZone cloneGMT = (TimeZone) TimeZone.getTimeZone("GMT").clone();
+    @Serial
     private static final long serialVersionUID = 2606461171386129455L;
 
     public static void reset(){

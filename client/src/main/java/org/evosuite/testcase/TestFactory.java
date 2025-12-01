@@ -586,17 +586,17 @@ public class TestFactory {
             throws ConstructionFailedException {
         currentRecursion.clear();
 
-        if (statement instanceof ConstructorStatement) {
-            addConstructor(test, ((ConstructorStatement) statement).getConstructor(),
+        if (statement instanceof ConstructorStatement constructorStatement) {
+            addConstructor(test, constructorStatement.getConstructor(),
                     test.size(), 0);
-        } else if (statement instanceof MethodStatement) {
-            GenericMethod method = ((MethodStatement) statement).getMethod();
+        } else if (statement instanceof MethodStatement methodStatement) {
+            GenericMethod method = methodStatement.getMethod();
             addMethod(test, method, test.size(), 0);
-        } else if (statement instanceof PrimitiveStatement<?>) {
-            addPrimitive(test, (PrimitiveStatement<?>) statement, test.size());
+        } else if (statement instanceof PrimitiveStatement<?> primitiveStatement) {
+            addPrimitive(test, primitiveStatement, test.size());
             // test.statements.add((PrimitiveStatement) statement);
-        } else if (statement instanceof FieldStatement) {
-            addField(test, ((FieldStatement) statement).getField(), test.size(), 0);
+        } else if (statement instanceof FieldStatement fieldStatement) {
+            addField(test, fieldStatement.getField(), test.size(), 0);
         }
     }
 
@@ -618,12 +618,12 @@ public class TestFactory {
         // Remove assignments from the same array
         while (iterator.hasNext()) {
             VariableReference var = iterator.next();
-            if (var instanceof ArrayIndex) {
-                if (((ArrayIndex) var).getArray().equals(array))
+            if (var instanceof ArrayIndex index) {
+                if (index.getArray().equals(array))
                     iterator.remove();
                     // Do not assign values of same type as array to elements
                     // This may e.g. happen if we have Object[], we could otherwise assign Object[] as values
-                else if (((ArrayIndex) var).getArray().getType().equals(array.getType()))
+                else if (index.getArray().getType().equals(array.getType()))
                     iterator.remove();
             }
             if (componentClass.isWrapperType()) {
@@ -1047,8 +1047,7 @@ public class TestFactory {
         Iterator<VariableReference> iterator = objects.iterator();
         while (iterator.hasNext()) {
             VariableReference current = iterator.next();
-            if (current instanceof ArrayIndex) {
-                ArrayIndex index = (ArrayIndex) current;
+            if (current instanceof ArrayIndex index) {
                 if (index.getArray().equals(statement.getReturnValue()))
                     iterator.remove();
                     // Do not assign values of same type as array to elements
@@ -1756,8 +1755,8 @@ public class TestFactory {
         List<VariableReference> alternatives = test.getObjects(var.getType(), position);
 
         int maxIndex = 0;
-        if (var instanceof ArrayReference) {
-            maxIndex = ((ArrayReference) var).getMaximumIndex();
+        if (var instanceof ArrayReference reference) {
+            maxIndex = reference.getMaximumIndex();
         }
 
         // Remove invalid classes if this is an Object.class reference
@@ -1789,8 +1788,8 @@ public class TestFactory {
                 if (fref.getField().isFinal()) {
                     replacement.remove();
                 }
-            } else if (r instanceof ArrayReference) {
-                if (maxIndex >= ((ArrayReference) r).getArrayLength())
+            } else if (r instanceof ArrayReference reference) {
+                if (maxIndex >= reference.getArrayLength())
                     replacement.remove();
             } else if (!replacingPrimitive) {
                 if (test.getStatement(r.getStPosition()) instanceof PrimitiveStatement) {
@@ -1836,8 +1835,8 @@ public class TestFactory {
                 VariableReference r = replacement.next();
                 if (var.equals(r.getAdditionalVariableReference()))
                     replacement.remove();
-                else if (r instanceof ArrayReference) {
-                    if (maxIndex >= ((ArrayReference) r).getArrayLength())
+                else if (r instanceof ArrayReference reference) {
+                    if (maxIndex >= reference.getArrayLength())
                         replacement.remove();
                 }
             }
@@ -1846,8 +1845,7 @@ public class TestFactory {
                 for (int i = position; i < test.size(); i++) {
                     Statement s = test.getStatement(i);
                     for (VariableReference var2 : s.getVariableReferences()) {
-                        if (var2 instanceof ArrayIndex) {
-                            ArrayIndex ai = (ArrayIndex) var2;
+                        if (var2 instanceof ArrayIndex ai) {
                             if (ai.getArray().equals(var)) {
                                 s.replace(var2, Randomness.choice(alternatives));
                                 changed = true;
@@ -2282,10 +2280,8 @@ public class TestFactory {
         // Select a random variable
         logger.debug("Chosen object: {}", var.getName());
 
-        if (var instanceof ArrayReference) {
+        if (var instanceof ArrayReference array) {
             logger.debug("Chosen object is array ");
-
-            ArrayReference array = (ArrayReference) var;
             if (array.getArrayLength() > 0) {
                 for (int i = 0; i < array.getArrayLength(); i++) {
                     logger.debug("Assigning array index " + i);

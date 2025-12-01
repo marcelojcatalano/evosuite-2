@@ -78,8 +78,7 @@ public abstract class SolverUtils {
 
         List<Constraint<?>> boundsForVariables = new ArrayList<>();
         for (Variable<?> variable : variables) {
-            if (variable instanceof IntegerVariable) {
-                IntegerVariable integerVariable = (IntegerVariable) variable;
+            if (variable instanceof IntegerVariable integerVariable) {
                 Long minValue = integerVariable.getMinValue();
                 Long maxValue = integerVariable.getMaxValue();
                 if (maxValue == Long.MAX_VALUE && minValue == Long.MIN_VALUE) {

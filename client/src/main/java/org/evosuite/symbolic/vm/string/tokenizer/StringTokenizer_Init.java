@@ -52,16 +52,13 @@ public final class StringTokenizer_Init extends SymbolicFunction {
         String conc_delim = (String) this.getConcArgument(1);
         ReferenceExpression symb_delim = this.getSymbArgument(1);
 
-        if (symb_str instanceof ReferenceConstant
-                && symb_delim instanceof ReferenceConstant) {
-            ReferenceConstant non_null_symb_string = (ReferenceConstant) symb_str;
+        if (symb_str instanceof ReferenceConstant non_null_symb_string
+                && symb_delim instanceof ReferenceConstant non_null_symb_delim) {
             assert conc_str != null;
 
             StringValue strExpr = env.heap.getField(Types.JAVA_LANG_STRING,
                     SymbolicHeap.$STRING_VALUE, conc_str, non_null_symb_string,
                     conc_str);
-
-            ReferenceConstant non_null_symb_delim = (ReferenceConstant) symb_delim;
             assert conc_delim != null;
 
             StringValue delimExpr = env.heap.getField(Types.JAVA_LANG_STRING,

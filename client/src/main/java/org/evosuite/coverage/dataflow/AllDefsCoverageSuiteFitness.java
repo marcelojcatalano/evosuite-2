@@ -27,6 +27,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -35,6 +36,7 @@ import java.util.Set;
  * Evaluate fitness of a test suite with respect to all of its def-use pairs
  */
 public class AllDefsCoverageSuiteFitness extends TestSuiteFitnessFunction {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     static List<? extends TestFitnessFunction> goals = FitnessFunctions.getFitnessFactory(Criterion.ALLDEFS).getCoverageGoals();

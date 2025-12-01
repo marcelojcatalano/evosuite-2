@@ -24,6 +24,7 @@ import org.evosuite.symbolic.expr.AbstractExpression;
 import org.evosuite.symbolic.expr.ExpressionVisitor;
 import org.evosuite.symbolic.expr.Variable;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -37,6 +38,7 @@ import java.util.Set;
 public final class StringConstant extends AbstractExpression<String> implements
         StringValue {
 
+    @Serial
     private static final long serialVersionUID = 6785078290753992374L;
 
     /**
@@ -64,8 +66,7 @@ public final class StringConstant extends AbstractExpression<String> implements
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof StringConstant) {
-            StringConstant v = (StringConstant) obj;
+        if (obj instanceof StringConstant v) {
             return this.concreteValue.equals(v.concreteValue);
         }
         return false;

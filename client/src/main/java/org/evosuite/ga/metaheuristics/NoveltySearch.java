@@ -28,6 +28,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.*;
 
 import static java.util.Collections.reverseOrder;
@@ -36,6 +37,7 @@ import static java.util.Comparator.comparingDouble;
 public class NoveltySearch extends GeneticAlgorithm<TestChromosome> {
 
     private final static Logger logger = LoggerFactory.getLogger(NoveltySearch.class);
+    @Serial
     private static final long serialVersionUID = -1047550745990198972L;
 
     private NoveltyFunction<TestChromosome> noveltyFunction;

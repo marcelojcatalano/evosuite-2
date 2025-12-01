@@ -23,6 +23,7 @@ import org.evosuite.Properties;
 import org.evosuite.ga.Chromosome;
 import org.evosuite.symbolic.dse.algorithm.ExplorationAlgorithmBase;
 
+import java.io.Serial;
 import java.security.InvalidParameterException;
 
 /**
@@ -32,6 +33,7 @@ import java.security.InvalidParameterException;
  */
 public class TargetCoverageReachedStoppingCondition extends StoppingConditionImpl {
 
+    @Serial
     private static final long serialVersionUID = 7235280321530441520L;
 
     public static final String AND = " and ";

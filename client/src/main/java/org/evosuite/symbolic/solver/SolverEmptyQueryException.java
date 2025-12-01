@@ -19,6 +19,8 @@
  */
 package org.evosuite.symbolic.solver;
 
+import java.io.Serial;
+
 public final class SolverEmptyQueryException extends Exception {
 
     public SolverEmptyQueryException(String errMsg) {
@@ -26,6 +28,7 @@ public final class SolverEmptyQueryException extends Exception {
     }
 
 
+    @Serial
     private static final long serialVersionUID = -1785572235903656252L;
 
 }

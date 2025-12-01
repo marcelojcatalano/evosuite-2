@@ -19,9 +19,12 @@
  */
 package org.evosuite.symbolic.solver;
 
+import java.io.Serial;
+
 public final class SolverParseException extends Exception {
 
 
+    @Serial
     private static final long serialVersionUID = 5368822908522148969L;
 
     private final String solverResult;

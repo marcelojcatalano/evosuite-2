@@ -24,11 +24,14 @@ import org.evosuite.ga.archive.Archive;
 import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.execution.ExecutionResult;
 
+import java.io.Serial;
+
 /**
  * @author gordon
  */
 public class OnlyMutationTestFitness extends MutationTestFitness {
 
+    @Serial
     private static final long serialVersionUID = -6724941216935595963L;
 
     public OnlyMutationTestFitness(Mutation m) {

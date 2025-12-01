@@ -23,9 +23,12 @@ import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 
+import java.io.Serial;
+
 public class ReadabilitySuiteFitness extends TestSuiteFitnessFunction {
 
 
+    @Serial
     private static final long serialVersionUID = 6243235746473531638L;
 
 

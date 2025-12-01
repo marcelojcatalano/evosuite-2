@@ -19,6 +19,7 @@
  */
 package org.evosuite.ga;
 
+import java.io.Serial;
 import java.util.Objects;
 
 /**
@@ -35,6 +36,7 @@ import java.util.Objects;
  */
 public class FitnessFunctionMock<T extends Chromosome<T>, U extends Chromosome<U>>
         extends FitnessFunction<U> {
+    @Serial
     private static final long serialVersionUID = -2764090795456211662L;
     /**
      * The wrapped chromosome factory.

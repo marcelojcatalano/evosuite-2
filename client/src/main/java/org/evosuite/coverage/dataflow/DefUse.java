@@ -24,6 +24,8 @@ import org.objectweb.asm.Opcodes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 /**
  * Abstract superclass for all Definitions and Uses
  *
@@ -31,6 +33,7 @@ import org.slf4j.LoggerFactory;
  */
 public class DefUse extends BytecodeInstruction {
 
+    @Serial
     private static final long serialVersionUID = -2643584238269671760L;
 
     private final static Logger logger = LoggerFactory.getLogger(DefUse.class);

@@ -61,7 +61,7 @@ public abstract class SmtSolver extends Solver {
                 logger.debug("Solver execution finished normally");
                 return;
             } else {
-                String errMsg = String.format("Solver execution finished abnormally with exit code {}", exit_code);
+                String errMsg = "Solver execution finished abnormally with exit code {}".formatted(exit_code);
                 logger.debug(errMsg);
                 throw new SolverErrorException(errMsg);
             }

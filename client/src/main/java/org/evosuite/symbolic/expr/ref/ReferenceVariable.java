@@ -23,6 +23,7 @@ import org.evosuite.symbolic.expr.ExpressionVisitor;
 import org.evosuite.symbolic.expr.Variable;
 import org.objectweb.asm.Type;
 
+import java.io.Serial;
 import java.util.Collections;
 import java.util.Set;
 
@@ -36,6 +37,7 @@ import java.util.Set;
 public class ReferenceVariable extends ReferenceExpression implements Variable<Object> {
 
 
+    @Serial
     private static final long serialVersionUID = -5785895234153444210L;
 
     /**

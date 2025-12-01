@@ -31,6 +31,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -42,6 +43,7 @@ import java.util.Set;
  */
 public class MIO extends AbstractMOSA {
 
+    @Serial
     private static final long serialVersionUID = -5660970130698891194L;
 
     private static final Logger logger = LoggerFactory.getLogger(MIO.class);

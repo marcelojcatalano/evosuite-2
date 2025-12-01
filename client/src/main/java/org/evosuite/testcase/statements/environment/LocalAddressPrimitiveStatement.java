@@ -27,11 +27,14 @@ import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.utils.Randomness;
 import org.evosuite.utils.StringUtil;
 
+import java.io.Serial;
+
 /**
  * Created by arcuri on 12/15/14.
  */
 public class LocalAddressPrimitiveStatement extends EnvironmentDataStatement<EvoSuiteLocalAddress> {
 
+    @Serial
     private static final long serialVersionUID = -6687351650507282638L;
 
     public LocalAddressPrimitiveStatement(TestCase tc) {

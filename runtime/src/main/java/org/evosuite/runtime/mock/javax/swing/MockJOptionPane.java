@@ -21,6 +21,7 @@ package org.evosuite.runtime.mock.javax.swing;
 
 import java.awt.Component;
 import java.awt.HeadlessException;
+import java.io.Serial;
 
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
@@ -39,7 +40,8 @@ import org.evosuite.runtime.util.JOptionPaneInputs.GUIAction;
 public abstract class MockJOptionPane extends JOptionPane implements OverrideMock {
 
 
-	private static final long serialVersionUID = 1531475063681545845L;
+    @Serial
+    private static final long serialVersionUID = 1531475063681545845L;
 
 	/**
 	 * Replaces method javax.swing.JOptionPane.showMessageDialog(Component

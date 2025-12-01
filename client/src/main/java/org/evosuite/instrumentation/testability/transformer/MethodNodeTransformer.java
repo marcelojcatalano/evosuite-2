@@ -74,24 +74,24 @@ public class MethodNodeTransformer {
 
         boolean finished = false;
         while (!finished) {
-            if (node instanceof MethodInsnNode) {
-                node = transformMethodInsnNode(mn, (MethodInsnNode) node);
-            } else if (node instanceof VarInsnNode) {
-                node = transformVarInsnNode(mn, (VarInsnNode) node);
-            } else if (node instanceof FieldInsnNode) {
-                node = transformFieldInsnNode(mn, (FieldInsnNode) node);
-            } else if (node instanceof InsnNode) {
-                node = transformInsnNode(mn, (InsnNode) node);
-            } else if (node instanceof TypeInsnNode) {
-                node = transformTypeInsnNode(mn, (TypeInsnNode) node);
-            } else if (node instanceof JumpInsnNode) {
-                node = transformJumpInsnNode(mn, (JumpInsnNode) node);
-            } else if (node instanceof LabelNode) {
-                node = transformLabelNode(mn, (LabelNode) node);
-            } else if (node instanceof IntInsnNode) {
-                node = transformIntInsnNode(mn, (IntInsnNode) node);
-            } else if (node instanceof MultiANewArrayInsnNode) {
-                node = transformMultiANewArrayInsnNode(mn, (MultiANewArrayInsnNode) node);
+            if (node instanceof MethodInsnNode insnNode7) {
+                node = transformMethodInsnNode(mn, insnNode7);
+            } else if (node instanceof VarInsnNode insnNode6) {
+                node = transformVarInsnNode(mn, insnNode6);
+            } else if (node instanceof FieldInsnNode insnNode5) {
+                node = transformFieldInsnNode(mn, insnNode5);
+            } else if (node instanceof InsnNode insnNode4) {
+                node = transformInsnNode(mn, insnNode4);
+            } else if (node instanceof TypeInsnNode insnNode3) {
+                node = transformTypeInsnNode(mn, insnNode3);
+            } else if (node instanceof JumpInsnNode insnNode2) {
+                node = transformJumpInsnNode(mn, insnNode2);
+            } else if (node instanceof LabelNode labelNode) {
+                node = transformLabelNode(mn, labelNode);
+            } else if (node instanceof IntInsnNode insnNode1) {
+                node = transformIntInsnNode(mn, insnNode1);
+            } else if (node instanceof MultiANewArrayInsnNode insnNode) {
+                node = transformMultiANewArrayInsnNode(mn, insnNode);
             }
 
             if (node == mn.instructions.getLast()) {

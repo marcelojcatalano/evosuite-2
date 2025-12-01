@@ -19,6 +19,8 @@
  */
 package org.evosuite.dse;
 
+import java.io.Serial;
+
 /**
  * This error can be used to signal an throwable from VM code, below the
  * instrumented class. E.g. the instrumented class calls the method
@@ -33,6 +35,7 @@ public class VMError extends Error {
     }
 
 
+    @Serial
     private static final long serialVersionUID = 4986434593568038501L;
 
 }

@@ -24,6 +24,8 @@ import org.evosuite.ga.archive.Archive;
 import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.execution.ExecutionResult;
 
+import java.io.Serial;
+
 /**
  * <p>
  * WeakMutationTestFitness class.
@@ -33,6 +35,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
  */
 public class WeakMutationTestFitness extends MutationTestFitness {
 
+    @Serial
     private static final long serialVersionUID = 7468742584904580204L;
 
     /**

@@ -31,6 +31,7 @@ import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.TestFitnessFunction;
 import org.evosuite.testcase.execution.ExecutionResult;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -38,6 +39,7 @@ import java.util.Set;
 
 public class StatementCoverageTestFitness extends TestFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = 5222436175279169394L;
 
     /**
@@ -189,8 +191,7 @@ public class StatementCoverageTestFitness extends TestFitnessFunction {
             return 1;
         }
 
-        if (other instanceof StatementCoverageTestFitness) {
-            StatementCoverageTestFitness otherStatementFitness = (StatementCoverageTestFitness) other;
+        if (other instanceof StatementCoverageTestFitness otherStatementFitness) {
             if (this.getTargetClass().compareTo(otherStatementFitness.getTargetClass()) != 0) {
                 return this.getTargetClass().compareTo(otherStatementFitness.getTargetClass());
             } else if (this.getTargetMethod().compareTo(otherStatementFitness.getTargetMethod()) != 0) {

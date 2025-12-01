@@ -77,8 +77,7 @@ public class EvoSuiteSocket extends MockSocketImpl{
 	public EvoSuiteSocket(Proxy proxy) {
 		this();
 		SocketAddress a = proxy.address();
-		if (a instanceof InetSocketAddress) {
-			InetSocketAddress ad = (InetSocketAddress) a;
+		if (a instanceof InetSocketAddress ad) {
 			// Use getHostString() to avoid reverse lookups
 
 			//server = ad.getHostString();  /FIXME: check how it is used in SocksSocketImpl

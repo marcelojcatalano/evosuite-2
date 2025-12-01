@@ -29,6 +29,7 @@ import org.evosuite.testsuite.TestSuiteFitnessFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.*;
 
 /**
@@ -38,6 +39,7 @@ import java.util.*;
  */
 public class ExceptionCoverageSuiteFitness extends TestSuiteFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = 1565793073526627496L;
 
     private static final Logger logger = LoggerFactory.getLogger(ExceptionCoverageSuiteFitness.class);

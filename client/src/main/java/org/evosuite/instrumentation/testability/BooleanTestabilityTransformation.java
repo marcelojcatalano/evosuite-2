@@ -547,10 +547,7 @@ public class BooleanTestabilityTransformation {
                 logger.info("Possible assignment to array?");
                 return !reassignment;
 
-            } else if (node instanceof MethodInsnNode) {
-                // if it is a boolean parameter of a converted method, then it needs to be converted
-                // Problem: How do we know which parameter it represents?
-                MethodInsnNode methodNode = (MethodInsnNode) node;
+            } else if (node instanceof MethodInsnNode methodNode) {
                 String desc = DescriptorMapping.getInstance().getMethodDesc(methodNode.owner,
                         methodNode.name,
                         methodNode.desc);

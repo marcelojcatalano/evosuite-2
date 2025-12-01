@@ -24,6 +24,7 @@ import org.evosuite.assertion.Inspector;
 import org.evosuite.assertion.InspectorManager;
 import org.objectweb.asm.Type;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
@@ -39,6 +40,7 @@ import static org.evosuite.coverage.io.IOCoverageConstants.*;
  */
 public class InputCoverageGoal implements Serializable, Comparable<InputCoverageGoal> {
 
+    @Serial
     private static final long serialVersionUID = -2917009638438833179L;
 
     private final String className;
@@ -253,8 +255,8 @@ public class InputCoverageGoal implements Serializable, Comparable<InputCoverage
                     // assert (argValue instanceof Number); // not always true: char can be assigned to integers
                     double value;
 
-                    if (argValue instanceof Character) {
-                        value = ((Number) ((int) (char) argValue)).doubleValue();
+                    if (argValue instanceof Character character) {
+                        value = ((Number) ((int) character)).doubleValue();
                     } else {
                         value = ((Number) argValue).doubleValue();
                     }
@@ -270,14 +272,14 @@ public class InputCoverageGoal implements Serializable, Comparable<InputCoverage
                     if (argType.getClassName().equals("java.lang.String")) {
                         argValueDesc = ((String) argValue).isEmpty() ? STRING_EMPTY : STRING_NONEMPTY;
                         goals.add(new InputCoverageGoal(className, methodName + methodDesc, i, argType, argValueDesc, numberValue));
-                    } else if (argValue instanceof List) {
-                        argValueDesc = ((List) argValue).isEmpty() ? LIST_EMPTY : LIST_NONEMPTY;
+                    } else if (argValue instanceof List list) {
+                        argValueDesc = list.isEmpty() ? LIST_EMPTY : LIST_NONEMPTY;
                         goals.add(new InputCoverageGoal(className, methodName + methodDesc, i, argType, argValueDesc, numberValue));
-                    } else if (argValue instanceof Set) {
-                        argValueDesc = ((Set) argValue).isEmpty() ? SET_EMPTY : SET_NONEMPTY;
+                    } else if (argValue instanceof Set set) {
+                        argValueDesc = set.isEmpty() ? SET_EMPTY : SET_NONEMPTY;
                         goals.add(new InputCoverageGoal(className, methodName + methodDesc, i, argType, argValueDesc, numberValue));
-                    } else if (argValue instanceof Map) {
-                        argValueDesc = ((Map) argValue).isEmpty() ? MAP_EMPTY : MAP_NONEMPTY;
+                    } else if (argValue instanceof Map map) {
+                        argValueDesc = map.isEmpty() ? MAP_EMPTY : MAP_NONEMPTY;
                         goals.add(new InputCoverageGoal(className, methodName + methodDesc, i, argType, argValueDesc, numberValue));
                     } else {
                         Collection<Inspector> inspectors = InspectorManager.getInstance().getInspectors(argValue.getClass());
@@ -285,8 +287,8 @@ public class InputCoverageGoal implements Serializable, Comparable<InputCoverage
                             String insp = inspector.getMethodCall() + Type.getMethodDescriptor(inspector.getMethod());
                             try {
                                 Object val = inspector.getValue(argValue);
-                                if (val instanceof Boolean) {
-                                    String valDesc = ((boolean) val) ? BOOL_TRUE : BOOL_FALSE;
+                                if (val instanceof Boolean boolean1) {
+                                    String valDesc = boolean1 ? BOOL_TRUE : BOOL_FALSE;
                                     goals.add(new InputCoverageGoal(className, methodName + methodDesc, i, argType, REF_NONNULL + ":" + argType.getClassName() + ":" + insp + ":" + valDesc));
                                 } else if (isJavaNumber(val)) {
                                     double dv = ((Number) val).doubleValue();

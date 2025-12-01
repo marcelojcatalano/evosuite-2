@@ -53,8 +53,7 @@ public class Scope {
      */
     public synchronized void setObject(VariableReference reference, Object o) {
         // Learn some dynamic information about this object
-        if (reference instanceof ArrayReference) {
-            ArrayReference arrayRef = (ArrayReference) reference;
+        if (reference instanceof ArrayReference arrayRef) {
             if (o != null && !o.getClass().isArray())
                 System.out.println("Trying to access object of class " + o.getClass()
                         + " as array: " + o);

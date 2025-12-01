@@ -26,12 +26,14 @@ import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testsuite.TestSuiteChromosome;
 
+import java.io.Serial;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
 public class BranchCoverageMap implements SearchListener<TestSuiteChromosome> {
 
+    @Serial
     private static final long serialVersionUID = -3498997999289782541L;
 
     public static BranchCoverageMap instance = null;

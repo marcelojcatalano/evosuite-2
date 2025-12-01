@@ -43,6 +43,7 @@ import static java.util.Comparator.comparingInt;
 public class AmbiguityCoverageFactory extends
         AbstractFitnessFactory<LineCoverageTestFitness> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1424282176155102252L;
 
     private static final Logger logger = LoggerFactory.getLogger(AmbiguityCoverageFactory.class);

@@ -41,6 +41,7 @@ import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 import org.evosuite.utils.ResourceController;
 
+import java.io.Serial;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -56,6 +57,7 @@ import static java.util.stream.Collectors.toSet;
 public abstract class TestSuiteAdapter<A extends GeneticAlgorithm<TestChromosome>>
         extends GeneticAlgorithm<TestSuiteChromosome> {
 
+    @Serial
     private static final long serialVersionUID = -506409298544885038L;
     private final IdentityHashMap<SearchListener<TestSuiteChromosome>, SearchListener<TestChromosome>> searchListenerMapping = new IdentityHashMap<>();
 
@@ -254,22 +256,22 @@ public abstract class TestSuiteAdapter<A extends GeneticAlgorithm<TestChromosome
      * @return The converted selection function.
      */
     private static <T extends Chromosome<T>, X extends Chromosome<X>> SelectionFunction<T> mapSelectionFunction(SelectionFunction<X> function) {
-        if (function instanceof FitnessProportionateSelection) {
-            return new FitnessProportionateSelection<>((FitnessProportionateSelection<?>) function);
-        } else if (function instanceof TournamentSelection) {
-            return new TournamentSelection<>((TournamentSelection<?>) function);
-        } else if (function instanceof BinaryTournamentSelectionCrowdedComparison) {
+        if (function instanceof FitnessProportionateSelection<?> selection4) {
+            return new FitnessProportionateSelection<>(selection4);
+        } else if (function instanceof TournamentSelection<?> selection3) {
+            return new TournamentSelection<>(selection3);
+        } else if (function instanceof BinaryTournamentSelectionCrowdedComparison<?> comparison) {
             return new BinaryTournamentSelectionCrowdedComparison<>(
-                    (BinaryTournamentSelectionCrowdedComparison<?>) function);
-        } else if (function instanceof TournamentSelectionRankAndCrowdingDistanceComparator) {
+                    comparison);
+        } else if (function instanceof TournamentSelectionRankAndCrowdingDistanceComparator<?> comparator) {
             return new TournamentSelectionRankAndCrowdingDistanceComparator<>(
-                    (TournamentSelectionRankAndCrowdingDistanceComparator<?>) function);
-        } else if (function instanceof BestKSelection) {
-            return new BestKSelection<>((BestKSelection<?>) function);
-        } else if (function instanceof RandomKSelection) {
-            return new RandomKSelection<>((RandomKSelection<?>) function);
-        } else if (function instanceof RankSelection) {
-            return new RankSelection<>((RankSelection<?>) function);
+                    comparator);
+        } else if (function instanceof BestKSelection<?> selection2) {
+            return new BestKSelection<>(selection2);
+        } else if (function instanceof RandomKSelection<?> selection1) {
+            return new RandomKSelection<>(selection1);
+        } else if (function instanceof RankSelection<?> selection) {
+            return new RankSelection<>(selection);
         } else {
             throw new IllegalArgumentException("cannot adapt selection function " + function);
         }
@@ -310,13 +312,9 @@ public abstract class TestSuiteAdapter<A extends GeneticAlgorithm<TestChromosome
 
     private BloatControlFunction<TestChromosome> mapBloatControlToTestLevel(
             BloatControlFunction<TestSuiteChromosome> bloatControl) {
-        if (bloatControl instanceof RelativeSuiteLengthBloatControl) {
-            final RelativeSuiteLengthBloatControl<?> bcf =
-                    (RelativeSuiteLengthBloatControl<?>) bloatControl;
+        if (bloatControl instanceof RelativeSuiteLengthBloatControl<?> bcf) {
             return new RelativeSuiteLengthBloatControl<>(bcf);
-        } else if (bloatControl instanceof MaxSizeBloatControl) {
-            final MaxSizeBloatControl<?> bcf =
-                    (MaxSizeBloatControl<?>) bloatControl;
+        } else if (bloatControl instanceof MaxSizeBloatControl<?> bcf) {
             return new MaxSizeBloatControl<>(bcf);
         } else {
             throw new IllegalArgumentException("cannot adapt bloat control function " + bloatControl);
@@ -375,8 +373,7 @@ public abstract class TestSuiteAdapter<A extends GeneticAlgorithm<TestChromosome
     final public void setChromosomeFactory(ChromosomeFactory<TestSuiteChromosome> factory)
             throws IllegalArgumentException {
         if (algorithm != null) {
-            if (factory instanceof TestSuiteChromosomeFactoryMock) {
-                TestSuiteChromosomeFactoryMock tcfw = (TestSuiteChromosomeFactoryMock) factory;
+            if (factory instanceof TestSuiteChromosomeFactoryMock tcfw) {
                 algorithm.setChromosomeFactory(tcfw.getWrapped());
             } else {
                 throw new IllegalArgumentException("factory not supported: " + factory);
@@ -520,12 +517,12 @@ public abstract class TestSuiteAdapter<A extends GeneticAlgorithm<TestChromosome
      * @return
      */
     private static <T extends Chromosome<T>> PopulationLimit<T> mapPopulationLimit(PopulationLimit<?> limit) {
-        if (limit instanceof IndividualPopulationLimit) {
-            return new IndividualPopulationLimit<>((IndividualPopulationLimit<?>) limit);
-        } else if (limit instanceof StatementsPopulationLimit) {
-            return new StatementsPopulationLimit<>((StatementsPopulationLimit<?>) limit);
-        } else if (limit instanceof SizePopulationLimit) {
-            return new SizePopulationLimit<>((SizePopulationLimit<?>) limit);
+        if (limit instanceof IndividualPopulationLimit<?> individualPopulationLimit) {
+            return new IndividualPopulationLimit<>(individualPopulationLimit);
+        } else if (limit instanceof StatementsPopulationLimit<?> statementsPopulationLimit) {
+            return new StatementsPopulationLimit<>(statementsPopulationLimit);
+        } else if (limit instanceof SizePopulationLimit<?> sizePopulationLimit) {
+            return new SizePopulationLimit<>(sizePopulationLimit);
         } else {
             throw new IllegalArgumentException("cannot adapt population limit " + limit);
         }
@@ -565,24 +562,24 @@ public abstract class TestSuiteAdapter<A extends GeneticAlgorithm<TestChromosome
      */
     private static <T extends Chromosome<T>> StoppingCondition<T>
     mapStoppingCondition(StoppingCondition<?> stoppingCondition) {
-        if (stoppingCondition instanceof MaxTimeStoppingCondition) {
-            return new MaxTimeStoppingCondition<>((MaxTimeStoppingCondition<?>) stoppingCondition);
-        } else if (stoppingCondition instanceof TimeDeltaStoppingCondition) {
-            return new TimeDeltaStoppingCondition<>((TimeDeltaStoppingCondition<?>) stoppingCondition);
-        } else if (stoppingCondition instanceof MaxGenerationStoppingCondition) {
-            return new MaxGenerationStoppingCondition<>((MaxGenerationStoppingCondition<?>) stoppingCondition);
+        if (stoppingCondition instanceof MaxTimeStoppingCondition<?> condition5) {
+            return new MaxTimeStoppingCondition<>(condition5);
+        } else if (stoppingCondition instanceof TimeDeltaStoppingCondition<?> condition4) {
+            return new TimeDeltaStoppingCondition<>(condition4);
+        } else if (stoppingCondition instanceof MaxGenerationStoppingCondition<?> condition3) {
+            return new MaxGenerationStoppingCondition<>(condition3);
         } else if (stoppingCondition instanceof RMIStoppingCondition) {
             return RMIStoppingCondition.getInstance();
-        } else if (stoppingCondition instanceof ShutdownTestWriter) {
-            return new ShutdownTestWriter<>((ShutdownTestWriter<?>) stoppingCondition);
-        } else if (stoppingCondition instanceof MaxStatementsStoppingCondition) {
-            return new MaxStatementsStoppingCondition<>((MaxStatementsStoppingCondition<?>) stoppingCondition);
-        } else if (stoppingCondition instanceof GlobalTimeStoppingCondition) {
-            return new GlobalTimeStoppingCondition<>((GlobalTimeStoppingCondition<?>) stoppingCondition);
+        } else if (stoppingCondition instanceof ShutdownTestWriter<?> writer) {
+            return new ShutdownTestWriter<>(writer);
+        } else if (stoppingCondition instanceof MaxStatementsStoppingCondition<?> condition2) {
+            return new MaxStatementsStoppingCondition<>(condition2);
+        } else if (stoppingCondition instanceof GlobalTimeStoppingCondition<?> condition1) {
+            return new GlobalTimeStoppingCondition<>(condition1);
         } else if (stoppingCondition instanceof SocketStoppingCondition) {
             return SocketStoppingCondition.getInstance();
-        } else if (stoppingCondition instanceof ZeroFitnessStoppingCondition) {
-            return new ZeroFitnessStoppingCondition<>((ZeroFitnessStoppingCondition<?>) stoppingCondition);
+        } else if (stoppingCondition instanceof ZeroFitnessStoppingCondition<?> condition) {
+            return new ZeroFitnessStoppingCondition<>(condition);
         } else {
             throw new IllegalArgumentException("cannot adapt stopping condition: " + stoppingCondition);
         }
@@ -644,8 +641,8 @@ public abstract class TestSuiteAdapter<A extends GeneticAlgorithm<TestChromosome
 
     private static FitnessFunction<TestChromosome> mapFitnessFunctionToTestCaseLevel(
             FitnessFunction<TestSuiteChromosome> fitnessFunction) throws IllegalArgumentException {
-        if (fitnessFunction instanceof TestSuiteFitnessFunctionMock) {
-            return ((TestSuiteFitnessFunctionMock) fitnessFunction).getWrapped();
+        if (fitnessFunction instanceof TestSuiteFitnessFunctionMock mock) {
+            return mock.getWrapped();
         }
 
         throw new IllegalArgumentException("Unsupported type of fitness function: " + fitnessFunction.getClass());
@@ -677,6 +674,7 @@ public abstract class TestSuiteAdapter<A extends GeneticAlgorithm<TestChromosome
      * is fine.
      */
     private static class TestSuiteFitnessFunctionWrapper extends TestSuiteFitnessFunction {
+        @Serial
         private static final long serialVersionUID = 5136258490569674883L;
 
         private final boolean maximizationFunction;

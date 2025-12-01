@@ -21,8 +21,11 @@ package org.evosuite.graphs.ccfg;
 
 import org.evosuite.graphs.cfg.ControlFlowEdge;
 
+import java.io.Serial;
+
 public class CCFGCodeEdge extends CCFGEdge {
 
+    @Serial
     private static final long serialVersionUID = 4200786738903617164L;
 
     private final ControlFlowEdge cfgEdge;

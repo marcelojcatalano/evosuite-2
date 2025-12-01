@@ -25,12 +25,14 @@ import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 public class SuiteFitnessEvaluationListener implements SearchListener<TestChromosome> {
 
+    @Serial
     private static final long serialVersionUID = 3871230464292232335L;
 
     private final List<TestSuiteFitnessFunction> fitnessFunctions;

@@ -21,6 +21,7 @@ import org.evosuite.symbolic.expr.AbstractExpression;
 import org.evosuite.symbolic.expr.ExpressionVisitor;
 import org.evosuite.symbolic.expr.Variable;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,6 +35,7 @@ import java.util.Set;
 public final class StringVariable extends AbstractExpression<String>
         implements StringValue, Variable<String> {
 
+    @Serial
     private static final long serialVersionUID = 5925030390824261492L;
 
     private final String name;
@@ -127,8 +129,7 @@ public final class StringVariable extends AbstractExpression<String>
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj != null && obj instanceof StringVariable) {
-            StringVariable v = (StringVariable) obj;
+        if (obj != null && obj instanceof StringVariable v) {
             return this.getName().equals(v.getName());
         }
         return false;

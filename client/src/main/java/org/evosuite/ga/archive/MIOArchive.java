@@ -31,6 +31,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.*;
 
@@ -44,6 +45,7 @@ import static java.util.stream.Collectors.*;
  */
 public class MIOArchive extends Archive {
 
+    @Serial
     private static final long serialVersionUID = -6100903230303784634L;
 
     private static final Logger logger = LoggerFactory.getLogger(MIOArchive.class);
@@ -342,6 +344,7 @@ public class MIOArchive extends Archive {
 
     private class Population implements Serializable {
 
+        @Serial
         private static final long serialVersionUID = 1671692598239736237L;
 
         private int counter = 0;

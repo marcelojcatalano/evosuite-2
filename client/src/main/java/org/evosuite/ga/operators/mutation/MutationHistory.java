@@ -19,6 +19,7 @@
  */
 package org.evosuite.ga.operators.mutation;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,6 +31,7 @@ import static java.util.stream.Collectors.joining;
 public class MutationHistory<T extends MutationHistoryEntry> implements Iterable<T>,
         Serializable {
 
+    @Serial
     private static final long serialVersionUID = -8543180637106924913L;
 
     private final List<T> mutations = new ArrayList<>();

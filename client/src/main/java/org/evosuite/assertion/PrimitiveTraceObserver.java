@@ -75,8 +75,8 @@ public class PrimitiveTraceObserver extends AssertionTraceObserver<PrimitiveTrac
             if (statement instanceof PrimitiveStatement<?>)
                 return;
 
-            if (statement instanceof MethodStatement) {
-                if (((MethodStatement) statement).getMethod().getName().equals("hashCode"))
+            if (statement instanceof MethodStatement methodStatement) {
+                if (methodStatement.getMethod().getName().equals("hashCode"))
                     return;
             }
 
@@ -93,8 +93,8 @@ public class PrimitiveTraceObserver extends AssertionTraceObserver<PrimitiveTrac
 
             if (object.getClass().isPrimitive() || object.getClass().isEnum()
                     || isWrapperType(object.getClass()) || object instanceof String) {
-                if (object instanceof String) {
-                    int length = ((String) object).length();
+                if (object instanceof String string) {
+                    int length = string.length();
                     // Maximum length of strings we look at
                     if (length > Properties.MAX_STRING) {
                         return;
@@ -104,15 +104,15 @@ public class PrimitiveTraceObserver extends AssertionTraceObserver<PrimitiveTrac
                         return;
                     }
                     // Avoid asserting anything on values referring to mockito proxy objects
-                    if (((String) object).toLowerCase().contains("EnhancerByMockito")) {
+                    if (string.toLowerCase().contains("EnhancerByMockito")) {
                         return;
                     }
                     // The word "hashCode" is also suspicious
-                    if (((String) object).toLowerCase().contains("hashcode")) {
+                    if (string.toLowerCase().contains("hashcode")) {
                         return;
                     }
                     // Check if there is a reference that would make the test fail
-                    if (addressPattern.matcher((String) object).find()) {
+                    if (addressPattern.matcher(string).find()) {
                         return;
                     }
 

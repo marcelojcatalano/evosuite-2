@@ -25,6 +25,8 @@ import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 /**
  * Stop search when a maximum (average) length has been reached. Used for
  * experiments on length bloat.
@@ -35,6 +37,7 @@ public class MaxLengthStoppingCondition<T extends Chromosome<T>> extends Stoppin
 
     private static final Logger logger = LoggerFactory.getLogger(MaxLengthStoppingCondition.class);
 
+    @Serial
     private static final long serialVersionUID = 8537667219135128366L;
 
     private double averageLength;

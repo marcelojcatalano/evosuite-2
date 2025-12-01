@@ -25,6 +25,7 @@ import org.evosuite.testsuite.TestSuiteChromosome;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.List;
 
 /**
@@ -36,6 +37,7 @@ import java.util.List;
  */
 public class MethodTraceCoverageSuiteFitness extends MethodCoverageSuiteFitness {
 
+    @Serial
     private static final long serialVersionUID = 4958063899628649732L;
 
     private final static Logger logger = LoggerFactory.getLogger(MethodTraceCoverageSuiteFitness.class);

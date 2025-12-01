@@ -25,6 +25,8 @@ import org.evosuite.rmi.service.ClientState;
 import org.evosuite.rmi.service.ClientStateInformation;
 import org.evosuite.utils.Listener;
 
+import java.io.Serial;
+
 /**
  * <p>
  * ConsoleProgressBar class.
@@ -34,6 +36,7 @@ import org.evosuite.utils.Listener;
  */
 public class ConsoleProgressBar implements Listener<ClientStateInformation> {
 
+    @Serial
     private static final long serialVersionUID = 8930332599188240933L;
 
     /**

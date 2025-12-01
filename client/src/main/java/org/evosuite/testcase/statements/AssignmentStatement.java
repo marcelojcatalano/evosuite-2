@@ -35,6 +35,7 @@ import org.evosuite.utils.generic.GenericClassUtils;
 import org.evosuite.utils.generic.GenericField;
 
 import java.io.PrintStream;
+import java.io.Serial;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -51,6 +52,7 @@ import java.util.Set;
  */
 public class AssignmentStatement extends AbstractStatement {
 
+    @Serial
     private static final long serialVersionUID = 2051431241124468349L;
 
     protected VariableReference parameter;
@@ -179,8 +181,7 @@ public class AssignmentStatement extends AbstractStatement {
              * @throws CodeUnderTestException (cause is NullPointerException)
              */
             private boolean checkNullDereference(final Scope scope) throws CodeUnderTestException {
-                if (retval instanceof FieldReference) {
-                    FieldReference fieldRef = (FieldReference) retval;
+                if (retval instanceof FieldReference fieldRef) {
 
                     if (fieldRef.getField().isStatic()) {
                         return false;
@@ -345,11 +346,11 @@ public class AssignmentStatement extends AbstractStatement {
             VariableReference value = tc.getReturnValue(i);
             if (value == null)
                 continue;
-            if (value instanceof ArrayReference) {
+            if (value instanceof ArrayReference reference) {
                 if (GenericClassUtils.isAssignable(value.getComponentType(),
                         parameter.getType())) {
-                    for (int index = 0; index < ((ArrayReference) value).getArrayLength(); index++) {
-                        variables.add(new ArrayIndex(tc, (ArrayReference) value, index));
+                    for (int index = 0; index < reference.getArrayLength(); index++) {
+                        variables.add(new ArrayIndex(tc, reference, index));
                     }
                 }
             } else if (value instanceof ArrayIndex) {

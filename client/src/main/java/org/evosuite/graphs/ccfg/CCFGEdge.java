@@ -21,8 +21,11 @@ package org.evosuite.graphs.ccfg;
 
 import org.jgrapht.graph.DefaultEdge;
 
+import java.io.Serial;
+
 public class CCFGEdge extends DefaultEdge {
 
+    @Serial
     private static final long serialVersionUID = -6957788788845428721L;
 
 }

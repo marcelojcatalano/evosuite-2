@@ -92,26 +92,20 @@ public class ConcolicMutation {
             for (Object key : model.keySet()) {
                 Object val = model.get(key);
                 if (val != null) {
-                    if (val instanceof Long) {
-                        Long value = (Long) val;
+                    if (val instanceof Long value) {
                         String name = ((String) key).replace("__SYM", "");
                         logger.debug("New value for " + name + " is " + value);
                         PrimitiveStatement<?> p = getStatement(newTest, name);
                         assert (p != null);
-                        if (p instanceof BooleanPrimitiveStatement) {
-                            BooleanPrimitiveStatement bp = (BooleanPrimitiveStatement) p;
+                        if (p instanceof BooleanPrimitiveStatement bp) {
                             bp.setValue(value.intValue() > 0);
-                        } else if (p instanceof CharPrimitiveStatement) {
-                            CharPrimitiveStatement cp = (CharPrimitiveStatement) p;
+                        } else if (p instanceof CharPrimitiveStatement cp) {
                             cp.setValue((char) value.intValue());
-                        } else if (p instanceof BytePrimitiveStatement) {
-                            BytePrimitiveStatement bp = (BytePrimitiveStatement) p;
+                        } else if (p instanceof BytePrimitiveStatement bp) {
                             bp.setValue((byte) value.intValue());
-                        } else if (p instanceof ShortPrimitiveStatement) {
-                            ShortPrimitiveStatement sp = (ShortPrimitiveStatement) p;
+                        } else if (p instanceof ShortPrimitiveStatement sp) {
                             sp.setValue((short) value.intValue());
-                        } else if (p instanceof LongPrimitiveStatement) {
-                            LongPrimitiveStatement lp = (LongPrimitiveStatement) p;
+                        } else if (p instanceof LongPrimitiveStatement lp) {
                             lp.setValue(value);
                         } else {
                             assert (p instanceof IntPrimitiveStatement);
@@ -142,9 +136,9 @@ public class ConcolicMutation {
      */
     private static PrimitiveStatement<?> getStatement(TestCase test, String name) {
         for (Statement statement : test) {
-            if (statement instanceof PrimitiveStatement<?>) {
+            if (statement instanceof PrimitiveStatement<?> primitiveStatement) {
                 if (statement.getReturnValue().getName().equals(name))
-                    return (PrimitiveStatement<?>) statement;
+                    return primitiveStatement;
             }
         }
         return null;
@@ -199,14 +193,12 @@ public class ConcolicMutation {
      * @param variables
      */
     private static void getVariables(Expression<?> expr, Set<Variable<?>> variables) {
-        if (expr instanceof Variable<?>) {
-            variables.add((Variable<?>) expr);
-        } else if (expr instanceof BinaryExpression<?>) {
-            BinaryExpression<?> bin = (BinaryExpression<?>) expr;
+        if (expr instanceof Variable<?> variable) {
+            variables.add(variable);
+        } else if (expr instanceof BinaryExpression<?> bin) {
             getVariables(bin.getLeftOperand(), variables);
             getVariables(bin.getRightOperand(), variables);
-        } else if (expr instanceof UnaryExpression<?>) {
-            UnaryExpression<?> un = (UnaryExpression<?>) expr;
+        } else if (expr instanceof UnaryExpression<?> un) {
             getVariables(un.getOperand(), variables);
         } else if (expr instanceof Constraint<?>) {
             // ignore

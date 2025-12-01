@@ -22,6 +22,8 @@ package org.evosuite.symbolic.dse.algorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 /**
  * Exceptions for exploration related issues.
  *
@@ -29,6 +31,7 @@ import org.slf4j.LoggerFactory;
  */
 public class DSEExplorationException extends RuntimeException {
 
+    @Serial
     private static final long serialVersionUID = 7112951484696975475L;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DSEExplorationException.class);
@@ -44,7 +47,7 @@ public class DSEExplorationException extends RuntimeException {
     public static void check(final boolean expr, final String msg, final Object... msgArgs)
             throws DSEExplorationException {
         if (!expr) {
-            final String finalMsg = String.format(msg, msgArgs);
+            final String finalMsg = msg.formatted(msgArgs);
             LOGGER.info(finalMsg);
             throw new DSEExplorationException(finalMsg);
         }
@@ -53,7 +56,7 @@ public class DSEExplorationException extends RuntimeException {
 
     public static void propagateError(final Throwable t, final String msg, final Object... msgArgs)
             throws DSEExplorationException {
-        final String finalMsg = String.format(msg, msgArgs);
+        final String finalMsg = msg.formatted(msgArgs);
 
         if (t == null) {
             LOGGER.info(finalMsg);

@@ -27,6 +27,7 @@ import org.evosuite.symbolic.expr.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -41,6 +42,7 @@ import java.util.Set;
 public final class StringMultipleComparison extends AbstractExpression<Long> implements
         StringComparison, MultipleExpression<String> {
 
+    @Serial
     private static final long serialVersionUID = -3844726361666119758L;
 
     protected static final Logger log = LoggerFactory.getLogger(StringMultipleComparison.class);
@@ -157,8 +159,7 @@ public final class StringMultipleComparison extends AbstractExpression<Long> imp
         if (obj == this) {
             return true;
         }
-        if (obj instanceof StringMultipleComparison) {
-            StringMultipleComparison other = (StringMultipleComparison) obj;
+        if (obj instanceof StringMultipleComparison other) {
             return this.op.equals(other.op) && this.left.equals(other.left)
                     && this.right.equals(other.right)
                     && this.other_v.equals(other.other_v);

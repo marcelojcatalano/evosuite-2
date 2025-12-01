@@ -84,8 +84,8 @@ public class WildcardTypeImpl implements WildcardType {
 
 
     private static String stringifyTypeVariable(Type upperBound) {
-        if (upperBound instanceof TypeVariable<?>) {
-            return "(" + upperBound.getTypeName() + " extends " + Arrays.toString(((TypeVariable<?>) upperBound).getBounds()) + ")";
+        if (upperBound instanceof TypeVariable<?> variable) {
+            return "(" + upperBound.getTypeName() + " extends " + Arrays.toString(variable.getBounds()) + ")";
         }
 
         return GenericTypeReflector.getTypeName(upperBound);

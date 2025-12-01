@@ -32,6 +32,7 @@ import org.objectweb.asm.Type;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.*;
 
 /**
@@ -41,6 +42,7 @@ import java.util.*;
  */
 public class MethodCoverageSuiteFitness extends TestSuiteFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = 3359321076367091582L;
 
     private final static Logger logger = LoggerFactory.getLogger(MethodCoverageSuiteFitness.class);
@@ -95,8 +97,7 @@ public class MethodCoverageSuiteFitness extends TestSuiteFitnessFunction {
 
         Integer exceptionPosition = result.getFirstPositionOfThrownException();
         Statement statement = result.test.getStatement(exceptionPosition);
-        if (statement instanceof ConstructorStatement) {
-            ConstructorStatement c = (ConstructorStatement) statement;
+        if (statement instanceof ConstructorStatement c) {
             String className = c.getConstructor().getName();
             String methodName = "<init>"
                     + Type.getConstructorDescriptor(c.getConstructor().getConstructor());

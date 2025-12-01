@@ -266,8 +266,8 @@ public abstract class MutationAssertionGenerator extends AssertionGenerator {
             Iterator<Assertion> iterator = assertions.iterator();
             VariableReference ret = statement.getReturnValue();
             VariableReference callee = null;
-            if (statement instanceof MethodStatement) {
-                callee = ((MethodStatement) statement).getCallee();
+            if (statement instanceof MethodStatement methodStatement) {
+                callee = methodStatement.getCallee();
             }
             boolean just = true;
             while (iterator.hasNext()) {
@@ -317,11 +317,11 @@ public abstract class MutationAssertionGenerator extends AssertionGenerator {
     protected boolean isUsedAsCallee(TestCase test, VariableReference var) {
         for (int pos = var.getStPosition() + 1; pos < test.size(); pos++) {
             Statement statement = test.getStatement(pos);
-            if (statement instanceof MethodStatement) {
-                if (((MethodStatement) statement).getCallee() == var)
+            if (statement instanceof MethodStatement methodStatement) {
+                if (methodStatement.getCallee() == var)
                     return true;
-            } else if (statement instanceof FieldStatement) {
-                if (((FieldStatement) statement).getSource() == var)
+            } else if (statement instanceof FieldStatement fieldStatement) {
+                if (fieldStatement.getSource() == var)
                     return true;
             }
 
@@ -339,8 +339,7 @@ public abstract class MutationAssertionGenerator extends AssertionGenerator {
     protected void filterRedundantNonnullAssertions(TestCase test) {
         Set<Assertion> redundantAssertions = new HashSet<>();
         for (Statement statement : test) {
-            if (statement instanceof ConstructorStatement) {
-                ConstructorStatement cs = (ConstructorStatement) statement;
+            if (statement instanceof ConstructorStatement cs) {
                 for (Assertion a : cs.getAssertions()) {
                     if (a instanceof NullAssertion) {
                         if (cs.getAssertions().size() > 0) {
@@ -387,8 +386,7 @@ public abstract class MutationAssertionGenerator extends AssertionGenerator {
 
         if (hasPrimitive) {
             for (Assertion assertion : assertions) {
-                if (assertion instanceof InspectorAssertion) {
-                    InspectorAssertion ia = (InspectorAssertion) assertion;
+                if (assertion instanceof InspectorAssertion ia) {
                     if (ia.getInspector().getMethod().equals(methodStatement.getMethod().getMethod())) {
                         statement.removeAssertion(assertion);
                         return;

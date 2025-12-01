@@ -25,6 +25,7 @@ import org.evosuite.ga.archive.Archive;
 import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.execution.ExecutionResult;
 
+import java.io.Serial;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +34,7 @@ import java.util.Map;
  */
 public class TryCatchCoverageSuiteFitness extends BranchCoverageSuiteFitness {
 
+    @Serial
     private static final long serialVersionUID = -8849382855802052405L;
 
     /**

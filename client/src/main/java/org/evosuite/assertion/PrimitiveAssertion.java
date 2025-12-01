@@ -24,8 +24,11 @@ import org.evosuite.testcase.execution.CodeUnderTestException;
 import org.evosuite.testcase.execution.Scope;
 import org.evosuite.utils.NumberFormatter;
 
+import java.io.Serial;
+
 public class PrimitiveAssertion extends Assertion {
 
+    @Serial
     private static final long serialVersionUID = -3394333075511344913L;
 
     /**

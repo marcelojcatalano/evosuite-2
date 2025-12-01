@@ -19,6 +19,7 @@
  */
 package org.evosuite.ga;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
@@ -34,6 +35,7 @@ import org.evosuite.utils.Randomness;
  * @author José Campos
  */
 public class NSGAChromosome extends Chromosome<NSGAChromosome> {
+    @Serial
     private static final long serialVersionUID = -2056801838518269049L;
 
     /**
@@ -138,8 +140,8 @@ public class NSGAChromosome extends Chromosome<NSGAChromosome> {
         for (int i = 0; i < this.getNumberOfVariables(); i++) {
             Variable v = this.getVariable(i);
 
-            if (v instanceof DoubleVariable)
-                this.mutate((DoubleVariable) v);
+            if (v instanceof DoubleVariable variable)
+                this.mutate(variable);
         }
     }
 

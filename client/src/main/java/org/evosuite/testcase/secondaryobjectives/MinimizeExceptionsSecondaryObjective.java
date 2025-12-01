@@ -24,6 +24,8 @@ import org.evosuite.ga.SecondaryObjective;
 import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.execution.ExecutionResult;
 
+import java.io.Serial;
+
 /**
  * <p>MinimizeExceptionsSecondaryObjective class.</p>
  *
@@ -31,6 +33,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
  */
 public class MinimizeExceptionsSecondaryObjective extends SecondaryObjective<TestChromosome> {
 
+    @Serial
     private static final long serialVersionUID = -4405276303273532040L;
 
     private int getNumExceptions(TestChromosome chromosome) {

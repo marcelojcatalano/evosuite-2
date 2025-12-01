@@ -39,6 +39,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -59,6 +60,7 @@ public class MAPElites extends GeneticAlgorithm<TestChromosome> {
     /**
      * Serial version UID
      */
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private static final Logger logger = LoggerFactory.getLogger(MAPElites.class);
@@ -72,7 +74,7 @@ public class MAPElites extends GeneticAlgorithm<TestChromosome> {
     private final List<TestChromosome> bestIndividuals;
 
     private static final List<FeatureVector> IGNORE_VECTORS =
-            Arrays.asList(new FeatureVector(new Inspector[0], null));
+            List.of(new FeatureVector(new Inspector[0], null));
 
     private final CrossOverFunction<TestChromosome> crossoverFunction = new SinglePointCrossOver<>();
 
@@ -278,15 +280,13 @@ public class MAPElites extends GeneticAlgorithm<TestChromosome> {
         boolean flag = false;
         TestCase tc = test.getTestCase();
         for (Statement s : tc) {
-            if (s instanceof MethodStatement) {
-                MethodStatement ms = (MethodStatement) s;
+            if (s instanceof MethodStatement ms) {
                 boolean isTargetMethod = ms.getDeclaringClassName().equals(Properties.TARGET_CLASS);
                 if (isTargetMethod) {
                     return true;
                 }
             }
-            if (s instanceof ConstructorStatement) {
-                ConstructorStatement ms = (ConstructorStatement) s;
+            if (s instanceof ConstructorStatement ms) {
                 boolean isTargetMethod = ms.getDeclaringClassName().equals(Properties.TARGET_CLASS);
                 if (isTargetMethod) {
                     return true;

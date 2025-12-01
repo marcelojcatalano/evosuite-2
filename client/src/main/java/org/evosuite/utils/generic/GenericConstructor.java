@@ -30,6 +30,7 @@ import org.evosuite.utils.LoggingUtils;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.lang.reflect.*;
 import java.util.List;
 
@@ -38,6 +39,7 @@ import java.util.List;
  */
 public class GenericConstructor extends GenericExecutable<GenericConstructor, Constructor<?>> {
 
+    @Serial
     private static final long serialVersionUID = 1361882947700615341L;
 
     private transient Constructor<?> constructor;

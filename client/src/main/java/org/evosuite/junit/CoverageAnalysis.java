@@ -20,7 +20,6 @@
 
 package org.evosuite.junit;
 
-import junit.framework.TestCase;
 import org.evosuite.ClientProcess;
 import org.evosuite.Properties;
 import org.evosuite.Properties.Criterion;
@@ -51,7 +50,8 @@ import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 import org.evosuite.utils.ExternalProcessUtilities;
 import org.evosuite.utils.LoggingUtils;
-import org.junit.Test;
+import org.junit.Assert;
+import org.junit.jupiter.api.Test;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.TestClass;
 import org.objectweb.asm.ClassReader;
@@ -141,8 +141,8 @@ public class CoverageAnalysis {
          */
         sortTestClasses(testClasses);
 
-        Class<?>[] tests = testClasses.toArray(new Class<?>[testClasses.size()]);
-        LoggingUtils.getEvoLogger().info("* " + ClientProcess.getPrettyPrintIdentifier() + "Executing test(s)");
+        Class<?>[] tests = testClasses.toArray(new Class<?>[0]);
+        LoggingUtils.getEvoLogger().info("* {}Executing test(s)", ClientProcess.getPrettyPrintIdentifier());
         if (Properties.SELECTED_JUNIT == null) {
             boolean origUseAgent = EvoRunner.useAgent;
             boolean origUseClassLoader = EvoRunner.useClassLoader;
@@ -289,7 +289,6 @@ public class CoverageAnalysis {
      *
      * @param directory a {@link java.io.File} object.
      * @return a {@link java.util.List} object.
-     * @throws ClassNotFoundException if any.
      */
     private static List<Class<?>> getTestClasses(File directory) {
 
@@ -681,7 +680,7 @@ public class CoverageAnalysis {
         while ((superClass = superClass.getSuperclass()) != null) {
             if (superClass.getCanonicalName().equals(Object.class.getCanonicalName())) {
                 break;
-            } else if (superClass.getCanonicalName().equals(TestCase.class.getCanonicalName())) {
+            } else if (superClass.getCanonicalName().equals(Assert.class.getCanonicalName())) {
                 return true;
             }
         }

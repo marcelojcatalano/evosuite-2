@@ -30,6 +30,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -42,6 +43,7 @@ import java.util.Set;
  */
 public class CoverageArchive extends Archive {
 
+    @Serial
     private static final long serialVersionUID = -4046845573050661961L;
 
     private static final Logger logger = LoggerFactory.getLogger(CoverageArchive.class);

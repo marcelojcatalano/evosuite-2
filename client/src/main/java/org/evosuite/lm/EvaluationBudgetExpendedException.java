@@ -19,9 +19,12 @@
  */
 package org.evosuite.lm;
 
+import java.io.Serial;
+
 /**
  * Created by mat on 09/04/2014.
  */
 public class EvaluationBudgetExpendedException extends RuntimeException {
+    @Serial
     private static final long serialVersionUID = 7857964031100298713L;
 }

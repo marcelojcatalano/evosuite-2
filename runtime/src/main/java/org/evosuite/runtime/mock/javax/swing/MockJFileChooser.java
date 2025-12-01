@@ -40,6 +40,7 @@ import java.beans.PropertyChangeListener;
 import java.io.File;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Method;
 import java.util.Objects;
@@ -63,7 +64,8 @@ import org.evosuite.runtime.mock.javax.swing.filechooser.MockFileSystemView;
 
 public class MockJFileChooser extends  javax.swing.JFileChooser  implements OverrideMock{
 
-	private static final long serialVersionUID = 1062809726268959728L;
+    @Serial
+    private static final long serialVersionUID = 1062809726268959728L;
 
 	private static final String uiClassID = "FileChooserUI";
 
@@ -245,8 +247,8 @@ public class MockJFileChooser extends  javax.swing.JFileChooser  implements Over
 		// Track native setting for showing hidden files
 		Toolkit tk = Toolkit.getDefaultToolkit();
 		Object showHiddenProperty = tk.getDesktopProperty(SHOW_HIDDEN_PROP);
-		if (showHiddenProperty instanceof Boolean) {
-			useFileHiding = !(Boolean) showHiddenProperty;
+		if (showHiddenProperty instanceof Boolean boolean1) {
+			useFileHiding = !boolean1;
 			showFilesListener = new MockWeakPCL(this);
 			tk.addPropertyChangeListener(SHOW_HIDDEN_PROP, showFilesListener);
 		}
@@ -395,8 +397,8 @@ public class MockJFileChooser extends  javax.swing.JFileChooser  implements Over
 
 		JDialog dialog;
 		Window window = getWindowForComponent(parent);
-		if (window instanceof Frame) {
-			dialog = new JDialog((Frame)window, title, true);
+		if (window instanceof Frame frame) {
+			dialog = new JDialog(frame, title, true);
 		} else {
 			dialog = new JDialog((Dialog)window, title, true);
 		}
@@ -834,10 +836,10 @@ public class MockJFileChooser extends  javax.swing.JFileChooser  implements Over
 		long mostRecentEventTime = EventQueue.getMostRecentEventTime();
 		int modifiers = 0;
 		AWTEvent currentEvent = EventQueue.getCurrentEvent();
-		if (currentEvent instanceof InputEvent) {
-			modifiers = ((InputEvent)currentEvent).getModifiers();
-		} else if (currentEvent instanceof ActionEvent) {
-			modifiers = ((ActionEvent)currentEvent).getModifiers();
+		if (currentEvent instanceof InputEvent event1) {
+			modifiers = event1.getModifiers();
+		} else if (currentEvent instanceof ActionEvent event) {
+			modifiers = event.getModifiers();
 		}
 		ActionEvent e = null;
 		// Process the listeners last to first, notifying

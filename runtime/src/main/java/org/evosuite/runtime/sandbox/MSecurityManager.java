@@ -519,8 +519,8 @@ public class MSecurityManager extends SecurityManager {
             // TODO: This makes JVM8 on MacOS crash
             // PermissionStatistics.getInstance().countThreads(Thread.currentThread().getThreadGroup().activeCount());
 
-            if (perm instanceof FilePermission) {
-                return checkFilePermission((FilePermission) perm);
+            if (perm instanceof FilePermission permission) {
+                return checkFilePermission(permission);
             }
 
             return true;
@@ -550,108 +550,108 @@ public class MSecurityManager extends SecurityManager {
         // TODO: This makes JVM8 on MacOS crash
         //PermissionStatistics.getInstance().countThreads(Thread.currentThread().getThreadGroup().activeCount());
 
-        if (perm instanceof FilePermission) {
-            return checkFilePermission((FilePermission) perm);
+        if (perm instanceof FilePermission permission) {
+            return checkFilePermission(permission);
         }
 
         /*
          * following are not checked if sandbox is in IO mode, in which only FilePermissions are checked
          */
 
-        if (perm instanceof AllPermission) {
-            return checkAllPermission((AllPermission) perm);
+        if (perm instanceof AllPermission permission) {
+            return checkAllPermission(permission);
         }
 
-        if (perm instanceof SecurityPermission) {
-            return checkSecurityPermission((SecurityPermission) perm);
+        if (perm instanceof SecurityPermission permission) {
+            return checkSecurityPermission(permission);
         }
 
-        if (perm instanceof LoggingPermission) {
-            return checkLoggingPermission((LoggingPermission) perm);
+        if (perm instanceof LoggingPermission permission) {
+            return checkLoggingPermission(permission);
         }
 
-        if (perm instanceof ReflectPermission) {
-            return checkReflectPermission((ReflectPermission) perm);
+        if (perm instanceof ReflectPermission permission) {
+            return checkReflectPermission(permission);
         }
 
-        if (perm instanceof PropertyPermission) {
-            return checkPropertyPermission((PropertyPermission) perm);
+        if (perm instanceof PropertyPermission permission) {
+            return checkPropertyPermission(permission);
         }
 
-        if (perm instanceof RuntimePermission) {
-            return checkRuntimePermission((RuntimePermission) perm);
+        if (perm instanceof RuntimePermission permission) {
+            return checkRuntimePermission(permission);
         }
 
-        if (perm instanceof AWTPermission) {
-            return checkAWTPermission((AWTPermission) perm);
+        if (perm instanceof AWTPermission permission) {
+            return checkAWTPermission(permission);
         }
 
-        if (perm instanceof UnresolvedPermission) {
-            return checkUnresolvedPermission((UnresolvedPermission) perm);
+        if (perm instanceof UnresolvedPermission permission) {
+            return checkUnresolvedPermission(permission);
         }
 
-        if (perm instanceof SerializablePermission) {
-            return checkSerializablePermission((SerializablePermission) perm);
+        if (perm instanceof SerializablePermission permission) {
+            return checkSerializablePermission(permission);
         }
 
-        if (perm instanceof AudioPermission) {
-            return checkAudioPermission((AudioPermission) perm);
+        if (perm instanceof AudioPermission permission) {
+            return checkAudioPermission(permission);
         }
 
-        if (perm instanceof DelegationPermission) {
-            return checkDelegationPermission((DelegationPermission) perm);
+        if (perm instanceof DelegationPermission permission) {
+            return checkDelegationPermission(permission);
         }
 
-        if (perm instanceof ServicePermission) {
-            return checkServicePermission((ServicePermission) perm);
+        if (perm instanceof ServicePermission permission) {
+            return checkServicePermission(permission);
         }
 
-        if (perm instanceof SQLPermission) {
-            return checkSQLPermission((SQLPermission) perm);
+        if (perm instanceof SQLPermission permission) {
+            return checkSQLPermission(permission);
         }
 
-        if (perm instanceof SSLPermission) {
-            return checkSSLPermission((SSLPermission) perm);
+        if (perm instanceof SSLPermission permission) {
+            return checkSSLPermission(permission);
         }
 
-        if (perm instanceof PrivateCredentialPermission) {
-            return checkPrivateCredentialPermission((PrivateCredentialPermission) perm);
+        if (perm instanceof PrivateCredentialPermission permission) {
+            return checkPrivateCredentialPermission(permission);
         }
 
-        if (perm instanceof WebServicePermission) {
-            return checkWebServicePermission((WebServicePermission) perm);
+        if (perm instanceof WebServicePermission permission) {
+            return checkWebServicePermission(permission);
         }
 
-        if (perm instanceof SubjectDelegationPermission) {
-            return checkSubjectDelegationPermission((SubjectDelegationPermission) perm);
+        if (perm instanceof SubjectDelegationPermission permission) {
+            return checkSubjectDelegationPermission(permission);
         }
 
-        if (perm instanceof ManagementPermission) {
-            return checkManagementPermission((ManagementPermission) perm);
+        if (perm instanceof ManagementPermission permission) {
+            return checkManagementPermission(permission);
         }
 
-        if (perm instanceof MBeanPermission) {
-            return checkMBeanPermission((MBeanPermission) perm);
+        if (perm instanceof MBeanPermission permission) {
+            return checkMBeanPermission(permission);
         }
 
-        if (perm instanceof MBeanServerPermission) {
-            return checkMBeanServerPermission((MBeanServerPermission) perm);
+        if (perm instanceof MBeanServerPermission permission) {
+            return checkMBeanServerPermission(permission);
         }
 
-        if (perm instanceof MBeanTrustPermission) {
-            return checkMBeanTrustPermission((MBeanTrustPermission) perm);
+        if (perm instanceof MBeanTrustPermission permission) {
+            return checkMBeanTrustPermission(permission);
         }
 
-        if (perm instanceof NetPermission) {
-            return checkNetPermission((NetPermission) perm);
+        if (perm instanceof NetPermission permission) {
+            return checkNetPermission(permission);
         }
 
-        if (perm instanceof AuthPermission) {
-            return checkAuthPermission((AuthPermission) perm);
+        if (perm instanceof AuthPermission permission) {
+            return checkAuthPermission(permission);
         }
 
-        if (perm instanceof SocketPermission) {
-            return checkSocketPermission((SocketPermission) perm);
+        if (perm instanceof SocketPermission permission) {
+            return checkSocketPermission(permission);
         }
 
         /*

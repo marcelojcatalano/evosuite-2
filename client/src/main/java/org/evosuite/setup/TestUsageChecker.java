@@ -30,7 +30,11 @@ import org.evosuite.runtime.mock.MockList;
 import org.evosuite.runtime.util.AtMostOnceLogger;
 import org.evosuite.utils.Java9InvisiblePackage;
 import org.evosuite.utils.LoggingUtils;
-import org.junit.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.objectweb.asm.Type;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -111,10 +115,9 @@ public class TestUsageChecker {
     }
 
     public static boolean canUse(java.lang.reflect.Type t) {
-        if (t instanceof Class<?>) {
-            return canUse((Class<?>) t);
-        } else if (t instanceof ParameterizedType) {
-            ParameterizedType pt = (ParameterizedType) t;
+        if (t instanceof Class<?> class1) {
+            return canUse(class1);
+        } else if (t instanceof ParameterizedType pt) {
             for (java.lang.reflect.Type parameterType : pt.getActualTypeArguments()) {
                 if (!canUse(parameterType))
                     return false;
@@ -324,8 +327,8 @@ public class TestUsageChecker {
             }
         }
 
-        if (m.isAnnotationPresent(Test.class) || m.isAnnotationPresent(Before.class) || m.isAnnotationPresent(BeforeClass.class)
-                || m.isAnnotationPresent(After.class) || m.isAnnotationPresent(AfterClass.class)) {
+        if (m.isAnnotationPresent(Test.class) || m.isAnnotationPresent(BeforeEach.class) || m.isAnnotationPresent(BeforeAll.class)
+                || m.isAnnotationPresent(AfterEach.class) || m.isAnnotationPresent(AfterAll.class)) {
             logger.debug("Excluding test method " + m.getName());
             return false;
         }

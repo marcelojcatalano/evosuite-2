@@ -31,6 +31,7 @@ import org.evosuite.utils.LoggingUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 import java.util.*;
@@ -38,6 +39,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class MasterNodeImpl implements MasterNodeRemote, MasterNodeLocal {
 
+    @Serial
     private static final long serialVersionUID = -6329473514791197464L;
 
     private static final Logger logger = LoggerFactory.getLogger(MasterNodeImpl.class);

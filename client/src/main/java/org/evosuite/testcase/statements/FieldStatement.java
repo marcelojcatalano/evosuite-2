@@ -32,6 +32,7 @@ import org.evosuite.utils.Randomness;
 import org.evosuite.utils.generic.GenericField;
 
 import java.io.PrintStream;
+import java.io.Serial;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -52,6 +53,7 @@ import java.util.Set;
  */
 public class FieldStatement extends AbstractStatement {
 
+    @Serial
     private static final long serialVersionUID = -4944610139232763790L;
 
     protected GenericField field;

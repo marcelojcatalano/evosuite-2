@@ -22,6 +22,7 @@ package org.evosuite.testcase.statements.environment;
 import org.evosuite.runtime.util.Inputs;
 import org.evosuite.runtime.vnet.EndPointInfo;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
@@ -36,6 +37,7 @@ import java.util.Set;
  */
 public class AccessedEnvironment implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 2653568611955383431L;
 
     /**

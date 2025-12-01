@@ -64,8 +64,7 @@ public class ImplicitElseTransformer extends MethodNodeTransformer {
             // If we have no debug information, try to guess
             AbstractInsnNode pos = position.getPrevious();
             while (pos != mn.instructions.getFirst()) {
-                if (pos instanceof VarInsnNode) {
-                    VarInsnNode vn = (VarInsnNode) pos;
+                if (pos instanceof VarInsnNode vn) {
                     if (var.var == vn.var) {
                         return true;
                     }

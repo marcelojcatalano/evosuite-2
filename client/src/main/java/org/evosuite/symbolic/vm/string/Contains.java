@@ -48,8 +48,7 @@ public final class Contains extends SymbolicFunction {
         ReferenceConstant symb_right = (ReferenceConstant) this
                 .getSymbArgument(0);
 
-        if (conc_right instanceof String) {
-            String conc_right_str = (String) conc_right;
+        if (conc_right instanceof String conc_right_str) {
             StringValue right_expr = env.heap.getField(Types.JAVA_LANG_STRING,
                     SymbolicHeap.$STRING_VALUE, conc_right_str, symb_right,
                     conc_right_str);

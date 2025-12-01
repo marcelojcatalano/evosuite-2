@@ -19,6 +19,8 @@
  */
 package org.evosuite.ga;
 
+import java.io.Serial;
+
 /**
  * Exception used when error occurs during mutation or crossover
  *
@@ -26,6 +28,7 @@ package org.evosuite.ga;
  */
 public class ConstructionFailedException extends Exception {
 
+    @Serial
     private static final long serialVersionUID = -1326799751206971428L;
 
     /**

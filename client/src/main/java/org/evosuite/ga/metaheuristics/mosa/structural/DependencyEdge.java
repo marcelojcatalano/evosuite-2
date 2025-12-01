@@ -22,11 +22,14 @@ package org.evosuite.ga.metaheuristics.mosa.structural;
 import org.evosuite.testcase.TestFitnessFunction;
 import org.jgrapht.graph.DefaultEdge;
 
+import java.io.Serial;
+
 /**
  * @author Annibale Panichella
  */
 public class DependencyEdge extends DefaultEdge {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     //private static final Logger logger = LoggerFactory.getLogger(BranchFitnessGraph.class);

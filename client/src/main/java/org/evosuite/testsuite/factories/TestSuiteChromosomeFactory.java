@@ -26,6 +26,8 @@ import org.evosuite.testcase.factories.RandomLengthTestFactory;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
+
 
 /**
  * <p>TestSuiteChromosomeFactory class.</p>
@@ -34,6 +36,7 @@ import org.evosuite.utils.Randomness;
  */
 public class TestSuiteChromosomeFactory implements ChromosomeFactory<TestSuiteChromosome> {
 
+    @Serial
     private static final long serialVersionUID = -3769862881038106087L;
 
     public ChromosomeFactory<TestChromosome> getTestChromosomeFactory() {

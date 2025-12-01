@@ -32,6 +32,7 @@ import org.evosuite.utils.LoggingUtils;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.lang.reflect.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,6 +46,7 @@ import java.util.List;
  */
 public class GenericMethod extends GenericExecutable<GenericMethod, Method> {
 
+    @Serial
     private static final long serialVersionUID = 6091851133071150237L;
 
     /**

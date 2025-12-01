@@ -1331,8 +1331,8 @@ public final class ArithmeticVM extends AbstractVM {
         }
 
         int concrete_value;
-        if (new Double(left_concrete_value).isNaN()
-                || new Double(right_concrete_value).isNaN()) {
+        if (Double.valueOf(left_concrete_value).isNaN()
+                || Double.valueOf(right_concrete_value).isNaN()) {
             concrete_value = 1;
         } else if (left_concrete_value == right_concrete_value) {
             concrete_value = 0;
@@ -1379,8 +1379,8 @@ public final class ArithmeticVM extends AbstractVM {
         }
 
         int concrete_value;
-        if (new Double(left_concrete_value).isNaN()
-                || new Double(right_concrete_value).isNaN()) {
+        if (Double.valueOf(left_concrete_value).isNaN()
+                || Double.valueOf(right_concrete_value).isNaN()) {
             concrete_value = 1;
         } else if (left_concrete_value == right_concrete_value) {
             concrete_value = 0;

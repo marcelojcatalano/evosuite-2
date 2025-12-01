@@ -19,6 +19,7 @@
  */
 package org.evosuite.dse;
 
+import java.io.Serial;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
@@ -36,6 +37,7 @@ import java.util.ListIterator;
 public class LinkedStringList extends LinkedList<String> {
 
 
+    @Serial
     private static final long serialVersionUID = 5757225099467215983L;
 
     /**

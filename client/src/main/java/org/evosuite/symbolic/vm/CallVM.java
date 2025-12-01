@@ -382,13 +382,13 @@ public final class CallVM extends AbstractVM {
             Expression currentOperandExpression = OperandUtils.retrieveOperandExpression(symbolicOperand);
 
             // For Strings we take the expression stored in the heap
-            if (currentOperandExpression instanceof ReferenceExpression
+            if (currentOperandExpression instanceof ReferenceExpression expression
                     && currentOperandExpression.getConcreteValue().getClass().equals(String.class)) {
                 currentOperandExpression = env.heap.getField(
                         Types.JAVA_LANG_STRING,
                         SymbolicHeap.$STRING_VALUE,
                         null,
-                        (ReferenceExpression) currentOperandExpression,
+                        expression,
                         (String) currentOperandExpression.getConcreteValue());
             }
 
@@ -910,8 +910,7 @@ public final class CallVM extends AbstractVM {
             return false;
 
         Frame topFrame = env.topFrame();
-        if (topFrame instanceof StaticInitializerFrame) {
-            StaticInitializerFrame clinitFrame = (StaticInitializerFrame) topFrame;
+        if (topFrame instanceof StaticInitializerFrame clinitFrame) {
             if (methName.equals(conf.INIT) && clinitFrame.getClassName().equals(className)) {
                 return true;
             }
@@ -932,8 +931,7 @@ public final class CallVM extends AbstractVM {
             return false;
 
         Frame topFrame = env.topFrame();
-        if (topFrame instanceof StaticInitializerFrame) {
-            StaticInitializerFrame clinitFrame = (StaticInitializerFrame) topFrame;
+        if (topFrame instanceof StaticInitializerFrame clinitFrame) {
             if (methName.equals(conf.CLINIT) && clinitFrame.getClassName().equals(className)) {
                 return true;
             }

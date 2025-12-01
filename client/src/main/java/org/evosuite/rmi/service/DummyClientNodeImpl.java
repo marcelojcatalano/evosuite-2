@@ -22,11 +22,13 @@ package org.evosuite.rmi.service;
 import org.evosuite.ga.Chromosome;
 import org.evosuite.statistics.RuntimeVariable;
 
+import java.io.Serial;
 import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 
 public class DummyClientNodeImpl<T extends Chromosome<T>> extends ClientNodeImpl<T> {
 
+    @Serial
     private static final long serialVersionUID = -354329589467033654L;
 
     public DummyClientNodeImpl() {

@@ -19,6 +19,7 @@
  */
 package org.evosuite.symbolic.solver;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -26,6 +27,7 @@ import java.util.Map;
 public class SolverResult implements Serializable {
 
 
+    @Serial
     private static final long serialVersionUID = -930589471876011035L;
 
     private enum SolverResultType {

@@ -27,6 +27,7 @@ import org.evosuite.utils.ArrayUtil;
 import org.evosuite.utils.generic.GenericClassFactory;
 import org.objectweb.asm.commons.GeneratorAdapter;
 
+import java.io.Serial;
 import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ import java.util.Map;
  */
 public class ArrayIndex extends VariableReferenceImpl {
 
+    @Serial
     private static final long serialVersionUID = -4492869536935582711L;
 
     /**
@@ -267,10 +269,10 @@ public class ArrayIndex extends VariableReferenceImpl {
     private Integer getIntValue(Object object) {
         if (object == null) {
             return null;
-        } else if (object instanceof Number) {
-            return ((Number) object).intValue();
-        } else if (object instanceof Character) {
-            return (int) (Character) object;
+        } else if (object instanceof Number number) {
+            return number.intValue();
+        } else if (object instanceof Character character) {
+            return (int) character;
         } else
             return 0;
     }
@@ -278,10 +280,10 @@ public class ArrayIndex extends VariableReferenceImpl {
     private Short getShortValue(Object object) {
         if (object == null) {
             return null;
-        } else if (object instanceof Number) {
-            return (short) ((Number) object).intValue();
-        } else if (object instanceof Character) {
-            return (short) ((Character) object).charValue();
+        } else if (object instanceof Number number) {
+            return (short) number.intValue();
+        } else if (object instanceof Character character) {
+            return (short) character.charValue();
         } else
             return 0;
     }
@@ -289,10 +291,10 @@ public class ArrayIndex extends VariableReferenceImpl {
     private Byte getByteValue(Object object) {
         if (object == null) {
             return null;
-        } else if (object instanceof Number) {
-            return (byte) ((Number) object).intValue();
-        } else if (object instanceof Character) {
-            return (byte) ((Character) object).charValue();
+        } else if (object instanceof Number number) {
+            return (byte) number.intValue();
+        } else if (object instanceof Character character) {
+            return (byte) character.charValue();
         } else
             return 0;
     }
@@ -300,10 +302,10 @@ public class ArrayIndex extends VariableReferenceImpl {
     private Long getLongValue(Object object) {
         if (object == null) {
             return null;
-        } else if (object instanceof Number) {
-            return ((Number) object).longValue();
-        } else if (object instanceof Character) {
-            return (long) (Character) object;
+        } else if (object instanceof Number number) {
+            return number.longValue();
+        } else if (object instanceof Character character) {
+            return (long) character;
         } else
             return 0L;
     }
@@ -311,10 +313,10 @@ public class ArrayIndex extends VariableReferenceImpl {
     private Float getFloatValue(Object object) {
         if (object == null) {
             return null;
-        } else if (object instanceof Number) {
-            return ((Number) object).floatValue();
-        } else if (object instanceof Character) {
-            return (float) (Character) object;
+        } else if (object instanceof Number number) {
+            return number.floatValue();
+        } else if (object instanceof Character character) {
+            return (float) character;
         } else
             return 0F;
     }
@@ -322,10 +324,10 @@ public class ArrayIndex extends VariableReferenceImpl {
     private Double getDoubleValue(Object object) {
         if (object == null) {
             return null;
-        } else if (object instanceof Number) {
-            return ((Number) object).doubleValue();
-        } else if (object instanceof Character) {
-            return (double) (Character) object;
+        } else if (object instanceof Number number) {
+            return number.doubleValue();
+        } else if (object instanceof Character character) {
+            return (double) character;
         } else
             return 0.0;
     }
@@ -333,10 +335,10 @@ public class ArrayIndex extends VariableReferenceImpl {
     private Character getCharValue(Object object) {
         if (object == null) {
             return null;
-        } else if (object instanceof Character) {
-            return (Character) object;
-        } else if (object instanceof Number) {
-            return (char) ((Number) object).intValue();
+        } else if (object instanceof Character character) {
+            return character;
+        } else if (object instanceof Number number) {
+            return (char) number.intValue();
         } else
             return '0';
     }
@@ -476,8 +478,8 @@ public class ArrayIndex extends VariableReferenceImpl {
     public void replaceAdditionalVariableReference(VariableReference var1,
                                                    VariableReference var2) {
         if (array.equals(var1)) {
-            if (var2 instanceof ArrayReference) {
-                array = (ArrayReference) var2;
+            if (var2 instanceof ArrayReference reference) {
+                array = reference;
             }
             // EvoSuite might try to replace this with a field reference
             // but for this we have FieldStatements, which would give us
@@ -538,8 +540,7 @@ public class ArrayIndex extends VariableReferenceImpl {
      */
     public void setArrayIndices(List<Integer> indices) {
         this.indices = new ArrayList<>();
-        for (Integer i : indices)
-            this.indices.add(i);
+        this.indices.addAll(indices);
     }
 
     /**

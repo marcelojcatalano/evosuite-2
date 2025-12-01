@@ -41,6 +41,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 import java.util.*;
@@ -50,6 +51,7 @@ public class ClientNodeImpl<T extends Chromosome<T>>
         implements ClientNodeLocal<T>, ClientNodeRemote<T> {
 
     private static final Logger logger = LoggerFactory.getLogger(ClientNodeImpl.class);
+    @Serial
     private static final long serialVersionUID = 485858845631346580L;
 
     /**

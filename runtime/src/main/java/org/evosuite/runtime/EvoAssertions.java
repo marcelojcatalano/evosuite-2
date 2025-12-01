@@ -36,13 +36,13 @@ public class EvoAssertions {
     public static void verifyException(String sourceClass, Throwable t) throws AssertionError {
 
         // this can happen in false positives for PAFM
-        if (t instanceof AssumptionViolatedException) {
-            throw (AssumptionViolatedException) t;
+        if (t instanceof AssumptionViolatedException exception) {
+            throw exception;
         }
 
         //non functional requirement exceptions are handled specially in the generated tests
-        if (t instanceof TooManyResourcesException) {
-            throw (TooManyResourcesException) t;
+        if (t instanceof TooManyResourcesException exception) {
+            throw exception;
         }
 
         assertThrownBy(sourceClass, t);

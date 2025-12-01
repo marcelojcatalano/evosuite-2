@@ -64,8 +64,7 @@ public class OutputObserver extends ExecutionObserver {
     @Override
     public void afterStatement(Statement statement, Scope scope,
                                Throwable exception) {
-        if (statement instanceof MethodStatement) {
-            MethodStatement methodStmt = (MethodStatement) statement;
+        if (statement instanceof MethodStatement methodStmt) {
             VariableReference varRef = methodStmt.getReturnValue();
 
             try {

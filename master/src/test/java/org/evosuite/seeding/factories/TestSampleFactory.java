@@ -22,9 +22,12 @@ package org.evosuite.seeding.factories;
 import org.evosuite.ga.ChromosomeFactory;
 import org.evosuite.testcase.TestChromosome;
 
+import java.io.Serial;
+
 public class TestSampleFactory implements ChromosomeFactory<TestChromosome> {
 
     public static final TestChromosome CHROMOSOME;
+    @Serial
     private static final long serialVersionUID = -3729823431724553477L;
 
     static {

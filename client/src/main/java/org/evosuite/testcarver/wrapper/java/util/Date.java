@@ -25,8 +25,11 @@ import org.evosuite.testcarver.capture.Capturer;
 import org.evosuite.testcarver.capture.FieldRegistry;
 import org.evosuite.testcarver.instrument.Instrumenter;
 
+import java.io.Serial;
+
 public class Date extends java.util.Date {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     public Date() {

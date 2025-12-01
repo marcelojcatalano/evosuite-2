@@ -52,8 +52,8 @@ public class GenericTypeInference extends TestVisitor {
         // calculateExactTypes();
         for (int i = test.size() - 1; i >= 0; i--) {
             Statement statement = test.getStatement(i);
-            if (statement instanceof ConstructorStatement) {
-                determineExactType((ConstructorStatement) statement);
+            if (statement instanceof ConstructorStatement constructorStatement) {
+                determineExactType(constructorStatement);
             }
         }
         logger.debug("Resulting test: " + test.toCode());
@@ -77,14 +77,14 @@ public class GenericTypeInference extends TestVisitor {
         logger.info("Types to consider: " + typeMap.size());
         for (Type type : typeMap.keySet()) {
             logger.info("Current type: " + type);
-            if (type instanceof ParameterizedType)
-                calculateExactType((ParameterizedType) type);
-            else if (type instanceof WildcardType)
-                calculateExactType((WildcardType) type);
-            else if (type instanceof TypeVariable<?>)
-                calculateExactType((TypeVariable<?>) type);
-            else if (type instanceof GenericArrayType)
-                calculateExactType((GenericArrayType) type);
+            if (type instanceof ParameterizedType parameterizedType)
+                calculateExactType(parameterizedType);
+            else if (type instanceof WildcardType wildcardType)
+                calculateExactType(wildcardType);
+            else if (type instanceof TypeVariable<?> variable)
+                calculateExactType(variable);
+            else if (type instanceof GenericArrayType arrayType)
+                calculateExactType(arrayType);
 
         }
     }
@@ -147,17 +147,17 @@ public class GenericTypeInference extends TestVisitor {
     }
 
     private void addToMap(Type type, Type actualType, Map<TypeVariable<?>, Type> typeMap) {
-        if (type instanceof ParameterizedType) {
-            addToMap((ParameterizedType) type, actualType, typeMap);
-        } else if (type instanceof TypeVariable<?>) {
-            addToMap((TypeVariable<?>) type, actualType, typeMap);
-        } else if (type instanceof GenericArrayType) {
-            logger.info("Is generic array with component type " + ((GenericArrayType) type).getGenericComponentType());
+        if (type instanceof ParameterizedType parameterizedType) {
+            addToMap(parameterizedType, actualType, typeMap);
+        } else if (type instanceof TypeVariable<?> variable) {
+            addToMap(variable, actualType, typeMap);
+        } else if (type instanceof GenericArrayType arrayType1) {
+            logger.info("Is generic array with component type " + arrayType1.getGenericComponentType());
             logger.info("Actual type " + actualType + ", " + actualType.getClass());
-            if (actualType instanceof GenericArrayType) {
-                addToMap(((GenericArrayType) type).getGenericComponentType(), ((GenericArrayType) actualType).getGenericComponentType(), typeMap);
-            } else if (actualType instanceof Class<?> && ((Class<?>) actualType).isArray()) {
-                addToMap(((GenericArrayType) type).getGenericComponentType(), ((Class<?>) actualType).getComponentType(), typeMap);
+            if (actualType instanceof GenericArrayType arrayType) {
+                addToMap(((GenericArrayType) type).getGenericComponentType(), arrayType.getGenericComponentType(), typeMap);
+            } else if (actualType instanceof Class<?> class1 && class1.isArray()) {
+                addToMap(((GenericArrayType) type).getGenericComponentType(), class1.getComponentType(), typeMap);
             }
         } else {
             logger.info("Is unexpected type: " + type + ", " + type.getClass());

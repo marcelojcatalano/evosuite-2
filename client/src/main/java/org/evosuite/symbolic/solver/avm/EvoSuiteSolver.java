@@ -73,16 +73,13 @@ public final class EvoSuiteSolver extends Solver {
 
                 log.debug("Variable: " + v + ", " + variables);
 
-                if (v instanceof IntegerVariable) {
-                    IntegerVariable integerVariable = (IntegerVariable) v;
+                if (v instanceof IntegerVariable integerVariable) {
                     IntegerAVM avm = new IntegerAVM(integerVariable, constraints, startTimeMillis, timeout);
                     avm.applyAVM();
-                } else if (v instanceof RealVariable) {
-                    RealVariable realVariable = (RealVariable) v;
+                } else if (v instanceof RealVariable realVariable) {
                     RealAVM avm = new RealAVM(realVariable, constraints, startTimeMillis, timeout);
                     avm.applyAVM();
-                } else if (v instanceof StringVariable) {
-                    StringVariable strVariable = (StringVariable) v;
+                } else if (v instanceof StringVariable strVariable) {
                     StringAVM avm = new StringAVM(strVariable, constraints, startTimeMillis, timeout);
                     avm.applyAVM();
                 } else {
@@ -124,33 +121,30 @@ public final class EvoSuiteSolver extends Solver {
         Set<Long> longConstants = new HashSet<>();
         Set<Double> realConstants = new HashSet<>();
         for (Object o : constants) {
-            if (o instanceof String)
-                stringConstants.add((String) o);
-            else if (o instanceof Double)
-                realConstants.add((Double) o);
-            else if (o instanceof Long)
-                longConstants.add((Long) o);
+            if (o instanceof String string)
+                stringConstants.add(string);
+            else if (o instanceof Double double1)
+                realConstants.add(double1);
+            else if (o instanceof Long long1)
+                longConstants.add(long1);
             else
                 assert (false) : "Unexpected constant type: " + o;
         }
 
         for (Variable<?> v : variables) {
-            if (v instanceof StringVariable) {
-                StringVariable sv = (StringVariable) v;
+            if (v instanceof StringVariable sv) {
                 if (!stringConstants.isEmpty() && Randomness.nextDouble() < Properties.DSE_CONSTANT_PROBABILITY) {
                     sv.setConcreteValue(Randomness.choice(stringConstants));
                 } else {
                     sv.setConcreteValue(Randomness.nextString(Properties.STRING_LENGTH));
                 }
-            } else if (v instanceof IntegerVariable) {
-                IntegerVariable iv = (IntegerVariable) v;
+            } else if (v instanceof IntegerVariable iv) {
                 if (!longConstants.isEmpty() && Randomness.nextDouble() < Properties.DSE_CONSTANT_PROBABILITY) {
                     iv.setConcreteValue(Randomness.choice(longConstants));
                 } else {
                     iv.setConcreteValue((long) Randomness.nextInt(Properties.MAX_INT * 2) - Properties.MAX_INT);
                 }
-            } else if (v instanceof RealVariable) {
-                RealVariable rv = (RealVariable) v;
+            } else if (v instanceof RealVariable rv) {
                 if (!realConstants.isEmpty() && Randomness.nextDouble() < Properties.DSE_CONSTANT_PROBABILITY) {
                     rv.setConcreteValue(Randomness.choice(realConstants));
                 } else {

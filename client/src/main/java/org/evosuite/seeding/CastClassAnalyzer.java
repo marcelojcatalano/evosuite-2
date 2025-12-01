@@ -182,8 +182,7 @@ public class CastClassAnalyzer {
                     castClassMap.put(castType, depth + 1);
             } else if (insn.getOpcode() == Opcodes.LDC) {
                 LdcInsnNode ldcNode = (LdcInsnNode) insn;
-                if (ldcNode.cst instanceof Type) {
-                    Type type = (Type) ldcNode.cst;
+                if (ldcNode.cst instanceof Type type) {
                     while (type.getSort() == Type.ARRAY) {
                         type = type.getElementType();
                     }

@@ -111,8 +111,7 @@ public class DynamicConstantPool implements ConstantPool {
         if (object == null)
             return;
 
-        if (object instanceof String) {
-            String string = (String) object;
+        if (object instanceof String string) {
             if (string.length() > Properties.MAX_STRING)
                 return;
             // String literals are constrained to 65535 bytes
@@ -120,43 +119,39 @@ public class DynamicConstantPool implements ConstantPool {
             if (string.length() > 65535)
                 return;
             stringPool.restrictedAdd(string);
-        } else if (object instanceof Type) {
-            typePool.restrictedAdd((Type) object);
-        } else if (object instanceof Integer) {
+        } else if (object instanceof Type type) {
+            typePool.restrictedAdd(type);
+        } else if (object instanceof Integer val) {
             if (Properties.RESTRICT_POOL) {
-                int val = (Integer) object;
                 if (Math.abs(val) < Properties.MAX_INT) {
-                    intPool.restrictedAdd((Integer) object);
+                    intPool.restrictedAdd(val);
                 }
             } else {
-                intPool.restrictedAdd((Integer) object);
+                intPool.restrictedAdd(val);
             }
-        } else if (object instanceof Long) {
+        } else if (object instanceof Long val) {
             if (Properties.RESTRICT_POOL) {
-                long val = (Long) object;
                 if (Math.abs(val) < Properties.MAX_INT) {
-                    longPool.restrictedAdd((Long) object);
+                    longPool.restrictedAdd(val);
                 }
             } else {
-                longPool.restrictedAdd((Long) object);
+                longPool.restrictedAdd(val);
             }
-        } else if (object instanceof Float) {
+        } else if (object instanceof Float val) {
             if (Properties.RESTRICT_POOL) {
-                float val = (Float) object;
                 if (Math.abs(val) < Properties.MAX_INT) {
-                    floatPool.restrictedAdd((Float) object);
+                    floatPool.restrictedAdd(val);
                 }
             } else {
-                floatPool.restrictedAdd((Float) object);
+                floatPool.restrictedAdd(val);
             }
-        } else if (object instanceof Double) {
+        } else if (object instanceof Double val) {
             if (Properties.RESTRICT_POOL) {
-                double val = (Double) object;
                 if (Math.abs(val) < Properties.MAX_INT) {
-                    doublePool.restrictedAdd((Double) object);
+                    doublePool.restrictedAdd(val);
                 }
             } else {
-                doublePool.restrictedAdd((Double) object);
+                doublePool.restrictedAdd(val);
             }
         }
     }

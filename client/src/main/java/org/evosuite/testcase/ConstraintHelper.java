@@ -44,8 +44,7 @@ public class ConstraintHelper {
 
         for (int i = 0; i < test.size(); i++) {
             Statement st = test.getStatement(i);
-            if (st instanceof ConstructorStatement) {
-                ConstructorStatement cs = (ConstructorStatement) st;
+            if (st instanceof ConstructorStatement cs) {
                 if (klass.isAssignableFrom(cs.getConstructor().getDeclaringClass())) {
                     counter++;
                 }
@@ -69,8 +68,7 @@ public class ConstraintHelper {
         int counter = 0;
         for (int i = 0; i < test.size(); i++) {
             Statement st = test.getStatement(i);
-            if (st instanceof MethodStatement) {
-                MethodStatement ms = (MethodStatement) st;
+            if (st instanceof MethodStatement ms) {
                 GenericMethod gm = ms.getMethod();
                 if (gm.getDeclaringClass().equals(klass) && gm.getName().equals(methodName)) {
                     counter++;
@@ -93,8 +91,7 @@ public class ConstraintHelper {
         int pos = -1;
         for (int i = 0; i < lastPosition; i++) {
             Statement st = test.getStatement(i);
-            if (st instanceof MethodStatement) {
-                MethodStatement ms = (MethodStatement) st;
+            if (st instanceof MethodStatement ms) {
                 GenericMethod gm = ms.getMethod();
                 if (gm.getDeclaringClass().getCanonicalName().equals(className) && gm.getName().equals(methodName)) {
                     pos = i;
@@ -131,8 +128,8 @@ public class ConstraintHelper {
         }
 
         Statement varSource = tc.getStatement(vr.getStPosition());
-        if (varSource instanceof PrimitiveStatement) { //eg for String
-            Object obj = ((PrimitiveStatement<?>) varSource).getValue();
+        if (varSource instanceof PrimitiveStatement<?> statement) { //eg for String
+            Object obj = statement.getValue();
             return obj == null;
         }
 

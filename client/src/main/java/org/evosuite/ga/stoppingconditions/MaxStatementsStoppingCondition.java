@@ -42,6 +42,8 @@ import org.evosuite.ga.Chromosome;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 /**
  * <p>
  * MaxStatementsStoppingCondition class.
@@ -51,6 +53,7 @@ import org.slf4j.LoggerFactory;
  */
 public class MaxStatementsStoppingCondition<T extends Chromosome<T>> extends StoppingConditionImpl<T> {
 
+    @Serial
     private static final long serialVersionUID = 8521297417505862683L;
 
     @SuppressWarnings({"unused"})

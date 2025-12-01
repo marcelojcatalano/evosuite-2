@@ -21,6 +21,7 @@ package org.evosuite.continuous.job;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -108,7 +109,7 @@ public class JobExecutorIntTest {
 
         //check if indeed they have tests
         for (TestsOnDisk tod : data) {
-            String content = FileUtils.readFileToString(tod.testSuite);
+            String content = FileUtils.readFileToString(tod.testSuite, StandardCharsets.UTF_8);
             areThereTests = areThereTests && content.contains("@Test") && !content.contains(TestSuiteWriter.NOT_GENERATED_TEST_NAME);
         }
 
@@ -123,7 +124,7 @@ public class JobExecutorIntTest {
             for (File log : files) {
                 String content = null;
                 try {
-                    content = FileUtils.readFileToString(log);
+                    content = FileUtils.readFileToString(log, StandardCharsets.UTF_8);
                 } catch (IOException e) {
                     msg += "Failed to read file " + log.getName() + " due to: " + e.toString() + "\n";
                 }

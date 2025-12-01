@@ -28,10 +28,13 @@ import org.evosuite.symbolic.expr.Expression;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 public final class RealConstraint extends Constraint<Double> {
 
     static Logger log = LoggerFactory.getLogger(RealConstraint.class);
 
+    @Serial
     private static final long serialVersionUID = 6021027178547577289L;
 
     /**

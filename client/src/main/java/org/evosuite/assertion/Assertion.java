@@ -29,6 +29,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -42,6 +43,7 @@ import java.util.Set;
  */
 public abstract class Assertion implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1617423211706717599L;
 
     /**

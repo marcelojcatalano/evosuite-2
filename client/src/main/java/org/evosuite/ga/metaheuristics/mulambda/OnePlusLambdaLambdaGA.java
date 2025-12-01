@@ -25,6 +25,7 @@ import org.evosuite.ga.ConstructionFailedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +36,7 @@ import java.util.List;
  */
 public class OnePlusLambdaLambdaGA<T extends Chromosome<T>> extends AbstractMuLambda<T> {
 
+    @Serial
     private static final long serialVersionUID = 529089847512798127L;
 
     private static final Logger logger = LoggerFactory.getLogger(OnePlusLambdaLambdaGA.class);

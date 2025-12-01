@@ -19,6 +19,8 @@
  */
 package org.evosuite.runtime;
 
+import java.io.Serial;
+
 /**
  * This exception is thrown by the EvoSuite framework when a test case uses too many resources.
  * These resources are for example number of threads and number of iterations in loops.
@@ -29,6 +31,7 @@ package org.evosuite.runtime;
  */
 public class TooManyResourcesException extends RuntimeException {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     public TooManyResourcesException() {

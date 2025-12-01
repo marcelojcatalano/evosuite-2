@@ -226,12 +226,12 @@ public abstract class DateTimeConverter extends AbstractConverter {
     protected String convertToString(Object value) throws Throwable {
 
         Date date = null;
-        if (value instanceof Date) {
-            date = (Date) value;
-        } else if (value instanceof Calendar) {
-            date = ((Calendar) value).getTime();
-        } else if (value instanceof Long) {
-            date = new Date((Long) value);
+        if (value instanceof Date date1) {
+            date = date1;
+        } else if (value instanceof Calendar calendar) {
+            date = calendar.getTime();
+        } else if (value instanceof Long long1) {
+            date = new Date(long1);
         }
 
         String result = null;
@@ -284,13 +284,7 @@ public abstract class DateTimeConverter extends AbstractConverter {
         Class sourceType = value.getClass();
 
         // Handle java.sql.Timestamp
-        if (value instanceof java.sql.Timestamp) {
-
-            // ---------------------- JDK 1.3 Fix ----------------------
-            // N.B. Prior to JDK 1.4 the Timestamp's getTime() method
-            //      didn't include the milliseconds. The following code
-            //      ensures it works consistently accross JDK versions
-            java.sql.Timestamp timestamp = (java.sql.Timestamp) value;
+        if (value instanceof java.sql.Timestamp timestamp) {
             long timeInMillis = ((timestamp.getTime() / 1000) * 1000);
             timeInMillis += timestamp.getNanos() / 1000000;
             // ---------------------- JDK 1.3 Fix ----------------------
@@ -298,20 +292,17 @@ public abstract class DateTimeConverter extends AbstractConverter {
         }
 
         // Handle Date (includes java.sql.Date & java.sql.Time)
-        if (value instanceof Date) {
-            Date date = (Date) value;
+        if (value instanceof Date date) {
             return toDate(targetType, date.getTime());
         }
 
         // Handle Calendar
-        if (value instanceof Calendar) {
-            Calendar calendar = (Calendar) value;
+        if (value instanceof Calendar calendar) {
             return toDate(targetType, calendar.getTime().getTime());
         }
 
         // Handle Long
-        if (value instanceof Long) {
-            Long longObj = (Long) value;
+        if (value instanceof Long longObj) {
             return toDate(targetType, longObj);
         }
 
@@ -541,8 +532,8 @@ public abstract class DateTimeConverter extends AbstractConverter {
         Date parsedDate = format.parse(value, pos); // ignore the result (use the Calendar)
         if (pos.getErrorIndex() >= 0 || pos.getIndex() != value.length() || parsedDate == null) {
             String msg = "Error converting '" + toString(sourceType) + "' to '" + toString(targetType) + "'";
-            if (format instanceof SimpleDateFormat) {
-                msg += " using pattern '" + ((SimpleDateFormat) format).toPattern() + "'";
+            if (format instanceof SimpleDateFormat dateFormat) {
+                msg += " using pattern '" + dateFormat.toPattern() + "'";
             }
             throw new ConversionException(msg);
         }

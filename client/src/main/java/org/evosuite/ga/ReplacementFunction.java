@@ -19,6 +19,7 @@
  */
 package org.evosuite.ga;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -28,6 +29,7 @@ import java.io.Serializable;
  */
 public abstract class ReplacementFunction<T extends Chromosome<T>> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 8507488475265387482L;
 
     protected boolean maximize = false;

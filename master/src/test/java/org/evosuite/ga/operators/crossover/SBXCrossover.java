@@ -25,12 +25,15 @@ import org.evosuite.ga.variables.DoubleVariable;
 import org.evosuite.ga.variables.Variable;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
+
 /**
  * Simulated Binary Crossover (SBX)
  *
  * @author José Campos
  */
 public class SBXCrossover extends CrossOverFunction<NSGAChromosome> {
+    @Serial
     private static final long serialVersionUID = -4258729002155733390L;
 
     /**
@@ -46,8 +49,8 @@ public class SBXCrossover extends CrossOverFunction<NSGAChromosome> {
             Variable v1 = p1.getVariable(i);
             Variable v2 = p2.getVariable(i);
 
-            if ((v1 instanceof DoubleVariable) && (v2 instanceof DoubleVariable))
-                this.doCrossover((DoubleVariable) v1, (DoubleVariable) v2);
+            if ((v1 instanceof DoubleVariable variable) && (v2 instanceof DoubleVariable variable1))
+                this.doCrossover(variable, variable1);
         }
     }
 

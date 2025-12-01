@@ -62,8 +62,7 @@ public abstract class DistanceEstimator {
         try {
             for (Constraint<?> c : constraints) {
 
-                if (c instanceof StringConstraint) {
-                    StringConstraint string_constraint = (StringConstraint) c;
+                if (c instanceof StringConstraint string_constraint) {
 
                     try {
                         double strD = (double) string_constraint.accept(
@@ -76,16 +75,13 @@ public abstract class DistanceEstimator {
                         result += 1.0;
                     }
 
-                } else if (c instanceof IntegerConstraint) {
-
-                    IntegerConstraint integer_constraint = (IntegerConstraint) c;
+                } else if (c instanceof IntegerConstraint integer_constraint) {
                     long intD = (long) integer_constraint.accept(
                             distanceCalculator, null);
                     result += normalize(intD);
                     log.debug("C: " + integer_constraint + " intDist " + intD);
 
-                } else if (c instanceof RealConstraint) {
-                    RealConstraint real_constraint = (RealConstraint) c;
+                } else if (c instanceof RealConstraint real_constraint) {
                     double realD = (double) real_constraint.accept(
                             distanceCalculator, null);
 

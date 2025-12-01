@@ -19,6 +19,7 @@
  */
 package org.evosuite.runtime.testdata;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -28,6 +29,7 @@ import java.io.Serializable;
  */
 public abstract class EvoSuiteAddress implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1734299467948600797L;
 
     private final String host;

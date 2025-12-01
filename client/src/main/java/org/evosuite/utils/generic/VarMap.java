@@ -80,18 +80,16 @@ public class VarMap {
                 // TODO: Bounds should be mapped, but might be recursive so we just use unbounded for now
                 return new WildcardTypeImpl(new Type[]{Object.class}, new Type[]{});
             }
-        } else if (type instanceof ParameterizedType) {
-            ParameterizedType pType = (ParameterizedType) type;
+        } else if (type instanceof ParameterizedType pType) {
             return new ParameterizedTypeImpl((Class<?>) pType.getRawType(),
                     map(pType.getActualTypeArguments()),
                     pType.getOwnerType() == null ? pType.getOwnerType()
                             : map(pType.getOwnerType()));
-        } else if (type instanceof WildcardType) {
-            WildcardType wType = (WildcardType) type;
+        } else if (type instanceof WildcardType wType) {
             return new WildcardTypeImpl(map(wType.getUpperBounds()),
                     map(wType.getLowerBounds()));
-        } else if (type instanceof GenericArrayType) {
-            return GenericArrayTypeImpl.createArrayType(map(((GenericArrayType) type).getGenericComponentType()));
+        } else if (type instanceof GenericArrayType arrayType) {
+            return GenericArrayTypeImpl.createArrayType(map(arrayType.getGenericComponentType()));
         } else {
             throw new IllegalArgumentException("not implemented: mapping " + type.getClass()
                     + " (" + type + ")");

@@ -48,8 +48,7 @@ public class ContainsTraceEntry implements OutputTraceEntry {
      */
     @Override
     public boolean differs(OutputTraceEntry other) {
-        if (other instanceof ContainsTraceEntry) {
-            ContainsTraceEntry otherEntry = (ContainsTraceEntry) other;
+        if (other instanceof ContainsTraceEntry otherEntry) {
             if (!containerVar.equals(otherEntry.containerVar))
                 return false;
 
@@ -73,8 +72,7 @@ public class ContainsTraceEntry implements OutputTraceEntry {
     @Override
     public Set<Assertion> getAssertions(OutputTraceEntry other) {
         Set<Assertion> assertions = new HashSet<>();
-        if (other instanceof ContainsTraceEntry) {
-            ContainsTraceEntry otherEntry = (ContainsTraceEntry) other;
+        if (other instanceof ContainsTraceEntry otherEntry) {
             for (Integer otherVar : containsMapIntVar.keySet()) {
                 if (!otherEntry.containsMapIntVar.containsKey(otherVar)) {
                     continue;
@@ -125,8 +123,7 @@ public class ContainsTraceEntry implements OutputTraceEntry {
      */
     @Override
     public boolean isDetectedBy(Assertion assertion) {
-        if (assertion instanceof ContainsAssertion) {
-            ContainsAssertion ass = (ContainsAssertion) assertion;
+        if (assertion instanceof ContainsAssertion ass) {
             if (ass.source.equals(containerVar) && containsMap.containsKey(ass.containedVariable)) {
                 return !containsMap.get(ass.containedVariable).equals(ass.value);
             }

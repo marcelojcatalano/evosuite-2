@@ -26,11 +26,14 @@ import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.utils.Randomness;
 import org.evosuite.utils.StringUtil;
 
+import java.io.Serial;
+
 /**
  * Created by arcuri on 12/14/14.
  */
 public class UrlPrimitiveStatement extends EnvironmentDataStatement<EvoSuiteURL> {
 
+    @Serial
     private static final long serialVersionUID = 2062390100066807026L;
 
     public UrlPrimitiveStatement(TestCase tc) {

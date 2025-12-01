@@ -25,6 +25,7 @@ import org.objectweb.asm.tree.AbstractInsnNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -58,6 +59,7 @@ import java.util.stream.Collectors;
  */
 public class BasicBlock implements Serializable, Iterable<BytecodeInstruction> {
 
+    @Serial
     private static final long serialVersionUID = -3465486470017841484L;
 
     private static final Logger logger = LoggerFactory.getLogger(BasicBlock.class);

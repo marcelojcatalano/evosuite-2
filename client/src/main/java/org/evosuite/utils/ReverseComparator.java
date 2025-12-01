@@ -19,6 +19,7 @@
  */
 package org.evosuite.utils;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Comparator;
 
@@ -38,6 +39,7 @@ public class ReverseComparator<T> implements Comparator<T>, Serializable {
     /**
      * Serialization version from Collections 2.0.
      */
+    @Serial
     private static final long serialVersionUID = 2858887242028539265L;
 
     /**

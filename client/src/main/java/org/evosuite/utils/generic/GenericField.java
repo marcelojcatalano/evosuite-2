@@ -31,6 +31,7 @@ import org.evosuite.utils.LoggingUtils;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.lang.reflect.*;
 
 /**
@@ -38,6 +39,7 @@ import java.lang.reflect.*;
  */
 public class GenericField extends GenericAccessibleObject<GenericField> {
 
+    @Serial
     private static final long serialVersionUID = -2344346234923642901L;
 
     private transient Field field;

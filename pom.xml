@@ -130,75 +130,75 @@
                 <integrationTests/>
             </properties>
         </profile>
-       <!-- <profile>
-            <id>tools-default</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-                <file>
-                    <exists>${java.home}/../lib/tools.jar</exists>
-                </file>
-            </activation>
-            <properties>
-                <toolsjar>${java.home}/../lib/tools.jar</toolsjar>
-            </properties>
-            <dependencyManagement>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.sun</groupId>
-                        <artifactId>tools</artifactId>
-                        <version>1.0.0</version>
-                        <scope>system</scope>
-                        <systemPath>${java.home}/../lib/tools.jar</systemPath>
-                    </dependency>
-                </dependencies>
-            </dependencyManagement>
-        </profile>
-        <profile>
-            <id>tools-jenkins</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-                <file>
-                    <exists>${java.home}/lib/tools.jar</exists>
-                </file>
-            </activation>
-            <properties>
-                <toolsjar>${java.home}/lib/tools.jar</toolsjar>
-            </properties>
-            <dependencyManagement>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.sun</groupId>
-                        <artifactId>tools</artifactId>
-                        <version>1.0.0</version>
-                        <scope>system</scope>
-                        <systemPath>${java.home}/lib/tools.jar</systemPath>
-                    </dependency>
-                </dependencies>
-            </dependencyManagement>
-        </profile>
-        <profile>
-            <id>tools-mac</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-                <file>
-                    <exists>${java.home}/../Classes/classes.jar</exists>
-                </file>
-            </activation>
-            <properties>
-                <toolsjar>${java.home}/../Classes/classes.jar</toolsjar>
-            </properties>
-            <dependencyManagement>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.sun</groupId>
-                        <artifactId>tools</artifactId>
-                        <version>1.0.0</version>
-                        <scope>system</scope>
-                        <systemPath>${java.home}/../Classes/classes.jar</systemPath>
-                    </dependency>
-                </dependencies>
-            </dependencyManagement>
-        </profile>-->
+        <!-- <profile>
+             <id>tools-default</id>
+             <activation>
+                 <activeByDefault>false</activeByDefault>
+                 <file>
+                     <exists>${java.home}/../lib/tools.jar</exists>
+                 </file>
+             </activation>
+             <properties>
+                 <toolsjar>${java.home}/../lib/tools.jar</toolsjar>
+             </properties>
+             <dependencyManagement>
+                 <dependencies>
+                     <dependency>
+                         <groupId>com.sun</groupId>
+                         <artifactId>tools</artifactId>
+                         <version>1.0.0</version>
+                         <scope>system</scope>
+                         <systemPath>${java.home}/../lib/tools.jar</systemPath>
+                     </dependency>
+                 </dependencies>
+             </dependencyManagement>
+         </profile>
+         <profile>
+             <id>tools-jenkins</id>
+             <activation>
+                 <activeByDefault>false</activeByDefault>
+                 <file>
+                     <exists>${java.home}/lib/tools.jar</exists>
+                 </file>
+             </activation>
+             <properties>
+                 <toolsjar>${java.home}/lib/tools.jar</toolsjar>
+             </properties>
+             <dependencyManagement>
+                 <dependencies>
+                     <dependency>
+                         <groupId>com.sun</groupId>
+                         <artifactId>tools</artifactId>
+                         <version>1.0.0</version>
+                         <scope>system</scope>
+                         <systemPath>${java.home}/lib/tools.jar</systemPath>
+                     </dependency>
+                 </dependencies>
+             </dependencyManagement>
+         </profile>
+         <profile>
+             <id>tools-mac</id>
+             <activation>
+                 <activeByDefault>false</activeByDefault>
+                 <file>
+                     <exists>${java.home}/../Classes/classes.jar</exists>
+                 </file>
+             </activation>
+             <properties>
+                 <toolsjar>${java.home}/../Classes/classes.jar</toolsjar>
+             </properties>
+             <dependencyManagement>
+                 <dependencies>
+                     <dependency>
+                         <groupId>com.sun</groupId>
+                         <artifactId>tools</artifactId>
+                         <version>1.0.0</version>
+                         <scope>system</scope>
+                         <systemPath>${java.home}/../Classes/classes.jar</systemPath>
+                     </dependency>
+                 </dependencies>
+             </dependencyManagement>
+         </profile>-->
         <profile>
             <!-- needed as profile, as getting issue with Maven Plugin :( -->
             <id>rootReporting</id>
@@ -256,32 +256,32 @@
                 </dependencies>
             </dependencyManagement>
         </profile>
-       <!-- <profile>
-            <id>Java-9</id>
-            <activation>
-                <jdk>[9,)</jdk>
-            </activation>
-            <properties>
-                <exclude.tests.concolic>**/*Concolic*.java</exclude.tests.concolic>
-                <exclude.tests.mimeType>**/*TestMIMEType.java</exclude.tests.mimeType>
-            </properties>
-            <dependencyManagement>
-                <dependencies>
-                </dependencies>
-            </dependencyManagement>
-        </profile>
-        <profile>
-            <id>Java-8</id>
-            <activation>
-                <jdk>1.8</jdk>
-            </activation>
-            <properties>
-                <compiler.target>1.8</compiler.target>
-                <compiler.source>1.8</compiler.source>
-                <exclude.tests.concolic/>
-                <exclude.tests.mimeType/>
-            </properties>
-        </profile>-->
+        <!-- <profile>
+             <id>Java-9</id>
+             <activation>
+                 <jdk>[9,)</jdk>
+             </activation>
+             <properties>
+                 <exclude.tests.concolic>**/*Concolic*.java</exclude.tests.concolic>
+                 <exclude.tests.mimeType>**/*TestMIMEType.java</exclude.tests.mimeType>
+             </properties>
+             <dependencyManagement>
+                 <dependencies>
+                 </dependencies>
+             </dependencyManagement>
+         </profile>
+         <profile>
+             <id>Java-8</id>
+             <activation>
+                 <jdk>1.8</jdk>
+             </activation>
+             <properties>
+                 <compiler.target>1.8</compiler.target>
+                 <compiler.source>1.8</compiler.source>
+                 <exclude.tests.concolic/>
+                 <exclude.tests.mimeType/>
+             </properties>
+         </profile>-->
     </profiles>
 
 
@@ -312,7 +312,7 @@
                 <!-- Apache 2 -->
                 <groupId>com.opencsv</groupId>
                 <artifactId>opencsv</artifactId>
-                <version>5.5.2</version>
+                <version>${opencsv.version}</version>
             </dependency>
             <dependency>
                 <!-- BSD -->
@@ -335,14 +335,14 @@
                     update it (eg after 1.1.7), need to make sure tests (eg,
                     JobExecutorIntTest and all the Maven ones) work fine
                     on Windows -->
-                <version>1.5.10</version>
+                <version>1.5.21</version>
                 <optional>true</optional>
             </dependency>
             <dependency>
                 <!-- MIT -->
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
-                <version>3.12.4</version>
+                <version>${mockito-core.version}</version>
             </dependency>
             <dependency>
                 <!-- Common Public License Version 1.0 -->
@@ -364,31 +364,31 @@
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm</artifactId>
-                <version>9.5</version>
+                <version>${asm.version}</version>
             </dependency>
             <dependency>
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm-commons</artifactId>
-                <version>9.5</version>
+                <version>${asm.version}</version>
             </dependency>
             <dependency>
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm-tree</artifactId>
-                <version>9.5</version>
+                <version>${asm.version}</version>
             </dependency>
             <dependency>
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm-analysis</artifactId>
-                <version>9.5</version>
+                <version>${asm.version}</version>
             </dependency>
             <dependency>
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm-util</artifactId>
-                <version>9.5</version>
+                <version>${asm.version}</version>
             </dependency>
             <dependency>
                 <!-- Apache 2 -->
@@ -404,11 +404,50 @@
                 <version>0.8.3</version>
             </dependency>
 
+            <!--
+                        <dependency>
+                            <groupId>org.jgrapht</groupId>
+                            <artifactId>jgrapht-guava</artifactId>
+                            <version>1.5.2</version>
+                        </dependency>
+
+                        <dependency>
+                            <groupId>org.jgrapht</groupId>
+                            <artifactId>jgrapht-opt</artifactId>
+                            <version>1.5.2</version>
+                        </dependency>
+
+                        <dependency>
+                            <groupId>org.jgrapht</groupId>
+                            <artifactId>jgrapht-unimi-dsi</artifactId>
+                            <version>1.5.2</version>
+                        </dependency>
+
+                        <dependency>
+                            <groupId>org.jgrapht</groupId>
+                            <artifactId>jgrapht-core</artifactId>
+                            <version>1.5.2</version>
+                        </dependency>
+
+                        <dependency>
+                            <groupId>org.jgrapht</groupId>
+                            <artifactId>jgrapht-ext</artifactId>
+                            <version>1.5.2</version>
+                        </dependency>
+
+                        <dependency>
+                            <groupId>org.jgrapht</groupId>
+                            <artifactId>jgrapht-io</artifactId>
+                            <version>1.5.2</version>
+                        </dependency>
+
+            -->
+
             <dependency>
                 <!-- BSD -->
                 <groupId>com.thoughtworks.xstream</groupId>
                 <artifactId>xstream</artifactId>
-                <version>1.4.20</version>
+                <version>${xstream.version}</version>
             </dependency>
             <dependency>
                 <!-- Apache 2 -->
@@ -423,6 +462,11 @@
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>2.21.0</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>1.3.5</version>
             </dependency>
             <dependency>
                 <!-- Apache 2 -->
@@ -722,11 +766,12 @@
                         <exclude>${systemTests}</exclude>
                         <exclude>${exclude.tests.concolic}</exclude>
                         <exclude>${exclude.tests.mimeType}</exclude>
-                        <excludedTests>DependencyAnalysisTest</excludedTests>
+                        <exclude>**/DependencyAnalysisTest.java</exclude>
                         <exclude>**/TestStringEqualsIgnoreCase.java</exclude>
                     </excludes>
-                    <argLine>-Djdk.attach.allowAttachSelf=true -Xms512m -Xmx4096m</argLine>
-                    <useModulePath>false</useModulePath>
+                   <!-- <argLine>-Djdk.attach.allowAttachSelf=true -Xms512m -Xmx4096m</argLine>-->
+                    <argLine>-Xms512m -Xmx4096m</argLine>
+                   <!-- <useModulePath>false</useModulePath>-->
                 </configuration>
             </plugin>
             <!-- pluging to run tests after 'package' phase in 'integration-test' -->
@@ -793,17 +838,25 @@
                 <plugin>
                     <groupId>org.openrewrite.maven</groupId>
                     <artifactId>rewrite-maven-plugin</artifactId>
-                    <version>6.22.0</version>
+                    <version>6.23.0</version>
                     <configuration>
                         <exportDatatables>true</exportDatatables>
                         <activeRecipes>
-                            <recipe>org.openrewrite.java.migrate.jakarta.JavaxMigrationToJakarta</recipe>
+                            <!-- <recipe>org.openrewrite.java.migrate.UpgradeToJava17</recipe>-->
+                            <recipe>org.openrewrite.java.testing.mockito.Mockito1to4Migration</recipe>
+                            <recipe>org.openrewrite.java.migrate.UpgradePluginsForJava17</recipe>
+                            <recipe>org.openrewrite.java.testing.junit5.JUnit4to5Migration</recipe>
                         </activeRecipes>
                     </configuration>
                     <dependencies>
                         <dependency>
                             <groupId>org.openrewrite.recipe</groupId>
                             <artifactId>rewrite-migrate-java</artifactId>
+                            <version>3.22.0</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.openrewrite.recipe</groupId>
+                            <artifactId>rewrite-testing-frameworks</artifactId>
                             <version>3.22.0</version>
                         </dependency>
                     </dependencies>
@@ -942,6 +995,8 @@
         <!-- systemTests></systemTests>
         <integrationTests></integrationTests -->
 
+        <exclude.tests.concolic>**/*Concolic*.java</exclude.tests.concolic>
+        <exclude.tests.mimeType>**/*TestMIMEType.java</exclude.tests.mimeType>
         <systemTests>**/*SystemTest.java</systemTests>
         <integrationTests>**/*IntTest.java</integrationTests>
         <rerunFailingTestsCount>0</rerunFailingTestsCount>
@@ -952,15 +1007,15 @@
         <jakarta.xml.ws-api-version>2.3.3</jakarta.xml.ws-api-version>
         <jnr-posix.version>3.1.19</jnr-posix.version>
         <jaxb-runtime.version>4.0.4</jaxb-runtime.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <maven-jar-plugin.version>3.4.1</maven-jar-plugin.version>
         <surefire-plugin.version>3.5.4</surefire-plugin.version>
         <maven-surefire-report-plugin.version>3.2.5</maven-surefire-report-plugin.version>
-        <jsr305.version>4.8.3</jsr305.version>
+        <jsr305.version>4.9.8</jsr305.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
-        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
         <maven-plugin-plugin.version>3.11.0</maven-plugin-plugin.version>
         <maven-shade-plugin.version>3.6.0</maven-shade-plugin.version>
         <maven-failsafe-plugin.version>3.5.2</maven-failsafe-plugin.version>
@@ -969,9 +1024,13 @@
         <maven-javadoc-plugin.version>3.7.0</maven-javadoc-plugin.version>
         <maven-enforcer-plugin.version>3.5.0</maven-enforcer-plugin.version>
         <junit-jupiter.version>5.11.4</junit-jupiter.version>
-        <junit-platform-runner.version>1.11.4</junit-platform-runner.version>
+        <junit-platform-runner.version>1.14.1</junit-platform-runner.version>
         <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
         <maven-pmd-plugin.version>3.26.0</maven-pmd-plugin.version>
+        <mockito-core.version>5.16.0</mockito-core.version>
+        <xstream.version>1.4.21</xstream.version>
+        <asm.version>9.9</asm.version>
+        <opencsv.version>5.10</opencsv.version>
     </properties>
 
 </project>

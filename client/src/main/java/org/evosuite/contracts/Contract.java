@@ -120,16 +120,13 @@ public abstract class Contract {
     protected boolean isTargetStatement(Statement statement) {
         //if (statement.getReturnClass().equals(Properties.getTargetClass()))
         //	return true;
-        if (statement instanceof MethodStatement) {
-            MethodStatement ms = (MethodStatement) statement;
+        if (statement instanceof MethodStatement ms) {
             final Class<?> targetClass = Properties.getTargetClassAndDontInitialise();
             return targetClass.equals(ms.getMethod().getDeclaringClass());
-        } else if (statement instanceof ConstructorStatement) {
-            ConstructorStatement cs = (ConstructorStatement) statement;
+        } else if (statement instanceof ConstructorStatement cs) {
             final Class<?> targetClass = Properties.getTargetClassAndDontInitialise();
             return targetClass.equals(cs.getConstructor().getDeclaringClass());
-        } else if (statement instanceof FieldStatement) {
-            FieldStatement fs = (FieldStatement) statement;
+        } else if (statement instanceof FieldStatement fs) {
             final Class<?> targetClass = Properties.getTargetClassAndDontInitialise();
             return targetClass.equals(fs.getField().getDeclaringClass());
         }

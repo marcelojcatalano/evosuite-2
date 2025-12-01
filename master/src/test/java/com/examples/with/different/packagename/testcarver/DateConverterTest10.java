@@ -68,19 +68,14 @@ public class DateConverterTest10 {
      */
     long getTimeInMillis(Object date) {
 
-        if (date instanceof java.sql.Timestamp) {
-            // ---------------------- JDK 1.3 Fix ----------------------
-            // N.B. Prior to JDK 1.4 the Timestamp's getTime() method
-            //      didn't include the milliseconds. The following code
-            //      ensures it works consistently accross JDK versions
-            java.sql.Timestamp timestamp = (java.sql.Timestamp) date;
+        if (date instanceof java.sql.Timestamp timestamp) {
             long timeInMillis = ((timestamp.getTime() / 1000) * 1000);
             timeInMillis += timestamp.getNanos() / 1000000;
             return timeInMillis;
         }
 
-        if (date instanceof Calendar) {
-            return ((Calendar) date).getTime().getTime();
+        if (date instanceof Calendar calendar) {
+            return calendar.getTime().getTime();
         } else {
             return ((Date) date).getTime();
         }

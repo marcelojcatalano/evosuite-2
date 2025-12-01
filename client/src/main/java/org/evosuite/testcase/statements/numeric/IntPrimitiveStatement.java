@@ -26,6 +26,8 @@ import org.evosuite.seeding.ConstantPoolManager;
 import org.evosuite.testcase.TestCase;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
+
 /**
  * <p>
  * IntPrimitiveStatement class.
@@ -35,6 +37,7 @@ import org.evosuite.utils.Randomness;
  */
 public class IntPrimitiveStatement extends NumericalPrimitiveStatement<Integer> {
 
+    @Serial
     private static final long serialVersionUID = -8616399657291345433L;
 
     /**

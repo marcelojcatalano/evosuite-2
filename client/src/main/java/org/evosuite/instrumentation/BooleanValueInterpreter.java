@@ -189,8 +189,7 @@ public class BooleanValueInterpreter extends BasicInterpreter {
     @Override
     public BasicValue naryOperation(AbstractInsnNode insn, List values)
             throws AnalyzerException {
-        if (insn instanceof MethodInsnNode) {
-            MethodInsnNode mi = (MethodInsnNode) insn;
+        if (insn instanceof MethodInsnNode mi) {
             if (Type.getReturnType(BooleanTestabilityTransformation.getOriginalDesc(mi.owner,
                     mi.name,
                     mi.desc)) == Type.BOOLEAN_TYPE) {

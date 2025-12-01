@@ -82,8 +82,7 @@ public class ContainerTransformation {
         while (iterator.hasNext()) {
             AbstractInsnNode node = iterator.next();
 
-            if (node instanceof MethodInsnNode) {
-                MethodInsnNode methodNode = (MethodInsnNode) node;
+            if (node instanceof MethodInsnNode methodNode) {
                 if (methodNode.owner.equals("java/util/Collection")
                         || methodNode.owner.equals("java/util/List")
                         || methodNode.owner.equals("java/util/ArrayList")

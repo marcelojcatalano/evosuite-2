@@ -67,8 +67,7 @@ public class PrimitiveFieldTraceEntry implements OutputTraceEntry {
      */
     @Override
     public boolean differs(OutputTraceEntry other) {
-        if (other instanceof PrimitiveFieldTraceEntry) {
-            PrimitiveFieldTraceEntry otherEntry = (PrimitiveFieldTraceEntry) other;
+        if (other instanceof PrimitiveFieldTraceEntry otherEntry) {
             for (Field field : fieldMap.keySet()) {
                 if (otherEntry.fieldMap.containsKey(field)) {
                     Object o1 = fieldMap.get(field);
@@ -96,8 +95,7 @@ public class PrimitiveFieldTraceEntry implements OutputTraceEntry {
     public Set<Assertion> getAssertions(OutputTraceEntry other) {
         Set<Assertion> assertions = new HashSet<>();
 
-        if (other instanceof PrimitiveFieldTraceEntry) {
-            PrimitiveFieldTraceEntry otherEntry = (PrimitiveFieldTraceEntry) other;
+        if (other instanceof PrimitiveFieldTraceEntry otherEntry) {
 
             for (Field field : fieldMap.keySet()) {
                 if (!otherEntry.fieldMap.containsKey(field)) {
@@ -149,8 +147,7 @@ public class PrimitiveFieldTraceEntry implements OutputTraceEntry {
      */
     @Override
     public boolean isDetectedBy(Assertion assertion) {
-        if (assertion instanceof PrimitiveFieldAssertion) {
-            PrimitiveFieldAssertion ass = (PrimitiveFieldAssertion) assertion;
+        if (assertion instanceof PrimitiveFieldAssertion ass) {
             if (ass.source.equals(var) && fieldMap.containsKey(ass.field)) {
                 return !fieldMap.get(ass.field).equals(ass.value);
             }

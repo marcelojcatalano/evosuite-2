@@ -206,14 +206,12 @@ public class ConstantInliner extends ExecutionObserver {
                     // TODO: Ignoring exceptions during getObject, but keeping
                     // the assertion for now
                     if (object == null) {
-                        if (statement instanceof MethodStatement) {
-                            MethodStatement ms = (MethodStatement) statement;
+                        if (statement instanceof MethodStatement ms) {
                             if (var.equals(ms.getCallee())) {
                                 // Don't put null in callee's, the compiler will not accept it
                                 continue;
                             }
-                        } else if (statement instanceof FieldStatement) {
-                            FieldStatement fs = (FieldStatement) statement;
+                        } else if (statement instanceof FieldStatement fs) {
                             if (var.equals(fs.getSource())) {
                                 // Don't put null in source, the compiler will not accept it
                                 continue;

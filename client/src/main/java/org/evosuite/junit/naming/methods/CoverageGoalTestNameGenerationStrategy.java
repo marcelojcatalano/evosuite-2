@@ -556,12 +556,10 @@ public class CoverageGoalTestNameGenerationStrategy implements TestNameGeneratio
     private TestFitnessFunction chooseRepresentativeGoal(TestCase test, Collection<TestFitnessFunction> goals) {
         Map<String, Integer> methodToPosition = new LinkedHashMap<>();
         for (Statement st : test) {
-            if (st instanceof MethodStatement) {
-                MethodStatement ms = (MethodStatement) st;
+            if (st instanceof MethodStatement ms) {
                 String name = ms.getMethodName() + ms.getDescriptor();
                 methodToPosition.put(name, st.getPosition());
-            } else if (st instanceof ConstructorStatement) {
-                ConstructorStatement cs = (ConstructorStatement) st;
+            } else if (st instanceof ConstructorStatement cs) {
                 String name = "<init>" + cs.getDescriptor();
                 methodToPosition.put(name, st.getPosition());
             }
@@ -587,16 +585,16 @@ public class CoverageGoalTestNameGenerationStrategy implements TestNameGeneratio
      * @return
      */
     private String getGoalName(TestFitnessFunction goal) {
-        if (goal instanceof MethodCoverageTestFitness) {
-            return getGoalName((MethodCoverageTestFitness) goal);
-        } else if (goal instanceof MethodNoExceptionCoverageTestFitness) {
-            return getGoalName((MethodNoExceptionCoverageTestFitness) goal);
-        } else if (goal instanceof ExceptionCoverageTestFitness) {
-            return getGoalName((ExceptionCoverageTestFitness) goal);
-        } else if (goal instanceof InputCoverageTestFitness) {
-            return getGoalName((InputCoverageTestFitness) goal);
-        } else if (goal instanceof OutputCoverageTestFitness) {
-            return getGoalName((OutputCoverageTestFitness) goal);
+        if (goal instanceof MethodCoverageTestFitness fitness4) {
+            return getGoalName(fitness4);
+        } else if (goal instanceof MethodNoExceptionCoverageTestFitness fitness3) {
+            return getGoalName(fitness3);
+        } else if (goal instanceof ExceptionCoverageTestFitness fitness2) {
+            return getGoalName(fitness2);
+        } else if (goal instanceof InputCoverageTestFitness fitness1) {
+            return getGoalName(fitness1);
+        } else if (goal instanceof OutputCoverageTestFitness fitness) {
+            return getGoalName(fitness);
         } else {
             return formatMethodName(goal.getTargetClass(), goal.getTargetMethod());
 //            throw new RuntimeException("Not implemented yet: "+goal.getClass());
@@ -697,14 +695,14 @@ public class CoverageGoalTestNameGenerationStrategy implements TestNameGeneratio
      */
     private String getGoalPairName(TestFitnessFunction goal1, TestFitnessFunction goal2) {
         if (goal1.getClass().equals(goal2.getClass())) {
-            if (goal1 instanceof MethodCoverageTestFitness) {
-                return getGoalPairName((MethodCoverageTestFitness) goal1, (MethodCoverageTestFitness) goal2);
+            if (goal1 instanceof MethodCoverageTestFitness fitness) {
+                return getGoalPairName(fitness, (MethodCoverageTestFitness) goal2);
             }
             if (goal1.getTargetClass().equals(goal2.getTargetClass()) && goal1.getTargetMethod().equals(goal2.getTargetMethod())) {
-                if (goal1 instanceof InputCoverageTestFitness) {
-                    return getGoalPairName((InputCoverageTestFitness) goal1, (InputCoverageTestFitness) goal2);
-                } else if (goal1 instanceof OutputCoverageTestFitness) {
-                    return getGoalPairName((OutputCoverageTestFitness) goal1, (OutputCoverageTestFitness) goal2);
+                if (goal1 instanceof InputCoverageTestFitness fitness1) {
+                    return getGoalPairName(fitness1, (InputCoverageTestFitness) goal2);
+                } else if (goal1 instanceof OutputCoverageTestFitness fitness) {
+                    return getGoalPairName(fitness, (OutputCoverageTestFitness) goal2);
                 }
             }
         }

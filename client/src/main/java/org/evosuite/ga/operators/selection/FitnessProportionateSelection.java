@@ -22,6 +22,7 @@ package org.evosuite.ga.operators.selection;
 import org.evosuite.ga.Chromosome;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
 import java.util.List;
 import java.util.stream.DoubleStream;
 
@@ -41,6 +42,7 @@ public class FitnessProportionateSelection<T extends Chromosome<T>> extends Sele
         this.sumValue = other.sumValue;
     }
 
+    @Serial
     private static final long serialVersionUID = 5206421079815585026L;
 
     /**

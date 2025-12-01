@@ -22,11 +22,14 @@ package org.evosuite.ga.stoppingconditions;
 import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 
+import java.io.Serial;
+
 /**
  * @author Gordon Fraser
  */
 public class RMIStoppingCondition<T extends Chromosome<T>> implements StoppingCondition<T> {
 
+    @Serial
     private static final long serialVersionUID = 3073266508021896691L;
 
     private static RMIStoppingCondition<?> instance = null;

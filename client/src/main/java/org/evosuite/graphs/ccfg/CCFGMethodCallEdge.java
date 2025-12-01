@@ -21,8 +21,11 @@ package org.evosuite.graphs.ccfg;
 
 import org.evosuite.graphs.cfg.BytecodeInstruction;
 
+import java.io.Serial;
+
 public class CCFGMethodCallEdge extends CCFGEdge {
 
+    @Serial
     private static final long serialVersionUID = -1638791707105165885L;
 
     private final BytecodeInstruction callInstruction;

@@ -19,6 +19,8 @@
  */
 package org.evosuite.ga;
 
+import java.io.Serial;
+
 /**
  * Replacement function that only looks at the fitness and secondary objectives,
  * without checking any further constraint on the parents
@@ -27,6 +29,7 @@ package org.evosuite.ga;
  */
 public class FitnessReplacementFunction<T extends Chromosome<T>> extends ReplacementFunction<T> {
 
+    @Serial
     private static final long serialVersionUID = 8492857847521917540L;
 
 

@@ -21,6 +21,7 @@ package org.evosuite.ga.comparators;
 
 import org.evosuite.ga.Chromosome;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Comparator;
 
@@ -31,6 +32,7 @@ import java.util.Comparator;
  */
 public class StrengthFitnessComparator implements Comparator<Chromosome<?>>, Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1365198556267160032L;
 
     @Override

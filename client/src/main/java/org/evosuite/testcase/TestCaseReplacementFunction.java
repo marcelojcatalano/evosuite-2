@@ -22,6 +22,8 @@ package org.evosuite.testcase;
 import org.evosuite.Properties;
 import org.evosuite.ga.ReplacementFunction;
 
+import java.io.Serial;
+
 /**
  * <p>
  * TestCaseReplacementFunction class.
@@ -31,6 +33,7 @@ import org.evosuite.ga.ReplacementFunction;
  */
 public class TestCaseReplacementFunction extends ReplacementFunction<TestChromosome> {
 
+    @Serial
     private static final long serialVersionUID = 2894768695219052674L;
 
     /**

@@ -43,9 +43,8 @@ public final class Reader_Read extends SymbolicFunction {
 
         Reader conc_reader = (Reader) this.getConcReceiver();
 
-        if (conc_reader instanceof StringReader) {
+        if (conc_reader instanceof StringReader conc_str_reader) {
             ReferenceConstant symb_str_reader = this.getSymbReceiver();
-            StringReader conc_str_reader = (StringReader) conc_reader;
 
             StringReaderExpr stringReaderExpr = (StringReaderExpr) env.heap
                     .getField(Types.JAVA_IO_STRING_READER,

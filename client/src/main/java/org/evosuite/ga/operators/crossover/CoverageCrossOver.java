@@ -25,6 +25,7 @@ import org.evosuite.testcase.TestFitnessFunction;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -39,6 +40,7 @@ import java.util.Set;
  */
 public class CoverageCrossOver extends CrossOverFunction<TestSuiteChromosome> {
 
+    @Serial
     private static final long serialVersionUID = -2203276450790663024L;
 
     /* (non-Javadoc)

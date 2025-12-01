@@ -27,6 +27,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.utils.generic.GenericClass;
 import org.evosuite.utils.generic.GenericClassFactory;
 
+import java.io.Serial;
 import java.util.Objects;
 
 
@@ -38,6 +39,7 @@ import java.util.Objects;
 public class ExceptionCoverageTestFitness extends TestFitnessFunction {
 
 
+    @Serial
     private static final long serialVersionUID = 1221020001417476348L;
 
     public enum ExceptionType {
@@ -204,11 +206,10 @@ public class ExceptionCoverageTestFitness extends TestFitnessFunction {
      */
     @Override
     public int compareTo(TestFitnessFunction other) {
-        if (other instanceof ExceptionCoverageTestFitness) {
-            ExceptionCoverageTestFitness otherMethodFitness = (ExceptionCoverageTestFitness) other;
+        if (other instanceof ExceptionCoverageTestFitness otherMethodFitness) {
             if (methodIdentifier.equals(otherMethodFitness.getMethod())) {
-                if (exceptionClass.equals(((ExceptionCoverageTestFitness) other).exceptionClass)) {
-                    return this.type.compareTo(((ExceptionCoverageTestFitness) other).type);
+                if (exceptionClass.equals(otherMethodFitness.exceptionClass)) {
+                    return this.type.compareTo(otherMethodFitness.type);
                 } else
                     return exceptionClass.getClassName().compareTo(otherMethodFitness.exceptionClass.getClassName());
             } else

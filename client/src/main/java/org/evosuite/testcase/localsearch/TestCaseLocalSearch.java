@@ -66,11 +66,11 @@ public abstract class TestCaseLocalSearch<T extends Chromosome<T>> implements Lo
      */
     public static void randomizePrimitives(TestCase test) {
         for (Statement s : test) {
-            if (s instanceof PrimitiveStatement<?>) {
+            if (s instanceof PrimitiveStatement<?> statement) {
                 if (s instanceof NullStatement) {
                     continue; // ignore NullStatement
                 }
-                ((PrimitiveStatement<?>) s).randomize();
+                statement.randomize();
             }
         }
     }

@@ -72,8 +72,8 @@ public class JCrasherExceptionContract extends Contract {
                     String methodName = "";
                     if (statement instanceof ConstructorStatement)
                         methodName = "<init>";
-                    else if (statement instanceof MethodStatement)
-                        methodName = ((MethodStatement) statement).getMethod().getName();
+                    else if (statement instanceof MethodStatement methodStatement)
+                        methodName = methodStatement.getMethod().getName();
                     else
                         return null;
 

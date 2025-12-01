@@ -28,6 +28,7 @@ import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
 import org.objectweb.asm.tree.analysis.SourceValue;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -46,6 +47,7 @@ import java.util.Set;
 public class BytecodeInstruction extends ASMWrapper implements Serializable,
         Comparable<BytecodeInstruction> {
 
+    @Serial
     private static final long serialVersionUID = 3630449183355518857L;
 
     // identification of a byteCode instruction inside EvoSuite
@@ -717,36 +719,36 @@ public class BytecodeInstruction extends ASMWrapper implements Serializable,
                 stack += frame.getStack(i) + ",";
             }
 
-        if (asmNode instanceof LabelNode) {
-            return "LABEL " + ((LabelNode) asmNode).getLabel().toString();
-        } else if (asmNode instanceof FieldInsnNode)
-            return "Field" + " " + ((FieldInsnNode) asmNode).owner + "."
-                    + ((FieldInsnNode) asmNode).name + " Type=" + type
+        if (asmNode instanceof LabelNode node9) {
+            return "LABEL " + node9.getLabel().toString();
+        } else if (asmNode instanceof FieldInsnNode node8)
+            return "Field" + " " + node8.owner + "."
+                    + node8.name + " Type=" + type
                     + ", Opcode=" + opcode;
         else if (asmNode instanceof FrameNode)
             return "Frame" + " " + asmNode.getOpcode() + " Type=" + type
                     + ", Opcode=" + opcode;
-        else if (asmNode instanceof IincInsnNode)
-            return "IINC " + ((IincInsnNode) asmNode).var + " Type=" + type
+        else if (asmNode instanceof IincInsnNode node7)
+            return "IINC " + node7.var + " Type=" + type
                     + ", Opcode=" + opcode;
         else if (asmNode instanceof InsnNode)
             return "" + opcode;
-        else if (asmNode instanceof IntInsnNode)
-            return "INT " + ((IntInsnNode) asmNode).operand + " Type=" + type
+        else if (asmNode instanceof IntInsnNode node6)
+            return "INT " + node6.operand + " Type=" + type
                     + ", Opcode=" + opcode;
-        else if (asmNode instanceof MethodInsnNode)
-            return opcode + " " + ((MethodInsnNode) asmNode).owner + "." + ((MethodInsnNode) asmNode).name + ((MethodInsnNode) asmNode).desc;
-        else if (asmNode instanceof JumpInsnNode)
-            return "JUMP " + ((JumpInsnNode) asmNode).label.getLabel()
+        else if (asmNode instanceof MethodInsnNode node5)
+            return opcode + " " + node5.owner + "." + node5.name + node5.desc;
+        else if (asmNode instanceof JumpInsnNode node4)
+            return "JUMP " + node4.label.getLabel()
                     + " Type=" + type + ", Opcode=" + opcode + ", Stack: "
                     + stack + " - Line: " + lineNumber;
-        else if (asmNode instanceof LdcInsnNode)
-            return "LDC " + ((LdcInsnNode) asmNode).cst + " Type=" + type; // +
+        else if (asmNode instanceof LdcInsnNode node3)
+            return "LDC " + node3.cst + " Type=" + type; // +
             // ", Opcode=";
             // + opcode; // cst starts with mutationid if
             // this is location of mutation
-        else if (asmNode instanceof LineNumberNode)
-            return "LINE " + " " + ((LineNumberNode) asmNode).line;
+        else if (asmNode instanceof LineNumberNode node2)
+            return "LINE " + " " + node2.line;
         else if (asmNode instanceof LookupSwitchInsnNode)
             return "LookupSwitchInsnNode" + " " + asmNode.getOpcode()
                     + " Type=" + type + ", Opcode=" + opcode;
@@ -756,24 +758,24 @@ public class BytecodeInstruction extends ASMWrapper implements Serializable,
         else if (asmNode instanceof TableSwitchInsnNode)
             return "TableSwitchInsnNode" + " " + asmNode.getOpcode() + " Type="
                     + type + ", Opcode=" + opcode;
-        else if (asmNode instanceof TypeInsnNode) {
+        else if (asmNode instanceof TypeInsnNode node1) {
             switch (asmNode.getOpcode()) {
                 case Opcodes.NEW:
-                    return "NEW " + ((TypeInsnNode) asmNode).desc;
+                    return "NEW " + node1.desc;
                 case Opcodes.ANEWARRAY:
-                    return "ANEWARRAY " + ((TypeInsnNode) asmNode).desc;
+                    return "ANEWARRAY " + node1.desc;
                 case Opcodes.CHECKCAST:
-                    return "CHECKCAST " + ((TypeInsnNode) asmNode).desc;
+                    return "CHECKCAST " + node1.desc;
                 case Opcodes.INSTANCEOF:
-                    return "INSTANCEOF " + ((TypeInsnNode) asmNode).desc;
+                    return "INSTANCEOF " + node1.desc;
                 default:
                     return "Unknown node" + " Type=" + type + ", Opcode=" + opcode;
             }
         }
         // return "TYPE " + " " + node.getOpcode() + " Type=" + type
         // + ", Opcode=" + opcode;
-        else if (asmNode instanceof VarInsnNode)
-            return opcode + " " + ((VarInsnNode) asmNode).var;
+        else if (asmNode instanceof VarInsnNode node)
+            return opcode + " " + node.var;
         else
             return "Unknown node" + " Type=" + type + ", Opcode=" + opcode;
     }
@@ -964,8 +966,8 @@ public class BytecodeInstruction extends ASMWrapper implements Serializable,
                 //is static, check if the name of the class that contain the static field is equals to the current class name
                 //if is equals, return true, otherwise we are in a case where we are calling a field over an external static class
                 //e.g. System.out
-                if (srcInstruction.asmNode instanceof FieldInsnNode) {
-                    String classNameField = ((FieldInsnNode) srcInstruction.asmNode).owner;
+                if (srcInstruction.asmNode instanceof FieldInsnNode node) {
+                    String classNameField = node.owner;
                     classNameField = classNameField.replace('/', '.');
                     return classNameField.equals(className);
                 }

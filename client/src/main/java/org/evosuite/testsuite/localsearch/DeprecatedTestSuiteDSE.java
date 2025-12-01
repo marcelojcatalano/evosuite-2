@@ -378,8 +378,7 @@ public class DeprecatedTestSuiteDSE {
                 Object val = model.get(key);
                 if (val != null) {
                     logger.info("New value: " + key + ": " + val);
-                    if (val instanceof Long) {
-                        Long value = (Long) val;
+                    if (val instanceof Long value) {
                         String name = ((String) key).replace("__SYM", "");
                         // logger.warn("New long value for " + name + " is " +
                         // value);
@@ -409,8 +408,7 @@ public class DeprecatedTestSuiteDSE {
                             p.setValue((char) Integer.parseInt(val.toString()));
                         else
                             p.setValue(val.toString());
-                    } else if (val instanceof Double) {
-                        Double value = (Double) val;
+                    } else if (val instanceof Double value) {
                         String name = ((String) key).replace("__SYM", "");
                         PrimitiveStatement p = getStatement(newTest, name);
                         // logger.warn("New double value for " + name + " is " +
@@ -447,9 +445,9 @@ public class DeprecatedTestSuiteDSE {
     private PrimitiveStatement<?> getStatement(TestCase test, String name) {
         for (Statement statement : test) {
 
-            if (statement instanceof PrimitiveStatement<?>) {
+            if (statement instanceof PrimitiveStatement<?> primitiveStatement) {
                 if (statement.getReturnValue().getName().equals(name))
-                    return (PrimitiveStatement<?>) statement;
+                    return primitiveStatement;
             }
         }
         return null;

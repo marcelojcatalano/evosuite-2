@@ -33,8 +33,8 @@ public class GenericArrayTypeImpl implements GenericArrayType {
     }
 
     public static Type createArrayType(Type componentType) {
-        if (componentType instanceof Class) {
-            return createArrayType((Class<?>) componentType);
+        if (componentType instanceof Class<?> class1) {
+            return createArrayType(class1);
         } else {
             return new GenericArrayTypeImpl(componentType);
         }

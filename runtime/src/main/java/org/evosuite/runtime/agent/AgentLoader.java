@@ -260,8 +260,7 @@ public class AgentLoader {
 
         ClassLoader loader = AgentLoader.class.getClassLoader();
         while (loader != null) {
-            if (loader instanceof URLClassLoader) {
-                URLClassLoader urlLoader = (URLClassLoader) loader;
+            if (loader instanceof URLClassLoader urlLoader) {
                 for (URL url : urlLoader.getURLs()) {
                     try {
                         URI uri = url.toURI();

@@ -21,6 +21,8 @@ package org.evosuite.coverage.dataflow;
 
 import org.evosuite.graphs.cfg.BytecodeInstruction;
 
+import java.io.Serial;
+
 /**
  * An object of this class corresponds to a Definition inside the class under
  * test.
@@ -31,6 +33,7 @@ import org.evosuite.graphs.cfg.BytecodeInstruction;
  */
 public class Definition extends DefUse {
 
+    @Serial
     private static final long serialVersionUID = 1141846324999759006L;
 
     Definition(BytecodeInstruction wrap) {

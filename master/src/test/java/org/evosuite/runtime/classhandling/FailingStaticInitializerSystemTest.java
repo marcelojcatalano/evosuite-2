@@ -23,7 +23,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
@@ -54,7 +53,7 @@ public class FailingStaticInitializerSystemTest extends SystemTestBase {
         Properties.JUNIT_TESTS = true;
         Properties.JUNIT_CHECK = Properties.JUnitCheckValues.TRUE;
 
-        final Path path = Paths.get(junitFileName);
+        final Path path = Path.of(junitFileName);
         Files.deleteIfExists(path);
 
         // check that the test suite does not exist

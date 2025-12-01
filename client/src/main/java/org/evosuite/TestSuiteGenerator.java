@@ -261,8 +261,7 @@ public class TestSuiteGenerator {
      */
     private static ExceptionInInitializerError getInitializerError(ExecutionResult execResult) {
         for (Throwable t : execResult.getAllThrownExceptions()) {
-            if (t instanceof ExceptionInInitializerError) {
-                ExceptionInInitializerError exceptionInInitializerError = (ExceptionInInitializerError) t;
+            if (t instanceof ExceptionInInitializerError exceptionInInitializerError) {
                 return exceptionInInitializerError;
             }
         }

@@ -57,8 +57,7 @@ public class NullTraceEntry implements OutputTraceEntry {
      */
     @Override
     public boolean differs(OutputTraceEntry other) {
-        if (other instanceof NullTraceEntry) {
-            NullTraceEntry otherEntry = (NullTraceEntry) other;
+        if (other instanceof NullTraceEntry otherEntry) {
             return var.equals(otherEntry.var) && otherEntry.isNull != isNull;
 
         }
@@ -76,8 +75,7 @@ public class NullTraceEntry implements OutputTraceEntry {
     public Set<Assertion> getAssertions(OutputTraceEntry other) {
         Set<Assertion> assertions = new HashSet<>();
 
-        if (other instanceof NullTraceEntry) {
-            NullTraceEntry otherEntry = (NullTraceEntry) other;
+        if (other instanceof NullTraceEntry otherEntry) {
             if (var.equals(otherEntry.var) && otherEntry.isNull != isNull) {
                 NullAssertion assertion = new NullAssertion();
                 assertion.value = isNull;
@@ -118,8 +116,7 @@ public class NullTraceEntry implements OutputTraceEntry {
      */
     @Override
     public boolean isDetectedBy(Assertion assertion) {
-        if (assertion instanceof NullAssertion) {
-            NullAssertion ass = (NullAssertion) assertion;
+        if (assertion instanceof NullAssertion ass) {
             if (var.equals(ass.source))
                 return (Boolean) ass.value != isNull;
         }

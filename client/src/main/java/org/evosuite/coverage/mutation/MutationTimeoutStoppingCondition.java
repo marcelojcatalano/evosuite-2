@@ -24,6 +24,7 @@ import org.evosuite.Properties.Strategy;
 import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.stoppingconditions.StoppingConditionImpl;
 
+import java.io.Serial;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -42,6 +43,7 @@ public class MutationTimeoutStoppingCondition<T extends Chromosome<T>>
 
     public static Map<Mutation, Integer> timeouts = new HashMap<>();
 
+    @Serial
     private static final long serialVersionUID = -7347443938884126325L;
 
     private static int timeout = 0;

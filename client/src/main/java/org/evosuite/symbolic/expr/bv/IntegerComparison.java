@@ -29,12 +29,14 @@ import org.evosuite.symbolic.expr.Variable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
 public final class IntegerComparison extends AbstractExpression<Long> implements
         IntegerValue {
 
+    @Serial
     private static final long serialVersionUID = 8551234172104612736L;
 
     /**
@@ -71,8 +73,7 @@ public final class IntegerComparison extends AbstractExpression<Long> implements
         if (obj == this) {
             return true;
         }
-        if (obj instanceof IntegerComparison) {
-            IntegerComparison other = (IntegerComparison) obj;
+        if (obj instanceof IntegerComparison other) {
             return this.left.equals(other.left) && this.right.equals(other.right);
         }
 

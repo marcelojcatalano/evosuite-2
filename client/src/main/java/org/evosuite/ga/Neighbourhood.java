@@ -21,6 +21,7 @@ package org.evosuite.ga;
 
 import org.evosuite.Properties;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,7 @@ import java.util.List;
  */
 public class Neighbourhood<T extends Chromosome<T>> implements NeighborModels<T>, Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /**

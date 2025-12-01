@@ -30,6 +30,7 @@ import org.evosuite.testsuite.TestSuiteChromosome;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.List;
 
 /**
@@ -39,6 +40,7 @@ public class DiversityObserver implements SearchListener<TestSuiteChromosome> {
 
     private static final Logger logger = LoggerFactory.getLogger(DiversityObserver.class);
 
+    @Serial
     private static final long serialVersionUID = -3761776930918618235L;
 
     public DiversityObserver() {
@@ -138,17 +140,17 @@ public class DiversityObserver implements SearchListener<TestSuiteChromosome> {
         int similarity = 0;
         if (s1.getClass() == s2.getClass()) {
             similarity += 1;
-            if (s1 instanceof ConstructorStatement) {
-                if (getUnderlyingType((ConstructorStatement) s1).equals(getUnderlyingType((ConstructorStatement) s2)))
+            if (s1 instanceof ConstructorStatement statement3) {
+                if (getUnderlyingType(statement3).equals(getUnderlyingType((ConstructorStatement) s2)))
                     similarity += 1;
-            } else if (s1 instanceof PrimitiveStatement) {
-                if (getUnderlyingType((PrimitiveStatement<?>) s1).equals(getUnderlyingType((PrimitiveStatement<?>) s2)))
+            } else if (s1 instanceof PrimitiveStatement<?> statement2) {
+                if (getUnderlyingType(statement2).equals(getUnderlyingType((PrimitiveStatement<?>) s2)))
                     similarity += 1;
-            } else if (s1 instanceof MethodStatement) {
-                if (getUnderlyingType((MethodStatement) s1).equals(getUnderlyingType((MethodStatement) s2)))
+            } else if (s1 instanceof MethodStatement statement1) {
+                if (getUnderlyingType(statement1).equals(getUnderlyingType((MethodStatement) s2)))
                     similarity += 1;
-            } else if (s1 instanceof FieldStatement) {
-                if (getUnderlyingType((FieldStatement) s1).equals(getUnderlyingType((FieldStatement) s2)))
+            } else if (s1 instanceof FieldStatement statement) {
+                if (getUnderlyingType(statement).equals(getUnderlyingType((FieldStatement) s2)))
                     similarity += 1;
             }
             // TOOD: If underlying type is the same, further benefit

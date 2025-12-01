@@ -21,10 +21,12 @@ package org.evosuite.result;
 
 import org.evosuite.coverage.branch.Branch;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class BranchInfo implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -2145547942894978737L;
 
     private final String className;

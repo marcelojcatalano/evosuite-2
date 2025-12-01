@@ -144,8 +144,8 @@ public abstract class MockClock extends java.time.Clock implements OverrideMock 
         }
         @Override
         public boolean equals(Object obj) {
-            if (obj instanceof MockClock.MockSystemClock) {
-                return zone.equals(((MockClock.MockSystemClock) obj).zone);
+            if (obj instanceof MockClock.MockSystemClock clock) {
+                return zone.equals(clock.zone);
             }
             return false;
         }
@@ -201,8 +201,7 @@ public abstract class MockClock extends java.time.Clock implements OverrideMock 
         }
         @Override
         public boolean equals(Object obj) {
-            if (obj instanceof MockClock.MockTickClock) {
-                MockClock.MockTickClock other = (MockClock.MockTickClock) obj;
+            if (obj instanceof MockClock.MockTickClock other) {
                 return baseClock.equals(other.baseClock) && tickNanos == other.tickNanos;
             }
             return false;

@@ -23,10 +23,12 @@ import org.evosuite.Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public abstract class MutationDistribution implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -5800252656232641574L;
 
     /**

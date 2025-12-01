@@ -29,6 +29,7 @@ import org.evosuite.testcase.statements.EntityWithParametersStatement;
 import org.evosuite.testcase.statements.MethodStatement;
 import org.evosuite.testcase.statements.Statement;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -41,6 +42,7 @@ import java.util.Objects;
  */
 public class MethodNoExceptionCoverageTestFitness extends TestFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = 3624503060256855484L;
 
     /**
@@ -178,8 +180,7 @@ public class MethodNoExceptionCoverageTestFitness extends TestFitnessFunction {
      */
     @Override
     public int compareTo(TestFitnessFunction other) {
-        if (other instanceof MethodNoExceptionCoverageTestFitness) {
-            MethodNoExceptionCoverageTestFitness otherMethodFitness = (MethodNoExceptionCoverageTestFitness) other;
+        if (other instanceof MethodNoExceptionCoverageTestFitness otherMethodFitness) {
             if (className.equals(otherMethodFitness.getClassName()))
                 return methodName.compareTo(otherMethodFitness.getMethod());
             else

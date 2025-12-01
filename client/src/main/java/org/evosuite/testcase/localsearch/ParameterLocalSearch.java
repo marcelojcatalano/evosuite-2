@@ -72,12 +72,12 @@ public class ParameterLocalSearch extends StatementLocalSearch {
                             LocalSearchObjective<TestChromosome> objective) {
         Statement stmt = test.getTestCase().getStatement(statement);
         backup(test, stmt);
-        if (stmt instanceof MethodStatement) {
-            return doSearch(test, (MethodStatement) stmt, objective);
-        } else if (stmt instanceof ConstructorStatement) {
-            return doSearch(test, (ConstructorStatement) stmt, objective);
-        } else if (stmt instanceof FieldStatement) {
-            return doSearch(test, (FieldStatement) stmt, objective);
+        if (stmt instanceof MethodStatement methodStatement) {
+            return doSearch(test, methodStatement, objective);
+        } else if (stmt instanceof ConstructorStatement constructorStatement) {
+            return doSearch(test, constructorStatement, objective);
+        } else if (stmt instanceof FieldStatement fieldStatement) {
+            return doSearch(test, fieldStatement, objective);
         } else {
             return false;
         }

@@ -111,13 +111,12 @@ public class ReplaceVariable implements MutationOperator {
 
     private Type getType(MethodNode mn, AbstractInsnNode node)
             throws VariableNotFoundException {
-        if (node instanceof VarInsnNode) {
-            LocalVariableNode var = getLocal(mn, node, ((VarInsnNode) node).var);
+        if (node instanceof VarInsnNode insnNode1) {
+            LocalVariableNode var = getLocal(mn, node, insnNode1.var);
             return Type.getType(var.desc);
-        } else if (node instanceof FieldInsnNode) {
-            return Type.getType(((FieldInsnNode) node).desc);
-        } else if (node instanceof IincInsnNode) {
-            IincInsnNode incNode = (IincInsnNode) node;
+        } else if (node instanceof FieldInsnNode insnNode) {
+            return Type.getType(insnNode.desc);
+        } else if (node instanceof IincInsnNode incNode) {
             LocalVariableNode var = getLocal(mn, node, incNode.var);
 
             return Type.getType(var.desc);
@@ -129,13 +128,12 @@ public class ReplaceVariable implements MutationOperator {
 
     private String getName(MethodNode mn, AbstractInsnNode node)
             throws VariableNotFoundException {
-        if (node instanceof VarInsnNode) {
-            LocalVariableNode var = getLocal(mn, node, ((VarInsnNode) node).var);
+        if (node instanceof VarInsnNode insnNode1) {
+            LocalVariableNode var = getLocal(mn, node, insnNode1.var);
             return var.name;
-        } else if (node instanceof FieldInsnNode) {
-            return ((FieldInsnNode) node).name;
-        } else if (node instanceof IincInsnNode) {
-            IincInsnNode incNode = (IincInsnNode) node;
+        } else if (node instanceof FieldInsnNode insnNode) {
+            return insnNode.name;
+        } else if (node instanceof IincInsnNode incNode) {
             LocalVariableNode var = getLocal(mn, node, incNode.var);
             return var.name;
 
@@ -158,17 +156,15 @@ public class ReplaceVariable implements MutationOperator {
         while (it.hasNext()) {
             AbstractInsnNode node = (AbstractInsnNode) it.next();
 
-            if (node instanceof VarInsnNode) {
-                VarInsnNode vn = (VarInsnNode) node;
+            if (node instanceof VarInsnNode vn) {
                 copy.add(new VarInsnNode(vn.getOpcode(), vn.var));
-            } else if (node instanceof FieldInsnNode) {
-                FieldInsnNode fn = (FieldInsnNode) node;
+            } else if (node instanceof FieldInsnNode fn) {
                 copy.add(new FieldInsnNode(fn.getOpcode(), fn.owner, fn.name, fn.desc));
             } else if (node instanceof InsnNode) {
                 if (node.getOpcode() != Opcodes.POP)
                     copy.add(new InsnNode(node.getOpcode()));
-            } else if (node instanceof LdcInsnNode) {
-                copy.add(new LdcInsnNode(((LdcInsnNode) node).cst));
+            } else if (node instanceof LdcInsnNode insnNode) {
+                copy.add(new LdcInsnNode(insnNode.cst));
             } else {
                 throw new RuntimeException("Unexpected node type: " + node.getClass());
             }
@@ -228,8 +224,7 @@ public class ReplaceVariable implements MutationOperator {
 
         InsnList distance = new InsnList();
 
-        if (original instanceof VarInsnNode) {
-            VarInsnNode node = (VarInsnNode) original;
+        if (original instanceof VarInsnNode node) {
             distance.add(new VarInsnNode(node.getOpcode(), node.var));
             if (type.getDescriptor().startsWith("L")
                     || type.getDescriptor().startsWith("["))
@@ -237,11 +232,9 @@ public class ReplaceVariable implements MutationOperator {
             else
                 addPrimitiveDistanceCheck(distance, type, mutant);
 
-        } else if (original instanceof FieldInsnNode) {
+        } else if (original instanceof FieldInsnNode node) {
             if (original.getOpcode() == Opcodes.GETFIELD)
-                distance.add(new InsnNode(Opcodes.DUP)); //make sure to re-load this for GETFIELD
-
-            FieldInsnNode node = (FieldInsnNode) original;
+                distance.add(new InsnNode(Opcodes.DUP));
             distance.add(new FieldInsnNode(node.getOpcode(), node.owner, node.name,
                     node.desc));
             if (type.getDescriptor().startsWith("L")
@@ -295,8 +288,7 @@ public class ReplaceVariable implements MutationOperator {
                                                   AbstractInsnNode node, Frame frame) {
         Map<String, InsnList> variables = new HashMap<>();
 
-        if (node instanceof VarInsnNode) {
-            VarInsnNode var = (VarInsnNode) node;
+        if (node instanceof VarInsnNode var) {
 
             try {
                 LocalVariableNode origVar = getLocal(mn, node, var.var);
@@ -317,16 +309,14 @@ public class ReplaceVariable implements MutationOperator {
                 logger.info(e.toString());
                 e.printStackTrace();
             }
-        } else if (node instanceof FieldInsnNode) {
-            FieldInsnNode field = (FieldInsnNode) node;
+        } else if (node instanceof FieldInsnNode field) {
             if (field.owner.replace('/', '.').equals(className)) {
                 logger.info("Looking for replacements for static field " + field.name
                         + " of type " + field.desc);
                 variables.putAll(getLocalReplacements(mn, field.desc, node, frame));
                 variables.putAll(getFieldReplacements(mn, className, field.desc, node));
             }
-        } else if (node instanceof IincInsnNode) {
-            IincInsnNode incNode = (IincInsnNode) node;
+        } else if (node instanceof IincInsnNode incNode) {
             try {
                 LocalVariableNode origVar = getLocal(mn, node, incNode.var);
 
@@ -368,8 +358,7 @@ public class ReplaceVariable implements MutationOperator {
         //	return replacements;
 
         int otherNum = -1;
-        if (node instanceof VarInsnNode) {
-            VarInsnNode vNode = (VarInsnNode) node;
+        if (node instanceof VarInsnNode vNode) {
             otherNum = vNode.var;
         }
         if (otherNum == -1)
@@ -470,8 +459,7 @@ public class ReplaceVariable implements MutationOperator {
         boolean isStatic = (mn.access & Opcodes.ACC_STATIC) == Opcodes.ACC_STATIC;
 
         String otherName = "";
-        if (node instanceof FieldInsnNode) {
-            FieldInsnNode fNode = (FieldInsnNode) node;
+        if (node instanceof FieldInsnNode fNode) {
             otherName = fNode.name;
         }
         try {

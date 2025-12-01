@@ -19,9 +19,12 @@
  */
 package org.evosuite.coverage.dataflow;
 
+import java.io.Serial;
+
 public class UnexpectedFitnessException extends Exception {
 
 
+    @Serial
     private static final long serialVersionUID = -2211094409507844711L;
 
 }

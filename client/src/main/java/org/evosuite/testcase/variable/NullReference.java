@@ -21,6 +21,7 @@ package org.evosuite.testcase.variable;
 
 import org.evosuite.testcase.TestCase;
 
+import java.io.Serial;
 import java.lang.reflect.Type;
 
 /**
@@ -30,6 +31,7 @@ import java.lang.reflect.Type;
  */
 public class NullReference extends VariableReferenceImpl {
 
+    @Serial
     private static final long serialVersionUID = -6172885297590386463L;
 
     /**

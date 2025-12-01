@@ -19,11 +19,14 @@
  */
 package com.examples.with.different.packagename.sette;
 
+import java.io.Serial;
+
 
 /**
  * Simple class implementing the Number interface. This class can only represent between 1 to 10.
  */
 public final class FingerNumber extends Number {
+    @Serial
     private static final long serialVersionUID = 4280286901518300224L;
     private final int value;
 

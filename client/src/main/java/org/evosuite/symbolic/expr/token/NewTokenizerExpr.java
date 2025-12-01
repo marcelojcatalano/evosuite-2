@@ -25,12 +25,14 @@ import org.evosuite.symbolic.expr.ExpressionVisitor;
 import org.evosuite.symbolic.expr.Variable;
 import org.evosuite.symbolic.expr.str.StringValue;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
 public final class NewTokenizerExpr extends TokenizerExpr {
 
 
+    @Serial
     private static final long serialVersionUID = -6640965868758291282L;
     private final StringValue string;
     private final StringValue delim;
@@ -62,8 +64,7 @@ public final class NewTokenizerExpr extends TokenizerExpr {
         if (this == obj)
             return true;
 
-        if (obj instanceof NewTokenizerExpr) {
-            NewTokenizerExpr that = (NewTokenizerExpr) obj;
+        if (obj instanceof NewTokenizerExpr that) {
             return this.string.equals(that.string) && this.delim.equals(that.delim);
         }
         return false;
@@ -76,8 +77,8 @@ public final class NewTokenizerExpr extends TokenizerExpr {
 
     @Override
     public String toString() {
-        String toString = String.format("TOKENIZE(%s, %s)", string.toString(),
-                delim.toString());
+        String toString = "TOKENIZE(%s, %s)".formatted(string.toString(),
+            delim.toString());
         return toString;
     }
 

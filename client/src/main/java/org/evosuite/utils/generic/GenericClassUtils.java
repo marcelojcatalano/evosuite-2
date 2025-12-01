@@ -68,10 +68,10 @@ public class GenericClassUtils {
      * @return Whether at least one missing type parameter was found.
      */
     public static boolean isMissingTypeParameters(Type type) {
-        if (type instanceof Class) {
+        if (type instanceof Class<?> clazz) {
             // Handle nested classes: check if any of the enclosing classes declares a type
             // parameter.
-            for (Class<?> clazz = (Class<?>) type; clazz != null; clazz = clazz.getEnclosingClass()) {
+            for (; clazz != null; clazz = clazz.getEnclosingClass()) {
                 if (clazz.getTypeParameters().length != 0) {
                     return true;
                 }

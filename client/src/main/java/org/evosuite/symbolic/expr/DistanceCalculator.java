@@ -191,16 +191,13 @@ public class DistanceCalculator implements ConstraintVisitor<Object, Void> {
         Comparator cmpr = n.getComparator();
         double distance = 0.0;
 
-        if (exprLeft instanceof StringBinaryComparison) {
-            StringBinaryComparison scTarget = (StringBinaryComparison) exprLeft;
+        if (exprLeft instanceof StringBinaryComparison scTarget) {
             distance = getStringDistance(scTarget);
             log.debug("Calculating distance of constraint " + n);
-        } else if (exprLeft instanceof StringMultipleComparison) {
-            StringMultipleComparison scTarget = (StringMultipleComparison) exprLeft;
+        } else if (exprLeft instanceof StringMultipleComparison scTarget) {
             distance = getStringDistance(scTarget);
             log.debug("Calculating distance of constraint " + n);
-        } else if (exprLeft instanceof HasMoreTokensExpr) {
-            HasMoreTokensExpr hasMoreTokensExpr = (HasMoreTokensExpr) exprLeft;
+        } else if (exprLeft instanceof HasMoreTokensExpr hasMoreTokensExpr) {
             distance = getStringDistance(hasMoreTokensExpr);
             log.debug("Calculating distance of constraint " + n);
         } else {
@@ -379,9 +376,7 @@ public class DistanceCalculator implements ConstraintVisitor<Object, Void> {
         ExpressionEvaluator exprExecutor = new ExpressionEvaluator();
         Expression<?> left = n.getLeftOperand();
         Expression<?> right = n.getRightOperand();
-        if (left instanceof StringReaderExpr && right instanceof IntegerConstant) {
-            StringReaderExpr stringReaderExpr = (StringReaderExpr) left;
-            IntegerConstant intValue = (IntegerConstant) right;
+        if (left instanceof StringReaderExpr stringReaderExpr && right instanceof IntegerConstant intValue) {
 
             String conc_string = (String) stringReaderExpr.getString().accept(exprExecutor, null);
             int new_length = stringReaderExpr.getReaderPosition();

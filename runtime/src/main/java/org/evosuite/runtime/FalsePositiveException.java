@@ -27,6 +27,8 @@ package org.evosuite.runtime;
 
 import org.junit.internal.AssumptionViolatedException;
 
+import java.io.Serial;
+
 /**
  * If a test was overfitting (eg, accessing private fields or methods), and
  * a semantic-preserving refactoring
@@ -38,6 +40,7 @@ import org.junit.internal.AssumptionViolatedException;
  */
 public class FalsePositiveException extends AssumptionViolatedException {
 
+    @Serial
     private static final long serialVersionUID = -7779068356023351829L;
 
     public FalsePositiveException(String assumption) {

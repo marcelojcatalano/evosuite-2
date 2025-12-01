@@ -28,9 +28,12 @@ import org.evosuite.testcase.TestFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 public class FixedLengthTestChromosomeFactory implements
         ChromosomeFactory<TestChromosome> {
 
+    @Serial
     private static final long serialVersionUID = -3860201346772188495L;
 
     /**

@@ -28,6 +28,7 @@ import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.utils.Randomness;
 import org.evosuite.utils.generic.GenericUtils;
 
+import java.io.Serial;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -40,6 +41,7 @@ import java.util.*;
  */
 public abstract class EntityWithParametersStatement extends AbstractStatement {
 
+    @Serial
     private static final long serialVersionUID = 2971944785047056480L;
     protected final List<VariableReference> parameters;
     protected final Annotation[][] parameterAnnotations;
@@ -138,8 +140,8 @@ public abstract class EntityWithParametersStatement extends AbstractStatement {
         references.add(retval);
         references.addAll(parameters);
         for (VariableReference param : parameters) {
-            if (param instanceof ArrayIndex)
-                references.add(((ArrayIndex) param).getArray());
+            if (param instanceof ArrayIndex index)
+                references.add(index.getArray());
         }
         return references;
 

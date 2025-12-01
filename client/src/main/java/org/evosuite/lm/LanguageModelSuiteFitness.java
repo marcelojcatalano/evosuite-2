@@ -25,12 +25,14 @@ import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 
 import java.io.IOException;
+import java.io.Serial;
 
 /**
  * Created by mat on 20/03/2014.
  */
 public class LanguageModelSuiteFitness extends TestSuiteFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = 8985543347957256453L;
     private final BranchCoverageSuiteFitness backingFitness;
     private final LangModel languageModel;

@@ -23,6 +23,8 @@ import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.ConstructionFailedException;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
+
 /**
  * Cross over individuals at relative position
  *
@@ -30,6 +32,7 @@ import org.evosuite.utils.Randomness;
  */
 public class SinglePointRelativeCrossOver<T extends Chromosome<T>> extends CrossOverFunction<T> {
 
+    @Serial
     private static final long serialVersionUID = -5320348525459502224L;
 
     /**

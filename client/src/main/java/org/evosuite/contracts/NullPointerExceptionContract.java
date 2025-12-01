@@ -65,11 +65,9 @@ public class NullPointerExceptionContract extends Contract {
                     }
 
                     List<VariableReference> parameters = new ArrayList<>();
-                    if (statement instanceof MethodStatement) {
-                        MethodStatement ms = (MethodStatement) statement;
+                    if (statement instanceof MethodStatement ms) {
                         parameters.addAll(ms.getParameterReferences());
-                    } else if (statement instanceof ConstructorStatement) {
-                        ConstructorStatement cs = (ConstructorStatement) statement;
+                    } else if (statement instanceof ConstructorStatement cs) {
                         parameters.addAll(cs.getParameterReferences());
                     } else {
                         return null;

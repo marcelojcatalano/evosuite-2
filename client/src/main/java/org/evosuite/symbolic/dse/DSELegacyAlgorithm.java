@@ -47,6 +47,7 @@ import org.objectweb.asm.Type;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.*;
@@ -263,8 +264,7 @@ public class DSELegacyAlgorithm extends GeneticAlgorithm<TestSuiteChromosome> {
 
         List<Constraint<?>> boundsForVariables = new ArrayList<>();
         for (Variable<?> variable : variables) {
-            if (variable instanceof IntegerVariable) {
-                IntegerVariable integerVariable = (IntegerVariable) variable;
+            if (variable instanceof IntegerVariable integerVariable) {
                 Long minValue = integerVariable.getMinValue();
                 Long maxValue = integerVariable.getMaxValue();
                 if (maxValue == Long.MAX_VALUE && minValue == Long.MIN_VALUE) {
@@ -406,6 +406,7 @@ public class DSELegacyAlgorithm extends GeneticAlgorithm<TestSuiteChromosome> {
     }
 
 
+    @Serial
     private static final long serialVersionUID = 964984026539409121L;
 
     /**

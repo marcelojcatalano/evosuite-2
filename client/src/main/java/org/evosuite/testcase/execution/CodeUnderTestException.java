@@ -22,6 +22,8 @@ package org.evosuite.testcase.execution;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 /**
  * Used to wrap exceptions thrown in code under test. This is needed as VariableReference.getObjects/.setObject
  * and AbstractStatement.execute() do not operate on the same layer.
@@ -34,6 +36,7 @@ import org.slf4j.LoggerFactory;
 public class CodeUnderTestException extends Exception {
 
 
+    @Serial
     private static final long serialVersionUID = 1L;
     private static final Logger logger = LoggerFactory.getLogger(CodeUnderTestException.class);
 
@@ -62,16 +65,16 @@ public class CodeUnderTestException extends Exception {
         if (e instanceof CodeUnderTestException) {
             e = e.getCause();
         }
-        if (e instanceof IllegalAccessException) {
-            throw (IllegalAccessException) e;
-        } else if (e instanceof IllegalArgumentException) {
-            throw (IllegalArgumentException) e;
-        } else if (e instanceof NullPointerException) {
-            throw (NullPointerException) e;
-        } else if (e instanceof ArrayIndexOutOfBoundsException) {
-            throw (ArrayIndexOutOfBoundsException) e;
-        } else if (e instanceof ExceptionInInitializerError) {
-            throw (ExceptionInInitializerError) e;
+        if (e instanceof IllegalAccessException exception3) {
+            throw exception3;
+        } else if (e instanceof IllegalArgumentException exception2) {
+            throw exception2;
+        } else if (e instanceof NullPointerException exception1) {
+            throw exception1;
+        } else if (e instanceof ArrayIndexOutOfBoundsException exception) {
+            throw exception;
+        } else if (e instanceof ExceptionInInitializerError error) {
+            throw error;
         } else {
             logger.error("We expected the exception to be one of the listed but it was ", e);
             throw new AssertionError("We expected the exception to be one of the listed but it was " + e.getClass());

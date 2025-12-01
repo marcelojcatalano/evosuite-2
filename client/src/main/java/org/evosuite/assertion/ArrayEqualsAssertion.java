@@ -24,6 +24,7 @@ import org.evosuite.testcase.TestCase;
 import org.evosuite.testcase.execution.CodeUnderTestException;
 import org.evosuite.testcase.execution.Scope;
 
+import java.io.Serial;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
@@ -32,6 +33,7 @@ import java.util.Arrays;
  */
 public class ArrayEqualsAssertion extends Assertion {
 
+    @Serial
     private static final long serialVersionUID = -1868479914750970330L;
 
     /**

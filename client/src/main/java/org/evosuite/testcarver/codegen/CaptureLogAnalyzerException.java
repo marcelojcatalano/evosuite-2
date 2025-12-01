@@ -22,8 +22,11 @@ package org.evosuite.testcarver.codegen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 public class CaptureLogAnalyzerException extends RuntimeException {
 
+    @Serial
     private static final long serialVersionUID = 4585552843370187739L;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CaptureLogAnalyzerException.class);
@@ -39,7 +42,7 @@ public class CaptureLogAnalyzerException extends RuntimeException {
     public static void check(final boolean expr, final String msg, final Object... msgArgs)
             throws CaptureLogAnalyzerException {
         if (!expr) {
-            final String finalMsg = String.format(msg, msgArgs);
+            final String finalMsg = msg.formatted(msgArgs);
             LOGGER.info(finalMsg);
             throw new CaptureLogAnalyzerException(finalMsg);
         }
@@ -48,7 +51,7 @@ public class CaptureLogAnalyzerException extends RuntimeException {
 
     public static void propagateError(final Throwable t, final String msg, final Object... msgArgs)
             throws CaptureLogAnalyzerException {
-        final String finalMsg = String.format(msg, msgArgs);
+        final String finalMsg = msg.formatted(msgArgs);
         LOGGER.info(finalMsg, t);
         throw new CaptureLogAnalyzerException(finalMsg);
     }

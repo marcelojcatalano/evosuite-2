@@ -108,8 +108,7 @@ public final class Instrumenter {
         while (iter.hasNext()) {
             ins = iter.next();
 
-            if (ins instanceof MethodInsnNode) {
-                MethodInsnNode mins = (MethodInsnNode) ins;
+            if (ins instanceof MethodInsnNode mins) {
                 if (ins.getOpcode() == Opcodes.INVOKESPECIAL) {
                     if (mins.name.startsWith("<init>")) {
                         if (numInvokeSpecials == 0) {
@@ -119,8 +118,7 @@ public final class Instrumenter {
                         }
                     }
                 }
-            } else if (ins instanceof TypeInsnNode) {
-                TypeInsnNode typeIns = (TypeInsnNode) ins;
+            } else if (ins instanceof TypeInsnNode typeIns) {
                 if (typeIns.getOpcode() == Opcodes.NEW || typeIns.getOpcode() == Opcodes.NEWARRAY) {
                     numInvokeSpecials++;
                 }
@@ -249,8 +247,8 @@ public final class Instrumenter {
 
         for (int i = 0; i < instructions.size(); i++) {
             ins = instructions.get(i);
-            if (ins instanceof FieldInsnNode) {
-                fieldIns = (FieldInsnNode) ins;
+            if (ins instanceof FieldInsnNode node) {
+                fieldIns = node;
 
                 /*
                  * Is field referencing outermost instance? if yes, ignore it
@@ -314,8 +312,8 @@ public final class Instrumenter {
 
         for (int i = 0; i < instructions.size(); i++) {
             ins = instructions.get(i);
-            if (ins instanceof FieldInsnNode) {
-                fieldIns = (FieldInsnNode) ins;
+            if (ins instanceof FieldInsnNode node) {
+                fieldIns = node;
 
                 /*
                  * Is field referencing outermost instance? if yes, ignore it
@@ -557,8 +555,7 @@ public final class Instrumenter {
                 iter.remove();
                 wInstructions.add(ins);
 
-                if (ins instanceof MethodInsnNode) {
-                    MethodInsnNode mins = (MethodInsnNode) ins;
+                if (ins instanceof MethodInsnNode mins) {
                     if (ins.getOpcode() == Opcodes.INVOKESPECIAL) {
                         if (mins.name.startsWith("<init>")) {
                             if (numInvokeSpecials == 0) {
@@ -568,8 +565,7 @@ public final class Instrumenter {
                             }
                         }
                     }
-                } else if (ins instanceof TypeInsnNode) {
-                    TypeInsnNode typeIns = (TypeInsnNode) ins;
+                } else if (ins instanceof TypeInsnNode typeIns) {
                     if (typeIns.getOpcode() == Opcodes.NEW || typeIns.getOpcode() == Opcodes.NEWARRAY) {
                         numInvokeSpecials++;
                     }
@@ -730,8 +726,7 @@ public final class Instrumenter {
 
         while (iterator.hasNext()) {
             AbstractInsnNode insn = iterator.next();
-            if (insn instanceof MethodInsnNode) {
-                MethodInsnNode methodInsnNode = (MethodInsnNode) insn;
+            if (insn instanceof MethodInsnNode methodInsnNode) {
                 if (methodInsnNode.name.equals("<init>")) {
                     String ownerName = methodInsnNode.owner.replace('/', '.');
                     for (Class<?> wrapperClass : wrapperClasses) {

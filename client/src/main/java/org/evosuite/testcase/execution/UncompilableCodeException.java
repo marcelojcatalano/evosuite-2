@@ -19,8 +19,11 @@
  */
 package org.evosuite.testcase.execution;
 
+import java.io.Serial;
+
 public class UncompilableCodeException extends RuntimeException {
 
+    @Serial
     private static final long serialVersionUID = 2111256673991944796L;
 
     public UncompilableCodeException() {

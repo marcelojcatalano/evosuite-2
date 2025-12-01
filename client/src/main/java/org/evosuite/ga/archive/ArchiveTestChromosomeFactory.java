@@ -29,10 +29,12 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.List;
 
 public class ArchiveTestChromosomeFactory implements ChromosomeFactory<TestChromosome> {
 
+    @Serial
     private static final long serialVersionUID = -8499807341782893732L;
 
     private final static Logger logger = LoggerFactory.getLogger(ArchiveTestChromosomeFactory.class);

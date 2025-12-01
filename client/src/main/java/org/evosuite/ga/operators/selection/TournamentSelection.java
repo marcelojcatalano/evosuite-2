@@ -23,6 +23,7 @@ import org.evosuite.Properties;
 import org.evosuite.ga.Chromosome;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
 import java.util.List;
 
 
@@ -33,6 +34,7 @@ import java.util.List;
  */
 public class TournamentSelection<T extends Chromosome<T>> extends SelectionFunction<T> {
 
+    @Serial
     private static final long serialVersionUID = -7465418404056357932L;
 
     public TournamentSelection() {

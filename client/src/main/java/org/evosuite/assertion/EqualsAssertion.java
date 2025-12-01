@@ -24,11 +24,13 @@ import org.evosuite.testcase.execution.CodeUnderTestException;
 import org.evosuite.testcase.execution.Scope;
 import org.evosuite.testcase.variable.VariableReference;
 
+import java.io.Serial;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class EqualsAssertion extends Assertion {
 
+    @Serial
     private static final long serialVersionUID = 1427358542327670617L;
 
     protected VariableReference dest;

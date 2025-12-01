@@ -230,7 +230,7 @@ public class HTMLStatisticsBackend implements StatisticsBackend {
         buffer.append("<td>");
         if (data.containsKey(RuntimeVariable.Total_Time.name())) {
             long duration = (Long) data.get(RuntimeVariable.Total_Time.name()).getValue() / 1000L;
-            buffer.append(String.format("%d:%02d:%02d", duration / 3600, (duration % 3600) / 60, (duration % 60)));
+            buffer.append("%d:%02d:%02d".formatted(duration / 3600, (duration % 3600) / 60, (duration % 60)));
         } else
             buffer.append("UNKNOWN");
         buffer.append("</td>");
@@ -305,8 +305,8 @@ public class HTMLStatisticsBackend implements StatisticsBackend {
                 code = test.toCode();
 
             for (String line : code.split("\n")) {
-                sb.append(String.format("<span class=\"nocode\"><a name=\"%d\">%3d: </a></span>",
-                        linecount, linecount));
+                sb.append("<span class=\"nocode\"><a name=\"%d\">%3d: </a></span>".formatted(
+                    linecount, linecount));
                 /*
                  * if(test.exceptionsThrown != null &&
                  * test.exception_statement == test_line)
@@ -339,8 +339,8 @@ public class HTMLStatisticsBackend implements StatisticsBackend {
             sb.append("<pre class=\"prettyprint\" style=\"border: 1px solid #888;padding: 2px\">");
             int linecount = 1;
             for (String line : source) {
-                sb.append(String.format("<span class=\"nocode\"><a name=\"%d\">%3d: </a></span>",
-                        linecount, linecount));
+                sb.append("<span class=\"nocode\"><a name=\"%d\">%3d: </a></span>".formatted(
+                    linecount, linecount));
                 if (coveredLines.contains(linecount)) {
                     sb.append("<span style=\"background-color: #ffffcc\">");
                     sb.append(StringEscapeUtils.escapeHtml4(line));

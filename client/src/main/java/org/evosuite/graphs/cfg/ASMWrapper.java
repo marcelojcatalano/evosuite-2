@@ -241,7 +241,7 @@ public abstract class ASMWrapper {
      * @return a boolean.
      */
     public boolean isBranchLabel() {
-        return asmNode instanceof LabelNode
+        return asmNode instanceof LabelNode ln
                 && ((LabelNode) asmNode).getLabel().info instanceof Integer;
     }
 
@@ -666,10 +666,10 @@ public abstract class ASMWrapper {
      * @return a int.
      */
     public int getLocalVariableSlot() {
-        if (asmNode instanceof VarInsnNode)
-            return ((VarInsnNode) asmNode).var;
-        else if (asmNode instanceof IincInsnNode)
-            return ((IincInsnNode) asmNode).var;
+        if (asmNode instanceof VarInsnNode node1)
+            return node1.var;
+        else if (asmNode instanceof IincInsnNode node)
+            return node.var;
         else
             return -1;
     }

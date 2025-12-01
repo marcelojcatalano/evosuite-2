@@ -28,10 +28,13 @@ import org.evosuite.symbolic.expr.Expression;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 public final class IntegerConstraint extends Constraint<Long> {
 
     static Logger log = LoggerFactory.getLogger(IntegerConstraint.class);
 
+    @Serial
     private static final long serialVersionUID = 5345957507046422507L;
 
     /**

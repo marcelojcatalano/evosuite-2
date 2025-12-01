@@ -23,6 +23,7 @@ import org.evosuite.ga.Chromosome;
 import org.evosuite.symbolic.dse.algorithm.ExplorationAlgorithmBase;
 import org.evosuite.symbolic.dse.algorithm.listener.StoppingCondition;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -32,6 +33,7 @@ import java.io.Serializable;
  */
 public abstract class StoppingConditionImpl implements StoppingCondition, Serializable {
 
+    @Serial
     private static final long serialVersionUID = 6062248039291236657L;
 
     public StoppingConditionImpl() {

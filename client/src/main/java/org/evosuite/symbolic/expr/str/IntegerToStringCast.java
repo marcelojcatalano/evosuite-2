@@ -26,12 +26,14 @@ import org.evosuite.symbolic.expr.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
 public final class IntegerToStringCast extends AbstractExpression<String> implements
         StringValue, Cast<Long> {
 
+    @Serial
     private static final long serialVersionUID = 2414222998301630838L;
 
     protected static Logger log = LoggerFactory.getLogger(IntegerToStringCast.class);
@@ -64,8 +66,7 @@ public final class IntegerToStringCast extends AbstractExpression<String> implem
         if (obj == this) {
             return true;
         }
-        if (obj instanceof IntegerToStringCast) {
-            IntegerToStringCast other = (IntegerToStringCast) obj;
+        if (obj instanceof IntegerToStringCast other) {
             return this.expr.equals(other.expr);
         }
 

@@ -19,11 +19,14 @@
  */
 package org.evosuite.runtime.testdata;
 
+import java.io.Serial;
+
 /**
  * Created by arcuri on 12/15/14.
  */
 public class EvoSuiteLocalAddress extends EvoSuiteAddress {
 
+    @Serial
     private static final long serialVersionUID = -6083183350694322155L;
 
     public EvoSuiteLocalAddress(String host, int port) throws IllegalArgumentException {

@@ -171,8 +171,7 @@ public abstract class IndexOf extends SymbolicFunction {
 
             int res = this.getConcIntRetVal();
 
-            if (symb_right instanceof ReferenceConstant) {
-                ReferenceConstant symb_non_null_right = (ReferenceConstant) symb_right;
+            if (symb_right instanceof ReferenceConstant symb_non_null_right) {
                 StringValue right_expr = env.heap.getField(
                         Types.JAVA_LANG_STRING, SymbolicHeap.$STRING_VALUE,
                         conc_right, symb_non_null_right, conc_right);

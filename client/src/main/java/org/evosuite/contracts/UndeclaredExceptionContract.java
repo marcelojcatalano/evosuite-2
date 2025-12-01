@@ -78,9 +78,9 @@ public class UndeclaredExceptionContract extends Contract {
 					return true;
 				}
 				*/
-                if (statement instanceof MethodStatement) {
+                if (statement instanceof MethodStatement methodStatement) {
                     // hashCode and toString are covered already
-                    String methodName = ((MethodStatement) statement).getMethod().getName();
+                    String methodName = methodStatement.getMethod().getName();
                     if (methodName.equals("toString") || methodName.equals("hashCode")) {
                         return null;
                     }

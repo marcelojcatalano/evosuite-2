@@ -22,6 +22,8 @@ package org.evosuite.ga.metaheuristics.mulambda;
 import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.ChromosomeFactory;
 
+import java.io.Serial;
+
 /**
  * (1+1)EA
  *
@@ -29,6 +31,7 @@ import org.evosuite.ga.ChromosomeFactory;
  */
 public class OnePlusOneEA<T extends Chromosome<T>> extends MuPlusLambdaEA<T> {
 
+    @Serial
     private static final long serialVersionUID = 5229089847512798127L;
 
     /**

@@ -26,12 +26,14 @@ import org.evosuite.symbolic.expr.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
 public final class IntegerUnaryExpression extends AbstractExpression<Long> implements
         IntegerValue, UnaryExpression<Long> {
 
+    @Serial
     private static final long serialVersionUID = 1966395070897274841L;
 
     protected static final Logger log = LoggerFactory.getLogger(IntegerUnaryExpression.class);
@@ -88,8 +90,7 @@ public final class IntegerUnaryExpression extends AbstractExpression<Long> imple
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof IntegerUnaryExpression) {
-            IntegerUnaryExpression v = (IntegerUnaryExpression) obj;
+        if (obj instanceof IntegerUnaryExpression v) {
             return this.op.equals(v.op) && this.expr.equals(v.expr);
         }
         return false;

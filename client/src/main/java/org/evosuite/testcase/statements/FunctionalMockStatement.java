@@ -52,6 +52,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.PrintStream;
+import java.io.Serial;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -101,6 +102,7 @@ import static org.mockito.Mockito.withSettings;
  */
 public class FunctionalMockStatement extends EntityWithParametersStatement {
 
+    @Serial
     private static final long serialVersionUID = -8177814473724093381L;
 
     private static final Logger logger = LoggerFactory.getLogger(FunctionalMockStatement.class);
@@ -240,9 +242,8 @@ public class FunctionalMockStatement extends EntityWithParametersStatement {
         }
 
         //ad-hoc list of classes we should not really mock
-        List<Class<?>> avoid = Arrays.asList(
-                //add here if needed
-        );
+        //add here if needed
+        List<Class<?>> avoid = List.of();
 
         return !avoid.contains(rawClass);
     }

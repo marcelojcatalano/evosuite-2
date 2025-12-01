@@ -60,8 +60,7 @@ public abstract class StartsWith extends SymbolicFunction {
             StringValue stringReceiverExpr = env.heap.getField(Types.JAVA_LANG_STRING,
                     SymbolicHeap.$STRING_VALUE, conc_receiver, symb_receiver, conc_receiver);
 
-            if (symb_prefix instanceof ReferenceConstant) {
-                ReferenceConstant non_null_symb_prefix = (ReferenceConstant) symb_prefix;
+            if (symb_prefix instanceof ReferenceConstant non_null_symb_prefix) {
 
                 StringValue prefixExpr = env.heap.getField(Types.JAVA_LANG_STRING,
                         SymbolicHeap.$STRING_VALUE, conc_prefix, non_null_symb_prefix, conc_prefix);
@@ -106,8 +105,7 @@ public abstract class StartsWith extends SymbolicFunction {
             StringValue stringReceiverExpr = env.heap.getField(Types.JAVA_LANG_STRING,
                     SymbolicHeap.$STRING_VALUE, conc_receiver, symb_receiver, conc_receiver);
 
-            if (symb_prefix instanceof ReferenceConstant) {
-                ReferenceConstant non_null_symb_prefix = (ReferenceConstant) symb_prefix;
+            if (symb_prefix instanceof ReferenceConstant non_null_symb_prefix) {
 
                 StringValue prefixExpr = env.heap.getField(Types.JAVA_LANG_STRING,
                         SymbolicHeap.$STRING_VALUE, conc_prefix, non_null_symb_prefix, conc_prefix);

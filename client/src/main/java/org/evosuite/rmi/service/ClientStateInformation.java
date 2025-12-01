@@ -19,10 +19,12 @@
  */
 package org.evosuite.rmi.service;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class ClientStateInformation implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 9138932966696572234L;
 
     private ClientState state;

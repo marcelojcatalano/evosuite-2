@@ -27,6 +27,7 @@ import org.evosuite.symbolic.expr.Variable;
 import org.evosuite.symbolic.expr.bv.IntegerValue;
 import org.evosuite.symbolic.expr.str.StringValue;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,6 +35,7 @@ public final class StringReaderExpr extends AbstractExpression<Long> implements
         IntegerValue {
 
 
+    @Serial
     private static final long serialVersionUID = -744964586007203884L;
 
     private final StringValue string;
@@ -67,8 +69,7 @@ public final class StringReaderExpr extends AbstractExpression<Long> implements
         if (this == obj)
             return true;
 
-        if (obj instanceof StringReaderExpr) {
-            StringReaderExpr that = (StringReaderExpr) obj;
+        if (obj instanceof StringReaderExpr that) {
             return this.string.equals(that.string)
                     && this.readerPosition == that.readerPosition;
         }
@@ -82,8 +83,8 @@ public final class StringReaderExpr extends AbstractExpression<Long> implements
 
     @Override
     public String toString() {
-        String toString = String.format("STRING_READER(%s, %s)",
-                string.toString(), readerPosition);
+        String toString = "STRING_READER(%s, %s)".formatted(
+            string.toString(), readerPosition);
         return toString;
     }
 

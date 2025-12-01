@@ -35,6 +35,7 @@ import org.evosuite.utils.generic.GenericClass;
 import org.evosuite.utils.generic.GenericClassFactory;
 
 import java.io.PrintStream;
+import java.io.Serial;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
@@ -54,6 +55,7 @@ import java.util.Set;
  */
 public abstract class PrimitiveStatement<T> extends AbstractStatement {
 
+    @Serial
     private static final long serialVersionUID = -7721106626421922833L;
 
     /**
@@ -164,10 +166,10 @@ public abstract class PrimitiveStatement<T> extends AbstractStatement {
             if (!types.isEmpty()) {
                 typeParameter = types.get(0);
                 logger.debug("Creating class primitive with value " + typeParameter);
-                if (typeParameter instanceof WildcardType) {
+                if (typeParameter instanceof WildcardType type) {
                     statement = new ClassPrimitiveStatement(
                             tc,
-                            GenericTypeReflector.erase(((WildcardType) typeParameter).getUpperBounds()[0]));
+                            GenericTypeReflector.erase(type.getUpperBounds()[0]));
                 } else {
                     statement = new ClassPrimitiveStatement(tc,
                             GenericTypeReflector.erase(typeParameter));
@@ -359,8 +361,7 @@ public abstract class PrimitiveStatement<T> extends AbstractStatement {
         if (Randomness.nextDouble() > Properties.RANDOM_PERTURBATION) {
             boolean done = false;
             for (Statement s : test) {
-                if (s instanceof MethodStatement) {
-                    MethodStatement ms = (MethodStatement) s;
+                if (s instanceof MethodStatement ms) {
                     List<VariableReference> parameters = ms.getParameterReferences();
                     int index = parameters.indexOf(retval);
                     if (index >= 0) {

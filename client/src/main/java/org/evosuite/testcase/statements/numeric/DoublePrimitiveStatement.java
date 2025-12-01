@@ -26,6 +26,7 @@ import org.evosuite.seeding.ConstantPoolManager;
 import org.evosuite.testcase.TestCase;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -38,6 +39,7 @@ import java.math.RoundingMode;
  */
 public class DoublePrimitiveStatement extends NumericalPrimitiveStatement<Double> {
 
+    @Serial
     private static final long serialVersionUID = 6229514439946892566L;
 
     /**

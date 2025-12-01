@@ -48,12 +48,12 @@ import java.util.stream.Collectors;
 public class ExprToSmtVisitor implements ExpressionVisitor<SmtExpr, Void> {
 
     protected static SmtExpr approximateToConcreteValue(Expression<?> e) {
-        if (e instanceof IntegerValue) {
-            return approximateToConcreteValue((IntegerValue) e);
-        } else if (e instanceof RealValue) {
-            return approximateToConcreteValue((RealValue) e);
-        } else if (e instanceof StringValue) {
-            return approximateToConcreteValue((StringValue) e);
+        if (e instanceof IntegerValue value2) {
+            return approximateToConcreteValue(value2);
+        } else if (e instanceof RealValue value1) {
+            return approximateToConcreteValue(value1);
+        } else if (e instanceof StringValue value) {
+            return approximateToConcreteValue(value);
         } else {
             throw new UnsupportedOperationException("unknown expression type:" + e.getClass().getName());
         }

@@ -30,6 +30,7 @@ import org.evosuite.symbolic.expr.bv.StringComparison;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -44,6 +45,7 @@ public final class HasMoreTokensExpr extends AbstractExpression<Long> implements
         StringComparison {
 
 
+    @Serial
     private static final long serialVersionUID = 2154812241163764621L;
     protected static Logger log = LoggerFactory.getLogger(HasMoreTokensExpr.class);
 
@@ -67,8 +69,7 @@ public final class HasMoreTokensExpr extends AbstractExpression<Long> implements
         if (obj == this) {
             return true;
         }
-        if (obj instanceof HasMoreTokensExpr) {
-            HasMoreTokensExpr other = (HasMoreTokensExpr) obj;
+        if (obj instanceof HasMoreTokensExpr other) {
             return this.tokenizerExpr.equals(other.tokenizerExpr);
         }
 

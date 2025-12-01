@@ -21,12 +21,14 @@ package org.evosuite.ga.operators.mutation;
 
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.stream.DoubleStream;
 
 public class BinomialMutation extends MutationDistribution {
 
+    @Serial
     private static final long serialVersionUID = 9013772318848850918L;
 
     private final Set<Integer> bitsToBeModified;

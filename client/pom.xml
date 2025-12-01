@@ -12,7 +12,7 @@
     <artifactId>evosuite-client</artifactId>
     <packaging>jar</packaging>
 
-    <profiles>
+   <!-- <profiles>
         <profile>
             <id>java8</id>
             <activation>
@@ -25,7 +25,7 @@
                 </dependency>
             </dependencies>
         </profile>
-    </profiles>
+    </profiles>-->
 
     <dependencies>
 
@@ -35,13 +35,6 @@
             <groupId>org.evosuite</groupId>
             <artifactId>evosuite-runtime</artifactId>
             <version>${project.version}</version>
-        </dependency>
-
-        <!-- Third-party modules -->
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
@@ -78,7 +71,14 @@
         <dependency>
             <groupId>com.opencsv</groupId>
             <artifactId>opencsv</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-beanutils</groupId>
+                    <artifactId>commons-beanutils</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
         <dependency>
             <groupId>dk.brics.automaton</groupId>
             <artifactId>automaton</artifactId>
@@ -96,6 +96,51 @@
             <groupId>net.sf.jgrapht</groupId>
             <artifactId>jgrapht</artifactId>
         </dependency>
+
+        <!--
+        <dependency>
+            <groupId>org.jgrapht</groupId>
+            <artifactId>jgrapht-guava</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jgrapht</groupId>
+            <artifactId>jgrapht-opt</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jgrapht</groupId>
+            <artifactId>jgrapht-unimi-dsi</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jgrapht</groupId>
+            <artifactId>jgrapht-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jgrapht</groupId>
+            <artifactId>jgrapht-ext</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jgrapht</groupId>
+            <artifactId>jgrapht-io</artifactId>
+        </dependency>
+
+        -->
 
         <!--        <dependency>
                     <groupId>net.sf.jgrapht</groupId>  -->
@@ -117,6 +162,10 @@
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
         </dependency>
         <dependency>
             <groupId>commons-cli</groupId>
@@ -153,11 +202,9 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <scope>provided</scope>
         </dependency>
-
         <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <scope>provided</scope>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
         </dependency>
     </dependencies>
 
@@ -175,6 +222,33 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire-plugin.version}</version>
+                <configuration>
+                    <!--<rerunFailingTestsCount>${rerunFailingTestsCount}</rerunFailingTestsCount>-->
+                    <forkCount>1</forkCount>
+                    <reuseForks>false</reuseForks>
+                    <reportFormat>xml</reportFormat>
+                    <runOrder>alphabetical</runOrder>
+                    <!-- excludes>
+                        <exclude>**/*SystemTest.java</exclude>
+                        <exclude>**/*IntTest.java</exclude>
+                    </excludes -->
+                    <excludes>
+                        <exclude>${integrationTests}</exclude>
+                        <exclude>${systemTests}</exclude>
+                        <exclude>${exclude.tests.concolic}</exclude>
+                        <exclude>${exclude.tests.mimeType}</exclude>
+                        <exclude>**/DependencyAnalysisTest.java</exclude>
+                        <exclude>**/TestStringEqualsIgnoreCase.java</exclude>
+                    </excludes>
+                    <!-- <argLine>-Djdk.attach.allowAttachSelf=true -Xms512m -Xmx4096m</argLine>-->
+                    <argLine>-Xms512m -Xmx4096m</argLine>
+                    <!-- <useModulePath>false</useModulePath>-->
+                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -52,11 +52,9 @@ public final class Pattern_Matcher extends SymbolicFunction {
         Matcher conc_matcher = (Matcher) this.getConcRetVal();
         ReferenceConstant symb_matcher = (ReferenceConstant) this.getSymbRetVal();
 
-        if (conc_char_seq != null && conc_char_seq instanceof String) {
+        if (conc_char_seq != null && conc_char_seq instanceof String string) {
             assert symb_char_seq instanceof ReferenceConstant;
             ReferenceConstant symb_string = (ReferenceConstant) symb_char_seq;
-
-            String string = (String) conc_char_seq;
             StringValue symb_input = env.heap.getField(Types.JAVA_LANG_STRING,
                     SymbolicHeap.$STRING_VALUE, string, symb_string, string);
 

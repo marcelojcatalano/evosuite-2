@@ -293,8 +293,8 @@ public class TestSuiteWriter implements Opcodes {
 
     private void removeUnnecessaryDownCasts(List<ExecutionResult> results) {
         for (ExecutionResult result : results) {
-            if (result.test instanceof DefaultTestCase) {
-                ((DefaultTestCase) result.test).removeDownCasts();
+            if (result.test instanceof DefaultTestCase case1) {
+                case1.removeDownCasts();
             }
         }
     }
@@ -770,8 +770,7 @@ public class TestSuiteWriter implements Opcodes {
                 builder.append("   * Goal " + nr + ". " + goal.toString());
                 // TODO only for debugging purposes
                 if (ArrayUtil.contains(Properties.CRITERION, Criterion.DEFUSE)
-                        && (goal instanceof DefUseCoverageTestFitness)) {
-                    DefUseCoverageTestFitness duGoal = (DefUseCoverageTestFitness) goal;
+                        && (goal instanceof DefUseCoverageTestFitness duGoal)) {
                     if (duGoal.getCoveringTrace() != null) {
                         String traceInformation = duGoal.getCoveringTrace().toDefUseTraceInformation(duGoal.getGoalVariable(),
                                 duGoal.getCoveringObjectId());

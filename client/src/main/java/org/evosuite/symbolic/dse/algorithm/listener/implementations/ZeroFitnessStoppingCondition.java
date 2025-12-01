@@ -21,6 +21,8 @@ package org.evosuite.symbolic.dse.algorithm.listener.implementations;
 
 import org.evosuite.symbolic.dse.algorithm.ExplorationAlgorithmBase;
 
+import java.io.Serial;
+
 /**
  * Adaptation of {@link org.evosuite.ga.stoppingconditions.ZeroFitnessStoppingCondition} for the DSE module.
  *
@@ -28,6 +30,7 @@ import org.evosuite.symbolic.dse.algorithm.ExplorationAlgorithmBase;
  */
 public class ZeroFitnessStoppingCondition extends StoppingConditionImpl {
 
+    @Serial
     private static final long serialVersionUID = 6593889710447350828L;
 
     /**

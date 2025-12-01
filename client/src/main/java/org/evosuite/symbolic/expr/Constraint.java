@@ -21,12 +21,14 @@ package org.evosuite.symbolic.expr;
 
 import org.evosuite.symbolic.expr.constraint.ConstraintVisitor;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Constraint<T extends Object> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 7547747352755232472L;
 
     /**

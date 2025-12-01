@@ -385,8 +385,8 @@ public class MockServerSocket extends ServerSocket implements OverrideMock {
 			throw new SocketException("Socket is closed");
 		Object o = getImpl().getOption(SocketOptions.SO_TIMEOUT);
 		/* extra type safety */
-		if (o instanceof Integer) {
-			return (Integer) o;
+		if (o instanceof Integer integer) {
+			return integer;
 		} else {
 			return 0;
 		}

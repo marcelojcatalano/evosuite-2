@@ -22,6 +22,8 @@ package org.evosuite.testsuite.secondaryobjectives;
 import org.evosuite.ga.SecondaryObjective;
 import org.evosuite.testsuite.TestSuiteChromosome;
 
+import java.io.Serial;
+
 /**
  * <p>MinimizeTotalLengthSecondaryObjective class.</p>
  *
@@ -29,6 +31,7 @@ import org.evosuite.testsuite.TestSuiteChromosome;
  */
 public class MinimizeTotalLengthSecondaryObjective extends SecondaryObjective<TestSuiteChromosome> {
 
+    @Serial
     private static final long serialVersionUID = 1974099736891048617L;
 
     private int getLengthSum(TestSuiteChromosome chromosome1,

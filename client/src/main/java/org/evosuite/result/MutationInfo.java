@@ -21,10 +21,12 @@ package org.evosuite.result;
 
 import org.evosuite.coverage.mutation.Mutation;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class MutationInfo implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 4580001065523289191L;
 
     private final String className;

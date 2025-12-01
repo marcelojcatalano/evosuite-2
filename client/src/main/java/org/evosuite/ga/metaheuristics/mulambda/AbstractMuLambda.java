@@ -27,6 +27,8 @@ import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 /**
  * <p>AbstractMuLambda</p>
  *
@@ -34,6 +36,7 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class AbstractMuLambda<T extends Chromosome<T>> extends GeneticAlgorithm<T> {
 
+    @Serial
     private static final long serialVersionUID = 2738004761503761376L;
 
     private static final Logger logger = LoggerFactory.getLogger(AbstractMuLambda.class);

@@ -47,6 +47,7 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
             "float", "double",
             "byte");
 
+    @Serial
     private static final long serialVersionUID = -3307107227790458308L;
 
     /**
@@ -76,21 +77,18 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
      * Returns the erasure of the given type.
      */
     private static Class<?> erase(Type type) {
-        if (type instanceof Class) {
-            return (Class<?>) type;
-        } else if (type instanceof ParameterizedType) {
-            return (Class<?>) ((ParameterizedType) type).getRawType();
-        } else if (type instanceof TypeVariable) {
-            TypeVariable<?> tv = (TypeVariable<?>) type;
+        if (type instanceof Class<?> class1) {
+            return class1;
+        } else if (type instanceof ParameterizedType parameterizedType) {
+            return (Class<?>) parameterizedType.getRawType();
+        } else if (type instanceof TypeVariable<?> tv) {
             if (tv.getBounds().length == 0)
                 return Object.class;
             else
                 return erase(tv.getBounds()[0]);
-        } else if (type instanceof GenericArrayType) {
-            GenericArrayType aType = (GenericArrayType) type;
+        } else if (type instanceof GenericArrayType aType) {
             return GenericArrayTypeImpl.createArrayType(erase(aType.getGenericComponentType()));
-        } else if (type instanceof CaptureType) {
-            CaptureType captureType = (CaptureType) type;
+        } else if (type instanceof CaptureType captureType) {
             if (captureType.getUpperBounds().length == 0)
                 return Object.class;
             else
@@ -181,9 +179,9 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
      * @param type a {@link java.lang.reflect.Type} object.
      */
     public GenericClassImpl(Type type) {
-        if (type instanceof Class<?>) {
-            this.type = addTypeParameters((Class<?>) type); //GenericTypeReflector.addWildcardParameters((Class<?>) type);
-            this.rawClass = (Class<?>) type;
+        if (type instanceof Class<?> class1) {
+            this.type = addTypeParameters(class1); //GenericTypeReflector.addWildcardParameters((Class<?>) type);
+            this.rawClass = class1;
         } else {
             if (!handleGenericArraySpecialCase(type)) {
                 this.type = type;
@@ -277,8 +275,7 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
         try {
             if (rawClass != null)
                 rawClass = getClass(rawClass.getName(), loader);
-            if (type instanceof ParameterizedType) {
-                ParameterizedType pt = (ParameterizedType) type;
+            if (type instanceof ParameterizedType pt) {
                 // GenericClass rawType = new GenericClass(pt.getRawType());
                 // rawType.changeClassLoader(loader);
                 GenericClass<?> ownerType = null;
@@ -303,9 +300,9 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
                 GenericClass<?> componentClass = getComponentClass();
                 componentClass.changeClassLoader(loader);
                 this.type = GenericArrayTypeImpl.createArrayType(componentClass.getType());
-            } else if (type instanceof WildcardType) {
-                Type[] oldUpperBounds = ((WildcardType) type).getUpperBounds();
-                Type[] oldLowerBounds = ((WildcardType) type).getLowerBounds();
+            } else if (type instanceof WildcardType wildcardType) {
+                Type[] oldUpperBounds = wildcardType.getUpperBounds();
+                Type[] oldLowerBounds = wildcardType.getLowerBounds();
                 Type[] upperBounds = new Type[oldUpperBounds.length];
                 Type[] lowerBounds = new Type[oldLowerBounds.length];
 
@@ -322,9 +319,9 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
                     lowerBounds[i] = bound.getType();
                 }
                 this.type = new WildcardTypeImpl(upperBounds, lowerBounds);
-            } else if (type instanceof TypeVariable<?>) {
+            } else if (type instanceof TypeVariable<?> variable) {
                 for (TypeVariable<?> newVar : rawClass.getTypeParameters()) {
-                    if (newVar.getName().equals(((TypeVariable<?>) type).getName())) {
+                    if (newVar.getName().equals(variable.getName())) {
                         this.type = newVar;
                         break;
                     }
@@ -411,8 +408,7 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
     }
 
     public GenericClass<?> getComponentClass() {
-        if (type instanceof GenericArrayType) {
-            GenericArrayType arrayType = (GenericArrayType) type;
+        if (type instanceof GenericArrayType arrayType) {
             Type componentType = arrayType.getGenericComponentType();
             Class<?> rawComponentType = rawClass.getComponentType();
             return new GenericClassImpl(componentType, rawComponentType);
@@ -724,8 +720,8 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
      * @return
      */
     public int getNumParameters() {
-        if (type instanceof ParameterizedType) {
-            return Arrays.asList(((ParameterizedType) type).getActualTypeArguments()).size();
+        if (type instanceof ParameterizedType parameterizedType) {
+            return Arrays.asList(parameterizedType.getActualTypeArguments()).size();
         }
         return 0;
     }
@@ -745,8 +741,8 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
      * @return
      */
     public List<Type> getParameterTypes() {
-        if (type instanceof ParameterizedType) {
-            return Arrays.asList(((ParameterizedType) type).getActualTypeArguments());
+        if (type instanceof ParameterizedType parameterizedType) {
+            return Arrays.asList(parameterizedType.getActualTypeArguments());
         }
         return new ArrayList<>();
     }
@@ -757,9 +753,9 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
      * @return
      */
     public List<GenericClass<?>> getParameterClasses() {
-        if (type instanceof ParameterizedType) {
+        if (type instanceof ParameterizedType parameterizedType) {
             List<GenericClass<?>> parameters = new ArrayList<>();
-            for (Type parameterType : ((ParameterizedType) type).getActualTypeArguments()) {
+            for (Type parameterType : parameterizedType.getActualTypeArguments()) {
                 parameters.add(new GenericClassImpl(parameterType));
             }
             return parameters;
@@ -944,16 +940,15 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
             typeArray[i] = parameters.get(i).getType();
         }
         Type ownerType = null;
-        if (type instanceof ParameterizedType) {
-            ownerType = ((ParameterizedType) type).getOwnerType();
+        if (type instanceof ParameterizedType parameterizedType) {
+            ownerType = parameterizedType.getOwnerType();
         }
 
         return new GenericClassImpl(new ParameterizedTypeImpl(rawClass, typeArray, ownerType));
     }
 
     public GenericClass<?> getWithOwnerType(GenericClass<?> ownerClass) {
-        if (type instanceof ParameterizedType) {
-            ParameterizedType currentType = (ParameterizedType) type;
+        if (type instanceof ParameterizedType currentType) {
             return new GenericClassImpl(new ParameterizedTypeImpl(rawClass,
                     currentType.getActualTypeArguments(), ownerClass.getType()));
         }
@@ -1012,13 +1007,13 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
                     arguments[i] = superTypeMap.get(var);
                     logger.info("Setting type variable " + var + " to "
                             + superTypeMap.get(var));
-                } else if (arguments[i] instanceof WildcardType
+                } else if (arguments[i] instanceof WildcardType wildcardType
                         && i < parameterTypes.length) {
                     logger.info("Replacing wildcard with " + parameterTypes[i]);
                     logger.info("Lower Bounds: "
-                            + Arrays.asList(TypeUtils.getImplicitLowerBounds((WildcardType) arguments[i])));
+                            + Arrays.asList(TypeUtils.getImplicitLowerBounds(wildcardType)));
                     logger.info("Upper Bounds: "
-                            + Arrays.asList(TypeUtils.getImplicitUpperBounds((WildcardType) arguments[i])));
+                            + Arrays.asList(TypeUtils.getImplicitUpperBounds(wildcardType)));
                     logger.info("Type variable: " + variables.get(i));
                     if (!TypeUtils.isAssignable(parameterTypes[i], arguments[i])) {
                         logger.info("Not assignable to bounds!");
@@ -1055,16 +1050,16 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
             typeArray[i] = parameters.get(i);
         }
         Type ownerType = null;
-        if (type instanceof ParameterizedType) {
-            ownerType = ((ParameterizedType) type).getOwnerType();
+        if (type instanceof ParameterizedType parameterizedType) {
+            ownerType = parameterizedType.getOwnerType();
         }
         return new GenericClassImpl(new ParameterizedTypeImpl(rawClass, typeArray, ownerType));
     }
 
     public GenericClass<?> getWithParameterTypes(Type[] parameters) {
         Type ownerType = null;
-        if (type instanceof ParameterizedType) {
-            ownerType = ((ParameterizedType) type).getOwnerType();
+        if (type instanceof ParameterizedType parameterizedType) {
+            ownerType = parameterizedType.getOwnerType();
         }
         return new GenericClassImpl(
                 new ParameterizedTypeImpl(rawClass, parameters, ownerType));
@@ -1076,9 +1071,9 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
     }
 
     private boolean handleGenericArraySpecialCase(Type type) {
-        if (type instanceof GenericArrayType) {
+        if (type instanceof GenericArrayType arrayType) {
             // There is some weird problem with generic methods and the component type can be null
-            Type componentType = ((GenericArrayType) type).getGenericComponentType();
+            Type componentType = arrayType.getGenericComponentType();
             if (componentType == null) {
                 this.rawClass = Object[].class;
                 this.type = this.rawClass;
@@ -1123,8 +1118,8 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
     }
 
     public boolean hasOwnerType() {
-        if (type instanceof ParameterizedType)
-            return ((ParameterizedType) type).getOwnerType() != null;
+        if (type instanceof ParameterizedType parameterizedType)
+            return parameterizedType.getOwnerType() != null;
         else
             return false;
     }
@@ -1141,8 +1136,8 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
         for (Type t : parameterType.getActualTypeArguments()) {
             if (t instanceof TypeVariable)
                 return true;
-            else if (t instanceof ParameterizedType) {
-                if (hasTypeVariables((ParameterizedType) t))
+            else if (t instanceof ParameterizedType parameterizedType) {
+                if (hasTypeVariables(parameterizedType))
                     return true;
             }
         }
@@ -1172,8 +1167,8 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
         for (Type t : parameterType.getActualTypeArguments()) {
             if (t instanceof WildcardType)
                 return true;
-            else if (t instanceof ParameterizedType) {
-                if (hasWildcardType((ParameterizedType) t))
+            else if (t instanceof ParameterizedType parameterizedType) {
+                if (hasWildcardType(parameterizedType))
                     return true;
             }
         }
@@ -1405,10 +1400,10 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
         // logger.debug("Checking class: " + type + " against type variable " + typeVariable+" with map "+typeMap);
         Map<TypeVariable<?>, Type> ownerVariableMap = getTypeVariableMap();
         for (Type bound : typeVariable.getBounds()) {
-            if (bound instanceof ParameterizedType) {
+            if (bound instanceof ParameterizedType parameterizedType) {
                 Class<?> boundClass = GenericTypeReflector.erase(bound);
                 if (boundClass.isAssignableFrom(rawClass)) {
-                    Map<TypeVariable<?>, Type> xmap = TypeUtils.determineTypeArguments(rawClass, (ParameterizedType) bound);
+                    Map<TypeVariable<?>, Type> xmap = TypeUtils.determineTypeArguments(rawClass, parameterizedType);
                     ownerVariableMap.putAll(xmap);
                 }
             }
@@ -1697,9 +1692,8 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
             oos.writeObject(null);
         } else {
             oos.writeObject(rawClass.getName());
-            if (type instanceof ParameterizedType) {
+            if (type instanceof ParameterizedType pt) {
                 oos.writeObject(Boolean.TRUE);
-                ParameterizedType pt = (ParameterizedType) type;
                 // oos.writeObject(new GenericClass(pt.getRawType()));
                 oos.writeObject(new GenericClassImpl(pt.getOwnerType()));
                 List<GenericClassImpl> parameterClasses = new ArrayList<>();

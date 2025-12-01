@@ -21,6 +21,7 @@ package org.evosuite.runtime.mock.java.lang;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.io.Serial;
 
 import org.evosuite.runtime.mock.EvoSuiteMock;
 import org.evosuite.runtime.mock.MockFramework;
@@ -28,7 +29,8 @@ import org.evosuite.runtime.mock.OverrideMock;
 
 public class MockThrowable extends Throwable  implements OverrideMock {
 
-	private static final long serialVersionUID = 4078375023919805371L;
+    @Serial
+    private static final long serialVersionUID = 4078375023919805371L;
 
 	private StackTraceElement[]  stackTraceElements;
 

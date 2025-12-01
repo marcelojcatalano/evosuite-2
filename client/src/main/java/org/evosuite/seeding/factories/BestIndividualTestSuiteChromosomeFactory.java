@@ -23,12 +23,15 @@ package org.evosuite.seeding.factories;
 import org.evosuite.ga.ChromosomeFactory;
 import org.evosuite.testsuite.TestSuiteChromosome;
 
+import java.io.Serial;
+
 /**
  * @author Thomas White
  */
 public class BestIndividualTestSuiteChromosomeFactory implements
         ChromosomeFactory<TestSuiteChromosome> {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private final ChromosomeFactory<TestSuiteChromosome> defaultFactory;

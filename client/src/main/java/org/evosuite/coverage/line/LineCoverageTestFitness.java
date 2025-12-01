@@ -35,6 +35,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -45,6 +46,7 @@ import java.util.stream.Stream;
  */
 public class LineCoverageTestFitness extends TestFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = 3624503060256855484L;
 
     /**
@@ -240,8 +242,7 @@ public class LineCoverageTestFitness extends TestFitnessFunction {
     @Override
     public int compareTo(TestFitnessFunction other) {
         if (other == null) return 1;
-        if (other instanceof LineCoverageTestFitness) {
-            LineCoverageTestFitness otherLineFitness = (LineCoverageTestFitness) other;
+        if (other instanceof LineCoverageTestFitness otherLineFitness) {
             if (className.compareTo(otherLineFitness.getClassName()) != 0)
                 return className.compareTo(otherLineFitness.getClassName());
             else if (methodName.compareTo(otherLineFitness.getMethod()) != 0)

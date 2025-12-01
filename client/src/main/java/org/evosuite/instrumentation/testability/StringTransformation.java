@@ -88,8 +88,7 @@ public class StringTransformation {
         ListIterator<AbstractInsnNode> iterator = mn.instructions.iterator();
         while (iterator.hasNext()) {
             AbstractInsnNode node = iterator.next();
-            if (node instanceof MethodInsnNode) {
-                MethodInsnNode min = (MethodInsnNode) node;
+            if (node instanceof MethodInsnNode min) {
                 if (min.owner.equals("java/lang/String")) {
                     if (min.name.equals("equals")) {
                         changed = true;

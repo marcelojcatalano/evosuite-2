@@ -24,10 +24,12 @@ import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.TestFitnessFunction;
 import org.evosuite.testcase.execution.ExecutionResult;
 
+import java.io.Serial;
 import java.util.*;
 
 public class RhoCoverageTestFitness extends TestFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = -1483213330289592274L;
 
     private int previous_number_of_ones = 0;

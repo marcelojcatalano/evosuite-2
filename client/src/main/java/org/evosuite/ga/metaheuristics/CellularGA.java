@@ -28,6 +28,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -39,6 +40,7 @@ import java.util.List;
  */
 public class CellularGA<T extends Chromosome<T>> extends GeneticAlgorithm<T> {
 
+    @Serial
     private static final long serialVersionUID = 7846967347821123201L;
 
     private static final Logger logger = LoggerFactory.getLogger(CellularGA.class);

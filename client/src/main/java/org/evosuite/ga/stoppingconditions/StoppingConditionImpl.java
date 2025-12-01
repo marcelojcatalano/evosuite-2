@@ -23,6 +23,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.text.NumberFormat;
 
@@ -35,6 +36,7 @@ import java.text.NumberFormat;
 public abstract class StoppingConditionImpl<T extends Chromosome<T>> implements StoppingCondition<T>,
         Serializable {
 
+    @Serial
     private static final long serialVersionUID = -8221978873140881671L;
 
     /**

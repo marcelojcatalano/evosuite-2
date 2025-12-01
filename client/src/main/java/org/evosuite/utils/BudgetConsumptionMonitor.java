@@ -22,6 +22,7 @@ package org.evosuite.utils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -31,6 +32,7 @@ import java.io.Serializable;
  */
 public class BudgetConsumptionMonitor implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -4282519578535413645L;
 
     private static final Logger logger = LoggerFactory.getLogger(BudgetConsumptionMonitor.class);

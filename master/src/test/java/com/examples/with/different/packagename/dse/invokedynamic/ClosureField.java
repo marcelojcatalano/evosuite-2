@@ -36,12 +36,12 @@ class ClosureField {
 
     public ClosureField() {
         // Closure lambda.
-        Integer y = new Integer(12);
-        Integer z = new Integer(22);
+        Integer y = Integer.valueOf(12);
+        Integer z = Integer.valueOf(22);
         this.intCompare = x -> (x > y && x < z);
     }
 
     boolean test(int x) {
-        return this.intCompare.apply(new Integer(x));
+        return this.intCompare.apply(Integer.valueOf(x));
     }
 }

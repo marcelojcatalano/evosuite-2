@@ -19,6 +19,7 @@
  */
 package org.evosuite.setup;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Call implements Serializable {
@@ -28,6 +29,7 @@ public class Call implements Serializable {
      * TODO this class is approximated and does not consider the method signature
      * mattia
      */
+    @Serial
     private static final long serialVersionUID = -8148115191773499144L;
     private final String className;
     private final String methodName;

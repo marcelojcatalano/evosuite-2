@@ -29,6 +29,7 @@ import org.evosuite.testcase.execution.TestCaseExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.*;
 
 /**
@@ -40,6 +41,7 @@ import java.util.*;
 public class BranchesManager extends StructuralGoalManager {
 
     private static final Logger logger = LoggerFactory.getLogger(BranchesManager.class);
+    @Serial
     private static final long serialVersionUID = 6453893627503159175L;
 
     protected BranchFitnessGraph graph;

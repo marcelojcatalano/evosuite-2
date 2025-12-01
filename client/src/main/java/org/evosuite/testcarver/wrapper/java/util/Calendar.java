@@ -25,6 +25,7 @@ import org.evosuite.testcarver.capture.Capturer;
 import org.evosuite.testcarver.capture.FieldRegistry;
 import org.evosuite.testcarver.instrument.Instrumenter;
 
+import java.io.Serial;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
@@ -32,6 +33,7 @@ import java.util.TimeZone;
 
 public class Calendar extends java.util.Calendar {
 
+    @Serial
     private static final long serialVersionUID = 8358505095239298199L;
 
     private final java.util.Calendar wrappedCalendar;

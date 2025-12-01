@@ -37,6 +37,7 @@ import org.evosuite.utils.Listener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -48,6 +49,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  */
 public class MOSA extends AbstractMOSA {
 
+    @Serial
     private static final long serialVersionUID = 146182080947267628L;
 
     private static final Logger logger = LoggerFactory.getLogger(MOSA.class);

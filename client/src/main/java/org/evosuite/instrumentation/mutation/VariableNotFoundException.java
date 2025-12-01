@@ -20,7 +20,10 @@
 
 package org.evosuite.instrumentation.mutation;
 
+import java.io.Serial;
+
 class VariableNotFoundException extends Exception {
+    @Serial
     private static final long serialVersionUID = -228142087758776682L;
 
     public VariableNotFoundException(String msg) {

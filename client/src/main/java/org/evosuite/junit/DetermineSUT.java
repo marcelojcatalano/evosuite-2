@@ -195,8 +195,8 @@ public class DetermineSUT {
 
         while (iterator.hasNext()) {
             AbstractInsnNode insn = iterator.next();
-            if (insn instanceof MethodInsnNode) {
-                String name = ResourceList.getClassNameFromResourcePath(((MethodInsnNode) insn).owner);
+            if (insn instanceof MethodInsnNode node) {
+                String name = ResourceList.getClassNameFromResourcePath(node.owner);
                 if (!targetClasses.contains(name))
                     continue;
 

@@ -28,6 +28,7 @@ import org.evosuite.testcase.execution.TestCaseExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -44,6 +45,7 @@ import java.io.Serializable;
 public class ResourceController<T extends Chromosome<T>> implements SearchListener<T>,
         StoppingCondition<T>, Serializable {
 
+    @Serial
     private static final long serialVersionUID = -4459807323163275506L;
 
     private static final Logger logger = LoggerFactory.getLogger(ResourceController.class);

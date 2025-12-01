@@ -28,6 +28,7 @@ import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.TestFitnessFunction;
 import org.evosuite.testsuite.localsearch.TestSuiteLocalSearch;
 
+import java.io.Serial;
 import java.util.*;
 
 import static java.util.stream.Collectors.toCollection;
@@ -50,6 +51,7 @@ public final class TestSuiteChromosome
     private static final List<SecondaryObjective<TestSuiteChromosome>>
             secondaryObjectives = new ArrayList<>();
     private static int secondaryObjIndex = 0;
+    @Serial
     private static final long serialVersionUID = 88380759969800800L;
 
     /**

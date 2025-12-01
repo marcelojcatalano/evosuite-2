@@ -44,6 +44,7 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.lang.reflect.Type;
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -63,6 +64,7 @@ import static java.util.stream.Collectors.toCollection;
  */
 public final class TestChromosome extends AbstractTestChromosome<TestChromosome> {
 
+    @Serial
     private static final long serialVersionUID = 7532366007973252782L;
 
     private static final Logger logger = LoggerFactory.getLogger(TestChromosome.class);

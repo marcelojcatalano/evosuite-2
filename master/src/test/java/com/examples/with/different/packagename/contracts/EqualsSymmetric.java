@@ -32,8 +32,7 @@ public class EqualsSymmetric {
             return false;
         if (other == this)
             return true;
-        if (other instanceof EqualsSymmetric) {
-            EqualsSymmetric otherEquals = (EqualsSymmetric) other;
+        if (other instanceof EqualsSymmetric otherEquals) {
             if (x > 0 && otherEquals.x < 0)
                 return true;
             else

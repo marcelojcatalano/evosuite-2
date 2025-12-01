@@ -296,8 +296,8 @@ public class LoggingUtils {
         if (isDefaultLoggingConfiguration(context)) {
 
             Logger root = LoggerFactory.getLogger(PackageInfo.getEvoSuitePackage());
-            if (root != null && root instanceof ch.qos.logback.classic.Logger) {
-                ((ch.qos.logback.classic.Logger) root).setLevel(Level.OFF);
+            if (root != null && root instanceof ch.qos.logback.classic.Logger logger1) {
+                logger1.setLevel(Level.OFF);
             }
         }
     }

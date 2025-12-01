@@ -25,6 +25,7 @@ import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 
+import java.io.Serial;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,6 +36,7 @@ import java.util.Map;
  * {@code TestSuiteChromosome}s are expected instead of {@code TestChromosome}s.
  */
 public class MOSATestSuiteAdapter extends TestSuiteAdapter<AbstractMOSA> {
+    @Serial
     private static final long serialVersionUID = 1556980428376303737L;
 
     public MOSATestSuiteAdapter(final AbstractMOSA algorithm) {

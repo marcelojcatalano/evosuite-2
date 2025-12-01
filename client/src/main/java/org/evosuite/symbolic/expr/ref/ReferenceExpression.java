@@ -24,6 +24,8 @@ import org.evosuite.symbolic.expr.SymbolicValue;
 import org.evosuite.utils.TypeUtil;
 import org.objectweb.asm.Type;
 
+import java.io.Serial;
+
 /**
  * This is the super class of all symbolic references. A reference expression
  * can be initialized using a concrete reference (can be null). Once it is
@@ -35,6 +37,7 @@ import org.objectweb.asm.Type;
 public abstract class ReferenceExpression extends AbstractExpression<Object> implements SymbolicValue {
 
 
+    @Serial
     private static final long serialVersionUID = 7925438069540850557L;
 
     /**

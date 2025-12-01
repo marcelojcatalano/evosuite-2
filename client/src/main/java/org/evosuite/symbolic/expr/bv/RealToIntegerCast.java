@@ -24,12 +24,14 @@ import org.evosuite.symbolic.ConstraintTooLongException;
 import org.evosuite.symbolic.dse.DSEStatistics;
 import org.evosuite.symbolic.expr.*;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
 public final class RealToIntegerCast extends AbstractExpression<Long> implements
         Cast<Double>, IntegerValue {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private final Expression<Double> expr;
@@ -76,8 +78,7 @@ public final class RealToIntegerCast extends AbstractExpression<Long> implements
         if (obj == this) {
             return true;
         }
-        if (obj instanceof RealToIntegerCast) {
-            RealToIntegerCast other = (RealToIntegerCast) obj;
+        if (obj instanceof RealToIntegerCast other) {
             return this.expr.equals(other.expr);
         }
 

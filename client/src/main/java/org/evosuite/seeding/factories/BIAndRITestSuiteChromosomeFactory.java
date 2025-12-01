@@ -25,12 +25,15 @@ import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
+
 /**
  * @author Thomas White
  */
 public class BIAndRITestSuiteChromosomeFactory implements
         ChromosomeFactory<TestSuiteChromosome> {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private final ChromosomeFactory<TestSuiteChromosome> defaultFactory;

@@ -24,6 +24,8 @@ import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.ConstructionFailedException;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
+
 /**
  * Implement uniform crossover. In a uniform crossover, we do not divide the
  * chromosome into segments, rather we treat each gene separately. In this,
@@ -33,6 +35,7 @@ import org.evosuite.utils.Randomness;
  */
 public class UniformCrossOver<T extends Chromosome<T>> extends CrossOverFunction<T> {
 
+    @Serial
     private static final long serialVersionUID = 2981387570766261795L;
 
     /**

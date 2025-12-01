@@ -26,6 +26,8 @@ import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 import org.evosuite.ga.metaheuristics.SearchListener;
 import org.evosuite.testcase.TestChromosome;
 
+import java.io.Serial;
+
 
 /**
  * <p>RelativeSuiteLengthBloatControl class.</p>
@@ -35,6 +37,7 @@ import org.evosuite.testcase.TestChromosome;
 public class RelativeSuiteLengthBloatControl<T extends Chromosome<T>> implements BloatControlFunction<T>,
         SearchListener<T> {
 
+    @Serial
     private static final long serialVersionUID = -2352882640530431653L;
 
     /**
@@ -76,8 +79,8 @@ public class RelativeSuiteLengthBloatControl<T extends Chromosome<T>> implements
             // +" > "+ bloat_factor * current_max);
 
             int length = 0;
-            if (chromosome instanceof TestSuiteChromosome)
-                length = ((TestSuiteChromosome) chromosome).totalLengthOfTestCases();
+            if (chromosome instanceof TestSuiteChromosome suiteChromosome)
+                length = suiteChromosome.totalLengthOfTestCases();
             if (chromosome instanceof TestChromosome)
                 length = chromosome.size();
             return length > (Properties.BLOAT_FACTOR * current_max);
@@ -94,8 +97,8 @@ public class RelativeSuiteLengthBloatControl<T extends Chromosome<T>> implements
     @Override
     public void iteration(GeneticAlgorithm<T> algorithm) {
         T best = algorithm.getBestIndividual();
-        if (best instanceof TestSuiteChromosome)
-            current_max = ((TestSuiteChromosome) best).totalLengthOfTestCases();
+        if (best instanceof TestSuiteChromosome chromosome)
+            current_max = chromosome.totalLengthOfTestCases();
         if (best instanceof TestChromosome)
             current_max = best.size();
         best_fitness = best.getFitness();

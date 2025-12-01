@@ -22,6 +22,7 @@ package org.evosuite.ga;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -31,6 +32,7 @@ import java.io.Serializable;
  */
 public abstract class FitnessFunction<T extends Chromosome<T>> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -8876797554111396910L;
 
     /**

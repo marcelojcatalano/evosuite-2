@@ -188,12 +188,12 @@ public final class VM {
             // exception reaches the VM.
             vm.listeners = new IVM[0];
             vm.stopped = true;
-        } else if (t instanceof OutOfMemoryError) {
+        } else if (t instanceof OutOfMemoryError error1) {
             // do not wrap memory exceptions
-            throw (OutOfMemoryError) t;
-        } else if (t instanceof StackOverflowError) {
+            throw error1;
+        } else if (t instanceof StackOverflowError error) {
             // do not wrap memory exceptions
-            throw (StackOverflowError) t;
+            throw error;
         } else {
             ignoreCallback = true;
             throw new VMError(

@@ -33,7 +33,6 @@ import org.evosuite.xsd.ProjectUtil;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 
@@ -199,11 +198,11 @@ public class ContinuousTestGeneration {
 
     public static File resolveExportFolder(String baseFolder, String exportFolder) {
 
-        Path exp = Paths.get(exportFolder);
+        Path exp = Path.of(exportFolder);
         if (exp.isAbsolute()) {
             return exp.toFile();
         } else {
-            return Paths.get(baseFolder, exportFolder).toAbsolutePath().toFile();
+            return Path.of(baseFolder, exportFolder).toAbsolutePath().toFile();
         }
     }
 

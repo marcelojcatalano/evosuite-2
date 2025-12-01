@@ -19,13 +19,15 @@
  */
 package org.evosuite.runtime.mock.java.util;
 
+import java.io.Serial;
 import java.util.Random;
 
 import org.evosuite.runtime.mock.OverrideMock;
 
 public class MockRandom extends Random  implements OverrideMock{
 
-	private static final long serialVersionUID = 7095505244285248683L;
+    @Serial
+    private static final long serialVersionUID = 7095505244285248683L;
 
 	public MockRandom() {
 		super(0);

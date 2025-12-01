@@ -31,6 +31,7 @@ import org.evosuite.utils.LoggingUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +44,7 @@ import java.util.List;
  */
 public class DynaMOSA extends AbstractMOSA {
 
+    @Serial
     private static final long serialVersionUID = 146182080947267628L;
 
     private static final Logger logger = LoggerFactory.getLogger(DynaMOSA.class);

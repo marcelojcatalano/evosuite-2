@@ -25,6 +25,7 @@ import org.evosuite.symbolic.expr.ExpressionVisitor;
 import org.evosuite.symbolic.expr.Variable;
 import org.evosuite.symbolic.expr.str.StringValue;
 
+import java.io.Serial;
 import java.util.Set;
 
 public final class NextTokenizerExpr extends TokenizerExpr {
@@ -40,6 +41,7 @@ public final class NextTokenizerExpr extends TokenizerExpr {
     }
 
 
+    @Serial
     private static final long serialVersionUID = -5041244020293557448L;
 
     @Override
@@ -55,8 +57,7 @@ public final class NextTokenizerExpr extends TokenizerExpr {
         if (obj == this)
             return true;
 
-        if (obj instanceof NextTokenizerExpr) {
-            NextTokenizerExpr that = (NextTokenizerExpr) obj;
+        if (obj instanceof NextTokenizerExpr that) {
             return this.tokenizerExpr.equals(that.tokenizerExpr);
         } else
             return false;

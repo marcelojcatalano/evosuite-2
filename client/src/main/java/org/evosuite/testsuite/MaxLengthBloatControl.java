@@ -22,6 +22,8 @@ package org.evosuite.testsuite;
 import org.evosuite.Properties;
 import org.evosuite.ga.bloatcontrol.BloatControlFunction;
 
+import java.io.Serial;
+
 
 /**
  * <p>MaxLengthBloatControl class.</p>
@@ -30,6 +32,7 @@ import org.evosuite.ga.bloatcontrol.BloatControlFunction;
  */
 public class MaxLengthBloatControl implements BloatControlFunction<TestSuiteChromosome> {
 
+    @Serial
     private static final long serialVersionUID = -5019773997815280164L;
 
     public MaxLengthBloatControl() {

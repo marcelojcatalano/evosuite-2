@@ -27,6 +27,7 @@ import org.evosuite.ga.stoppingconditions.MaxStatementsStoppingCondition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -39,6 +40,7 @@ import java.io.Serializable;
  */
 public class LocalSearchBudget<T extends Chromosome<T>> implements SearchListener<T>, Serializable {
 
+    @Serial
     private static final long serialVersionUID = 9152147170303160131L;
 
     private final static Logger logger = LoggerFactory.getLogger(LocalSearchBudget.class);

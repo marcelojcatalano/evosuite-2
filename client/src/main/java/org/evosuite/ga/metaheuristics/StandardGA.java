@@ -25,6 +25,7 @@ import org.evosuite.ga.ChromosomeFactory;
 import org.evosuite.ga.ConstructionFailedException;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +37,7 @@ import java.util.List;
  */
 public class StandardGA<T extends Chromosome<T>> extends GeneticAlgorithm<T> {
 
+    @Serial
     private static final long serialVersionUID = 5043503777821916152L;
 
     private final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(StandardGA.class);

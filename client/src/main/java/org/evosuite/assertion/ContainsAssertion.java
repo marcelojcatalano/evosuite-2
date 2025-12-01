@@ -24,11 +24,13 @@ import org.evosuite.testcase.execution.CodeUnderTestException;
 import org.evosuite.testcase.execution.Scope;
 import org.evosuite.testcase.variable.VariableReference;
 
+import java.io.Serial;
 import java.util.Collection;
 import java.util.Set;
 
 public class ContainsAssertion extends Assertion {
 
+    @Serial
     private static final long serialVersionUID = -86374077651820640L;
 
     /**
@@ -73,8 +75,8 @@ public class ContainsAssertion extends Assertion {
             else {
                 Object container = source.getObject(scope);
                 Object object = containedVariable.getObject(scope);
-                if (container instanceof Collection) {
-                    return ((Collection<?>) container).contains(object);
+                if (container instanceof Collection<?> collection) {
+                    return collection.contains(object);
                 } else {
                     return false; // Is this possible?
                 }

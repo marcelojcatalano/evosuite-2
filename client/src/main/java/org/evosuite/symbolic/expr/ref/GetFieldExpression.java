@@ -23,11 +23,13 @@ import org.evosuite.symbolic.expr.ExpressionVisitor;
 import org.evosuite.symbolic.expr.Variable;
 import org.objectweb.asm.Type;
 
+import java.io.Serial;
 import java.util.Set;
 
 public final class GetFieldExpression extends ReferenceExpression {
 
 
+    @Serial
     private static final long serialVersionUID = 4517401722564017247L;
 
     private final ReferenceExpression receiverExpr;

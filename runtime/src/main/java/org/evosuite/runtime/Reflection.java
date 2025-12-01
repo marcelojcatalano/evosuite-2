@@ -129,46 +129,46 @@ public class Reflection {
     }
 
     private static int getIntValue(Object object) {
-        if (object instanceof Number) {
-            return ((Number) object).intValue();
-        } else if (object instanceof Character) {
-            return (Character) object;
+        if (object instanceof Number number) {
+            return number.intValue();
+        } else if (object instanceof Character character) {
+            return character;
         } else
             return 0;
     }
 
     private static long getLongValue(Object object) {
-        if (object instanceof Number) {
-            return ((Number) object).longValue();
-        } else if (object instanceof Character) {
-            return (Character) object;
+        if (object instanceof Number number) {
+            return number.longValue();
+        } else if (object instanceof Character character) {
+            return character;
         } else
             return 0L;
     }
 
     private static float getFloatValue(Object object) {
-        if (object instanceof Number) {
-            return ((Number) object).floatValue();
-        } else if (object instanceof Character) {
-            return (Character) object;
+        if (object instanceof Number number) {
+            return number.floatValue();
+        } else if (object instanceof Character character) {
+            return character;
         } else
             return 0F;
     }
 
     private static double getDoubleValue(Object object) {
-        if (object instanceof Number) {
-            return ((Number) object).doubleValue();
-        } else if (object instanceof Character) {
-            return (Character) object;
+        if (object instanceof Number number) {
+            return number.doubleValue();
+        } else if (object instanceof Character character) {
+            return character;
         } else
             return 0.0;
     }
 
     private static char getCharValue(Object object) {
-        if (object instanceof Character) {
-            return (Character) object;
-        } else if (object instanceof Number) {
-            return (char) ((Number) object).intValue();
+        if (object instanceof Character character) {
+            return character;
+        } else if (object instanceof Number number) {
+            return (char) number.intValue();
         } else
             return '0';
     }

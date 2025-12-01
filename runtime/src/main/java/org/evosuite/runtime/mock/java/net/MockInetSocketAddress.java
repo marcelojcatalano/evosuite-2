@@ -19,6 +19,7 @@
  */
 package org.evosuite.runtime.mock.java.net;
 
+import java.io.Serial;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
@@ -32,7 +33,8 @@ public class MockInetSocketAddress extends InetSocketAddress implements Override
 
 	private static final Logger logger = LoggerFactory.getLogger(MockInetSocketAddress.class);
 
-	private static final long serialVersionUID = 5076001401234631237L;
+    @Serial
+    private static final long serialVersionUID = 5076001401234631237L;
 
 
 	public MockInetSocketAddress(int port) {

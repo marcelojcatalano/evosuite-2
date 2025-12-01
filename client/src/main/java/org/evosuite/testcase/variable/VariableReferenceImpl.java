@@ -31,11 +31,13 @@ import org.objectweb.asm.commons.GeneratorAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.lang.reflect.Type;
 import java.util.Map;
 
 public class VariableReferenceImpl implements VariableReference {
 
+    @Serial
     private static final long serialVersionUID = -2621368452798208805L;
 
     private int distance = 0;

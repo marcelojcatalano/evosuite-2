@@ -19,6 +19,7 @@
  */
 package org.evosuite.utils;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
@@ -28,11 +29,13 @@ import java.util.ListIterator;
 public class ListenableList<E> extends SimpleListenable<Void> implements List<E>,
         Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private static class ObservableListIterator<E> extends SimpleListenable<Void>
             implements ListIterator<E> {
 
+        @Serial
         private static final long serialVersionUID = 1L;
 
         private final ListIterator<E> delegate;
@@ -93,7 +96,7 @@ public class ListenableList<E> extends SimpleListenable<Void> implements List<E>
 
     private final Listener<Void> listener = new Listener<Void>() {
 
-        private static final long serialVersionUID = 1L;
+        @Serial private static final long serialVersionUID = 1L;
 
         @Override
         public void receiveEvent(Void event) {

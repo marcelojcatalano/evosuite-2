@@ -181,23 +181,22 @@ public class TestCodeVisitor extends TestVisitor {
     }
 
     public String getTypeName(Type type) {
-        if (type instanceof Class<?>) {
-            return getClassName((Class<?>) type);
-        } else if (type instanceof ParameterizedType) {
-            return getTypeName((ParameterizedType) type);
+        if (type instanceof Class<?> class1) {
+            return getClassName(class1);
+        } else if (type instanceof ParameterizedType parameterizedType) {
+            return getTypeName(parameterizedType);
         } else if (type instanceof WildcardType) {
             String ret = "Object";
             return ret;
         } else if (type instanceof TypeVariable) {
             return "Object";
-        } else if (type instanceof CaptureType) {
-            CaptureType captureType = (CaptureType) type;
+        } else if (type instanceof CaptureType captureType) {
             if (captureType.getLowerBounds().length == 0)
                 return "Object";
             else
                 return getTypeName(captureType.getLowerBounds()[0]);
-        } else if (type instanceof GenericArrayType) {
-            return getTypeName(((GenericArrayType) type).getGenericComponentType())
+        } else if (type instanceof GenericArrayType arrayType) {
+            return getTypeName(arrayType.getGenericComponentType())
                     + "[]";
         } else {
             throw new RuntimeException("Unsupported type:" + type + ", class"
@@ -206,14 +205,14 @@ public class TestCodeVisitor extends TestVisitor {
     }
 
     public String getTypeParameterName(Type type) {
-        if (type instanceof Class<?>) {
-            return getClassName((Class<?>) type);
-        } else if (type instanceof ParameterizedType) {
-            return getTypeName((ParameterizedType) type);
-        } else if (type instanceof WildcardType) {
+        if (type instanceof Class<?> class1) {
+            return getClassName(class1);
+        } else if (type instanceof ParameterizedType parameterizedType) {
+            return getTypeName(parameterizedType);
+        } else if (type instanceof WildcardType wildcardType) {
             String ret = "?";
             boolean first = true;
-            for (Type bound : ((WildcardType) type).getLowerBounds()) {
+            for (Type bound : wildcardType.getLowerBounds()) {
                 // If there are lower bounds we need to state them, even if Object
                 if (bound == null) // || GenericTypeReflector.erase(bound).equals(Object.class))
                     continue;
@@ -223,7 +222,7 @@ public class TestCodeVisitor extends TestVisitor {
                 ret += " super " + getTypeParameterName(bound);
                 first = false;
             }
-            for (Type bound : ((WildcardType) type).getUpperBounds()) {
+            for (Type bound : wildcardType.getUpperBounds()) {
                 if (bound == null
                         || (!(bound instanceof CaptureType) && GenericTypeReflector.erase(bound).equals(Object.class)))
                     continue;
@@ -236,14 +235,13 @@ public class TestCodeVisitor extends TestVisitor {
             return ret;
         } else if (type instanceof TypeVariable) {
             return "?";
-        } else if (type instanceof CaptureType) {
-            CaptureType captureType = (CaptureType) type;
+        } else if (type instanceof CaptureType captureType) {
             if (captureType.getLowerBounds().length == 0)
                 return "?";
             else
                 return getTypeName(captureType.getLowerBounds()[0]);
-        } else if (type instanceof GenericArrayType) {
-            return getTypeName(((GenericArrayType) type).getGenericComponentType())
+        } else if (type instanceof GenericArrayType arrayType) {
+            return getTypeName(arrayType.getGenericComponentType())
                     + "[]";
         } else {
             throw new RuntimeException("Unsupported type:" + type + ", class"
@@ -331,15 +329,14 @@ public class TestCodeVisitor extends TestVisitor {
      * @return a {@link java.lang.String} object.
      */
     public String getVariableName(VariableReference var) {
-        if (var instanceof ConstantValue) {
-            ConstantValue cval = (ConstantValue) var;
+        if (var instanceof ConstantValue cval) {
             if (cval.getValue() != null && cval.getVariableClass().equals(Class.class)) {
                 return getClassName((Class<?>) cval.getValue()) + ".class";
             }
             return var.getName();
-        } else if (var instanceof FieldReference) {
-            VariableReference source = ((FieldReference) var).getSource();
-            GenericField field = ((FieldReference) var).getField();
+        } else if (var instanceof FieldReference reference) {
+            VariableReference source = reference.getSource();
+            GenericField field = reference.getField();
             if (source != null) {
                 String ret = "";
                 // If the method is not public and this is a subclass in a different package we need to cast
@@ -369,9 +366,9 @@ public class TestCodeVisitor extends TestVisitor {
             } else
                 return getClassName(field.getField().getDeclaringClass()) + "."
                         + field.getName();
-        } else if (var instanceof ArrayIndex) {
-            VariableReference array = ((ArrayIndex) var).getArray();
-            List<Integer> indices = ((ArrayIndex) var).getArrayIndices();
+        } else if (var instanceof ArrayIndex index1) {
+            VariableReference array = index1.getArray();
+            List<Integer> indices = index1.getArrayIndices();
             String result = getVariableName(array);
             for (Integer index : indices) {
                 result += "[" + index + "]";
@@ -877,26 +874,26 @@ public class TestCodeVisitor extends TestVisitor {
             testCode += "// " + getUnstableTestComment() + ": ";
         }
 
-        if (assertion instanceof PrimitiveAssertion) {
-            visitPrimitiveAssertion((PrimitiveAssertion) assertion);
-        } else if (assertion instanceof PrimitiveFieldAssertion) {
-            visitPrimitiveFieldAssertion((PrimitiveFieldAssertion) assertion);
-        } else if (assertion instanceof InspectorAssertion) {
-            visitInspectorAssertion((InspectorAssertion) assertion);
-        } else if (assertion instanceof NullAssertion) {
-            visitNullAssertion((NullAssertion) assertion);
-        } else if (assertion instanceof CompareAssertion) {
-            visitCompareAssertion((CompareAssertion) assertion);
-        } else if (assertion instanceof EqualsAssertion) {
-            visitEqualsAssertion((EqualsAssertion) assertion);
-        } else if (assertion instanceof SameAssertion) {
-            visitSameAssertion((SameAssertion) assertion);
-        } else if (assertion instanceof ArrayEqualsAssertion) {
-            visitArrayEqualsAssertion((ArrayEqualsAssertion) assertion);
-        } else if (assertion instanceof ArrayLengthAssertion) {
-            visitArrayLengthAssertion((ArrayLengthAssertion) assertion);
-        } else if (assertion instanceof ContainsAssertion) {
-            visitContainsAssertion((ContainsAssertion) assertion);
+        if (assertion instanceof PrimitiveAssertion primitiveAssertion) {
+            visitPrimitiveAssertion(primitiveAssertion);
+        } else if (assertion instanceof PrimitiveFieldAssertion fieldAssertion) {
+            visitPrimitiveFieldAssertion(fieldAssertion);
+        } else if (assertion instanceof InspectorAssertion inspectorAssertion) {
+            visitInspectorAssertion(inspectorAssertion);
+        } else if (assertion instanceof NullAssertion nullAssertion) {
+            visitNullAssertion(nullAssertion);
+        } else if (assertion instanceof CompareAssertion compareAssertion) {
+            visitCompareAssertion(compareAssertion);
+        } else if (assertion instanceof EqualsAssertion equalsAssertion1) {
+            visitEqualsAssertion(equalsAssertion1);
+        } else if (assertion instanceof SameAssertion sameAssertion) {
+            visitSameAssertion(sameAssertion);
+        } else if (assertion instanceof ArrayEqualsAssertion equalsAssertion) {
+            visitArrayEqualsAssertion(equalsAssertion);
+        } else if (assertion instanceof ArrayLengthAssertion lengthAssertion) {
+            visitArrayLengthAssertion(lengthAssertion);
+        } else if (assertion instanceof ContainsAssertion containsAssertion) {
+            visitContainsAssertion(containsAssertion);
         } else {
             throw new RuntimeException("Unknown assertion type: " + assertion);
         }
@@ -987,8 +984,8 @@ public class TestCodeVisitor extends TestVisitor {
             // testCode += ((Class<?>) retval.getType()).getSimpleName() + " "
             // + getVariableName(retval) + " = \""
             // + StringEscapeUtils.escapeJava((String) value) + "\";\n";
-        } else if (statement instanceof EnvironmentDataStatement) {
-            testCode += ((EnvironmentDataStatement<?>) statement).getTestCode(getVariableName(retval));
+        } else if (statement instanceof EnvironmentDataStatement<?> dataStatement) {
+            testCode += dataStatement.getTestCode(getVariableName(retval));
         } else if (statement instanceof ClassPrimitiveStatement) {
             StringBuilder builder = new StringBuilder();
             String className = getClassName(retval);

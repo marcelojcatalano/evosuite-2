@@ -25,6 +25,7 @@ import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.TestFitnessFunction;
 import org.evosuite.testcase.execution.ExecutionResult;
 
+import java.io.Serial;
 import java.util.Objects;
 
 /**
@@ -34,6 +35,7 @@ import java.util.Objects;
  */
 public class MethodTraceCoverageTestFitness extends TestFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = -8880071948317243336L;
 
     /**
@@ -148,8 +150,7 @@ public class MethodTraceCoverageTestFitness extends TestFitnessFunction {
      */
     @Override
     public int compareTo(TestFitnessFunction other) {
-        if (other instanceof MethodTraceCoverageTestFitness) {
-            MethodTraceCoverageTestFitness otherMethodFitness = (MethodTraceCoverageTestFitness) other;
+        if (other instanceof MethodTraceCoverageTestFitness otherMethodFitness) {
             if (className.equals(otherMethodFitness.getClassName()))
                 return methodName.compareTo(otherMethodFitness.getMethod());
             else

@@ -22,6 +22,8 @@ package org.evosuite.coverage.rho;
 import org.evosuite.ga.SecondaryObjective;
 import org.evosuite.testsuite.TestSuiteChromosome;
 
+import java.io.Serial;
+
 /**
  * RhoTestSuiteSecondaryObjective class.
  *
@@ -29,6 +31,7 @@ import org.evosuite.testsuite.TestSuiteChromosome;
  */
 public class RhoTestSuiteSecondaryObjective extends SecondaryObjective<TestSuiteChromosome> {
 
+    @Serial
     private static final long serialVersionUID = 3483170260455441964L;
 
     private double getRhoFitnessValue(TestSuiteChromosome suite) {

@@ -25,11 +25,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.*;
 
 public class HtmlAnalyzer implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -5634296119340294425L;
 
     private static final Logger logger = LoggerFactory.getLogger(HtmlAnalyzer.class);
@@ -64,7 +66,7 @@ public class HtmlAnalyzer implements Serializable {
         }
         String msg = "No source found for " + fullClassName;
         logger.debug(msg);
-        return Arrays.asList(msg);
+        return List.of(msg);
     }
 
     /**

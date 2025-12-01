@@ -19,6 +19,8 @@
  */
 package com.examples.with.different.packagename.testcarver;
 
+import java.io.Serial;
+
 
 /**
  * <p>A <strong>ConversionException</strong> indicates that a call to
@@ -30,6 +32,7 @@ package com.examples.with.different.packagename.testcarver;
  */
 
 public class ConversionException extends RuntimeException {
+    @Serial
     private static final long serialVersionUID = -3264207363344909775L;
 
 

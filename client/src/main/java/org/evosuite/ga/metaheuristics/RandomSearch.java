@@ -24,6 +24,8 @@ import org.evosuite.ga.ChromosomeFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 /**
  * <p>
  * RandomSearch class.
@@ -46,6 +48,7 @@ public class RandomSearch<T extends Chromosome<T>> extends GeneticAlgorithm<T> {
         super(factory);
     }
 
+    @Serial
     private static final long serialVersionUID = -7685015421245920459L;
 
     /* (non-Javadoc)

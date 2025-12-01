@@ -30,6 +30,8 @@ import org.evosuite.utils.Randomness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 /**
  * A factory that creates {@link TestChromosome}s of random length.
  *
@@ -37,6 +39,7 @@ import org.slf4j.LoggerFactory;
  */
 public class RandomLengthTestFactory implements ChromosomeFactory<TestChromosome> {
 
+    @Serial
     private static final long serialVersionUID = -5202578461625984100L;
 
     /**

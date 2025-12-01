@@ -19,11 +19,13 @@
  */
 package org.evosuite.symbolic.expr;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
 public abstract class AbstractExpression<T> implements Expression<T> {
 
+    @Serial
     private static final long serialVersionUID = 2896502683190522448L;
 
     private Expression<?> parent = null;

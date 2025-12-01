@@ -25,15 +25,13 @@ import org.evosuite.setup.TestClusterUtils;
 import org.evosuite.utils.LoggingUtils;
 import org.objectweb.asm.Type;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class Inspector implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -6865880297202184953L;
 
     private transient Class<?> clazz;

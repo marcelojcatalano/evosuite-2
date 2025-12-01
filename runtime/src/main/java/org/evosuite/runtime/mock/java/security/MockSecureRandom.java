@@ -19,6 +19,7 @@
  */
 package org.evosuite.runtime.mock.java.security;
 
+import java.io.Serial;
 import java.nio.ByteBuffer;
 import java.security.SecureRandom;
 
@@ -27,7 +28,8 @@ import org.evosuite.runtime.mock.OverrideMock;
 public class MockSecureRandom extends SecureRandom implements OverrideMock {
 
 
-	private static final long serialVersionUID = 3423648250373734907L;
+    @Serial
+    private static final long serialVersionUID = 3423648250373734907L;
 
 	public MockSecureRandom() {
 		super(new byte[] { 0 });

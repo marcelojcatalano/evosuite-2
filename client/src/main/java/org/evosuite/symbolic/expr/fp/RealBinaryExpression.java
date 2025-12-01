@@ -25,12 +25,14 @@ import org.evosuite.symbolic.expr.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
 public final class RealBinaryExpression extends AbstractExpression<Double> implements
         RealValue, BinaryExpression<Double> {
 
+    @Serial
     private static final long serialVersionUID = 3095108718393239244L;
 
     protected static final Logger log = LoggerFactory.getLogger(RealBinaryExpression.class);
@@ -101,8 +103,7 @@ public final class RealBinaryExpression extends AbstractExpression<Double> imple
         if (obj == this) {
             return true;
         }
-        if (obj instanceof RealBinaryExpression) {
-            RealBinaryExpression other = (RealBinaryExpression) obj;
+        if (obj instanceof RealBinaryExpression other) {
             return this.op.equals(other.op) && this.left.equals(other.left)
                     && this.right.equals(other.right);
         }

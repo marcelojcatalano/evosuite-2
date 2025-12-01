@@ -33,6 +33,7 @@ import org.evosuite.utils.generic.GenericClassFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Modifier;
@@ -81,6 +82,7 @@ public abstract class AbstractStatement implements Statement, Serializable {
         }
     }
 
+    @Serial
     private static final long serialVersionUID = 8993506743384548704L;
 
     /**

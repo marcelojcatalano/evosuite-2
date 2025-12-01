@@ -29,6 +29,7 @@ import org.evosuite.testcase.execution.TestCaseExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +42,7 @@ import java.util.List;
  */
 public abstract class TestSuiteFitnessFunction extends FitnessFunction<TestSuiteChromosome> {
 
+    @Serial
     private static final long serialVersionUID = 7243635497292960457L;
 
     /**

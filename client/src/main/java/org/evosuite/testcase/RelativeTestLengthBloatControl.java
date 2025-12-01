@@ -24,6 +24,8 @@ import org.evosuite.ga.bloatcontrol.BloatControlFunction;
 import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 import org.evosuite.ga.metaheuristics.SearchListener;
 
+import java.io.Serial;
+
 
 /**
  * Bloat control that checks an individual against the best test case
@@ -33,6 +35,7 @@ import org.evosuite.ga.metaheuristics.SearchListener;
 public class RelativeTestLengthBloatControl<T extends ExecutableChromosome<T>>
         implements BloatControlFunction<T>, SearchListener<T> {
 
+    @Serial
     private static final long serialVersionUID = -459141492060919204L;
 
     protected int current_max;

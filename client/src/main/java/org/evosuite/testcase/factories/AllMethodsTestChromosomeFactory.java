@@ -36,6 +36,7 @@ import org.evosuite.utils.generic.GenericMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -50,6 +51,7 @@ import java.util.Set;
  */
 public class AllMethodsTestChromosomeFactory implements ChromosomeFactory<TestChromosome> {
 
+    @Serial
     private static final long serialVersionUID = -420224349882780856L;
 
     /**

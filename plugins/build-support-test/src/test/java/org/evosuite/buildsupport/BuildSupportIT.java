@@ -33,7 +33,6 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Properties;
 
 import static org.junit.Assert.assertTrue;
@@ -47,7 +46,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class BuildSupportIT {
 
-    private final Path simple = Paths.get("projects","simple");
+    private final Path simple = Path.of("projects","simple");
 
     private String getEvoSuiteVersion(){
         //update version if run from IDE instead of Maven

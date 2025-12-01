@@ -26,6 +26,7 @@ import org.evosuite.testcase.TestCase;
 import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testsuite.TestSuiteChromosome;
 
+import java.io.Serial;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -49,6 +50,7 @@ import java.util.Set;
  */
 public final class TestCaseRecycler<T extends Chromosome<T>> implements SearchListener<T> {
 
+    @Serial
     private static final long serialVersionUID = -2372656982678139994L;
 
     private static TestCaseRecycler<?> instance;
@@ -89,11 +91,9 @@ public final class TestCaseRecycler<T extends Chromosome<T>> implements SearchLi
     @Override
     public void searchFinished(GeneticAlgorithm<T> algorithm) {
         T individual = algorithm.getBestIndividual();
-        if (individual instanceof TestChromosome) {
-            TestChromosome testChromosome = (TestChromosome) individual;
+        if (individual instanceof TestChromosome testChromosome) {
             testPool.add(testChromosome.getTestCase());
-        } else if (individual instanceof TestSuiteChromosome) {
-            TestSuiteChromosome testSuiteChromosome = (TestSuiteChromosome) individual;
+        } else if (individual instanceof TestSuiteChromosome testSuiteChromosome) {
             testPool.addAll(testSuiteChromosome.getTests());
         }
     }

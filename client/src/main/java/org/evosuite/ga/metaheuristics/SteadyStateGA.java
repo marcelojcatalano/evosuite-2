@@ -26,6 +26,8 @@ import org.evosuite.ga.ConstructionFailedException;
 import org.evosuite.ga.FitnessFunction;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
+
 
 /**
  * Alternative version of steady state GA
@@ -34,6 +36,7 @@ import org.evosuite.utils.Randomness;
  */
 public class SteadyStateGA<T extends Chromosome<T>> extends MonotonicGA<T> {
 
+    @Serial
     private static final long serialVersionUID = 7301010503732698233L;
 
     private final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(SteadyStateGA.class);

@@ -22,6 +22,8 @@ package org.evosuite.ga.bloatcontrol;
 import org.evosuite.Properties;
 import org.evosuite.ga.Chromosome;
 
+import java.io.Serial;
+
 /**
  * Reject individuals when they exceed a certain size
  *
@@ -29,6 +31,7 @@ import org.evosuite.ga.Chromosome;
  */
 public class MaxSizeBloatControl<T extends Chromosome<T>> implements BloatControlFunction<T> {
 
+    @Serial
     private static final long serialVersionUID = -8241127914702360972L;
 
     public MaxSizeBloatControl() {

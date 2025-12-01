@@ -233,7 +233,7 @@ public class MockList {
 
 			} else if (StaticReplacementMock.class.isAssignableFrom(mock)) {
 				try {
-					StaticReplacementMock m = (StaticReplacementMock) mock.newInstance();
+					StaticReplacementMock m = (StaticReplacementMock) mock.getDeclaredConstructor().newInstance();
 					name = m.getMockedClassName();
 				} catch (Exception e) {
 					logger.error("Failed to create instance of mock " + mock.getCanonicalName());

@@ -92,7 +92,7 @@ public class HashCodeReturnsNormallyContract extends Contract {
 
             GenericMethod method = new GenericMethod(hashCodeMethod, a.getGenericClass());
 
-            Statement st1 = new MethodStatement(test, method, a, Arrays.asList(new VariableReference[]{}));
+            Statement st1 = new MethodStatement(test, method, a, List.of());
             test.addStatement(st1, position + 1);
             st1.addComment("Throws exception: " + exception.getMessage());
 

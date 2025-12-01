@@ -30,6 +30,7 @@ import org.evosuite.testsuite.TestSuiteFitnessFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.*;
@@ -87,6 +88,7 @@ public abstract class ExplorationAlgorithmBase implements Serializable {
 
     private static final transient Logger logger = LoggerFactory.getLogger(ExplorationAlgorithmBase.class);
 
+    @Serial
     private static final long serialVersionUID = -3426910907322781226L;
 
     public ExplorationAlgorithmBase(DSEStatistics dseStatistics, boolean showProgress) {

@@ -26,6 +26,7 @@ import org.evosuite.testcase.TestCase;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
 import java.util.List;
 
 /**
@@ -34,6 +35,7 @@ import java.util.List;
 public class BIMethodSeedingTestSuiteChromosomeFactory implements
         ChromosomeFactory<TestSuiteChromosome> {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private final ChromosomeFactory<TestSuiteChromosome> defaultFactory;

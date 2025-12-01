@@ -21,6 +21,7 @@ package org.evosuite.runtime.mock.java.util;
 
 import org.evosuite.runtime.mock.OverrideMock;
 
+import java.io.Serial;
 import java.text.DateFormat;
 import java.util.*;
 
@@ -28,6 +29,7 @@ import java.util.*;
  * Created by arcuri on 1/25/15.
  */
 public abstract class MockCalendar extends Calendar implements OverrideMock{
+    @Serial
     private static final long serialVersionUID = 7787669189246845968L;
 
     /*

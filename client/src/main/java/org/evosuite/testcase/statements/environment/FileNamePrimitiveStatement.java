@@ -29,6 +29,7 @@ import org.evosuite.utils.StringUtil;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 
 
 /**
@@ -38,6 +39,7 @@ import java.io.ObjectOutputStream;
  */
 public class FileNamePrimitiveStatement extends EnvironmentDataStatement<EvoSuiteFile> {
 
+    @Serial
     private static final long serialVersionUID = 4402006999670328128L;
 
     /**

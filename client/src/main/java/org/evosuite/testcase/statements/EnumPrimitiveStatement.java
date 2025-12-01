@@ -29,6 +29,7 @@ import org.evosuite.utils.generic.GenericClassFactory;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.util.Arrays;
 import java.util.List;
 
@@ -41,6 +42,7 @@ import java.util.List;
  */
 public class EnumPrimitiveStatement<T extends Enum<T>> extends PrimitiveStatement<T> {
 
+    @Serial
     private static final long serialVersionUID = -7027695648061887082L;
 
     private transient T[] constants;

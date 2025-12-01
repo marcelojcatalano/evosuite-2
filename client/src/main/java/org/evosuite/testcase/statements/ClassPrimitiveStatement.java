@@ -30,6 +30,7 @@ import org.evosuite.utils.generic.GenericClassFactory;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -39,6 +40,7 @@ import java.util.Set;
 
 public class ClassPrimitiveStatement extends PrimitiveStatement<Class<?>> {
 
+    @Serial
     private static final long serialVersionUID = -2728777640255424791L;
 
     private transient Set<Class<?>> assignableClasses = new LinkedHashSet<>();

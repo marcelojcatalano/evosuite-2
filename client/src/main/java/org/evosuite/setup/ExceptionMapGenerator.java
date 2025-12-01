@@ -82,8 +82,7 @@ public class ExceptionMapGenerator {
         // TODO: This really shouldn't be here but in its own class
         while (iterator.hasNext()) {
             AbstractInsnNode insn = iterator.next();
-            if (insn instanceof MethodInsnNode) {
-                MethodInsnNode minsn = (MethodInsnNode) insn;
+            if (insn instanceof MethodInsnNode minsn) {
                 handleDependency(minsn.owner);
             }
         }

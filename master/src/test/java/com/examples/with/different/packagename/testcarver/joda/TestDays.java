@@ -21,7 +21,8 @@ package com.examples.with.different.packagename.testcarver.joda;
 
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 /**
  * Created by jmr on 10/11/2015.
@@ -34,6 +35,6 @@ public class TestDays {
     @Test
     public void testFactory_daysIn_RInterval() {
         Days d = new Days(PARIS);
-        assertEquals(0, d.getDays());
+        assertThat(d.getDays(), is(0));
     }
 }

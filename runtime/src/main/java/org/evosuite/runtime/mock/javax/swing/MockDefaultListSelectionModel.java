@@ -22,6 +22,8 @@ package org.evosuite.runtime.mock.javax.swing;
 import org.evosuite.runtime.mock.OverrideMock;
 
 import javax.swing.*;
+
+import java.io.Serial;
 import java.lang.reflect.Field;
 
 /**
@@ -29,6 +31,7 @@ import java.lang.reflect.Field;
  */
 public class MockDefaultListSelectionModel extends DefaultListSelectionModel implements OverrideMock {
 
+    @Serial
     private static final long serialVersionUID = 8871874273079985592L;
 
     public String toString() {

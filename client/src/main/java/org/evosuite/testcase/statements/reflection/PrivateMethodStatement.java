@@ -33,6 +33,7 @@ import org.evosuite.utils.generic.GenericClassFactory;
 import org.evosuite.utils.generic.GenericMethod;
 
 import java.io.PrintStream;
+import java.io.Serial;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -45,6 +46,7 @@ import java.util.List;
  */
 public class PrivateMethodStatement extends MethodStatement {
 
+    @Serial
     private static final long serialVersionUID = -4555899888145880432L;
 
     private final GenericMethod reflectedMethod;

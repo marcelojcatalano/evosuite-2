@@ -25,6 +25,8 @@ import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 /**
  * <p>
  * GlobalTimeStoppingCondition class.
@@ -36,6 +38,7 @@ public class GlobalTimeStoppingCondition<T extends Chromosome<T>> extends Stoppi
 
     private static final Logger logger = LoggerFactory.getLogger(GlobalTimeStoppingCondition.class);
 
+    @Serial
     private static final long serialVersionUID = -4880914182984895075L;
 
     /**

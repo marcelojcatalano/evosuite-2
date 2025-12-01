@@ -64,6 +64,7 @@ import static java.util.stream.Collectors.toList;
 public abstract class GeneticAlgorithm<T extends Chromosome<T>> implements SearchAlgorithm,
         Serializable {
 
+    @Serial
     private static final long serialVersionUID = 5155609385855093435L;
 
     private static final Logger logger = LoggerFactory.getLogger(GeneticAlgorithm.class);

@@ -19,7 +19,8 @@
  */
 package com.examples.with.different.packagename;
 
-import jakarta.annotation.Nonnull;
+import javax.annotation.Nonnull;
+
 
 public class NonNull {
 

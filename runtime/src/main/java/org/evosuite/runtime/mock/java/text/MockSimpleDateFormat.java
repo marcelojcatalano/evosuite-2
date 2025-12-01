@@ -24,6 +24,7 @@ import org.evosuite.runtime.mock.java.util.MockCalendar;
 import org.evosuite.runtime.mock.java.util.MockDate;
 import org.evosuite.runtime.mock.java.util.MockTimeZone;
 
+import java.io.Serial;
 import java.text.DateFormatSymbols;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -33,6 +34,7 @@ import java.util.Locale;
  */
 public class MockSimpleDateFormat extends java.text.SimpleDateFormat implements OverrideMock {
 
+    @Serial
     private static final long serialVersionUID = 8147368433302111653L;
 
     public MockSimpleDateFormat() {

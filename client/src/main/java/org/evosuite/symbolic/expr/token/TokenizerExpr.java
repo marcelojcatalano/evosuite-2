@@ -22,6 +22,7 @@ package org.evosuite.symbolic.expr.token;
 import org.evosuite.symbolic.expr.AbstractExpression;
 import org.evosuite.symbolic.expr.str.StringValue;
 
+import java.io.Serial;
 import java.util.StringTokenizer;
 
 public abstract class TokenizerExpr extends AbstractExpression<StringTokenizer> {
@@ -32,6 +33,7 @@ public abstract class TokenizerExpr extends AbstractExpression<StringTokenizer> 
     }
 
 
+    @Serial
     private static final long serialVersionUID = 7584961134006709947L;
 
     public abstract StringValue getDelimiter();

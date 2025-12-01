@@ -43,14 +43,14 @@ public class TestCaseExpander {
         // createConcretePrimitives(expandedTest);
         while (currentPosition < expandedTest.size()) {
             Statement statement = expandedTest.getStatement(currentPosition);
-            if (statement instanceof MethodStatement) {
-                visitMethodStatement(expandedTest, (MethodStatement) statement);
-            } else if (statement instanceof ConstructorStatement) {
-                visitConstructorStatement(expandedTest, (ConstructorStatement) statement);
-            } else if (statement instanceof ArrayStatement) {
-                visitArrayStatement(expandedTest, ((ArrayStatement) statement));
-            } else if (statement instanceof AssignmentStatement) {
-                visitAssignmentStatement(expandedTest, ((AssignmentStatement) statement));
+            if (statement instanceof MethodStatement methodStatement) {
+                visitMethodStatement(expandedTest, methodStatement);
+            } else if (statement instanceof ConstructorStatement constructorStatement) {
+                visitConstructorStatement(expandedTest, constructorStatement);
+            } else if (statement instanceof ArrayStatement arrayStatement) {
+                visitArrayStatement(expandedTest, arrayStatement);
+            } else if (statement instanceof AssignmentStatement assignmentStatement) {
+                visitAssignmentStatement(expandedTest, assignmentStatement);
             }
             currentPosition++;
         }

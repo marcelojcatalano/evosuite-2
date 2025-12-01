@@ -26,12 +26,14 @@ import org.evosuite.symbolic.expr.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
 public final class RealUnaryExpression extends AbstractExpression<Double> implements
         RealValue, UnaryExpression<Double> {
 
+    @Serial
     private static final long serialVersionUID = 9086637495150131445L;
 
     protected static final Logger log = LoggerFactory.getLogger(RealUnaryExpression.class);
@@ -89,8 +91,7 @@ public final class RealUnaryExpression extends AbstractExpression<Double> implem
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof RealUnaryExpression) {
-            RealUnaryExpression v = (RealUnaryExpression) obj;
+        if (obj instanceof RealUnaryExpression v) {
             return this.op.equals(v.op) && this.getSize() == v.getSize()
                     && this.expr.equals(v.expr);
         }

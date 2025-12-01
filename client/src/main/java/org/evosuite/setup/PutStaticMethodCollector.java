@@ -138,8 +138,7 @@ public class PutStaticMethodCollector {
                 Iterator<AbstractInsnNode> it = instructions.iterator();
                 while (it.hasNext()) {
                     AbstractInsnNode insn = it.next();
-                    if (insn instanceof FieldInsnNode) {
-                        FieldInsnNode fieldInsn = (FieldInsnNode) insn;
+                    if (insn instanceof FieldInsnNode fieldInsn) {
                         if (fieldInsn.getOpcode() != Opcodes.PUTSTATIC) {
                             continue;
                         }

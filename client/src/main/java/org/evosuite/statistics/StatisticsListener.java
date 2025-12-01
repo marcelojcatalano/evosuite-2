@@ -30,6 +30,7 @@ import org.evosuite.rmi.ClientServices;
 import org.evosuite.runtime.sandbox.Sandbox;
 import org.evosuite.testsuite.TestSuiteChromosome;
 
+import java.io.Serial;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -40,6 +41,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class StatisticsListener<T extends Chromosome<T>> implements SearchListener<T> {
 
+    @Serial
     private static final long serialVersionUID = -8229756367168023616L;
 
     private final BlockingQueue<T> individuals;

@@ -22,6 +22,7 @@ package org.evosuite.coverage.branch;
 import org.evosuite.graphs.cfg.BytecodeInstruction;
 import org.objectweb.asm.tree.LabelNode;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -50,6 +51,7 @@ import java.io.Serializable;
  */
 public class Branch implements Serializable, Comparable<Branch> {
 
+    @Serial
     private static final long serialVersionUID = -4732587925060748263L;
 
     private final int actualBranchId;

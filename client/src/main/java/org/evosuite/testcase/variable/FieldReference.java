@@ -30,6 +30,7 @@ import org.objectweb.asm.commons.GeneratorAdapter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.lang.reflect.Type;
 import java.util.Map;
 
@@ -42,6 +43,7 @@ import java.util.Map;
  */
 public class FieldReference extends VariableReferenceImpl {
 
+    @Serial
     private static final long serialVersionUID = 834164966411781655L;
 
     private final Logger logger = LoggerFactory.getLogger(FieldReference.class);
@@ -268,8 +270,8 @@ public class FieldReference extends VariableReferenceImpl {
                                                    VariableReference var2) {
         if (source != null) {
             if (source.equals(var1)) {
-                if (var2 instanceof ConstantValue) {
-                    if (((ConstantValue) var2).getValue() == null) {
+                if (var2 instanceof ConstantValue value) {
+                    if (value.getValue() == null) {
                         // No explicit null dereference, it would just lead to a compile error
                         return;
                     }
@@ -349,8 +351,8 @@ public class FieldReference extends VariableReferenceImpl {
      */
     public int getDepth() {
         int depth = 1;
-        if (source instanceof FieldReference) {
-            depth += ((FieldReference) source).getDepth();
+        if (source instanceof FieldReference reference) {
+            depth += reference.getDepth();
         }
         return depth;
     }

@@ -19,6 +19,7 @@
  */
 package org.evosuite.testcase;
 
+import java.io.Serial;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Map;
@@ -28,6 +29,7 @@ import static java.util.stream.Collectors.toCollection;
 
 public class StructuredTestCase extends DefaultTestCase {
 
+    @Serial
     private static final long serialVersionUID = -1896651382970358963L;
 
     private final Set<TestFitnessFunction> primaryTargets = new HashSet<>();

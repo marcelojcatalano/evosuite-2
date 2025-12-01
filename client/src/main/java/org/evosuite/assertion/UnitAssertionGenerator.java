@@ -40,8 +40,7 @@ public class UnitAssertionGenerator extends AssertionGenerator {
             return true;
 
         // Allow assertions after method calls on the UUT
-        if (s instanceof MethodStatement) {
-            MethodStatement ms = (MethodStatement) s;
+        if (s instanceof MethodStatement ms) {
             String declaringClass = ms.getMethod().getDeclaringClass().getName();
             while (declaringClass.contains("$"))
                 declaringClass = declaringClass.substring(0, declaringClass.indexOf("$"));

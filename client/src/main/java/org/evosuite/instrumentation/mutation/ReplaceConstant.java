@@ -123,16 +123,16 @@ public class ReplaceConstant implements MutationOperator {
 
     // Integer, a Float, a Long, a Double, a String or a Type.
     private Object[] getReplacement(Object value) {
-        if (value instanceof Integer)
-            return getReplacement(((Integer) value).intValue());
-        else if (value instanceof Float)
-            return getReplacement(((Float) value).floatValue());
-        else if (value instanceof Double)
-            return getReplacement(((Double) value).doubleValue());
-        else if (value instanceof Long)
-            return getReplacement(((Long) value).longValue());
-        else if (value instanceof String)
-            return getReplacement((String) value);
+        if (value instanceof Integer integer)
+            return getReplacement(integer.intValue());
+        else if (value instanceof Float float1)
+            return getReplacement(float1.floatValue());
+        else if (value instanceof Double double1)
+            return getReplacement(double1.doubleValue());
+        else if (value instanceof Long long1)
+            return getReplacement(long1.longValue());
+        else if (value instanceof String string)
+            return getReplacement(string);
         else if (value instanceof Type)
             return new Object[0];
         else

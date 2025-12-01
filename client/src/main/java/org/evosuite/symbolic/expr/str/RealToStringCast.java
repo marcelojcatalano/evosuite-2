@@ -26,12 +26,14 @@ import org.evosuite.symbolic.expr.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
 public final class RealToStringCast extends AbstractExpression<String> implements
         StringValue, Cast<Double> {
 
+    @Serial
     private static final long serialVersionUID = -5322228289539145088L;
 
     protected static Logger log = LoggerFactory.getLogger(RealToStringCast.class);
@@ -65,8 +67,7 @@ public final class RealToStringCast extends AbstractExpression<String> implement
         if (obj == this) {
             return true;
         }
-        if (obj instanceof RealToStringCast) {
-            RealToStringCast other = (RealToStringCast) obj;
+        if (obj instanceof RealToStringCast other) {
             return this.expr.equals(other.expr);
         }
 

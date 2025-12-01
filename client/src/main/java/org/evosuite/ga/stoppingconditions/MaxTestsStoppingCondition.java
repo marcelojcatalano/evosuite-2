@@ -22,6 +22,8 @@ package org.evosuite.ga.stoppingconditions;
 import org.evosuite.Properties;
 import org.evosuite.ga.Chromosome;
 
+import java.io.Serial;
+
 /**
  * <p>MaxTestsStoppingCondition class.</p>
  *
@@ -29,6 +31,7 @@ import org.evosuite.ga.Chromosome;
  */
 public class MaxTestsStoppingCondition<T extends Chromosome<T>> extends StoppingConditionImpl<T> {
 
+    @Serial
     private static final long serialVersionUID = -3375236459377313641L;
 
     /**

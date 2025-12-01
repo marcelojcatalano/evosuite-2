@@ -25,6 +25,7 @@ import org.evosuite.symbolic.ConstraintTooLongException;
 import org.evosuite.symbolic.dse.DSEStatistics;
 import org.evosuite.symbolic.expr.*;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -38,6 +39,7 @@ import java.util.Set;
 public final class StringToIntegerCast extends AbstractExpression<Long> implements
         IntegerValue, Cast<String> {
 
+    @Serial
     private static final long serialVersionUID = 2214987345674527740L;
 
     private final Expression<String> expr;
@@ -83,8 +85,7 @@ public final class StringToIntegerCast extends AbstractExpression<Long> implemen
         if (obj == this) {
             return true;
         }
-        if (obj instanceof StringToIntegerCast) {
-            StringToIntegerCast other = (StringToIntegerCast) obj;
+        if (obj instanceof StringToIntegerCast other) {
             return this.expr.equals(other.expr);
         }
 

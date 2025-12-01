@@ -22,8 +22,11 @@ package org.evosuite.testcarver.testcase;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
+
 public class CodeGeneratorException extends RuntimeException {
 
+    @Serial
     private static final long serialVersionUID = -4032911019839769269L;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CodeGeneratorException.class);
@@ -39,7 +42,7 @@ public class CodeGeneratorException extends RuntimeException {
     public static void check(final boolean expr, final String msg, final Object... msgArgs)
             throws CodeGeneratorException {
         if (!expr) {
-            final String finalMsg = String.format(msg, msgArgs);
+            final String finalMsg = msg.formatted(msgArgs);
             LOGGER.info(finalMsg);
             throw new CodeGeneratorException(finalMsg);
         }
@@ -48,7 +51,7 @@ public class CodeGeneratorException extends RuntimeException {
 
     public static void propagateError(final Throwable t, final String msg, final Object... msgArgs)
             throws CodeGeneratorException {
-        final String finalMsg = String.format(msg, msgArgs);
+        final String finalMsg = msg.formatted(msgArgs);
 
         if (t == null) {
             LOGGER.info(finalMsg);

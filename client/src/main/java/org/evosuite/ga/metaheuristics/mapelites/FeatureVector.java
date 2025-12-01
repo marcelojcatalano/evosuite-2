@@ -22,6 +22,7 @@ package org.evosuite.ga.metaheuristics.mapelites;
 import org.apache.commons.lang3.ClassUtils;
 import org.evosuite.assertion.Inspector;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -30,10 +31,12 @@ import java.util.Arrays;
  */
 public final class FeatureVector implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private final static class Entry implements Serializable {
 
+        @Serial
         private static final long serialVersionUID = 1L;
 
         private final String name;
@@ -62,26 +65,26 @@ public final class FeatureVector implements Serializable {
                 return 0;
             }
 
-            if (value instanceof Integer) {
-                return ((Integer) value).compareTo(0);
-            } else if (value instanceof Short) {
-                return ((Short) value).compareTo((short) 0);
-            } else if (value instanceof Byte) {
-                return ((Byte) value).compareTo((byte) 0);
-            } else if (value instanceof Long) {
-                return ((Long) value).compareTo(0L);
-            } else if (value instanceof Float) {
-                return ((Float) value).compareTo(0f);
-            } else if (value instanceof Double) {
-                return ((Double) value).compareTo(0d);
-            } else if (value instanceof String) {
-                return ((String) value).isEmpty() ? 0 : 1;
-            } else if (value instanceof Character) {
-                return Character.isLetterOrDigit((Character) value) ? 1 : 0;
-            } else if (value instanceof Boolean) {
-                return (Boolean) value ? 1 : 0;
-            } else if (value instanceof Enum) {
-                return ((Enum<?>) value).ordinal();
+            if (value instanceof Integer integer) {
+                return integer.compareTo(0);
+            } else if (value instanceof Short short1) {
+                return short1.compareTo((short) 0);
+            } else if (value instanceof Byte byte1) {
+                return byte1.compareTo((byte) 0);
+            } else if (value instanceof Long long1) {
+                return long1.compareTo(0L);
+            } else if (value instanceof Float float1) {
+                return float1.compareTo(0f);
+            } else if (value instanceof Double double1) {
+                return double1.compareTo(0d);
+            } else if (value instanceof String string) {
+                return string.isEmpty() ? 0 : 1;
+            } else if (value instanceof Character character) {
+                return Character.isLetterOrDigit(character) ? 1 : 0;
+            } else if (value instanceof Boolean boolean1) {
+                return boolean1 ? 1 : 0;
+            } else if (value instanceof Enum<?> enum1) {
+                return enum1.ordinal();
             } else {
                 throw new RuntimeException("Unsupported type: " + value.getClass().getName());
             }
@@ -103,7 +106,7 @@ public final class FeatureVector implements Serializable {
 
         @Override
         public boolean equals(Object obj) {
-            return obj instanceof Entry && equals((Entry) obj);
+            return obj instanceof Entry e && equals(e);
         }
     }
 
@@ -128,7 +131,7 @@ public final class FeatureVector implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof FeatureVector && equals((FeatureVector) obj);
+        return obj instanceof FeatureVector fv && equals(fv);
     }
 
     @Override

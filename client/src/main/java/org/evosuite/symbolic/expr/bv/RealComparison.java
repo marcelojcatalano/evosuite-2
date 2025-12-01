@@ -29,11 +29,13 @@ import org.evosuite.symbolic.expr.Variable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
 public final class RealComparison extends AbstractExpression<Long> implements
         IntegerValue {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     protected static final Logger log = LoggerFactory.getLogger(RealComparison.class);
@@ -70,8 +72,7 @@ public final class RealComparison extends AbstractExpression<Long> implements
         if (obj == this) {
             return true;
         }
-        if (obj instanceof RealComparison) {
-            RealComparison other = (RealComparison) obj;
+        if (obj instanceof RealComparison other) {
             return this.left.equals(other.left) && this.right.equals(other.right);
         }
 

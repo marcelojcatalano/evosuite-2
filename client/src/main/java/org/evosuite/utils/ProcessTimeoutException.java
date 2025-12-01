@@ -19,9 +19,12 @@
  */
 package org.evosuite.utils;
 
+import java.io.Serial;
+
 public class ProcessTimeoutException extends Exception {
 
 
+    @Serial
     private static final long serialVersionUID = 4491074449992139396L;
 
     public ProcessTimeoutException(String msg) {

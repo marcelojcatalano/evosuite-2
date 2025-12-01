@@ -21,6 +21,7 @@ package org.evosuite.ga.operators.selection;
 
 import org.evosuite.ga.Chromosome;
 
+import java.io.Serial;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -32,6 +33,7 @@ import static java.util.stream.Collectors.toList;
  */
 public class BestKSelection<T extends Chromosome<T>> extends SelectionFunction<T> {
 
+    @Serial
     private static final long serialVersionUID = -7106376944811871449L;
 
     public BestKSelection() {

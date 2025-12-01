@@ -19,11 +19,13 @@
  */
 package org.evosuite.utils;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Collection;
 
 public class SimpleListenable<T> implements Listenable<T> {
 
+    @Serial
     private static final long serialVersionUID = 8100518628763448338L;
 
     protected final Collection<Listener<T>> listeners = new ArrayList<>();

@@ -22,8 +22,11 @@ package org.evosuite.graphs.ccg;
 import org.evosuite.graphs.cfg.BytecodeInstruction;
 import org.jgrapht.graph.DefaultEdge;
 
+import java.io.Serial;
+
 public class ClassCallEdge extends DefaultEdge {
 
+    @Serial
     private static final long serialVersionUID = 7136724698608115327L;
 
     private final BytecodeInstruction callInstruction;

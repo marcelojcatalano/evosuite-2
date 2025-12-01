@@ -27,6 +27,7 @@ import org.evosuite.rmi.ClientServices;
 import org.evosuite.rmi.service.ClientState;
 import org.evosuite.rmi.service.ClientStateInformation;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -38,6 +39,7 @@ import java.io.Serializable;
  */
 public class ProgressMonitor<T extends Chromosome<T>> implements SearchListener<T>, Serializable {
 
+    @Serial
     private static final long serialVersionUID = -8518559681906649686L;
 
     private StoppingCondition<T> stoppingCondition;

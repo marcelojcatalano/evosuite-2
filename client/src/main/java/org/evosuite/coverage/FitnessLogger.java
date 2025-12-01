@@ -27,10 +27,7 @@ import org.evosuite.ga.stoppingconditions.MaxStatementsStoppingCondition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +41,7 @@ public class FitnessLogger<T extends Chromosome<T>> implements SearchListener<T>
 
     private static final Logger logger = LoggerFactory.getLogger(FitnessLogger.class);
 
+    @Serial
     private static final long serialVersionUID = 1914403470617343821L;
 
     private final List<Integer> evaluations_history;

@@ -38,6 +38,7 @@ import org.objectweb.asm.Type;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.*;
 
@@ -51,6 +52,7 @@ import static org.evosuite.testcase.TestChromosome.getSecondaryObjectives;
  */
 public abstract class Archive implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 2604119519478973245L;
 
     private static final Logger logger = LoggerFactory.getLogger(Archive.class);
@@ -332,10 +334,10 @@ public abstract class Archive implements Serializable {
      */
     @SuppressWarnings("unchecked")
     public <C extends Chromosome<C>> C mergeArchiveAndSolution(C solution) {
-        if (solution instanceof TestChromosome) {
-            return (C) this.createMergedSolution((TestChromosome) solution);
-        } else if (solution instanceof TestSuiteChromosome) {
-            return (C) this.createMergedSolution((TestSuiteChromosome) solution);
+        if (solution instanceof TestChromosome chromosome1) {
+            return (C) this.createMergedSolution(chromosome1);
+        } else if (solution instanceof TestSuiteChromosome chromosome) {
+            return (C) this.createMergedSolution(chromosome);
         }
         AtMostOnceLogger.warn(logger,
                 "Type of solution '" + solution.getClass().getCanonicalName() + "' not supported");
@@ -363,8 +365,7 @@ public abstract class Archive implements Serializable {
             if (!call.getDeclaringClass().getName().equals(className)) {
                 continue;
             }
-            if (call instanceof GenericMethod) {
-                GenericMethod genericMethod = (GenericMethod) call;
+            if (call instanceof GenericMethod genericMethod) {
                 if (!methodName.startsWith(genericMethod.getName())) {
                     continue;
                 }
@@ -374,8 +375,7 @@ public abstract class Archive implements Serializable {
                     cluster.removeTestCall(call);
                     logger.info("Testcalls left: " + cluster.getNumTestCalls());
                 }
-            } else if (call instanceof GenericConstructor) {
-                GenericConstructor genericConstructor = (GenericConstructor) call;
+            } else if (call instanceof GenericConstructor genericConstructor) {
                 if (!methodName.startsWith("<init>")) {
                     continue;
                 }
@@ -424,8 +424,7 @@ public abstract class Archive implements Serializable {
 
     private boolean hasFunctionalMocksForGenerableTypes(TestCase testCase) {
         for (Statement statement : testCase) {
-            if (statement instanceof FunctionalMockStatement) {
-                FunctionalMockStatement fm = (FunctionalMockStatement) statement;
+            if (statement instanceof FunctionalMockStatement fm) {
                 Class<?> target = fm.getTargetClass();
                 GenericClass<?> gc = GenericClassFactory.get(target);
                 if (TestCluster.getInstance().hasGenerator(gc)) {

@@ -21,6 +21,8 @@ package org.evosuite.symbolic.expr.reftype;
 
 import org.evosuite.symbolic.expr.AbstractExpression;
 
+import java.io.Serial;
+
 /**
  * This is the super class of all symbolic reference types (classes).
  *
@@ -28,6 +30,7 @@ import org.evosuite.symbolic.expr.AbstractExpression;
  */
 public abstract class ReferenceTypeExpression extends AbstractExpression<Object> implements ReferenceTypeValue {
 
+    @Serial
     private static final long serialVersionUID = 4684495307141703121L;
 
     /**

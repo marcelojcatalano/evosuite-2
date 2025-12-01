@@ -28,6 +28,7 @@ import org.objectweb.asm.Type;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
@@ -44,6 +45,7 @@ import static org.evosuite.coverage.io.IOCoverageConstants.*;
  */
 public class OutputCoverageGoal implements Serializable, Comparable<OutputCoverageGoal> {
 
+    @Serial
     private static final long serialVersionUID = 3539419075883329059L;
 
     private static final Logger logger = LoggerFactory.getLogger(OutputCoverageGoal.class);
@@ -260,8 +262,8 @@ public class OutputCoverageGoal implements Serializable, Comparable<OutputCovera
                         String insp = inspector.getMethodCall() + Type.getMethodDescriptor(inspector.getMethod());
                         try {
                             Object val = inspector.getValue(returnValue);
-                            if (val instanceof Boolean) {
-                                String valDesc = ((boolean) val) ? BOOL_TRUE : BOOL_FALSE;
+                            if (val instanceof Boolean boolean1) {
+                                String valDesc = boolean1 ? BOOL_TRUE : BOOL_FALSE;
                                 goals.add(new OutputCoverageGoal(className, methodNameWithDesc, returnType, REF_NONNULL + ":" + returnType.getClassName() + ":" + insp + ":" + valDesc));
                             } else if (isJavaNumber(val)) {
                                 double dv = ((Number) val).doubleValue();

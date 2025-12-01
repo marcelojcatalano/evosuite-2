@@ -25,6 +25,7 @@ import org.evosuite.ga.FitnessFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -38,6 +39,7 @@ import static java.util.Collections.reverseOrder;
  */
 public class MuLambdaEA<T extends Chromosome<T>> extends AbstractMuLambda<T> {
 
+    @Serial
     private static final long serialVersionUID = -1104094637643130537L;
 
     private static final Logger logger = LoggerFactory.getLogger(MuLambdaEA.class);

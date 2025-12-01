@@ -77,20 +77,15 @@ public final class Pattern_Matches extends SymbolicFunction {
     private StringValue getSymbInput(CharSequence input_char_seq,
                                      ReferenceExpression input_ref) {
         StringValue symb_input;
-        if (input_ref instanceof ReferenceConstant) {
-            ReferenceConstant input_str_ref = (ReferenceConstant) input_ref;
+        if (input_ref instanceof ReferenceConstant input_str_ref) {
             assert input_char_seq != null;
 
-            if (input_char_seq instanceof String) {
-
-                String string = (String) input_char_seq;
+            if (input_char_seq instanceof String string) {
                 symb_input = env.heap.getField(Types.JAVA_LANG_STRING,
                         SymbolicHeap.$STRING_VALUE, string, input_str_ref,
                         string);
 
-            } else if (input_char_seq instanceof StringBuilder) {
-
-                StringBuilder stringBuffer = (StringBuilder) input_char_seq;
+            } else if (input_char_seq instanceof StringBuilder stringBuffer) {
                 symb_input = env.heap.getField(Types.JAVA_LANG_STRING_BUILDER,
                         SymbolicHeap.$STRING_BUILDER_CONTENTS, stringBuffer,
                         input_str_ref, stringBuffer.toString());

@@ -209,12 +209,12 @@ public class ReferenceLocalSearch extends StatementLocalSearch {
     private boolean changeParameters(TestChromosome test, int statement) {
         logger.debug("Changing parameters");
         Statement stmt = test.getTestCase().getStatement(statement);
-        if (stmt instanceof MethodStatement) {
-            return replaceMethodParameter(test, (MethodStatement) stmt);
-        } else if (stmt instanceof ConstructorStatement) {
-            return replaceConstructorParameter(test, (ConstructorStatement) stmt);
-        } else if (stmt instanceof FieldStatement) {
-            return replaceFieldSource(test, (FieldStatement) stmt);
+        if (stmt instanceof MethodStatement methodStatement) {
+            return replaceMethodParameter(test, methodStatement);
+        } else if (stmt instanceof ConstructorStatement constructorStatement) {
+            return replaceConstructorParameter(test, constructorStatement);
+        } else if (stmt instanceof FieldStatement fieldStatement) {
+            return replaceFieldSource(test, fieldStatement);
         } else {
             return false;
         }

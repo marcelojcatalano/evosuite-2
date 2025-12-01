@@ -28,6 +28,7 @@ import org.evosuite.testcase.execution.TestCaseExecutor;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 
+import java.io.Serial;
 import java.util.*;
 
 /**
@@ -35,6 +36,7 @@ import java.util.*;
  */
 public class OutputCoverageSuiteFitness extends TestSuiteFitnessFunction {
 
+    @Serial
     private static final long serialVersionUID = -8345906214972153096L;
 
     //public final int numBranchlessMethods;

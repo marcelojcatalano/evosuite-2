@@ -20,6 +20,7 @@
 package org.evosuite.runtime.mock.javax.swing;
 
 import java.awt.Dimension;
+import java.io.Serial;
 
 import javax.swing.JComponent;
 
@@ -28,7 +29,8 @@ import org.evosuite.runtime.mock.OverrideMock;
 public class MockJComponent extends JComponent implements OverrideMock {
 
 
-	private static final long serialVersionUID = 1745297916366590682L;
+    @Serial
+    private static final long serialVersionUID = 1745297916366590682L;
 
 	public Dimension getPreferredSize() {
 		return  new Dimension(320, 200);

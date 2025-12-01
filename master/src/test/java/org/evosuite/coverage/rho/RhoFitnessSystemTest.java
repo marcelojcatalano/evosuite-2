@@ -135,8 +135,10 @@ public class RhoFitnessSystemTest extends SystemTestBase {
         Properties.TARGET_CLASS = targetClass;
 
         String previous_tmp_coverage =
-                "1 1 1 1 1 1 1 1 1 1 1 +\n" +
-                        "1 1 1 1 0 0 0 0 0 0 0 +\n";
+                """
+                1 1 1 1 1 1 1 1 1 1 1 +
+                1 1 1 1 0 0 0 0 0 0 0 +
+                """;
         this.writeMatrix(previous_tmp_coverage);
         Properties.USE_EXISTING_COVERAGE = true;
 

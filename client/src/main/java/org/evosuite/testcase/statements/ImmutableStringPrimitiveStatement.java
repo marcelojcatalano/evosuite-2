@@ -22,8 +22,11 @@ package org.evosuite.testcase.statements;
 import org.evosuite.testcase.TestCase;
 import org.evosuite.testcase.TestFactory;
 
+import java.io.Serial;
+
 public class ImmutableStringPrimitiveStatement extends StringPrimitiveStatement {
 
+    @Serial
     private static final long serialVersionUID = 4689686677200684012L;
 
     public ImmutableStringPrimitiveStatement(TestCase tc, String value) {

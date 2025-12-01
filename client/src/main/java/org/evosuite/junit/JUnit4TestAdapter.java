@@ -25,6 +25,7 @@ import org.evosuite.junit.writer.TestSuiteWriterUtils;
 import org.evosuite.runtime.vnet.NonFunctionalRequirementRule;
 import org.evosuite.testcase.TestCase;
 import org.evosuite.testcase.TestCodeVisitor;
+import org.junit.jupiter.api.*;
 
 import java.util.List;
 import java.util.Map;
@@ -40,27 +41,27 @@ public class JUnit4TestAdapter implements UnitTestAdapter {
 
     @Override
     public Class<?> testAnnotation() {
-        return org.junit.Test.class;
+        return Test.class;
     }
 
     @Override
     public Class<?> beforeAll() {
-        return org.junit.BeforeClass.class;
+        return BeforeAll.class;
     }
 
     @Override
     public Class<?> beforeEach() {
-        return org.junit.Before.class;
+        return BeforeEach.class;
     }
 
     @Override
     public Class<?> afterAll() {
-        return org.junit.AfterClass.class;
+        return AfterAll.class;
     }
 
     @Override
     public Class<?> afterEach() {
-        return org.junit.After.class;
+        return AfterEach.class;
     }
 
     private String getJUnitTestShortName() {

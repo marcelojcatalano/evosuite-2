@@ -347,8 +347,8 @@ public class ArrayConverter extends AbstractConverter {
      * @return Collection elements.
      */
     protected Collection convertToCollection(Class type, Object value) {
-        if (value instanceof Collection) {
-            return (Collection) value;
+        if (value instanceof Collection collection) {
+            return collection;
         }
         if (value instanceof Number ||
                 value instanceof Boolean ||

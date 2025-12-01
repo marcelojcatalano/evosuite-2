@@ -55,12 +55,10 @@ public final class TestCarvingExecutionObserver extends ExecutionObserver {
     @Override
     public void afterStatement(final Statement statement, final Scope scope,
                                final Throwable exception) {
-        if (statement instanceof AssignmentStatement) {
-            final AssignmentStatement assign = (AssignmentStatement) statement;
+        if (statement instanceof AssignmentStatement assign) {
             final VariableReference left = assign.getReturnValue();
 
-            if (left instanceof FieldReference) {
-                final FieldReference fieldRef = (FieldReference) left;
+            if (left instanceof FieldReference fieldRef) {
                 final GenericField field = fieldRef.getField();
 
                 FieldRegistry.notifyModification(field.isStatic() ? null : scope.getObject(fieldRef.getSource()), this.captureId,

@@ -23,6 +23,7 @@ import org.evosuite.symbolic.expr.ExpressionVisitor;
 import org.evosuite.symbolic.expr.Variable;
 import org.objectweb.asm.Type;
 
+import java.io.Serial;
 import java.util.Collections;
 import java.util.Set;
 
@@ -38,6 +39,7 @@ import java.util.Set;
 public class ReferenceConstant extends ReferenceExpression {
 
 
+    @Serial
     private static final long serialVersionUID = 4288259851884045452L;
 
     public ReferenceConstant(Type objectType, int instanceId) {

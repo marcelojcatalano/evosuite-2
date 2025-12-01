@@ -153,20 +153,16 @@ public abstract class Solver {
 
             Object concreteValue = concrete_values.get(var_name);
 
-            if (v instanceof StringVariable) {
-                StringVariable sv = (StringVariable) v;
+            if (v instanceof StringVariable sv) {
                 String concreteString = (String) concreteValue;
                 sv.setConcreteValue(concreteString);
-            } else if (v instanceof IntegerVariable) {
-                IntegerVariable iv = (IntegerVariable) v;
+            } else if (v instanceof IntegerVariable iv) {
                 Long concreteInteger = (Long) concreteValue;
                 iv.setConcreteValue(concreteInteger);
-            } else if (v instanceof RealVariable) {
-                RealVariable ir = (RealVariable) v;
+            } else if (v instanceof RealVariable ir) {
                 Double concreteReal = (Double) concreteValue;
                 ir.setConcreteValue(concreteReal);
-            } else if (v instanceof ArrayVariable) {
-                ArrayVariable arr = (ArrayVariable) v;
+            } else if (v instanceof ArrayVariable arr) {
                 arr.setConcreteValue(
                         getResizedArray(
                                 arr.getConcreteValue(),

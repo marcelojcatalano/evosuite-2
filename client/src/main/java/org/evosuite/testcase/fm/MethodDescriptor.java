@@ -29,6 +29,7 @@ import org.mockito.Mockito;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -44,6 +45,7 @@ import java.util.Set;
  */
 public class MethodDescriptor implements Comparable<MethodDescriptor>, Serializable {
 
+    @Serial
     private static final long serialVersionUID = -6747363265640233704L;
 
     protected static final Logger logger = LoggerFactory.getLogger(MethodDescriptor.class);
@@ -129,8 +131,8 @@ public class MethodDescriptor implements Comparable<MethodDescriptor>, Serializa
                      */
                     matchers += "any()";
                 } else {
-                    if (type instanceof Class) {
-                        matchers += "any(" + ((Class) type).getCanonicalName() + ".class)";
+                    if (type instanceof Class class1) {
+                        matchers += "any(" + class1.getCanonicalName() + ".class)";
                     } else {
                         //what to do here? is it even possible?
                         matchers += "nullable(" + genericParameter.getRawClass().getCanonicalName() + ".class)";

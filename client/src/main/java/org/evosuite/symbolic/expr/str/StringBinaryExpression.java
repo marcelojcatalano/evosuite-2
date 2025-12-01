@@ -27,6 +27,7 @@ import org.evosuite.symbolic.expr.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -40,6 +41,7 @@ import java.util.Set;
 public final class StringBinaryExpression extends AbstractExpression<String> implements
         StringValue, BinaryExpression<String> {
 
+    @Serial
     private static final long serialVersionUID = -986689442489666986L;
 
     protected static final Logger log = LoggerFactory.getLogger(StringBinaryExpression.class);
@@ -115,8 +117,7 @@ public final class StringBinaryExpression extends AbstractExpression<String> imp
         if (obj == null) {
             return false;
         }
-        if (obj instanceof StringBinaryExpression) {
-            StringBinaryExpression other = (StringBinaryExpression) obj;
+        if (obj instanceof StringBinaryExpression other) {
             return this.op.equals(other.op) && this.left.equals(other.left)
                     && this.right.equals(other.right);
         }

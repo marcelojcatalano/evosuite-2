@@ -19,8 +19,11 @@
  */
 package com.examples.with.different.packagename.mock.java.lang;
 
+import java.io.Serial;
+
 public class ExtendingRuntimeException extends RuntimeException {
 
+    @Serial
     private static final long serialVersionUID = 5484578181398811492L;
 
     public String getMessage() {

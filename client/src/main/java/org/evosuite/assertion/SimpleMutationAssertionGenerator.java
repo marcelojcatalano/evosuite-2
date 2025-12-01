@@ -362,8 +362,8 @@ public class SimpleMutationAssertionGenerator extends MutationAssertionGenerator
                         if (ass.getReferencedVariables().contains(targetVar)
                                 && !(ass instanceof NullAssertion)) {
 
-                            if (ass instanceof InspectorAssertion) {
-                                if (((InspectorAssertion) ass).inspector.getMethod().equals(inspectorMethod)) {
+                            if (ass instanceof InspectorAssertion assertion) {
+                                if (assertion.inspector.getMethod().equals(inspectorMethod)) {
                                     continue;
                                 }
                             }

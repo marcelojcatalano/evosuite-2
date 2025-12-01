@@ -114,8 +114,7 @@ public class ErrorConditionMethodAdapter extends GeneratorAdapter {
 
     @Override
     public void visitLabel(Label label) {
-        if (label instanceof AnnotatedLabel) {
-            AnnotatedLabel aLabel = (AnnotatedLabel) label;
+        if (label instanceof AnnotatedLabel aLabel) {
             inInstrumentation = aLabel.isStartTag();
         }
         super.visitLabel(label);

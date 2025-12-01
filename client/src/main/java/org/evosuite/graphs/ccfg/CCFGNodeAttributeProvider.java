@@ -45,16 +45,16 @@ public class CCFGNodeAttributeProvider implements ComponentAttributeProvider<CCF
         } else if (node instanceof CCFGMethodExitNode) {
             r.put("style", "filled");
             r.put("shape", "invtriangle");
-        } else if (node instanceof CCFGFieldClassCallNode) {
-            String method = ((CCFGFieldClassCallNode) node).getCodeInstruction().getMethodName();
+        } else if (node instanceof CCFGFieldClassCallNode callNode) {
+            String method = callNode.getCodeInstruction().getMethodName();
             String rgbColor = generateBColor(method);
             r.put("style", "filled");
             r.put("fillcolor", rgbColor);
             r.put("fontsize", "12");
             r.put("fontcolor", "white");
             r.put("shape", "hexagon");
-        } else if (node instanceof CCFGCodeNode) {
-            String method = ((CCFGCodeNode) node).getCodeInstruction().getMethodName();
+        } else if (node instanceof CCFGCodeNode codeNode) {
+            String method = codeNode.getCodeInstruction().getMethodName();
             String rgbColor = generateSaturatedColor(method);
             r.put("style", "filled");
             r.put("fillcolor", rgbColor);

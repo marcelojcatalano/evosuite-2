@@ -495,9 +495,9 @@ public class TestCaseUpdater {
     public static PrimitiveStatement<?> getPrimitiveStatement(TestCase test, String name) {
         for (Statement statement : test) {
 
-            if (statement instanceof PrimitiveStatement<?>) {
+            if (statement instanceof PrimitiveStatement<?> primitiveStatement) {
                 if (statement.getReturnValue().getName().equals(name))
-                    return (PrimitiveStatement<?>) statement;
+                    return primitiveStatement;
             }
         }
         return null;

@@ -539,8 +539,8 @@ public class MockDatagramSocket extends DatagramSocket implements OverrideMock{
             return 0;
         Object o = getImpl().getOption(SocketOptions.SO_TIMEOUT);
         /* extra type safety */
-        if (o instanceof Integer) {
-            return (Integer) o;
+        if (o instanceof Integer integer) {
+            return integer;
         } else {
             return 0;
         }
@@ -570,8 +570,8 @@ public class MockDatagramSocket extends DatagramSocket implements OverrideMock{
             throw new SocketException("Socket is closed");
         int result = 0;
         Object o = getImpl().getOption(SocketOptions.SO_SNDBUF);
-        if (o instanceof Integer) {
-            result = (Integer) o;
+        if (o instanceof Integer integer) {
+            result = integer;
         }
         return result;
     }
@@ -601,8 +601,8 @@ public class MockDatagramSocket extends DatagramSocket implements OverrideMock{
             throw new SocketException("Socket is closed");//TODO
         int result = 0;
         Object o = getImpl().getOption(SocketOptions.SO_RCVBUF);
-        if (o instanceof Integer) {
-            result = (Integer) o;
+        if (o instanceof Integer integer) {
+            result = integer;
         }
         return result;
     }

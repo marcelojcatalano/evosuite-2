@@ -23,6 +23,8 @@ import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.ConstructionFailedException;
 import org.evosuite.utils.Randomness;
 
+import java.io.Serial;
+
 /**
  * Select one random point in each individual and cross over (TPX)
  *
@@ -30,6 +32,7 @@ import org.evosuite.utils.Randomness;
  */
 public class SinglePointCrossOver<T extends Chromosome<T>> extends CrossOverFunction<T> {
 
+    @Serial
     private static final long serialVersionUID = 2881387570766261795L;
 
     /**

@@ -27,6 +27,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testcase.execution.Scope;
 import org.evosuite.testcase.statements.Statement;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -35,6 +36,7 @@ import java.util.Arrays;
  */
 public class TestResultObserver extends ExecutionObserver implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private final Inspector[] inspectors;

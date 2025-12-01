@@ -39,6 +39,7 @@ import static java.util.Comparator.comparingInt;
 public class RhoCoverageFactory extends
         AbstractFitnessFactory<LineCoverageTestFitness> implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -4124074445663735815L;
 
     private static final Logger logger = LoggerFactory.getLogger(RhoCoverageFactory.class);

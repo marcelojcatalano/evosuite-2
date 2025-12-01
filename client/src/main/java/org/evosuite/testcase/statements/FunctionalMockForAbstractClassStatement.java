@@ -29,6 +29,7 @@ import org.mockito.MockSettings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.lang.reflect.Type;
 import java.util.Map;
 
@@ -37,6 +38,7 @@ import static org.mockito.Mockito.withSettings;
 
 public class FunctionalMockForAbstractClassStatement extends FunctionalMockStatement {
 
+    @Serial
     private static final long serialVersionUID = -3933543503326450446L;
 
     private static final Logger logger = LoggerFactory.getLogger(FunctionalMockForAbstractClassStatement.class);

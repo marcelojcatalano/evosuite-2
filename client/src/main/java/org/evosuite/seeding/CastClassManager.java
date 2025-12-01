@@ -192,12 +192,12 @@ public class CastClassManager {
         logger.debug("selecting cast class for type variable {} with bounds {}, owner var map: {}", typeVariable, Arrays.toString(typeVariable.getBounds()), ownerVariableMap);
         GenericDeclaration genericDeclaration = typeVariable.getGenericDeclaration();
         String declarationSimpleName = "<Unknown generic declaration>";
-        if (genericDeclaration instanceof Class<?>) {
-            declarationSimpleName = ((Class<?>) genericDeclaration).getSimpleName();
-        } else if (genericDeclaration instanceof Method) {
-            declarationSimpleName = ((Method) genericDeclaration).getDeclaringClass().getSimpleName() + "#" + ((Method) genericDeclaration).getName();
-        } else if (genericDeclaration instanceof Constructor) {
-            declarationSimpleName = ((Constructor) genericDeclaration).getDeclaringClass().getSimpleName() + "#" + "<init>";
+        if (genericDeclaration instanceof Class<?> class1) {
+            declarationSimpleName = class1.getSimpleName();
+        } else if (genericDeclaration instanceof Method method) {
+            declarationSimpleName = method.getDeclaringClass().getSimpleName() + "#" + method.getName();
+        } else if (genericDeclaration instanceof Constructor constructor) {
+            declarationSimpleName = constructor.getDeclaringClass().getSimpleName() + "#" + "<init>";
         }
         List<GenericClass<?>> assignableClasses = getAssignableClasses(typeVariable, allowRecursion, ownerVariableMap);
 
@@ -508,8 +508,8 @@ public class CastClassManager {
                 return false;
             }
 
-            if (bound instanceof ParameterizedType) {
-                final Type[] typeArgs = ((ParameterizedType) bound).getActualTypeArguments();
+            if (bound instanceof ParameterizedType type) {
+                final Type[] typeArgs = type.getActualTypeArguments();
                 if (Arrays.asList(typeArgs).contains(typeVariable)) return false;
             }
         }

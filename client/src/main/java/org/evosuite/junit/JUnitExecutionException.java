@@ -19,6 +19,8 @@
  */
 package org.evosuite.junit;
 
+import java.io.Serial;
+
 
 public class JUnitExecutionException extends Exception {
 
@@ -31,6 +33,7 @@ public class JUnitExecutionException extends Exception {
     }
 
 
+    @Serial
     private static final long serialVersionUID = 9063744097191003972L;
 
 }

@@ -19,6 +19,7 @@
  */
 package org.evosuite.runtime.mock.java.util;
 
+import java.io.Serial;
 import java.time.ZonedDateTime;
 import java.time.temporal.ChronoField;
 import java.util.GregorianCalendar;
@@ -29,7 +30,8 @@ import org.evosuite.runtime.mock.OverrideMock;
 
 public class MockGregorianCalendar extends GregorianCalendar  implements OverrideMock{
 
-	private static final long serialVersionUID = 4768096296715665262L;
+    @Serial
+    private static final long serialVersionUID = 4768096296715665262L;
 	
 	public MockGregorianCalendar() {
 		this.setTimeInMillis(org.evosuite.runtime.System.currentTimeMillis());

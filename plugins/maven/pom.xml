@@ -21,6 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-plugin-annotations.version>3.15.2</maven-plugin-annotations.version>
+        <maven-plugin-api.version>3.9.11</maven-plugin-api.version>
     </properties>
 
     <dependencies>
@@ -48,20 +49,31 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
+ <!--
+  <dependency>
+   <groupId>com.sun.xml.ws</groupId>
+   <artifactId>jaxws-rt</artifactId>
+   <version>2.3.7</version>
+   <scope>provided</scope>
+  </dependency> -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
         </dependency>
         <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-core</artifactId>
-            <version>3.8.2</version>
+            <version>${maven-plugin-api.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-plugin-api</artifactId>
-            <version>3.8.2</version>
+            <version>${maven-plugin-api.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

@@ -31,7 +31,10 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.*;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
 import static org.junit.Assert.assertFalse;
@@ -68,7 +71,7 @@ public class ClassWithProtectedConstructorSystemTest extends SystemTestBase {
         String junitFile = Properties.TEST_DIR + File.separatorChar +
                 Properties.CLASS_PREFIX.replace('.', File.separatorChar) + File.separatorChar +
                 name + ".java";
-        Path path = Paths.get(junitFile);
+        Path path = Path.of(junitFile);
         Assert.assertTrue("Test Suite does not exist: " + path, Files.exists(path));
         System.out.println(path);
 

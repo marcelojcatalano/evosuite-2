@@ -45,8 +45,7 @@ public class ArrayTraceEntry implements OutputTraceEntry {
      */
     @Override
     public boolean differs(OutputTraceEntry other) {
-        if (other instanceof ArrayTraceEntry) {
-            ArrayTraceEntry otherEntry = (ArrayTraceEntry) other;
+        if (other instanceof ArrayTraceEntry otherEntry) {
             return !Arrays.equals(value, otherEntry.value);
         }
         return false;
@@ -58,8 +57,7 @@ public class ArrayTraceEntry implements OutputTraceEntry {
     @Override
     public Set<Assertion> getAssertions(OutputTraceEntry other) {
         Set<Assertion> assertions = new HashSet<>();
-        if (other instanceof ArrayTraceEntry) {
-            ArrayTraceEntry otherEntry = (ArrayTraceEntry) other;
+        if (other instanceof ArrayTraceEntry otherEntry) {
             if (!Arrays.equals(value, otherEntry.value)) {
                 ArrayEqualsAssertion assertion = new ArrayEqualsAssertion();
                 assertion.value = value;
@@ -91,8 +89,7 @@ public class ArrayTraceEntry implements OutputTraceEntry {
      */
     @Override
     public boolean isDetectedBy(Assertion assertion) {
-        if (assertion instanceof ArrayEqualsAssertion) {
-            ArrayEqualsAssertion ass = (ArrayEqualsAssertion) assertion;
+        if (assertion instanceof ArrayEqualsAssertion ass) {
             if (var.equals(ass.source)) {
                 return !Arrays.equals(value, (Object[]) ass.value);
             }

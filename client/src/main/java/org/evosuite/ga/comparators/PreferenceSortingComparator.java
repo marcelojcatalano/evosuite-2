@@ -39,6 +39,7 @@ package org.evosuite.ga.comparators;
 import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.FitnessFunction;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Comparator;
 
@@ -52,6 +53,7 @@ import java.util.Comparator;
 public class PreferenceSortingComparator<T extends Chromosome<T>> implements Comparator<T>,
         Serializable {
 
+    @Serial
     private static final long serialVersionUID = 8939172959105413213L;
 
     private final FitnessFunction<T> objective;

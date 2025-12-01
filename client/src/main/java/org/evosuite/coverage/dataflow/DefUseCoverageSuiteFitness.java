@@ -28,6 +28,7 @@ import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 import org.evosuite.utils.LoggingUtils;
 
+import java.io.Serial;
 import java.util.*;
 import java.util.Map.Entry;
 
@@ -44,6 +45,7 @@ import static java.util.stream.Collectors.toCollection;
  * @author Andre Mis
  */
 public class DefUseCoverageSuiteFitness extends TestSuiteFitnessFunction {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     List<DefUseCoverageTestFitness> goals = DefUseCoverageFactory.getDUGoals();

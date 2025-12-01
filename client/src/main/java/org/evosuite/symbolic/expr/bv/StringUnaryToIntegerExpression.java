@@ -27,6 +27,7 @@ import org.evosuite.symbolic.expr.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -40,6 +41,7 @@ import java.util.Set;
 public final class StringUnaryToIntegerExpression extends AbstractExpression<Long>
         implements IntegerValue, UnaryExpression<String> {
 
+    @Serial
     private static final long serialVersionUID = -384874147850376188L;
 
     protected static final Logger log = LoggerFactory.getLogger(StringUnaryToIntegerExpression.class);
@@ -102,8 +104,7 @@ public final class StringUnaryToIntegerExpression extends AbstractExpression<Lon
         if (obj == this) {
             return true;
         }
-        if (obj instanceof StringUnaryToIntegerExpression) {
-            StringUnaryToIntegerExpression other = (StringUnaryToIntegerExpression) obj;
+        if (obj instanceof StringUnaryToIntegerExpression other) {
             return this.op.equals(other.op) && this.expr.equals(other.expr);
         }
 

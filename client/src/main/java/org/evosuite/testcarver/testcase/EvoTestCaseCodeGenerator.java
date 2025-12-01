@@ -216,7 +216,7 @@ public final class EvoTestCaseCodeGenerator implements ICodeGenerator<TestCase> 
             final PrimitiveStatement stringRep = new ImmutableStringPrimitiveStatement(testCase, (String) value);
             final VariableReference stringRepRef = testCase.addStatement(stringRep);
 
-            final MethodStatement m = new MethodStatement(testCase, new GenericMethod(EvoSuiteXStream.class.getMethod("fromString", String.class), EvoSuiteXStream.class), null, Arrays.asList(stringRepRef));
+            final MethodStatement m = new MethodStatement(testCase, new GenericMethod(EvoSuiteXStream.class.getMethod("fromString", String.class), EvoSuiteXStream.class), null, Collections.singletonList(stringRepRef));
             this.oidToVarRefMap.put(oid, testCase.addStatement(m));
         } catch (final Exception e) {
             throw new RuntimeException(e);
@@ -512,7 +512,7 @@ public final class EvoTestCaseCodeGenerator implements ICodeGenerator<TestCase> 
             Class<?> collType = getClassForName(collTypeName);
 
             // -- determine if an alternative collection must be used for code generation
-            final boolean isPublic = java.lang.reflect.Modifier.isPublic(collType.getModifiers());
+            final boolean isPublic = Modifier.isPublic(collType.getModifiers());
             if (!isPublic || !hasDefaultConstructor(collType)) {
                 if (Set.class.isAssignableFrom(collType)) {
                     collTypeName = HashSet.class.getName();
@@ -589,7 +589,7 @@ public final class EvoTestCaseCodeGenerator implements ICodeGenerator<TestCase> 
             Class<?> collType = getClassForName(collTypeName);
 
             // -- determine if an alternative collection must be used for code generation
-            final boolean isPublic = java.lang.reflect.Modifier.isPublic(collType.getModifiers());
+            final boolean isPublic = Modifier.isPublic(collType.getModifiers());
             if (!isPublic || !hasDefaultConstructor(collType)) {
                 collType = HashMap.class;
             }

@@ -28,10 +28,12 @@ import org.evosuite.utils.NumberFormatter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serial;
 import java.lang.reflect.Field;
 
 public class PrimitiveFieldAssertion extends Assertion {
 
+    @Serial
     private static final long serialVersionUID = 2827276810722210456L;
 
     protected transient Field field;

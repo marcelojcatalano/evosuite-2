@@ -35,6 +35,7 @@ import org.evosuite.utils.generic.GenericMethod;
 import org.objectweb.asm.Type;
 
 import java.io.PrintStream;
+import java.io.Serial;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -45,6 +46,7 @@ import java.util.stream.Collectors;
  */
 public class MethodStatement extends EntityWithParametersStatement {
 
+    @Serial
     private static final long serialVersionUID = 6134126797102983073L;
 
     /**
@@ -332,13 +334,13 @@ public class MethodStatement extends EntityWithParametersStatement {
             m = new MethodStatement(newTestCase, method.copy(), newCallee, newParams);
 
         }
-        if (retval instanceof ArrayReference
+        if (retval instanceof ArrayReference reference
                 && !(m.getReturnValue() instanceof ArrayReference)) {
             // logger.info("Copying array retval: " + retval.getGenericClass());
             //	assert (retval.getGenericClass() != null);
             //	assert (retval.getGenericClass().isArray()) : method.toString();
             ArrayReference newRetVal = new ArrayReference(newTestCase,
-                    retval.getGenericClass(), ((ArrayReference) retval).getArrayLength());
+                    retval.getGenericClass(), reference.getArrayLength());
             m.setRetval(newRetVal);
 
         }
@@ -485,8 +487,8 @@ public class MethodStatement extends EntityWithParametersStatement {
 
         if (isInstanceMethod()) {
             references.add(callee);
-            if (callee instanceof ArrayIndex)
-                references.add(((ArrayIndex) callee).getArray());
+            if (callee instanceof ArrayIndex index)
+                references.add(index.getArray());
         }
 
         return references;

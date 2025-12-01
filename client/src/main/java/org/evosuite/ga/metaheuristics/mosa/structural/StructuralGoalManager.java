@@ -24,6 +24,7 @@ import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.TestFitnessFunction;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
@@ -38,6 +39,7 @@ import java.util.Set;
  */
 public abstract class StructuralGoalManager implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -2577487057354286024L;
 
     /**

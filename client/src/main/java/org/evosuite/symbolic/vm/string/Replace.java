@@ -67,9 +67,7 @@ public abstract class Replace extends SymbolicFunction {
                     Types.JAVA_LANG_STRING, SymbolicHeap.$STRING_VALUE,
                     conc_receiver, symb_receiver, conc_receiver);
 
-            if (symb_ret_val instanceof ReferenceConstant) {
-
-                ReferenceConstant non_null_symb_ret_val = (ReferenceConstant) symb_ret_val;
+            if (symb_ret_val instanceof ReferenceConstant non_null_symb_ret_val) {
 
                 StringMultipleExpression symb_value = new StringMultipleExpression(
                         stringReceiverExpr, Operator.REPLACEC, oldCharExpr,
@@ -118,24 +116,16 @@ public abstract class Replace extends SymbolicFunction {
                     Types.JAVA_LANG_STRING, SymbolicHeap.$STRING_VALUE,
                     conc_receiver, symb_receiver, conc_receiver);
 
-            if (symb_old_str instanceof ReferenceConstant
-                    && symb_new_str instanceof ReferenceConstant
-                    && symb_ret_val instanceof ReferenceConstant) {
+            if (symb_old_str instanceof ReferenceConstant non_null_symb_old_str
+                    && symb_new_str instanceof ReferenceConstant non_null_symb_new_str
+                    && symb_ret_val instanceof ReferenceConstant non_null_symb_ret_val) {
 
-                ReferenceConstant non_null_symb_old_str = (ReferenceConstant) symb_old_str;
-                ReferenceConstant non_null_symb_new_str = (ReferenceConstant) symb_new_str;
-                ReferenceConstant non_null_symb_ret_val = (ReferenceConstant) symb_ret_val;
-
-                if (conc_old_char_seq instanceof String
-                        && conc_new_char_seq instanceof String) {
-
-                    String conc_old_str = (String) conc_old_char_seq;
+                if (conc_old_char_seq instanceof String conc_old_str
+                        && conc_new_char_seq instanceof String conc_new_str) {
 
                     StringValue oldStringExpr = env.heap.getField(
                             Types.JAVA_LANG_STRING, SymbolicHeap.$STRING_VALUE,
                             conc_old_str, non_null_symb_old_str, conc_old_str);
-
-                    String conc_new_str = (String) conc_new_char_seq;
 
                     StringValue newStringExpr = env.heap.getField(
                             Types.JAVA_LANG_STRING, SymbolicHeap.$STRING_VALUE,

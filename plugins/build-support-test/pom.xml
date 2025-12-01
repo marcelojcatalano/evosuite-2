@@ -24,6 +24,12 @@
             <artifactId>evosuite-master</artifactId>
             <version>${project.version}</version>
         </dependency>
+<!--  <dependency>
+   <groupId>com.sun.xml.ws</groupId>
+   <artifactId>jaxws-rt</artifactId>
+   <version>2.3.7</version>
+   <scope>provided</scope>
+  </dependency> -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

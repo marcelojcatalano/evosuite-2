@@ -19,8 +19,11 @@
  */
 package org.evosuite.graphs.ccfg;
 
+import java.io.Serial;
+
 public class CCFGFrameEdge extends CCFGEdge {
 
+    @Serial
     private static final long serialVersionUID = 8223049010545407697L;
 
 

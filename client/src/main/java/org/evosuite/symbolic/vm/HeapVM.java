@@ -457,11 +457,9 @@ public final class HeapVM extends AbstractVM {
          * Compute new symbolic state
          */
         Expression<?> symb_value = null;
-        if (value_operand instanceof IntegerOperand) {
-            IntegerOperand intOp = (IntegerOperand) value_operand;
+        if (value_operand instanceof IntegerOperand intOp) {
             symb_value = intOp.getIntegerExpression();
-        } else if (value_operand instanceof RealOperand) {
-            RealOperand realOp = (RealOperand) value_operand;
+        } else if (value_operand instanceof RealOperand realOp) {
             symb_value = realOp.getRealExpression();
         } else if (value_operand instanceof ReferenceOperand) {
 
@@ -938,8 +936,7 @@ public final class HeapVM extends AbstractVM {
 
         Object object = Array.get(conc_array, conc_index);
         int intValue;
-        if (object instanceof Boolean) {
-            boolean booleanValue = (Boolean) object;
+        if (object instanceof Boolean booleanValue) {
             intValue = booleanValue ? 1 : 0;
         } else {
             assert object instanceof Byte;

@@ -177,8 +177,7 @@ public class PropertiesSuiteGAFactory
             case MOSA:
                 logger.info("Chosen search algorithm: MOSA");
 //				return new MOSA(factory);
-                if (factory instanceof TestSuiteChromosomeFactory) {
-                    final TestSuiteChromosomeFactory tscf = (TestSuiteChromosomeFactory) factory;
+                if (factory instanceof TestSuiteChromosomeFactory tscf) {
                     return new MOSATestSuiteAdapter(new MOSA(tscf.getTestChromosomeFactory()));
                 } else {
                     logger.info("No specific factory for test cases given...");
@@ -188,8 +187,7 @@ public class PropertiesSuiteGAFactory
             case DYNAMOSA:
                 logger.info("Chosen search algorithm: DynaMOSA");
 //				return new DynaMOSA(factory);
-                if (factory instanceof TestSuiteChromosomeFactory) {
-                    final TestSuiteChromosomeFactory tscf = (TestSuiteChromosomeFactory) factory;
+                if (factory instanceof TestSuiteChromosomeFactory tscf) {
                     return new MOSATestSuiteAdapter(new DynaMOSA(tscf.getTestChromosomeFactory()));
                 } else {
                     logger.info("No specific factory for test cases given...");
@@ -202,8 +200,7 @@ public class PropertiesSuiteGAFactory
             case MIO:
                 logger.info("Chosen search algorithm: MIO");
 //				return new MIO(factory);
-                if (factory instanceof TestSuiteChromosomeFactory) {
-                    final TestSuiteChromosomeFactory tscf = (TestSuiteChromosomeFactory) factory;
+                if (factory instanceof TestSuiteChromosomeFactory tscf) {
                     return new MIOTestSuiteAdapter(new MIO(tscf.getTestChromosomeFactory()));
                 } else {
                     logger.info("No specific factory for test cases given...");
@@ -219,8 +216,7 @@ public class PropertiesSuiteGAFactory
             case LIPS:
                 logger.info("Chosen search algorithm: LIPS");
 //				return new LIPS(factory);
-                if (factory instanceof TestSuiteChromosomeFactory) {
-                    final TestSuiteChromosomeFactory tscf = (TestSuiteChromosomeFactory) factory;
+                if (factory instanceof TestSuiteChromosomeFactory tscf) {
                     return new LIPSTestSuiteAdapter(new LIPS(tscf.getTestChromosomeFactory()));
                 } else {
                     logger.info("No specific factory for test cases given...");

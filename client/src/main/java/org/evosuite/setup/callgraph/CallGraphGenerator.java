@@ -150,8 +150,8 @@ public class CallGraphGenerator {
         // TODO: This really shouldn't be here but in its own class
         while (iterator.hasNext()) {
             AbstractInsnNode insn = iterator.next();
-            if (insn instanceof MethodInsnNode) {
-                handleMethodInsnNode(callGraph, cn, mn, (MethodInsnNode) insn, depth + 1);
+            if (insn instanceof MethodInsnNode node) {
+                handleMethodInsnNode(callGraph, cn, mn, node, depth + 1);
             }
         }
     }

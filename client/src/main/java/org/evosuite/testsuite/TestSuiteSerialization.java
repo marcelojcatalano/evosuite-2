@@ -117,9 +117,7 @@ public class TestSuiteSerialization {
             try {
                 Object obj = in.readObject();
                 while (obj != null) {
-                    if (obj instanceof TestChromosome) {
-                        //this check might fail if old version is used, and EvoSuite got updated
-                        TestChromosome tc = (TestChromosome) obj;
+                    if (obj instanceof TestChromosome tc) {
                         for (Statement st : tc.getTestCase()) {
                             st.changeClassLoader(TestGenerationContext.getInstance().getClassLoaderForSUT());
                         }

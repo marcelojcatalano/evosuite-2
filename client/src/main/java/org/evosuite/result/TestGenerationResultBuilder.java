@@ -230,13 +230,11 @@ public class TestGenerationResultBuilder {
 
     public void setGeneticAlgorithm(GeneticAlgorithm<?> ga) {
         this.ga = ga;
-        ga.getBestIndividual().getCoverageValues().forEach(targetCoverages::put);
+        targetCoverages.putAll(ga.getBestIndividual().getCoverageValues());
     }
 
     public void setDSEAlgorithm(ExplorationAlgorithmBase dse) {
         this.dse = dse;
-        for (Map.Entry<FitnessFunction<TestSuiteChromosome>, Double> e : dse.getGeneratedTestSuite().getCoverageValues().entrySet()) {
-            targetCoverages.put(e.getKey(), e.getValue());
-        }
+        targetCoverages.putAll(dse.getGeneratedTestSuite().getCoverageValues());
     }
 }

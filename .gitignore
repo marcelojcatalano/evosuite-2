@@ -26,3 +26,6 @@ shaded/dependency-reduced-pom.xml
 standalone_runtime/dependency-reduced-pom.xml
 nbactions.xml
 /client/.metadata/.plugins/org.eclipse.jdt.launching/.install.xml
+/.rewrite-cache/LOG.old.1764645292626918
+/.rewrite-cache/MANIFEST-000009
+/.rewrite-cache/OPTIONS-000012

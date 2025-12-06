@@ -73,7 +73,7 @@ public class TestConstraintSolver1 extends RandomizedTC {
         IntegerConstraint constr2 = new IntegerConstraint(charAt3, Comparator.EQ, const95);
         IntegerConstraint constr3 = new IntegerConstraint(charAt4, Comparator.EQ, const43);
 
-        return Arrays.<Constraint<?>>asList(constr1, constr2, constr3);
+        return Arrays.asList(constr1, constr2, constr3);
     }
 
     @Test

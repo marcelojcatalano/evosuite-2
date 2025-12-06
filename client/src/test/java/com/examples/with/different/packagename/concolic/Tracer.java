@@ -41,7 +41,7 @@ public class Tracer {
 
     // if we see "TRACER" in the logs we know that we have to replace the call -
     // we should not call this class as we can get the line numbers etc!
-    private static Log log = LogFactory.getLog(Tracer.class);
+    private static final Log log = LogFactory.getLog(Tracer.class);
 
     private Tracer() {
     }

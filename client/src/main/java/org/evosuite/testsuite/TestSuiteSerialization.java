@@ -24,6 +24,7 @@ import org.evosuite.runtime.util.Inputs;
 import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.statements.Statement;
 import org.evosuite.utils.DebuggingObjectOutputStream;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

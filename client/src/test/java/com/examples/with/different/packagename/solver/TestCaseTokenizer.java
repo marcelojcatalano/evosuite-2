@@ -30,9 +30,7 @@ public class TestCaseTokenizer {
             String token1 = tokenizer.nextToken();
             if (token1.equals("is")) {
                 String token2 = tokenizer.nextToken();
-                if (token2.equals("Ramon")) {
-                    return true;
-                }
+                return token2.equals("Ramon");
             }
         }
         return false;

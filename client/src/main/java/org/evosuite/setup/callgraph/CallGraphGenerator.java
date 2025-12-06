@@ -172,6 +172,18 @@ public class CallGraphGenerator {
     private static void handleMethodInsnNode(CallGraph callGraph, ClassNode cn, MethodNode mn,
                                              MethodInsnNode methodCall, int depth) {
 
+        // TODO JDK11: Skip JDK internals (no instrumentation allowed)
+        String owner = methodCall.owner;
+        if (owner.startsWith("java/")
+                || owner.startsWith("javax/")
+                || owner.startsWith("jdk/")
+                || owner.startsWith("sun/")
+                || owner.startsWith("com/sun/")
+                || owner.startsWith("org/w3c/")
+                || owner.startsWith("org/xml/")) {
+            return;
+        }
+
         // Only build calltree for instrumentable classes
         if (BytecodeInstrumentation.checkIfCanInstrument(methodCall.owner.replaceAll("/", "."))) {
             logger.debug("Handling method: " + methodCall.name);

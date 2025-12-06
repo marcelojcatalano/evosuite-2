@@ -60,9 +60,7 @@ public class ExceptionInstrumentationSystemTest extends SystemTestBase {
 
         String[] command = new String[]{"-generateSuite", "-class", targetClass};
 
-        StringBuilder s = new StringBuilder();
-        s.append(RuntimeVariable.TryCatchCoverage);
-        Properties.OUTPUT_VARIABLES = s.toString();
+        Properties.OUTPUT_VARIABLES = String.valueOf(RuntimeVariable.TryCatchCoverage);
 
         Object result = evosuite.parseCommandLine(command);
         GeneticAlgorithm<TestSuiteChromosome> ga = getGAFromResult(result);

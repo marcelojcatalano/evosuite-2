@@ -23,6 +23,7 @@ import org.evosuite.TestGenerationContext;
 import org.evosuite.runtime.sandbox.Sandbox;
 import org.evosuite.setup.TestClusterUtils;
 import org.evosuite.utils.LoggingUtils;
+import org.evosuite.utils.ReflectionUtils;
 import org.objectweb.asm.Type;
 
 import java.io.IOException;

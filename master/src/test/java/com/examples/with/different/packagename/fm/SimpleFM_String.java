@@ -29,10 +29,6 @@ public class SimpleFM_String {
     }
 
     public static boolean bar(Foo foo) {
-        if (foo.foo().equals("Bar")) {
-            return true;
-        } else {
-            return false;
-        }
+        return foo.foo().equals("Bar");
     }
 }

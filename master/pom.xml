@@ -180,9 +180,9 @@
         </dependency>
         <dependency> <!--TODO: this is added in parent pom too -->
             <!-- FindBugs Jsr305 -->
-            <groupId>com.github.spotbugs</groupId>
-            <artifactId>spotbugs-annotations</artifactId>
-            <version>${jsr305.version}</version>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
             <scope>test</scope>
         </dependency>
 
@@ -238,26 +238,28 @@
             <artifactId>jakarta.activation-api</artifactId>
             <version>${jakarta.activation-api.version}</version>
         </dependency>
-
-
     </dependencies>
 
 
     <build>
         <plugins>
+
+
+
+
             <!-- be sure classes get shaded -->
-            <!--  <plugin>
-                  <groupId>org.apache.maven.plugins</groupId>
-                  <artifactId>maven-shade-plugin</artifactId>
-          <configuration>
-            <artifactSet>
-                      <excludes>
-                        &lt;!&ndash; the eclipse plugin needs this &ndash;&gt;
-                        <exclude>*:xml-apis</exclude>
-                      </excludes>
-                    </artifactSet>
-          </configuration>
-              </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+		<configuration>
+		  <artifactSet>
+                    <excludes>
+                      <!-- the eclipse plugin needs this -->
+                      <exclude>*:xml-apis</exclude>
+                    </excludes>
+                  </artifactSet>
+		</configuration>
+            </plugin>
 
             <!-- create single jar with also shaded classes, eg ASM -->
             <!-- Need to activate the Java Agent in the manifest of the jar-->

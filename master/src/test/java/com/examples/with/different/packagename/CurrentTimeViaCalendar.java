@@ -20,6 +20,8 @@
 
 package com.examples.with.different.packagename;
 
+import org.evosuite.utils.ReflectionUtils;
+
 import java.util.Calendar;
 
 /**
@@ -28,7 +30,7 @@ import java.util.Calendar;
 public class CurrentTimeViaCalendar {
 
     public long getCurrentTime(long time) {
-        Calendar calendar = Calendar.getInstance();
+        Calendar calendar = ReflectionUtils.newInstanceOf(Calendar.class);
         long currentTime = calendar.getTimeInMillis();
         if (time == currentTime) {
             return currentTime;

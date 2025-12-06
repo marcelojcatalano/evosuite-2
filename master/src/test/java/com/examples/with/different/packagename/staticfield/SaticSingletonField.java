@@ -23,7 +23,7 @@ public class SaticSingletonField {
 
     private int value;
 
-    private static SaticSingletonField instance = new SaticSingletonField();
+    private static final SaticSingletonField instance = new SaticSingletonField();
 
     public static SaticSingletonField getInstance() {
         return instance;

@@ -23,11 +23,7 @@ public class TestCaseNeg {
 
     public static boolean test(int x) {
         int neg = -x;
-        if (neg == 10) {
-            return true;
-        } else {
-            return false;
-        }
+        return neg == 10;
     }
 
 }

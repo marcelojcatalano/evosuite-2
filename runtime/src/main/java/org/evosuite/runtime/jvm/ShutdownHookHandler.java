@@ -23,7 +23,6 @@ import org.evosuite.runtime.sandbox.Sandbox;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.IdentityHashMap;
 import java.util.List;
@@ -59,8 +58,7 @@ public class ShutdownHookHandler {
      * @throws SecurityException
      * @throws NoSuchFieldException
      */
-    @SuppressWarnings("unchecked")
-    private ShutdownHookHandler() {
+    /*private ShutdownHookHandler() {
 
         try {
             Field field = Class.forName("java.lang.ApplicationShutdownHooks").getDeclaredField("hooks");
@@ -68,13 +66,18 @@ public class ShutdownHookHandler {
             hooksReference = (IdentityHashMap<Thread, Thread>) field.get(null);
 
         } catch (Exception e) {
-            /*
-             * This should never happen, unless new JVM do change the API we are
-             * accessing by reflection
-             */
+
             String msg = "Failed to initialize shutdown hook handling";
             logger.error(msg);
         }
+    }*/
+    private ShutdownHookHandler() {
+
+        // En JDK9+ ya no se puede acceder a ApplicationShutdownHooks.
+        // Modo seguro: usamos un mapa vacío y desactivamos la función.
+        this.hooksReference = null;
+
+        logger.debug("ShutdownHookHandler: disabled (JDK9+ no internal access)");
     }
 
     public static ShutdownHookHandler getInstance() {
@@ -129,7 +132,7 @@ public class ShutdownHookHandler {
      */
     public int getNumberOfAllExistingHooks() {
         if (hooksReference == null) {
-            return -1;
+            return 0;
         }
         return hooksReference.size();
     }
@@ -201,6 +204,11 @@ public class ShutdownHookHandler {
     }
 
     private List<Thread> removeNewHooks() {
+
+        if (hooksReference == null) {
+            return null;
+        }
+
         List<Thread> list = getAddedHooks();
         existingHooks = null;
 
@@ -208,11 +216,8 @@ public class ShutdownHookHandler {
             return null;
         }
 
-        //first remove them from JVM hooks
         for (Thread t : list) {
             if (t.getName().equals("CloverShutdownFlusher")) {
-                // Clover uses a shutdown hook to write coverage data.
-                // If we kill this, coverage data may be incomplete.
                 continue;
             }
             hooksReference.remove(t);

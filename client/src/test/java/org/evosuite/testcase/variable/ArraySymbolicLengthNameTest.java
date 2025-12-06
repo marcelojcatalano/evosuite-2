@@ -49,7 +49,7 @@ public class ArraySymbolicLengthNameTest {
     @Test
     public void buildSymbolicLengthDimensionName() {
         String name = ArraySymbolicLengthName.buildSymbolicLengthDimensionName(ARRAY_REFERENCE_NAME_TEST_VALUE, DIMENSION_TEST_VALUE);
-        assertTrue(name.equals(SYMBOLIC_NAME_BUILT_EXPECTED_RESULT));
+        assertEquals(SYMBOLIC_NAME_BUILT_EXPECTED_RESULT, name);
     }
 
 

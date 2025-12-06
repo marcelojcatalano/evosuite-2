@@ -19,10 +19,6 @@
  */
 package org.evosuite.ga.problems.singleobjective;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.evosuite.Properties;
 import org.evosuite.ga.ChromosomeFactory;
 import org.evosuite.ga.FitnessFunction;
@@ -37,6 +33,10 @@ import org.evosuite.ga.variables.DoubleVariable;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.util.Comparator.comparingDouble;
 
@@ -69,7 +69,7 @@ public class TestBeales {
      * @throws NumberFormatException
      */
     @Test
-    public void testBeales() throws NumberFormatException, IOException {
+    public void testBeales() throws Exception {
         Properties.MUTATION_RATE = 1d / 2d;
 
         ChromosomeFactory<NSGAChromosome> factory = new RandomFactory(false, 2, -4.5, 4.5);

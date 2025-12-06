@@ -20,8 +20,7 @@
 
 package org.evosuite.testcase;
 
-import java.util.List;
-
+import com.examples.with.different.packagename.FactoryExample;
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
 import org.evosuite.SystemTestBase;
@@ -31,6 +30,7 @@ import org.evosuite.setup.TestCluster;
 import org.evosuite.testcase.statements.MethodStatement;
 import org.evosuite.testcase.statements.numeric.CharPrimitiveStatement;
 import org.evosuite.testcase.variable.VariableReference;
+import org.evosuite.utils.ReflectionUtils;
 import org.evosuite.utils.generic.GenericAccessibleObject;
 import org.evosuite.utils.generic.GenericConstructor;
 import org.evosuite.utils.generic.GenericField;
@@ -39,7 +39,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.examples.with.different.packagename.FactoryExample;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -48,9 +48,9 @@ import static org.junit.Assert.*;
  */
 public class FactoryTestSystemTest extends SystemTestBase {
 
-    private double P_OBJECT_REUSE = Properties.OBJECT_REUSE_PROBABILITY;
-    private double P_PRIMITIVE_REUSE = Properties.PRIMITIVE_REUSE_PROBABILITY;
-    private boolean ARCHIVE = Properties.TEST_ARCHIVE;
+    private final double P_OBJECT_REUSE = Properties.OBJECT_REUSE_PROBABILITY;
+    private final double P_PRIMITIVE_REUSE = Properties.PRIMITIVE_REUSE_PROBABILITY;
+    private final boolean ARCHIVE = Properties.TEST_ARCHIVE;
 
     @After
     public void restoreProperties() {
@@ -82,8 +82,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testTestCalls() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException {
+    public void testTestCalls() throws Exception {
         List<GenericAccessibleObject<?>> testCalls = TestCluster.getInstance().getTestCalls();
         System.out.println(testCalls.toString());
         assertEquals("Expected 5 test calls, but got: " + testCalls.size() + ": "
@@ -91,8 +90,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testIntegerDependency() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException {
+    public void testIntegerDependency() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
 
         GenericMethod method = new GenericMethod(
@@ -108,8 +106,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testObjectDependencyReuse() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException, ClassNotFoundException {
+    public void testObjectDependencyReuse() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
         GenericMethod method = new GenericMethod(
@@ -130,8 +127,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testObjectDependencyNoReuse() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException, ClassNotFoundException {
+    public void testObjectDependencyNoReuse() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
 
@@ -153,8 +149,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testStaticMethod() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException, ClassNotFoundException {
+    public void testStaticMethod() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
 
@@ -176,8 +171,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testMethodFor() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException, ClassNotFoundException {
+    public void testMethodFor() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
 
@@ -202,8 +196,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test(expected = ConstructionFailedException.class)
-    public void testMethodForWrongPosition() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException, ClassNotFoundException {
+    public void testMethodForWrongPosition() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
 
@@ -218,8 +211,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testAddConstructor() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException, ClassNotFoundException {
+    public void testAddConstructor() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
 
@@ -240,8 +232,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testAddField() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException, NoSuchFieldException, ClassNotFoundException {
+    public void testAddField() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
 
@@ -257,8 +248,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testAddFieldReuse() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException, NoSuchFieldException, ClassNotFoundException {
+    public void testAddFieldReuse() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
 
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
@@ -282,8 +272,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testAddFieldNoreuse() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException, NoSuchFieldException, ClassNotFoundException {
+    public void testAddFieldNoreuse() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
 
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
@@ -309,8 +298,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testFieldFor() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException, ClassNotFoundException, NoSuchFieldException {
+    public void testFieldFor() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
 
@@ -335,8 +323,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test(expected = ConstructionFailedException.class)
-    public void testFieldForWrongPosition() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException, ClassNotFoundException, NoSuchFieldException {
+    public void testFieldForWrongPosition() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
 
@@ -351,8 +338,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testAddFieldAssignment() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException, NoSuchFieldException, ClassNotFoundException {
+    public void testAddFieldAssignment() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
 
@@ -368,8 +354,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testAddFieldAssignmentReuse() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException, NoSuchFieldException, ClassNotFoundException {
+    public void testAddFieldAssignmentReuse() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
 
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
@@ -393,8 +378,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testAddFieldAssignmentNoreuse() throws ConstructionFailedException,
-            NoSuchMethodException, SecurityException, NoSuchFieldException, ClassNotFoundException {
+    public void testAddFieldAssignmentNoreuse() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
 
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
@@ -419,7 +403,7 @@ public class FactoryTestSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testGetCandidatesForReuse() throws ClassNotFoundException, NoSuchFieldException, ConstructionFailedException, NoSuchMethodException {
+    public void testGetCandidatesForReuse() throws Exception {
         TestFactory testFactory = TestFactory.getInstance();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(FactoryExample.class.getCanonicalName());
 

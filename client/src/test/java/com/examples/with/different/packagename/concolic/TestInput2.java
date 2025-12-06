@@ -71,7 +71,7 @@ public class TestInput2 {
         } catch (Throwable t_instrument) {
         }
         try {
-            if (!(A != null)) {
+            if (A == null) {
                 inv_violation();
             }
         } catch (ThreadDeath t_instrument) {
@@ -103,7 +103,7 @@ public class TestInput2 {
         } catch (Throwable t_instrument) {
         }
         try {
-            if (!(p != daikon_Quant_size(A))) {
+            if (p == daikon_Quant_size(A)) {
                 inv_violation();
             }
         } catch (ThreadDeath t_instrument) {
@@ -111,7 +111,7 @@ public class TestInput2 {
         } catch (Throwable t_instrument) {
         }
         try {
-            if (!(p != daikon_Quant_size(A) - 1)) {
+            if (p == daikon_Quant_size(A) - 1) {
                 inv_violation();
             }
         } catch (ThreadDeath t_instrument) {
@@ -127,7 +127,7 @@ public class TestInput2 {
         } catch (Throwable t_instrument) {
         }
         try {
-            if (!(daikon_Quant_size(A) != daikon_Quant_getElement_int(A, ic))) {
+            if (daikon_Quant_size(A) == daikon_Quant_getElement_int(A, ic)) {
                 inv_violation();
             }
         } catch (ThreadDeath t_instrument) {
@@ -135,7 +135,7 @@ public class TestInput2 {
         } catch (Throwable t_instrument) {
         }
         try {
-            if (!(daikon_Quant_size(A) != daikon_Quant_getElement_int(A, n))) {
+            if (daikon_Quant_size(A) == daikon_Quant_getElement_int(A, n)) {
                 inv_violation();
             }
         } catch (ThreadDeath t_instrument) {

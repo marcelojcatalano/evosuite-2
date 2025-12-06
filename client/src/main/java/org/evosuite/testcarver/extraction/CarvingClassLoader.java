@@ -24,6 +24,7 @@ import org.evosuite.classpath.ResourceList;
 import org.evosuite.runtime.instrumentation.JSRInlinerClassVisitor;
 import org.evosuite.runtime.instrumentation.RuntimeInstrumentation;
 import org.evosuite.testcarver.instrument.Instrumenter;
+import org.evosuite.utils.ReflectionUtils;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;

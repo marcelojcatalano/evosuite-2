@@ -26,7 +26,7 @@ import java.util.Random;
  */
 public class CoverageIssue {
 
-    private static Random rnd = new Random();
+    private static final Random rnd = new Random();
 
     public static boolean getNextBoolean(double prob) {
         return rnd.nextBoolean();

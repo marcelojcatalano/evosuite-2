@@ -20,8 +20,7 @@
 package com.examples.with.different.packagename.testcarver;
 
 import junit.framework.TestSuite;
-
-import com.examples.with.different.packagename.testcarver.Converter;
+import org.junit.Assert;
 
 
 /**
@@ -45,10 +44,10 @@ public class IntegerConverterTestCase extends NumberConverterTestBase {
 
     public void setUp() throws Exception {
         converter = makeConverter();
-        numbers[0] = new Integer("-12");
-        numbers[1] = new Integer("13");
-        numbers[2] = new Integer("-22");
-        numbers[3] = new Integer("23");
+        numbers[0] = Integer.valueOf("-12");
+        numbers[1] = Integer.valueOf("13");
+        numbers[2] = Integer.valueOf("-22");
+        numbers[3] = Integer.valueOf("23");
     }
 
     public static TestSuite suite() {
@@ -125,9 +124,9 @@ public class IntegerConverterTestCase extends NumberConverterTestBase {
         };
 
         for (int i = 0; i < expected.length; i++) {
-            assertEquals(message[i] + " to Integer", expected[i], converter.convert(Integer.class, input[i]));
-            assertEquals(message[i] + " to int", expected[i], converter.convert(Integer.TYPE, input[i]));
-            assertEquals(message[i] + " to null type", expected[i], converter.convert(null, input[i]));
+            Assert.assertEquals(message[i] + " to Integer", expected[i], converter.convert(Integer.class, input[i]));
+            Assert.assertEquals(message[i] + " to int", expected[i], converter.convert(Integer.TYPE, input[i]));
+            Assert.assertEquals(message[i] + " to null type", expected[i], converter.convert(null, input[i]));
         }
     }
 
@@ -144,23 +143,23 @@ public class IntegerConverterTestCase extends NumberConverterTestBase {
         Long maxPlusOne = max + 1;
 
         // Minimum
-        assertEquals("Minimum", Integer.MIN_VALUE, converter.convert(clazz, min));
+        Assert.assertEquals("Minimum", Integer.MIN_VALUE, converter.convert(clazz, min));
 
         // Maximum
-        assertEquals("Maximum", Integer.MAX_VALUE, converter.convert(clazz, max));
+        Assert.assertEquals("Maximum", Integer.MAX_VALUE, converter.convert(clazz, max));
 
         // Too Small
         try {
-            assertNull("Minimum - 1", converter.convert(clazz, minMinusOne));
-            fail("Less than minimum, expected ConversionException");
+            Assert.assertNull("Minimum - 1", converter.convert(clazz, minMinusOne));
+            Assert.fail("Less than minimum, expected ConversionException");
         } catch (Exception e) {
             // expected result
         }
 
         // Too Large
         try {
-            assertNull("Maximum + 1", converter.convert(clazz, maxPlusOne));
-            fail("More than maximum, expected ConversionException");
+            Assert.assertNull("Maximum + 1", converter.convert(clazz, maxPlusOne));
+            Assert.fail("More than maximum, expected ConversionException");
         } catch (Exception e) {
             // expected result
         }

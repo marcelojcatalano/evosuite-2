@@ -19,11 +19,10 @@
  */
 package org.evosuite.coverage;
 
-import com.opencsv.CSVReader;
 import com.examples.with.different.packagename.Calculator;
 import com.examples.with.different.packagename.PureEnum;
 import com.examples.with.different.packagename.mutation.MutationPropagation;
-import com.opencsv.exceptions.CsvException;
+import com.opencsv.CSVReader;
 import org.apache.commons.io.FileUtils;
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
@@ -39,7 +38,6 @@ import java.io.IOException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Created by jrojas
@@ -57,7 +55,7 @@ public class CoveredGoalsCountSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testCoveredGoalsCountCSV_SingleCriterion() throws IOException, CsvException {
+    public void testCoveredGoalsCountCSV_SingleCriterion() throws Exception {
 
         EvoSuite evosuite = new EvoSuite();
 
@@ -94,7 +92,7 @@ public class CoveredGoalsCountSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testCoveredGoalsCountCSV_MultipleCriterion() throws IOException, CsvException {
+    public void testCoveredGoalsCountCSV_MultipleCriterion() throws Exception {
 
         EvoSuite evosuite = new EvoSuite();
 
@@ -133,7 +131,7 @@ public class CoveredGoalsCountSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testCoveredGoalsCountCSV_WithMinimizationTimeout() throws IOException, CsvException {
+    public void testCoveredGoalsCountCSV_WithMinimizationTimeout() throws Exception {
 
         EvoSuite evosuite = new EvoSuite();
 
@@ -172,7 +170,7 @@ public class CoveredGoalsCountSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testCoveredGoalsCountCSV_SingleCriterionBranch_Enums() throws IOException, CsvException {
+    public void testCoveredGoalsCountCSV_SingleCriterionBranch_Enums() throws Exception {
 
         EvoSuite evosuite = new EvoSuite();
 
@@ -210,7 +208,7 @@ public class CoveredGoalsCountSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testCoveredGoalsCountCSV_SingleCriterionBranch_Random_Enums() throws IOException, CsvException {
+    public void testCoveredGoalsCountCSV_SingleCriterionBranch_Random_Enums() throws Exception {
 
         EvoSuite evosuite = new EvoSuite();
 

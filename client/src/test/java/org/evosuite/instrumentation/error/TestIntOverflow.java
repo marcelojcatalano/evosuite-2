@@ -35,8 +35,8 @@ import static org.junit.Assert.assertTrue;
 @RunWith(Parameterized.class)
 public class TestIntOverflow {
 
-    private int x;
-    private int y;
+    private final int x;
+    private final int y;
 
     // Creates the test data
     @Parameters

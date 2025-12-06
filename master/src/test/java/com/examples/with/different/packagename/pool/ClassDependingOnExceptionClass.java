@@ -23,9 +23,6 @@ public class ClassDependingOnExceptionClass {
 
 
     public boolean testMe(DependencyClassWithException other) {
-        if (other.isFoo())
-            return true;
-        else
-            return false;
+        return other.isFoo();
     }
 }

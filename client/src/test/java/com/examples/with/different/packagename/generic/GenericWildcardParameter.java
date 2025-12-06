@@ -28,9 +28,6 @@ import java.util.List;
 public class GenericWildcardParameter {
 
     public boolean testMe(List<?> list) {
-        if (list.size() == 2)
-            return true;
-        else
-            return false;
+        return list.size() == 2;
     }
 }

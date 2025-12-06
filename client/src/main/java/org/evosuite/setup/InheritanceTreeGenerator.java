@@ -20,6 +20,7 @@
 package org.evosuite.setup;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.security.AnyTypePermission;
 import org.evosuite.ClientProcess;
 import org.evosuite.PackageInfo;
 import org.evosuite.Properties;
@@ -28,6 +29,7 @@ import org.evosuite.classpath.ResourceList;
 import org.evosuite.rmi.ClientServices;
 import org.evosuite.statistics.RuntimeVariable;
 import org.evosuite.utils.LoggingUtils;
+import org.evosuite.utils.ReflectionUtils;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.ClassNode;
@@ -38,6 +40,8 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.regex.Pattern;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
@@ -75,11 +79,15 @@ public class InheritanceTreeGenerator {
             }
         }
 
+        // TODO JDK11: Snapshot loader disabled temporarily (no more access to internal JDK XML)
+        // Commented for Phase 2 migration
         logger.debug("Reading JDK data");
-        InheritanceTree inheritanceTree = readJDKData();
+      /*  InheritanceTree inheritanceTree = readJDKData();
         if (inheritanceTree == null) {
             inheritanceTree = new InheritanceTree();
         }
+*/
+        InheritanceTree inheritanceTree = new InheritanceTree();
 
         logger.debug("CP: {}", classPath);
         for (String classPathEntry : classPath) {
@@ -92,16 +100,35 @@ public class InheritanceTreeGenerator {
 
             logger.debug("Analyzing classpath entry {}", classPathEntry);
             LoggingUtils.getEvoLogger().info("  - " + classPathEntry);
-            for (String className : ResourceList.getInstance(
-                    TestGenerationContext.getInstance().getClassLoaderForSUT()).getAllClasses(classPathEntry, "", true, false)) {
-                // handle individual class
-                analyzeClassStream(inheritanceTree, ResourceList.getInstance(
-                        TestGenerationContext.getInstance().getClassLoaderForSUT()).getClassAsStream(className), false);
-            }
+            // TODO JDK11: skip JDK and forbidden packages
+            // handle individual class
+
+            getResourceListClassLoader()
+                    .getAllClasses(classPathEntry, "", true, false).stream()
+                    .filter(noneOfTheseClasses.get())
+                    .forEach(className -> getAVoid(className, inheritanceTree));
 
             // analyze(inheritanceTree, classPathEntry);
         }
+
+
         return inheritanceTree;
+    }
+
+    private static void getAVoid(String className, InheritanceTree inheritanceTree) {
+        analyzeClassStream(inheritanceTree, getResourceListClassLoader().getClassAsStream(className), false);
+    }
+
+    static Supplier<Predicate<String>> noneOfTheseClasses = () -> className -> !className.startsWith("java/")
+            && !className.startsWith("javax/")
+            && !className.startsWith("sun/")
+            && !className.startsWith("jdk/")
+            && !className.startsWith("com/sun/")
+            && !className.startsWith("org/w3c/")
+            && !className.startsWith("org/xml/");
+
+    private static ResourceList getResourceListClassLoader() {
+        return ResourceList.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT());
     }
 
     /**
@@ -202,7 +229,7 @@ public class InheritanceTreeGenerator {
     }
 
     private static void analyzeDirectory(InheritanceTree inheritanceTree, File directory) {
-        for (File file : directory.listFiles()) {
+        for (File file : Objects.requireNonNull(directory.listFiles())) {
             analyze(inheritanceTree, file);
         }
     }
@@ -217,8 +244,7 @@ public class InheritanceTreeGenerator {
 
     private static void analyzeClassName(InheritanceTree inheritanceTree, String className) {
 
-        InputStream stream = ResourceList.getInstance(
-                TestGenerationContext.getInstance().getClassLoaderForSUT()).getClassAsStream(className);
+        InputStream stream = getResourceListClassLoader().getClassAsStream(className);
         if (stream == null) {
             throw new IllegalArgumentException("Failed to locate/load class: " + className);
         }
@@ -233,10 +259,13 @@ public class InheritanceTreeGenerator {
             ClassReader reader = new ClassReader(inputStream);
             inputStream.close();
 
-            ClassNode cn = new ClassNode();
-            reader.accept(cn, ClassReader.SKIP_FRAMES | ClassReader.SKIP_DEBUG
-                    | ClassReader.SKIP_CODE);
-            analyzeClassNode(inheritanceTree, cn, onlyPublic);
+            ClassNode node = new ClassNode();
+//            reader.accept(cn, ClassReader.SKIP_FRAMES | ClassReader.SKIP_DEBUG
+//                    | ClassReader.SKIP_CODE);
+            // TODO JDK11: safer ASM flags
+            reader.accept(node, ClassReader.SKIP_FRAMES | ClassReader.SKIP_DEBUG);
+
+            analyzeClassNode(inheritanceTree, node, onlyPublic);
 
 
         } catch (IOException e) {
@@ -409,8 +438,7 @@ public class InheritanceTreeGenerator {
                 continue;
             }
 
-            InputStream stream = ResourceList.getInstance(
-                    TestGenerationContext.getInstance().getClassLoaderForSUT()).getClassAsStream(name);
+            InputStream stream = getResourceListClassLoader().getClassAsStream(name);
 
             if (stream == null) {
                 logger.warn("Cannot open/find " + name);
@@ -426,7 +454,7 @@ public class InheritanceTreeGenerator {
         try {
             FileOutputStream stream = new FileOutputStream(new File(resourceFolder + jdkFile));
             XStream xstream = new XStream();
-            XStream.setupDefaultSecurity(xstream);
+          //  XStream.setupDefaultSecurity(xstream);
             xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
             xstream.toXML(inheritanceTree, stream);
         } catch (FileNotFoundException e) {
@@ -436,7 +464,8 @@ public class InheritanceTreeGenerator {
 
     public static InheritanceTree readJDKData() {
         XStream xstream = new XStream();
-        XStream.setupDefaultSecurity(xstream);
+        xstream.addPermission(new AnyTypePermission());
+        // XStream.setupDefaultSecurity(xstream);
         xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
 
         String fileName;
@@ -458,7 +487,7 @@ public class InheritanceTreeGenerator {
 
     public static InheritanceTree readInheritanceTree(String fileName) throws IOException {
         XStream xstream = new XStream();
-        XStream.setupDefaultSecurity(xstream);
+      //  XStream.setupDefaultSecurity(xstream);
         xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
         GZIPInputStream inheritance = new GZIPInputStream(new FileInputStream(new File(fileName)));
         return (InheritanceTree) xstream.fromXML(inheritance);
@@ -467,7 +496,7 @@ public class InheritanceTreeGenerator {
     public static InheritanceTree readUncompressedInheritanceTree(String fileName)
             throws IOException {
         XStream xstream = new XStream();
-        XStream.setupDefaultSecurity(xstream);
+        // XStream.setupDefaultSecurity(xstream);
         xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
         try (InputStream inheritance = new FileInputStream(fileName)) {
             return (InheritanceTree) xstream.fromXML(inheritance);
@@ -476,7 +505,7 @@ public class InheritanceTreeGenerator {
 
     public static void writeInheritanceTree(InheritanceTree tree, File file) throws IOException {
         XStream xstream = new XStream();
-        XStream.setupDefaultSecurity(xstream);
+       // XStream.setupDefaultSecurity(xstream);
         xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
         try (GZIPOutputStream output = new GZIPOutputStream(new FileOutputStream(file))) {
             xstream.toXML(tree, output);
@@ -498,8 +527,7 @@ public class InheritanceTreeGenerator {
             if (element.contains("evosuite"))
                 continue;
             try {
-                retval.addAll(ResourceList.getInstance(
-                        TestGenerationContext.getInstance().getClassLoaderForSUT()).getAllClasses(element, "", true, true));
+                retval.addAll(getResourceListClassLoader().getAllClasses(element, "", true, true));
             } catch (IllegalArgumentException e) {
                 System.err.println("Does not exist: " + element);
             }

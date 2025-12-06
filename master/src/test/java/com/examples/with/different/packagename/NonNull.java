@@ -26,12 +26,12 @@ public class NonNull {
 
     public NonNull(@Nonnull Object a) {
         // do nothing
-        System.out.println(a.toString());
+        System.out.println(a);
     }
 
     public void call1(@Nonnull Object o) {
         // call2(a);
-        System.out.println(o.toString());
+        System.out.println(o);
     }
 
 

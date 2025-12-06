@@ -35,6 +35,7 @@ import org.evosuite.symbolic.dse.DSEStrategyFactory;
 import org.evosuite.testcase.execution.ExecutionTraceImpl;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.utils.LoggingUtils;
+import org.evosuite.utils.ReflectionUtils;
 import org.objectweb.asm.Opcodes;
 
 import java.util.Map;

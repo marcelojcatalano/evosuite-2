@@ -30,7 +30,6 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -147,7 +146,7 @@ public class BaseDeterminismSystemTest {
 
     private static String filter(String s) {
 
-        List<String> skip = Arrays.asList("sun.reflect.GeneratedMethodAccessor");
+        List<String> skip = List.of("sun.reflect.GeneratedMethodAccessor");
 
         StringBuffer buffer = new StringBuffer(s.length());
         Scanner scanner = new Scanner(s);

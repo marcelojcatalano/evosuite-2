@@ -36,6 +36,7 @@ import org.evosuite.testcase.statements.*;
 import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.utils.IterUtil;
 import org.evosuite.utils.Randomness;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -72,7 +73,7 @@ public class MAPElites extends GeneticAlgorithm<TestChromosome> {
     private final List<TestChromosome> bestIndividuals;
 
     private static final List<FeatureVector> IGNORE_VECTORS =
-            Arrays.asList(new FeatureVector(new Inspector[0], null));
+            List.of(new FeatureVector(new Inspector[0], null));
 
     private final CrossOverFunction<TestChromosome> crossoverFunction = new SinglePointCrossOver<>();
 
@@ -129,7 +130,7 @@ public class MAPElites extends GeneticAlgorithm<TestChromosome> {
      * @return The chromosomes to be mutated
      */
     private Set<TestChromosome> getToMutateAll() {
-        Set<TestChromosome> toMutate = new LinkedHashSet<>(populationMap.values().size());
+        Set<TestChromosome> toMutate = new LinkedHashSet<>(populationMap.size());
 
         for (Map<FeatureVector, TestChromosome> entry : populationMap.values()) {
             TestChromosome chromosome = Randomness.choice(entry.values());

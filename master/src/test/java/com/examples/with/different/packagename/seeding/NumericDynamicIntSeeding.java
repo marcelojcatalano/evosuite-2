@@ -25,7 +25,7 @@ package com.examples.with.different.packagename.seeding;
 
 public class NumericDynamicIntSeeding {
 
-    private static int CONSTANT = 1500;
+    private static final int CONSTANT = 1500;
 
     public static int check(int a) {
         if (a == Integer.MAX_VALUE - CONSTANT) {

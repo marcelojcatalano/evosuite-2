@@ -547,7 +547,7 @@ public abstract class JUnitAnalyzer {
             JUnitResult result = runTests(testClasses, dir);
 
             if (!result.wasSuccessful()) {
-                logger.error("" + result.getFailureCount() + " test cases failed");
+                logger.error(result.getFailureCount() + " test cases failed");
                 for (JUnitFailure failure : result.getFailures()) {
                     logger.error("Failure " + failure.getExceptionClassName() + ": "
                             + failure.getMessage() + "\n" + failure.getTrace());

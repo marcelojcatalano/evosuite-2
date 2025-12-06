@@ -151,7 +151,7 @@ public class ResourceListTest {
         Collection<String> classes = ResourceList.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT()).getAllClasses(
                 ClassPathHandler.getInstance().getTargetProjectClasspath(), basePrefix, true);
         Assert.assertTrue(classes.contains(Foo.class.getName()));
-        Assert.assertTrue("" + Arrays.toString(classes.toArray()), classes.contains(Foo.InternalFooClass.class.getName()));
+        Assert.assertTrue(Arrays.toString(classes.toArray()), classes.contains(Foo.InternalFooClass.class.getName()));
         Assert.assertEquals(3, classes.size());//there is also SubPFoo
     }
 
@@ -160,7 +160,7 @@ public class ResourceListTest {
         Collection<String> classes = ResourceList.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT()).getAllClasses(
                 ClassPathHandler.getInstance().getTargetProjectClasspath(), basePrefix, true, false);
         Assert.assertTrue(classes.contains(Foo.class.getName()));
-        Assert.assertTrue("" + Arrays.toString(classes.toArray()), classes.contains(Foo.InternalFooClass.class.getName()));
+        Assert.assertTrue(Arrays.toString(classes.toArray()), classes.contains(Foo.InternalFooClass.class.getName()));
         Assert.assertEquals(4, classes.size());//there is also SubPFoo
     }
 
@@ -176,7 +176,5 @@ public class ResourceListTest {
 
     private class ResourceListFoo {
     }
-
-    ;
 
 }

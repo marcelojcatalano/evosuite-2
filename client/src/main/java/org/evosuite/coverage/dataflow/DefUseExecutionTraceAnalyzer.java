@@ -25,6 +25,7 @@ import org.evosuite.graphs.cfg.BytecodeInstruction;
 import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testcase.execution.ExecutionTrace;
 import org.evosuite.testcase.execution.MethodCall;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.util.*;
 

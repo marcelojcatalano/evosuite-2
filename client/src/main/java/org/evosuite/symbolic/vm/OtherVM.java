@@ -45,7 +45,6 @@ public final class OtherVM extends AbstractVM {
         // discard symbolic argument
         this.env.topFrame().operandStack.popRef();
         // ignore this instruction
-        return;
     }
 
     @Override
@@ -53,7 +52,6 @@ public final class OtherVM extends AbstractVM {
         // discard symbolic argument
         this.env.topFrame().operandStack.popRef();
         // ignore this instruction
-        return;
     }
 
     @Override

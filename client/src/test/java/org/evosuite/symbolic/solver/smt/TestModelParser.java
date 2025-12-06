@@ -19,10 +19,7 @@
  */
 package org.evosuite.symbolic.solver.smt;
 
-import org.evosuite.symbolic.solver.SolverErrorException;
-import org.evosuite.symbolic.solver.SolverParseException;
 import org.evosuite.symbolic.solver.SolverResult;
-import org.evosuite.symbolic.solver.SolverTimeoutException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -31,14 +28,12 @@ import static org.junit.Assert.assertTrue;
 public class TestModelParser {
 
     @Test
-    public void parseIntegerValues() throws SolverParseException, SolverErrorException, SolverTimeoutException {
-        StringBuilder buff = new StringBuilder();
-        buff.append("sat\n");
-        buff.append("(model\n");
-        buff.append("(define-fun var0 () Int 0)\n");
-        buff.append("(define-fun var1 () Int 10)\n");
-        buff.append(")\n");
-        String result_str = buff.toString();
+    public void parseIntegerValues() throws Exception {
+        String result_str = "sat\n" +
+                "(model\n" +
+                "(define-fun var0 () Int 0)\n" +
+                "(define-fun var1 () Int 10)\n" +
+                ")\n";
         SmtModelParser parser = new SmtModelParser();
         SolverResult solution = parser.parse(result_str);
         assertTrue(solution.isSAT());
@@ -47,13 +42,11 @@ public class TestModelParser {
     }
 
     @Test
-    public void parseBlankStringSolution() throws SolverParseException, SolverErrorException, SolverTimeoutException {
-        StringBuilder buff = new StringBuilder();
-        buff.append("sat\n");
-        buff.append("(model\n");
-        buff.append("(define-fun var8 () String \" \")\n");
-        buff.append(")\n");
-        String result_str = buff.toString();
+    public void parseBlankStringSolution() throws Exception {
+        String result_str = "sat\n" +
+                "(model\n" +
+                "(define-fun var8 () String \" \")\n" +
+                ")\n";
         SmtModelParser parser = new SmtModelParser();
         SolverResult solution = parser.parse(result_str);
         assertTrue(solution.isSAT());
@@ -61,13 +54,11 @@ public class TestModelParser {
     }
 
     @Test
-    public void parseEmptyStringSolution() throws SolverParseException, SolverErrorException, SolverTimeoutException {
-        StringBuilder buff = new StringBuilder();
-        buff.append("sat\n");
-        buff.append("(model\n");
-        buff.append("(define-fun var8 () String \"\")\n");
-        buff.append(")\n");
-        String result_str = buff.toString();
+    public void parseEmptyStringSolution() throws Exception {
+        String result_str = "sat\n" +
+                "(model\n" +
+                "(define-fun var8 () String \"\")\n" +
+                ")\n";
         SmtModelParser parser = new SmtModelParser();
         SolverResult solution = parser.parse(result_str);
         assertTrue(solution.isSAT());
@@ -75,13 +66,11 @@ public class TestModelParser {
     }
 
     @Test
-    public void parseSingleStringSolution() throws SolverParseException, SolverErrorException, SolverTimeoutException {
-        StringBuilder buff = new StringBuilder();
-        buff.append("sat\n");
-        buff.append("(model\n");
-        buff.append("(define-fun var8 () String \"Hello\")\n");
-        buff.append(")\n");
-        String result_str = buff.toString();
+    public void parseSingleStringSolution() throws Exception {
+        String result_str = "sat\n" +
+                "(model\n" +
+                "(define-fun var8 () String \"Hello\")\n" +
+                ")\n";
         SmtModelParser parser = new SmtModelParser();
         SolverResult solution = parser.parse(result_str);
         assertTrue(solution.isSAT());
@@ -90,13 +79,11 @@ public class TestModelParser {
 
     @Test
     public void parseSingleLineStringSolution()
-            throws SolverParseException, SolverErrorException, SolverTimeoutException {
-        StringBuilder buff = new StringBuilder();
-        buff.append("sat\n");
-        buff.append("(model\n");
-        buff.append("(define-fun var8 () String \"Hello World\")\n");
-        buff.append(")\n");
-        String result_str = buff.toString();
+            throws Exception {
+        String result_str = "sat\n" +
+                "(model\n" +
+                "(define-fun var8 () String \"Hello World\")\n" +
+                ")\n";
         SmtModelParser parser = new SmtModelParser();
         SolverResult solution = parser.parse(result_str);
         assertTrue(solution.isSAT());
@@ -104,13 +91,11 @@ public class TestModelParser {
     }
 
     @Test
-    public void parseMultiLineSolution() throws SolverParseException, SolverErrorException, SolverTimeoutException {
-        StringBuilder buff = new StringBuilder();
-        buff.append("sat\n");
-        buff.append("(model\n");
-        buff.append("(define-fun var8 () String \"Hello\nBeautiful\nWorld\")\n");
-        buff.append(")\n");
-        String result_str = buff.toString();
+    public void parseMultiLineSolution() throws Exception {
+        String result_str = "sat\n" +
+                "(model\n" +
+                "(define-fun var8 () String \"Hello\nBeautiful\nWorld\")\n" +
+                ")\n";
         SmtModelParser parser = new SmtModelParser();
         SolverResult solution = parser.parse(result_str);
         assertTrue(solution.isSAT());
@@ -118,14 +103,12 @@ public class TestModelParser {
     }
 
     @Test
-    public void parseRealZeroValues() throws SolverParseException, SolverErrorException, SolverTimeoutException {
-        StringBuilder buff = new StringBuilder();
-        buff.append("sat\n");
-        buff.append("(model\n");
-        buff.append("  (define-fun var0 () Real 0.0 )\n");
-        buff.append("  (define-fun var1 () Real 0.0 )\n");
-        buff.append(")\n");
-        String result_str = buff.toString();
+    public void parseRealZeroValues() throws Exception {
+        String result_str = "sat\n" +
+                "(model\n" +
+                "  (define-fun var0 () Real 0.0 )\n" +
+                "  (define-fun var1 () Real 0.0 )\n" +
+                ")\n";
         SmtModelParser parser = new SmtModelParser();
         SolverResult solution = parser.parse(result_str);
         assertTrue(solution.isSAT());
@@ -134,14 +117,12 @@ public class TestModelParser {
     }
 
     @Test
-    public void parseRationalValues() throws SolverParseException, SolverErrorException, SolverTimeoutException {
-        StringBuilder buff = new StringBuilder();
-        buff.append("sat\n");
-        buff.append("(model\n");
-        buff.append("  (define-fun var0 () Real 0.0)\n");
-        buff.append("  (define-fun var1 () Real (/ 3141592653589793 1000000000000000))\n");
-        buff.append(")\n");
-        String result_str = buff.toString();
+    public void parseRationalValues() throws Exception {
+        String result_str = "sat\n" +
+                "(model\n" +
+                "  (define-fun var0 () Real 0.0)\n" +
+                "  (define-fun var1 () Real (/ 3141592653589793 1000000000000000))\n" +
+                ")\n";
         SmtModelParser parser = new SmtModelParser();
         SolverResult solution = parser.parse(result_str);
         assertTrue(solution.isSAT());
@@ -150,14 +131,12 @@ public class TestModelParser {
     }
 
     @Test
-    public void parseEncodedString() throws SolverParseException, SolverErrorException, SolverTimeoutException {
-        StringBuilder buff = new StringBuilder();
-        buff.append("sat\n");
-        buff.append("(model\n");
-        buff.append("  (define-fun var0 () String\n");
-        buff.append("      \"\\x00\\x00\\x00\\x00\\x00\")\n");
-        buff.append(")\n");
-        String result_str = buff.toString();
+    public void parseEncodedString() throws Exception {
+        String result_str = "sat\n" +
+                "(model\n" +
+                "  (define-fun var0 () String\n" +
+                "      \"\\x00\\x00\\x00\\x00\\x00\")\n" +
+                ")\n";
         SmtModelParser parser = new SmtModelParser();
         SolverResult solution = parser.parse(result_str);
         assertTrue(solution.isSAT());
@@ -165,24 +144,22 @@ public class TestModelParser {
     }
 
     @Test
-    public void parseEscapedChars() throws SolverParseException, SolverErrorException, SolverTimeoutException {
-        StringBuilder buff = new StringBuilder();
-        buff.append("sat\n");
-        buff.append("(model\n");
-        buff.append("  (define-fun var0 () String\n");
-        buff.append("      \"\\\\ \")\n");
-        buff.append("  (define-fun var1 () String\n");
-        buff.append("      \"\\n \")\n");
-        buff.append("  (define-fun var2 () String\n");
-        buff.append("      \"\\t \")\n");
-        buff.append("  (define-fun var3 () String\n");
-        buff.append("      \"\\b \")\n");
-        buff.append("  (define-fun var4 () String\n");
-        buff.append("      \"\\\\x00\")\n");
-        buff.append("  (define-fun var5 () String\n");
-        buff.append("      \"Hello\\x00World\")\n");
-        buff.append(")\n");
-        String result_str = buff.toString();
+    public void parseEscapedChars() throws Exception {
+        String result_str = "sat\n" +
+                "(model\n" +
+                "  (define-fun var0 () String\n" +
+                "      \"\\\\ \")\n" +
+                "  (define-fun var1 () String\n" +
+                "      \"\\n \")\n" +
+                "  (define-fun var2 () String\n" +
+                "      \"\\t \")\n" +
+                "  (define-fun var3 () String\n" +
+                "      \"\\b \")\n" +
+                "  (define-fun var4 () String\n" +
+                "      \"\\\\x00\")\n" +
+                "  (define-fun var5 () String\n" +
+                "      \"Hello\\x00World\")\n" +
+                ")\n";
         SmtModelParser parser = new SmtModelParser();
         SolverResult solution = parser.parse(result_str);
         assertTrue(solution.isSAT());
@@ -196,15 +173,13 @@ public class TestModelParser {
     }
 
     @Test
-    public void parseChar01() throws SolverParseException, SolverErrorException, SolverTimeoutException {
-        StringBuilder buff = new StringBuilder();
-        buff.append("sat\n");
-        buff.append("(model\n");
-        buff.append(" (define-fun var0 () String\n");
-        buff.append("  \"\\x01\")\n");
-        buff.append(")\n");
+    public void parseChar01() throws Exception {
 
-        String result_str = buff.toString();
+        String result_str = "sat\n" +
+                "(model\n" +
+                " (define-fun var0 () String\n" +
+                "  \"\\x01\")\n" +
+                ")\n";
         SmtModelParser parser = new SmtModelParser();
         SolverResult solution = parser.parse(result_str);
         assertTrue(solution.isSAT());

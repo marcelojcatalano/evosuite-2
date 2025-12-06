@@ -23,6 +23,7 @@ import org.evosuite.Properties;
 import org.evosuite.symbolic.ConstraintTooLongException;
 import org.evosuite.symbolic.dse.DSEStatistics;
 import org.evosuite.symbolic.expr.*;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +35,7 @@ public final class RealToStringCast extends AbstractExpression<String> implement
 
     private static final long serialVersionUID = -5322228289539145088L;
 
-    protected static Logger log = LoggerFactory.getLogger(RealToStringCast.class);
+    private static Logger log = LoggerFactory.getLogger(RealToStringCast.class);
 
     private final Expression<Double> expr;
 

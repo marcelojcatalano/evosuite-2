@@ -22,6 +22,7 @@ package org.evosuite.coverage.mutation;
 import org.evosuite.TestGenerationContext;
 import org.evosuite.rmi.ClientServices;
 import org.evosuite.statistics.RuntimeVariable;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;

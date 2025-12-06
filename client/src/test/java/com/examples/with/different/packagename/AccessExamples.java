@@ -28,23 +28,23 @@ public class AccessExamples extends com.examples.with.different.packagename.test
     protected String protectedField = "";
 
     @SuppressWarnings("unused")
-    private String privateField = "";
+    private final String privateField = "";
 
     public void publicMethod() {
-        System.out.println("");
+        System.out.println();
     }
 
     void defaultMethod() {
-        System.out.println("");
+        System.out.println();
     }
 
     protected void protectedMethod() {
-        System.out.println("");
+        System.out.println();
     }
 
     @SuppressWarnings("unused")
     private void privateMethod() {
-        System.out.println("");
+        System.out.println();
     }
 
 }

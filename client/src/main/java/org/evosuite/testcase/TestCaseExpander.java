@@ -25,6 +25,7 @@ import org.evosuite.testcase.statements.*;
 import org.evosuite.testcase.variable.ArrayIndex;
 import org.evosuite.testcase.variable.ArrayReference;
 import org.evosuite.testcase.variable.VariableReference;
+import org.evosuite.utils.ReflectionUtils;
 import org.evosuite.utils.generic.GenericClassFactory;
 
 import java.util.*;

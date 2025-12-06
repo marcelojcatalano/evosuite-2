@@ -28,10 +28,6 @@ public class GenericFM_ConstrainedType {
     }
 
     public static boolean bar(Foo<Integer> foo) {
-        if (foo.foo(10).equals("Bar")) {
-            return true;
-        } else {
-            return false;
-        }
+        return foo.foo(10).equals("Bar");
     }
 }

@@ -28,9 +28,6 @@ import java.util.List;
 public class GenericParameters2 {
 
     public boolean testMe1(List<String> stringList) {
-        if (stringList.size() == 2)
-            return true;
-        else
-            return false;
+        return stringList.size() == 2;
     }
 }

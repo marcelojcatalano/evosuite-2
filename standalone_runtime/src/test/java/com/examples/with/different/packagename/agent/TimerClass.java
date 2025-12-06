@@ -25,7 +25,7 @@ public class TimerClass {
 
 	public static final String NAME = "foo";
 	
-	private Timer timer;
+	private final Timer timer;
 	
 	public TimerClass(){
 		timer = new Timer(NAME);

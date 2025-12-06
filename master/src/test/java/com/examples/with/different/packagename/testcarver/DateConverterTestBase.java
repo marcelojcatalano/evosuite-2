@@ -19,16 +19,15 @@
  */
 package com.examples.with.different.packagename.testcarver;
 
+import junit.framework.TestCase;
+import org.junit.Assert;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
-
-import junit.framework.TestCase;
-import com.examples.with.different.packagename.testcarver.Converter;
-import com.examples.with.different.packagename.testcarver.ConversionException;
 
 /**
  * Abstract base for &lt;Date&gt;Converter classes.
@@ -89,7 +88,7 @@ public abstract class DateConverterTestBase extends TestCase {
     public void testConvertNull() {
         try {
             makeConverter().convert(getExpectedType(), null);
-            fail("Expected ConversionException");
+            Assert.fail("Expected ConversionException");
         } catch (ConversionException e) {
             // expected
         }
@@ -123,10 +122,10 @@ public abstract class DateConverterTestBase extends TestCase {
 
         for (int i = 0; i < date.length; i++) {
             Object val = makeConverter().convert(getExpectedType(), date[i]);
-            assertNotNull("Convert " + message[i] + " should not be null", val);
-            assertTrue("Convert " + message[i] + " should return a " + getExpectedType().getName(),
+            Assert.assertNotNull("Convert " + message[i] + " should not be null", val);
+            Assert.assertTrue("Convert " + message[i] + " should return a " + getExpectedType().getName(),
                     getExpectedType().isInstance(val));
-            assertEquals("Convert " + message[i] + " should return a " + date[0],
+            Assert.assertEquals("Convert " + message[i] + " should return a " + date[0],
                     now, getTimeInMillis(val));
         }
     }
@@ -148,11 +147,11 @@ public abstract class DateConverterTestBase extends TestCase {
 
         Object result = converter.convert(null, testString);
         if (getExpectedType().equals(Calendar.class)) {
-            assertTrue("TYPE ", getExpectedType().isAssignableFrom(result.getClass()));
+            Assert.assertTrue("TYPE ", getExpectedType().isAssignableFrom(result.getClass()));
         } else {
-            assertEquals("TYPE ", getExpectedType(), result.getClass());
+            Assert.assertSame("TYPE ", getExpectedType(), result.getClass());
         }
-        assertEquals("VALUE ", expected, result);
+        Assert.assertEquals("VALUE ", expected, result);
     }
 
     /**
@@ -168,7 +167,7 @@ public abstract class DateConverterTestBase extends TestCase {
         converter.setUseLocaleFormat(false);
         try {
             converter.convert(getExpectedType(), "2006-10-23");
-            fail("Expected Conversion exception");
+            Assert.fail("Expected Conversion exception");
         } catch (ConversionException e) {
             // expected result
         }
@@ -265,7 +264,7 @@ public abstract class DateConverterTestBase extends TestCase {
 
         // Create & Configure the Converter
         Object defaultValue = toType("2000-01-01", pattern, null);
-        assertNotNull("Check default date", defaultValue);
+        Assert.assertNotNull("Check default date", defaultValue);
         DateTimeConverter converter = makeConverter(defaultValue);
         converter.setPattern(pattern);
 
@@ -383,7 +382,7 @@ public abstract class DateConverterTestBase extends TestCase {
         // Invalid Class Type
         try {
             converter.convert(Character.class, new Date());
-            fail("Requested Character.class conversion, expected ConversionException");
+            Assert.fail("Requested Character.class conversion, expected ConversionException");
         } catch (ConversionException e) {
             // Expected result
         }
@@ -403,10 +402,10 @@ public abstract class DateConverterTestBase extends TestCase {
             Object result = converter.convert(getExpectedType(), value);
             Class resultType = (result == null ? null : result.getClass());
             Class expectType = (expected == null ? null : expected.getClass());
-            assertEquals("TYPE " + msg, expectType, resultType);
-            assertEquals("VALUE " + msg, expected, result);
+            Assert.assertSame("TYPE " + msg, expectType, resultType);
+            Assert.assertEquals("VALUE " + msg, expected, result);
         } catch (Exception ex) {
-            fail(msg + " threw " + ex.toString());
+            Assert.fail(msg + " threw " + ex);
         }
     }
 
@@ -424,10 +423,10 @@ public abstract class DateConverterTestBase extends TestCase {
             Object result = converter.convert(String.class, value);
             Class resultType = (result == null ? null : result.getClass());
             Class expectType = (expected == null ? null : expected.getClass());
-            assertEquals("TYPE " + msg, expectType, resultType);
-            assertEquals("VALUE " + msg, expected, result);
+            Assert.assertSame("TYPE " + msg, expectType, resultType);
+            Assert.assertEquals("VALUE " + msg, expected, result);
         } catch (Exception ex) {
-            fail(msg + " threw " + ex.toString());
+            Assert.fail(msg + " threw " + ex);
         }
     }
 
@@ -442,7 +441,7 @@ public abstract class DateConverterTestBase extends TestCase {
         String msg = "Converting '" + valueType + "' value '" + value + "'";
         try {
             Object result = converter.convert(getExpectedType(), value);
-            fail(msg + ", expected ConversionException, but result = '" + result + "'");
+            Assert.fail(msg + ", expected ConversionException, but result = '" + result + "'");
         } catch (ConversionException ex) {
             // Expected Result
         }
@@ -479,8 +478,8 @@ public abstract class DateConverterTestBase extends TestCase {
             format.parse(value);
             calendar = format.getCalendar();
         } catch (Exception e) {
-            fail("Error creating Calendar value ='"
-                    + value + ", pattern='" + pattern + "' " + e.toString());
+            Assert.fail("Error creating Calendar value ='"
+                    + value + ", pattern='" + pattern + "' " + e);
         }
         return calendar;
     }

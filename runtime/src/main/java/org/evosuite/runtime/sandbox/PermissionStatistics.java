@@ -493,7 +493,7 @@ public class PermissionStatistics {
      * @param numThreads a int.
      */
     public void countThreads(int numThreads) {
-        if (threadGroupToMonitor != null && Thread.currentThread().getThreadGroup().getName().equals(threadGroupToMonitor)) {
+        if (Thread.currentThread().getThreadGroup().getName().equals(threadGroupToMonitor)) {
             maxThreads = Math.max(maxThreads, numThreads);
         }
     }

@@ -24,7 +24,7 @@ package com.examples.with.different.packagename.reflection;
  */
 public class PrivateFieldInPrivateMethod {
 
-    private boolean flag = false;
+    private final boolean flag = false;
 
     private void flag() {
         if (flag) {

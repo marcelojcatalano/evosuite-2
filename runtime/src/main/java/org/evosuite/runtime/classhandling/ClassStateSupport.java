@@ -259,4 +259,60 @@ public class ClassStateSupport {
 
         InstrumentingAgent.deactivate();
     }
+
+    // ========================================================================
+    // ===  EvoContext support: minimal runtime initialization hooks        ===
+    // ========================================================================
+
+    private static boolean evoInitializedLite = false;
+    private static boolean evoInitializedFull = false;
+
+    /**
+     * Inicialización mínima: usada por EvoContext.initLite().
+     *
+     * No modifica instrumentación, no hace carga de clases,
+     * solo garantiza que la clase está consistente para uso
+     * en instantiation handlers & resets.
+     */
+    public static synchronized void initLite() {
+        if (evoInitializedLite) return;
+
+        // En esta clase no hay nada específico que inicializar,
+        // pero agregamos el hook para que otras partes del runtime
+        // puedan usarlo de forma segura.
+        evoInitializedLite = true;
+    }
+
+    /**
+     * Inicialización extendida: usada por EvoContext.initFull().
+     *
+     * Evita duplicar la inicialización y deja listo el componente
+     * para integrar retransformaciones o carga de snapshots más adelante.
+     */
+    public static synchronized void initFull() {
+        if (evoInitializedFull) return;
+
+        // Siempre incluir la versión liviana.
+        initLite();
+
+        // En esta clase no hay nada adicional que inicializar por ahora,
+        // pero dejamos el hook para integración futura.
+        evoInitializedFull = true;
+    }
+
+    /**
+     * Minimal initialization hook used by EvoContext.
+     *
+     * Ensures that the static JDK state resetter is initialized.
+     * Does NOT load classes, instrument, or trigger sandbox logic.
+     */
+    public static synchronized void initialize() {
+        // Esto inicializa el reseteador de clases JDK (StringBuilder, Arrays, etc)
+        // y es seguro porque solo monta los handlers internos sin ejecutar SUT.
+        JDKClassResetter.init();
+
+        // Reutilizamos la inicialización liviana propia
+        initLite();
+    }
+
 }

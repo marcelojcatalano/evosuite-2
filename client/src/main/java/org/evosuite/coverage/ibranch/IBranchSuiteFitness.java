@@ -29,6 +29,7 @@ import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.util.*;
 import java.util.Map.Entry;
@@ -109,8 +110,7 @@ public class IBranchSuiteFitness extends TestSuiteFitnessFunction {
         }
         ClientServices.getInstance().getClientNode()
                 .trackOutputVariable(RuntimeVariable.IBranchInitialGoals, totalGoals);
-        ClientServices
-                .getInstance()
+        ClientServices.getInstance()
                 .getClientNode()
                 .trackOutputVariable(RuntimeVariable.IBranchInitialGoalsInTargetClass,
                         goalsInTarget);

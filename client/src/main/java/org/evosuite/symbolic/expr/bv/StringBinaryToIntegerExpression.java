@@ -43,7 +43,7 @@ public final class StringBinaryToIntegerExpression extends
 
     private static final long serialVersionUID = -986689442489666986L;
 
-    protected static final Logger log = LoggerFactory
+    private static final Logger log = LoggerFactory
             .getLogger(StringBinaryToIntegerExpression.class);
 
     private final Expression<String> left;

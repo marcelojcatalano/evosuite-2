@@ -23,7 +23,7 @@ import java.net.URL;
 
 public class ResourceLoaderUser {
 
-    private URL url;
+    private final URL url;
 
     public ResourceLoaderUser() {
         String packagename = ResourceLoaderUser.class.getPackage().getName()

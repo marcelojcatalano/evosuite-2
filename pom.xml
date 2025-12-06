@@ -91,6 +91,46 @@
 
     <profiles>
         <profile>
+            <id>emt</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.eclipse.emt4j</groupId>
+                        <artifactId>emt4j-maven-plugin</artifactId>
+                        <version>0.8.0</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>inject-agent</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>check</id>
+                                <phase>test</phase>
+                                <goals>
+                                    <goal>check</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <fromVersion>8</fromVersion>
+                            <toVersion>17</toVersion>
+                            <outputFile>report.html</outputFile>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>org.eclipse.emt4j</groupId>
+                    <artifactId>emt4j-maven-plugin</artifactId>
+                    <version>0.8.0</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <profile>
             <!--  mvn source:jar javadoc:jar verify -PsignJars -DskipTests  -->
             <id>signJars</id>
             <build>
@@ -294,6 +334,18 @@
               </dependency>-->
 
             <dependency>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-annotations</artifactId>
+                <version>4.8.3</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>${findbugs-maven-plugin.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>jakarta.annotation</groupId>
                 <artifactId>jakarta.annotation-api</artifactId>
                 <version>2.1.1</version>
@@ -360,31 +412,31 @@
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm</artifactId>
-                <version>9.5</version>
+                <version>9.2</version>
             </dependency>
             <dependency>
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm-commons</artifactId>
-                <version>9.5</version>
+                <version>9.2</version>
             </dependency>
             <dependency>
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm-tree</artifactId>
-                <version>9.5</version>
+                <version>9.2</version>
             </dependency>
             <dependency>
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm-analysis</artifactId>
-                <version>9.5</version>
+                <version>9.2</version>
             </dependency>
             <dependency>
                 <!-- Adhoc license, copyright holder is INRIA -->
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm-util</artifactId>
-                <version>9.5</version>
+                <version>9.2</version>
             </dependency>
             <dependency>
                 <!-- Apache 2 -->
@@ -404,7 +456,7 @@
                 <!-- BSD -->
                 <groupId>com.thoughtworks.xstream</groupId>
                 <artifactId>xstream</artifactId>
-                <version>1.4.20</version>
+                <version>1.4.21</version>
             </dependency>
             <dependency>
                 <!-- Apache 2 -->
@@ -741,11 +793,13 @@
                         <exclude>${systemTests}</exclude>
                         <exclude>${exclude.tests.concolic}</exclude>
                         <exclude>${exclude.tests.mimeType}</exclude>
-                        <excludedTests>DependencyAnalysisTest</excludedTests>
+                        <excludedTests>**/DependencyAnalysisTest.java</excludedTests>
                         <exclude>**/TestStringEqualsIgnoreCase.java</exclude>
                     </excludes>
                     <argLine>-Djdk.attach.allowAttachSelf=true -Xms512m -Xmx4096m</argLine>
-                    <useModulePath>false</useModulePath>
+
+                    <!-- Just for some testing -->
+<!--                    <testFailureIgnore>true</testFailureIgnore>-->
                 </configuration>
             </plugin>
             <!-- pluging to run tests after 'package' phase in 'integration-test' -->
@@ -1008,10 +1062,14 @@
         <jakarta.xml.ws-api-version>2.3.3</jakarta.xml.ws-api-version>
         <jnr-posix.version>3.1.19</jnr-posix.version>
         <jaxb-runtime.version>4.0.4</jaxb-runtime.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+
+<!--        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>-->
+        <maven.release>11</maven.release>
+        <maven.compiler.release>11</maven.compiler.release>
+
         <maven-jar-plugin.version>3.4.1</maven-jar-plugin.version>
-        <surefire-plugin.version>3.5.4</surefire-plugin.version>
+        <surefire-plugin.version>3.5.1</surefire-plugin.version>
         <maven-surefire-report-plugin.version>3.2.5</maven-surefire-report-plugin.version>
         <jsr305.version>4.8.3</jsr305.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>

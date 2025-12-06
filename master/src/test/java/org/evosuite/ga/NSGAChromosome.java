@@ -19,16 +19,14 @@
  */
 package org.evosuite.ga;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Arrays;
-
-import org.evosuite.ga.Chromosome;
-import org.evosuite.ga.ConstructionFailedException;
 import org.evosuite.ga.localsearch.LocalSearchObjective;
 import org.evosuite.ga.variables.DoubleVariable;
 import org.evosuite.ga.variables.Variable;
 import org.evosuite.utils.Randomness;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author José Campos
@@ -58,7 +56,7 @@ public class NSGAChromosome extends Chromosome<NSGAChromosome> {
 
         int index = 0;
         if (ZDT4) {
-            Variable v = new DoubleVariable(0.0 + Randomness.nextDouble() * (1.0 - 0.0),
+            Variable v = new DoubleVariable(0.0 + Randomness.nextDouble(),
                     0.0, 1.0);
             this.addVariable(v);
             index++;

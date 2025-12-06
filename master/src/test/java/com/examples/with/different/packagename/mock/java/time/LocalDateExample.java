@@ -29,9 +29,6 @@ public class LocalDateExample {
     public boolean testMe(LocalDate date) {
         LocalDate now = LocalDate.now();
         LocalDate nowP = now.plusMonths(1L);
-        if (nowP.isBefore(date))
-            return true;
-        else
-            return false;
+        return nowP.isBefore(date);
     }
 }

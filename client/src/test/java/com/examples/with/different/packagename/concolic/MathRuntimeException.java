@@ -278,8 +278,7 @@ public class MathRuntimeException extends RuntimeException {
      * @return built exception
      */
     public static IOException createIOException(final Throwable rootCause) {
-        IOException ioe = new IOException(rootCause.getLocalizedMessage());
-        ioe.initCause(rootCause);
+        IOException ioe = new IOException(rootCause.getLocalizedMessage(), rootCause);
         return ioe;
     }
 
@@ -316,8 +315,7 @@ public class MathRuntimeException extends RuntimeException {
      * @return built exception
      */
     public static IllegalArgumentException createIllegalArgumentException(final Throwable rootCause) {
-        IllegalArgumentException iae = new IllegalArgumentException(rootCause.getLocalizedMessage());
-        iae.initCause(rootCause);
+        IllegalArgumentException iae = new IllegalArgumentException(rootCause.getLocalizedMessage(), rootCause);
         return iae;
     }
 

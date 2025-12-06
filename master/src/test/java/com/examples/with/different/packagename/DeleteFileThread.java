@@ -46,7 +46,6 @@ public class DeleteFileThread {
                 }
             }
 
-            ;
         };
         t.start();
     }

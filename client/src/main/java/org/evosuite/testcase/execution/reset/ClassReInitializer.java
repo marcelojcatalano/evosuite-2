@@ -147,7 +147,6 @@ public class ClassReInitializer {
         // if no initialized classes, then there are no classes to
         // re-initialized. Therefore, we should return
         if (initializedClasses.isEmpty()) {
-            return;
         } else {
 
             // second, re-initialize classes

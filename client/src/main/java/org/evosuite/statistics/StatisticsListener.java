@@ -29,6 +29,7 @@ import org.evosuite.ga.stoppingconditions.MaxTestsStoppingCondition;
 import org.evosuite.rmi.ClientServices;
 import org.evosuite.runtime.sandbox.Sandbox;
 import org.evosuite.testsuite.TestSuiteChromosome;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

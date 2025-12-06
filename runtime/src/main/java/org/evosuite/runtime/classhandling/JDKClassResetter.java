@@ -19,13 +19,16 @@
  */
 package org.evosuite.runtime.classhandling;
 
+import org.evosuite.runtime.util.SafeReflection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Class used to handle static state of JDK API classes we cannot instrument
@@ -36,8 +39,8 @@ public class JDKClassResetter {
 
     private static final Logger logger = LoggerFactory.getLogger(JDKClassResetter.class);
 
-    private static Map renderingHintsKeyIdentityMap;
-    private static Map renderingHintsKeyIdentityMapCopy;
+    private static Map<Object, Object> renderingHintsKeyIdentityMap;
+    private static Map<Object, Object>  renderingHintsKeyIdentityMapCopy;
 
 
     /**
@@ -46,11 +49,12 @@ public class JDKClassResetter {
     public static void init() {
 
         try {
-            Field field = RenderingHints.Key.class.getDeclaredField("identitymap");
-            field.setAccessible(true);
-            renderingHintsKeyIdentityMap = (Map) field.get(null);
-            renderingHintsKeyIdentityMapCopy = new LinkedHashMap<>(renderingHintsKeyIdentityMap.size());
-            renderingHintsKeyIdentityMapCopy.putAll(renderingHintsKeyIdentityMap);
+            Field field = SafeReflection.findField(RenderingHints.Key.class, "identitymap");
+
+            assert field != null;
+            renderingHintsKeyIdentityMap = (Map<Object, Object>) SafeReflection.get(field, null);
+
+            renderingHintsKeyIdentityMapCopy = Map.copyOf(renderingHintsKeyIdentityMap);
 
         } catch (Exception e) {
             //shouldn't really happen

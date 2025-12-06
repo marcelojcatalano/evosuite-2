@@ -21,7 +21,7 @@ package com.examples.with.different.packagename.stable;
 
 public class CannotInitializeClass {
 
-    private static int value;
+    private static final int value;
 
     static {
         Object object = returnNull();

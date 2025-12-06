@@ -51,7 +51,7 @@ public class JUnitAnalyzerTest {
     private static final boolean DEFAULT_ASSERTS_FOR_EVO = Properties.ENABLE_ASSERTS_FOR_EVOSUITE;
     private static final boolean DEFAULT_SCAFFOLDING = Properties.TEST_SCAFFOLDING;
 
-    private File file = new File(OpenStream.FILE_NAME);
+    private final File file = new File(OpenStream.FILE_NAME);
 
 
     @Before

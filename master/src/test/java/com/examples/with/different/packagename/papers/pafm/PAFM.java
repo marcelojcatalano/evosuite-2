@@ -25,10 +25,6 @@ public class PAFM {
     }
 
     public static boolean checkIfOK(AnInterface x) {
-        if (x.isOK()) {
-            return true;
-        } else {
-            return false;
-        }
+        return x.isOK();
     }
 }

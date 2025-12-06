@@ -20,11 +20,10 @@
 package org.evosuite.statistics;
 
 import com.examples.with.different.packagename.Compositional;
-
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
-import org.evosuite.SystemTestBase;
 import org.evosuite.Properties.Criterion;
+import org.evosuite.SystemTestBase;
 import org.evosuite.statistics.backend.DebugStatisticsBackend;
 import org.junit.After;
 import org.junit.Assert;
@@ -64,17 +63,16 @@ public class TimelineForCombinedFitness1SystemTest extends SystemTestBase {
         Properties.CRITERION[3] = Properties.Criterion.OUTPUT;
 
 
-        StringBuilder s = new StringBuilder();
-        s.append(RuntimeVariable.CoverageTimeline);
-        s.append(",");
-        s.append(RuntimeVariable.OnlyBranchCoverageTimeline);
-        s.append(",");
-        s.append(RuntimeVariable.MethodCoverageTimeline);
-        s.append(",");
-        s.append(RuntimeVariable.MethodNoExceptionCoverageTimeline);
-        s.append(",");
-        s.append(RuntimeVariable.OutputCoverageTimeline);
-        Properties.OUTPUT_VARIABLES = s.toString();
+        String s = RuntimeVariable.CoverageTimeline +
+                "," +
+                RuntimeVariable.OnlyBranchCoverageTimeline +
+                "," +
+                RuntimeVariable.MethodCoverageTimeline +
+                "," +
+                RuntimeVariable.MethodNoExceptionCoverageTimeline +
+                "," +
+                RuntimeVariable.OutputCoverageTimeline;
+        Properties.OUTPUT_VARIABLES = s;
 
         String[] command = new String[]{"-generateSuite", "-class", targetClass};
 

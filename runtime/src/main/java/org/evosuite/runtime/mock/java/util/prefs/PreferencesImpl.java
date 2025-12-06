@@ -29,9 +29,9 @@ import java.util.prefs.BackingStoreException;
  */
 public class PreferencesImpl extends AbstractPreferences {
 
-    private Map<String, String> values = new LinkedHashMap<>();
+    private final Map<String, String> values = new LinkedHashMap<>();
 
-    private Map<String, PreferencesImpl> children = new LinkedHashMap<>();
+    private final Map<String, PreferencesImpl> children = new LinkedHashMap<>();
 
     public PreferencesImpl(PreferencesImpl parent, String name) {
         super(parent, name);

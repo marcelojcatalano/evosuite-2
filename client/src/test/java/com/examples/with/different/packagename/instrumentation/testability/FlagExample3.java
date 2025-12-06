@@ -26,9 +26,6 @@ public class FlagExample3 {
     }
 
     public boolean testMe(int x) {
-        if (isFive(x))
-            return true;
-        else
-            return false;
+        return isFive(x);
     }
 }

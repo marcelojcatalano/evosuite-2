@@ -30,13 +30,8 @@ public class ClassWithPrivateNonStaticInnerClass {
 
     private class AnInnerClass {
         public boolean foo(int x) {
-            if (x == 42)
-                return true;
-            else
-                return false;
+            return x == 42;
         }
     }
-
-    ;
 
 }

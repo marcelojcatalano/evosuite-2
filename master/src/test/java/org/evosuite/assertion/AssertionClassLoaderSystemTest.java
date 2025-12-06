@@ -19,19 +19,19 @@
  */
 package org.evosuite.assertion;
 
+import com.examples.with.different.packagename.ExampleEnum;
 import org.evosuite.SystemTestBase;
 import org.evosuite.TestGenerationContext;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.Assert;
 import org.junit.Test;
-
-import com.examples.with.different.packagename.ExampleEnum;
 
 public class AssertionClassLoaderSystemTest extends SystemTestBase {
 
     @Test
-    public void testLoaderOfEnumsAreChanged() throws NoSuchMethodException, SecurityException {
+    public void testLoaderOfEnumsAreChanged() throws Exception {
         InspectorAssertion assertion = new InspectorAssertion();
-        assertion.inspector = new Inspector(ExampleEnum.class, ExampleEnum.class.getMethod("testMe", new Class<?>[]{}));
+        assertion.inspector = new Inspector(ExampleEnum.class, ExampleEnum.class.getMethod("testMe"));
         assertion.value = ExampleEnum.VALUE1;
         Assert.assertEquals(ExampleEnum.VALUE1, assertion.value);
 

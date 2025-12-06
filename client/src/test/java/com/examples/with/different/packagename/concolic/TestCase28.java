@@ -47,8 +47,8 @@ public class TestCase28 {
         }
 
         {
-            boolean boolean0 = string0.startsWith(STRING_VALUE, 0);
-            boolean boolean1 = string1.startsWith(STRING_VALUE, 0);
+            boolean boolean0 = string0.startsWith(STRING_VALUE);
+            boolean boolean1 = string1.startsWith(STRING_VALUE);
             checkEquals(boolean0, boolean1);
         }
 

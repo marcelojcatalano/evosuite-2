@@ -22,11 +22,15 @@ package org.evosuite.runtime.mock.java.net;
 import org.evosuite.runtime.mock.java.io.MockIOException;
 import org.evosuite.runtime.vnet.RemoteFile;
 import org.evosuite.runtime.vnet.VirtualNetwork;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.*;
+import java.net.HttpURLConnection;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.net.UnknownServiceException;
 import java.security.Permission;
 import java.util.Collections;
 import java.util.List;

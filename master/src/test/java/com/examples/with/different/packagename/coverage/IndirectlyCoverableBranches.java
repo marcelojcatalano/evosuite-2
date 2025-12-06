@@ -21,8 +21,8 @@ package com.examples.with.different.packagename.coverage;
 
 public class IndirectlyCoverableBranches {
 
-    private String str1 = "suf";
-    private String str2 = "fix";
+    private final String str1 = "suf";
+    private final String str2 = "fix";
 
     public void someTopLevelMethod() {
         testMe(42, str1 + str2);
@@ -35,9 +35,6 @@ public class IndirectlyCoverableBranches {
     }
 
     public boolean testMe(int x, String foo) {
-        if (x == 42 && foo.endsWith(str1 + str2))
-            return true;
-        else
-            return false;
+        return x == 42 && foo.endsWith(str1 + str2);
     }
 }

@@ -26,6 +26,7 @@ import org.apache.commons.cli.Options;
 import org.evosuite.classpath.ClassPathHandler;
 import org.evosuite.executionmode.*;
 import org.evosuite.utils.LoggingUtils;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.io.File;
 import java.util.HashSet;

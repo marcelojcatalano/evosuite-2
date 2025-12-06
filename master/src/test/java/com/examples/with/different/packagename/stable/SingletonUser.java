@@ -21,7 +21,7 @@ package com.examples.with.different.packagename.stable;
 
 public class SingletonUser {
 
-    private static Singleton counter = new Singleton();
+    private static final Singleton counter = new Singleton();
 
     private final int myId;
 
@@ -30,16 +30,10 @@ public class SingletonUser {
     }
 
     public boolean isZero() {
-        if (myId == 0)
-            return true;
-        else
-            return false;
+        return myId == 0;
     }
 
     public boolean isNotZero() {
-        if (myId != 0)
-            return true;
-        else
-            return false;
+        return myId != 0;
     }
 }

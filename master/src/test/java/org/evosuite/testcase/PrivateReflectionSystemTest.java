@@ -40,7 +40,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
 
@@ -83,7 +82,7 @@ public class PrivateReflectionSystemTest extends SystemTestBase {
         TestSuiteChromosome best = (TestSuiteChromosome) ga.getBestIndividual();
         System.out.println("EvolvedTestSuite:\n" + best);
 
-        assertTrue(!best.getTests().isEmpty());
+        assertFalse(best.getTests().isEmpty());
 
         double cov = best.getCoverageInstanceOf(MethodCoverageSuiteFitness.class);
         Assert.assertEquals("Non-optimal method coverage: ", 1d, cov, 0.001);

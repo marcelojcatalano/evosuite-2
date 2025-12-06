@@ -31,8 +31,8 @@ import org.evosuite.symbolic.solver.*;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -51,7 +51,7 @@ public class TestRealConstraint extends RandomizedTC {
 
         RealConstraint constr1 = new RealConstraint(var0, Comparator.EQ, constPi);
 
-        return Arrays.<Constraint<?>>asList(constr1);
+        return List.of(constr1);
     }
 
     @Test
@@ -66,8 +66,8 @@ public class TestRealConstraint extends RandomizedTC {
             System.out.println(c.toString());
         }
 
-        System.out.println("");
-        System.out.println("Initial: " + String.valueOf(INIT_DOUBLE));
+        System.out.println();
+        System.out.println("Initial: " + INIT_DOUBLE);
 
         EvoSuiteSolver seeker = new EvoSuiteSolver();
         try {

@@ -46,7 +46,7 @@ import java.util.List;
  */
 public abstract class AbstractInstructionLogger implements IInstructionLogger {
 
-    private static final transient Logger logger = LoggerFactory.getLogger(AbstractInstructionLogger.class);
+    private static final Logger logger = LoggerFactory.getLogger(AbstractInstructionLogger.class);
     static List<String> instructionsExecuted = new ArrayList<>();
     static StringBuilder buffer = new StringBuilder();
 

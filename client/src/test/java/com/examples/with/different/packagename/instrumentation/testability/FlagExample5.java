@@ -31,10 +31,6 @@ public class FlagExample5 {
     }
 
     public boolean testMe(int x, int y) {
-        if (testMeHelper(x, y)) {
-            return true;
-        } else {
-            return false;
-        }
+        return testMeHelper(x, y);
     }
 }

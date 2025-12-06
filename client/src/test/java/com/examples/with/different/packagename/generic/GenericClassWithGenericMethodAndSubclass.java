@@ -42,9 +42,6 @@ public class GenericClassWithGenericMethodAndSubclass<T> {
     }
 
     public boolean test(Foo<T> foo1, Foo<T> foo2) {
-        if (foo1.getObject() == foo2.getObject())
-            return true;
-        else
-            return false;
+        return foo1.getObject() == foo2.getObject();
     }
 }

@@ -30,7 +30,7 @@ import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.utils.generic.GenericMethod;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -109,12 +109,12 @@ public class EqualsSymmetricContract extends Contract {
 
             // Create x = a.equals(b)
             Statement st1 = new MethodStatement(test, method, a,
-                    Arrays.asList(b));
+                    Collections.singletonList(b));
             VariableReference x = test.addStatement(st1, statement.getPosition() + 1);
 
             // Create y = b.equals(a);
             Statement st2 = new MethodStatement(test, method, b,
-                    Arrays.asList(a));
+                    List.of(a));
             VariableReference y = test.addStatement(st2, statement.getPosition() + 2);
 
             Statement newStatement = test.getStatement(y.getStPosition());

@@ -135,7 +135,7 @@ public abstract class TestSolverSimpleMath extends TestSolver {
     }
 
     @Test
-    public void testAdd() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testAdd() throws Exception {
 
         DefaultTestCase tc = buildTestCaseAdd();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -151,7 +151,7 @@ public abstract class TestSolverSimpleMath extends TestSolver {
     }
 
     @Test
-    public void testSub() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testSub() throws Exception {
 
         DefaultTestCase tc = buildTestCaseSub();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -164,7 +164,7 @@ public abstract class TestSolverSimpleMath extends TestSolver {
     }
 
     @Test
-    public void testMod() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testMod() throws Exception {
 
         DefaultTestCase tc = buildTestCaseMod();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -177,7 +177,7 @@ public abstract class TestSolverSimpleMath extends TestSolver {
     }
 
     @Test
-    public void testDiv() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testDiv() throws Exception {
 
         DefaultTestCase tc = buildTestCaseDiv();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -186,7 +186,7 @@ public abstract class TestSolverSimpleMath extends TestSolver {
     }
 
     @Test
-    public void testMul() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testMul() throws Exception {
 
         DefaultTestCase tc = buildTestCaseMul();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -200,7 +200,7 @@ public abstract class TestSolverSimpleMath extends TestSolver {
     }
 
     @Test
-    public void testMul2() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testMul2() throws Exception {
 
         DefaultTestCase tc = buildTestCaseMul2();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -229,7 +229,7 @@ public abstract class TestSolverSimpleMath extends TestSolver {
     }
 
     @Test
-    public void testEq() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testEq() throws Exception {
 
         DefaultTestCase tc = buildTestCaseEq();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -242,7 +242,7 @@ public abstract class TestSolverSimpleMath extends TestSolver {
     }
 
     @Test
-    public void testNeq() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testNeq() throws Exception {
 
         DefaultTestCase tc = buildTestCaseNeq();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -255,7 +255,7 @@ public abstract class TestSolverSimpleMath extends TestSolver {
     }
 
     @Test
-    public void testLt() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testLt() throws Exception {
 
         DefaultTestCase tc = buildTestCaseLt();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -268,7 +268,7 @@ public abstract class TestSolverSimpleMath extends TestSolver {
     }
 
     @Test
-    public void testLte() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testLte() throws Exception {
 
         DefaultTestCase tc = buildTestCaseLte();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -281,7 +281,7 @@ public abstract class TestSolverSimpleMath extends TestSolver {
     }
 
     @Test
-    public void testGt() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testGt() throws Exception {
 
         DefaultTestCase tc = buildTestCaseGt();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -294,7 +294,7 @@ public abstract class TestSolverSimpleMath extends TestSolver {
     }
 
     @Test
-    public void testGte() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testGte() throws Exception {
 
         DefaultTestCase tc = buildTestCaseGte();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -316,7 +316,7 @@ public abstract class TestSolverSimpleMath extends TestSolver {
     }
 
     @Test
-    public void testCastRealToInt() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testCastRealToInt() throws Exception {
 
         DefaultTestCase tc = buildTestCaseCastRealToInt();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -325,11 +325,11 @@ public abstract class TestSolverSimpleMath extends TestSolver {
         Double var0 = (Double) solution.get("var0");
 
         assertTrue(var0 != 0);
-        assertTrue(var0.intValue() == 0);
+        assertEquals(0, var0.intValue());
     }
 
     @Test
-    public void testCastIntToReal() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testCastIntToReal() throws Exception {
 
         DefaultTestCase tc = buildTestCaseCastIntToReal();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);

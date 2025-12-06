@@ -19,12 +19,12 @@
  */
 package org.evosuite.runtime.vnet;
 
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Collections;
@@ -61,11 +61,11 @@ public class NetworkInterfaceState {
         }
     }
 
-    private NetworkInterface ni;
     private final List<InetAddress> localAddresses;
     private final byte[] mac;
     private final int mtu;
     private final boolean loopback;
+    private NetworkInterface ni;
 
     public NetworkInterfaceState(
             String name,
@@ -82,10 +82,10 @@ public class NetworkInterfaceState {
         localAddresses = Collections.singletonList(anAddress);
 
         try {
-            ni = constructor.newInstance();
+            ni = ReflectionUtils.newInstanceOf(constructor.getDeclaringClass());
             nameField.set(ni, name);
             indexField.set(ni, index);
-        } catch (IllegalArgumentException | InvocationTargetException | InstantiationException | IllegalAccessException | SecurityException e) {
+        } catch (IllegalArgumentException | IllegalAccessException | SecurityException e) {
             //shouldn't really happen
             logger.error("Reflection problems: " + e.getMessage());
         }

@@ -28,6 +28,7 @@ import org.evosuite.statistics.RuntimeVariable;
 import org.evosuite.statistics.SearchStatistics;
 import org.evosuite.utils.Listener;
 import org.evosuite.utils.LoggingUtils;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

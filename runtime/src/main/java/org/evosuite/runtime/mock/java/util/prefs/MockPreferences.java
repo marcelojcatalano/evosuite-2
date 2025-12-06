@@ -33,9 +33,9 @@ public class MockPreferences implements StaticReplacementMock {
         return Preferences.class.getName();
     }
 
-    private static PreferencesImpl userRoot = new PreferencesImpl(null, "");
+    private static final PreferencesImpl userRoot = new PreferencesImpl(null, "");
 
-    private static PreferencesImpl systemRoot = new PreferencesImpl(null, "");
+    private static final PreferencesImpl systemRoot = new PreferencesImpl(null, "");
 
     public static void resetPreferences() {
         try {

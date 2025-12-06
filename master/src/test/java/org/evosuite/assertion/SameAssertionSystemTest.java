@@ -19,6 +19,10 @@
  */
 package org.evosuite.assertion;
 
+import com.examples.with.different.packagename.assertion.ArrayObjects;
+import com.examples.with.different.packagename.assertion.ArrayPrimitiveWrapper;
+import com.examples.with.different.packagename.assertion.WrapperCreatingCopy;
+import com.examples.with.different.packagename.assertion.WrapperExample;
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
 import org.evosuite.Properties.AssertionStrategy;
@@ -27,11 +31,6 @@ import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
 import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.junit.*;
-
-import com.examples.with.different.packagename.assertion.ArrayObjects;
-import com.examples.with.different.packagename.assertion.ArrayPrimitiveWrapper;
-import com.examples.with.different.packagename.assertion.WrapperCreatingCopy;
-import com.examples.with.different.packagename.assertion.WrapperExample;
 
 public class SameAssertionSystemTest extends SystemTestBase {
 
@@ -81,6 +80,7 @@ public class SameAssertionSystemTest extends SystemTestBase {
                 if (assertion instanceof SameAssertion) {
                     hasSameAssertion = true;
                     //Assert.assertEquals(true, ((SameAssertion)assertion).value);
+                    break;
                 }
             }
         }
@@ -109,7 +109,7 @@ public class SameAssertionSystemTest extends SystemTestBase {
             for (Assertion assertion : testChromosome.getTestCase().getAssertions()) {
                 if (assertion instanceof SameAssertion) {
                     hasSameAssertion = true;
-                    Assert.assertEquals(false, ((SameAssertion) assertion).value);
+                    Assert.assertEquals(false, assertion.value);
                 }
             }
         }
@@ -151,7 +151,7 @@ public class SameAssertionSystemTest extends SystemTestBase {
             for (Assertion assertion : testChromosome.getTestCase().getAssertions()) {
                 if (assertion instanceof SameAssertion) {
                     hasSameAssertion = true;
-                    Assert.assertEquals(true, ((SameAssertion) assertion).value);
+                    Assert.assertEquals(true, assertion.value);
                 }
             }
         }
@@ -191,7 +191,7 @@ public class SameAssertionSystemTest extends SystemTestBase {
             for (Assertion assertion : testChromosome.getTestCase().getAssertions()) {
                 if (assertion instanceof SameAssertion) {
                     hasSameAssertion = true;
-                    Assert.assertEquals(false, ((SameAssertion) assertion).value);
+                    Assert.assertEquals(false, assertion.value);
                 }
             }
         }

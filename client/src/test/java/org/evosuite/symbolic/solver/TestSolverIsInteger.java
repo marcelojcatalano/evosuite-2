@@ -39,7 +39,7 @@ public abstract class TestSolverIsInteger extends TestSolver {
 
     @Test
     public void testIsInteger()
-            throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+            throws Exception {
 
         List<Constraint<?>> constraints = new ArrayList<>();
 

@@ -24,6 +24,7 @@ import org.evosuite.Properties;
 import org.evosuite.symbolic.ConstraintTooLongException;
 import org.evosuite.symbolic.dse.DSEStatistics;
 import org.evosuite.symbolic.expr.*;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,7 +44,7 @@ public final class StringMultipleComparison extends AbstractExpression<Long> imp
 
     private static final long serialVersionUID = -3844726361666119758L;
 
-    protected static final Logger log = LoggerFactory.getLogger(StringMultipleComparison.class);
+    private static final Logger log = LoggerFactory.getLogger(StringMultipleComparison.class);
 
     private final Operator op;
 

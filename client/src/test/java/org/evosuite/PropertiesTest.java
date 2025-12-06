@@ -19,7 +19,6 @@
  */
 package org.evosuite;
 
-import org.evosuite.Properties.NoSuchParameterException;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -44,14 +43,14 @@ public class PropertiesTest {
         try {
             Properties.getInstance().setValue("a_parameter_that_does_not_exist", 1);
             fail();
-        } catch (IllegalArgumentException | IllegalAccessException
-                | NoSuchParameterException e) {
+        } catch (IllegalArgumentException | IllegalAccessException |
+                 Properties.NoSuchParameterException e) {
             //expected
         }
     }
 
     @Test
-    public void testOutOfRangeInput() throws IllegalArgumentException, IllegalAccessException, NoSuchParameterException {
+    public void testOutOfRangeInput() throws IllegalArgumentException, IllegalAccessException, Properties.NoSuchParameterException {
 
         Properties.getInstance().setValue("crossover_rate", 0.6); //this should be OK
 

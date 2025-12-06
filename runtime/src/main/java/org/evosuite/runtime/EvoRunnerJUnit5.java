@@ -20,14 +20,13 @@
 package org.evosuite.runtime;
 
 import org.evosuite.runtime.instrumentation.EvoClassLoader;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestInstanceFactory;
 import org.junit.jupiter.api.extension.TestInstanceFactoryContext;
 import org.junit.jupiter.api.extension.TestInstantiationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.lang.reflect.InvocationTargetException;
 
 public class EvoRunnerJUnit5 implements TestInstanceFactory {
     private static final Logger logger = LoggerFactory.getLogger(EvoRunnerJUnit5.class);
@@ -71,16 +70,11 @@ public class EvoRunnerJUnit5 implements TestInstanceFactory {
         org.evosuite.runtime.agent.InstrumentingAgent.activate();
 
 
-        try {
-            /*
-             *  be sure that reflection on "klass" is executed here when
-             *  the agent is active
-             */
-            _class.newInstance();
-        } catch (InstantiationException | IllegalAccessException e) {
-            //shouldn't really happen
-            logger.error("Failed to initialize test class " + _class.getName());
-        }
+        /*
+         *  be sure that reflection on "klass" is executed here when
+         *  the agent is active
+         */
+        ReflectionUtils.newInstanceOf(_class);
         org.evosuite.runtime.agent.InstrumentingAgent.deactivate();
     }
 
@@ -103,11 +97,7 @@ public class EvoRunnerJUnit5 implements TestInstanceFactory {
 //                 throw new TestInstantiationException("Could not instantiate the class under test with the EvoClassLoader",e);
 //            }
         } else {
-            try {
-                return factoryContext.getTestClass().getConstructor().newInstance();
-            } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-                throw new TestInstantiationException("Could not instantiate test class");
-            }
+            return ReflectionUtils.newInstanceOf(factoryContext.getTestClass());
         }
     }
 }

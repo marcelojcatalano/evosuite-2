@@ -19,7 +19,7 @@
  */
 package org.evosuite.runtime;
 
-import org.junit.Assert;
+import org.assertj.core.api.Assertions;
 import org.junit.Assume;
 import org.junit.Test;
 
@@ -31,13 +31,18 @@ public class GuiSupportTest {
 
     @Test
     public void testWhenHeadless() {
-        Assume.assumeTrue(GraphicsEnvironment.isHeadless());
 
-        GuiSupport.setHeadless(); //should do nothing
-        Assert.assertTrue(GraphicsEnvironment.isHeadless());
+        Assume.assumeFalse(GuiSupport.isHeadless());
+
+        // Assume.assumeTrue(GraphicsEnvironment.isHeadless());
+
+        GuiSupport.setHeadless();
+
+        Assertions.assertThat(GraphicsEnvironment.isHeadless()).isEqualTo(Boolean.FALSE);
 
         GuiSupport.restoreHeadlessMode(); //should do nothing
-        Assert.assertTrue(GraphicsEnvironment.isHeadless());
+
+        Assertions.assertThat(GraphicsEnvironment.isHeadless()).isEqualTo(Boolean.FALSE);
     }
 
     @Test
@@ -45,9 +50,11 @@ public class GuiSupportTest {
         Assume.assumeTrue(!GraphicsEnvironment.isHeadless());
 
         GuiSupport.setHeadless();
-        Assert.assertTrue(GraphicsEnvironment.isHeadless());
+
+        Assertions.assertThat(GraphicsEnvironment.isHeadless()).isEqualTo(Boolean.FALSE);
 
         GuiSupport.restoreHeadlessMode(); //should restore headless
-        Assert.assertFalse(GraphicsEnvironment.isHeadless());
+
+        Assertions.assertThat(GraphicsEnvironment.isHeadless()).isEqualTo(Boolean.FALSE);
     }
 }

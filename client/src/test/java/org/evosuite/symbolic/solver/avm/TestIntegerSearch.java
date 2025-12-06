@@ -612,7 +612,7 @@ public class TestIntegerSearch extends RandomizedTC {
         IntegerValue right = c_11060;
         IntegerConstraint constr = new IntegerConstraint(left, Comparator.LT, right);
 
-        List<Constraint<?>> constraints = Collections.<Constraint<?>>singletonList(constr);
+        List<Constraint<?>> constraints = Collections.singletonList(constr);
         try {
             EvoSuiteSolver solver = new EvoSuiteSolver();
             SolverResult solverResult = solver.solve(constraints);
@@ -647,7 +647,7 @@ public class TestIntegerSearch extends RandomizedTC {
         IntegerValue right = c_11060;
         IntegerConstraint constr = new IntegerConstraint(left, Comparator.GT, right);
 
-        List<Constraint<?>> constraints = Collections.<Constraint<?>>singletonList(constr);
+        List<Constraint<?>> constraints = Collections.singletonList(constr);
         try {
             EvoSuiteSolver solver = new EvoSuiteSolver();
             SolverResult solverResult = solver.solve(constraints);
@@ -684,7 +684,7 @@ public class TestIntegerSearch extends RandomizedTC {
 
         IntegerVariable ivar1 = new IntegerVariable("test1", var1, Integer.MIN_VALUE, Integer.MAX_VALUE);
         StringBinaryToIntegerExpression sBExpr = new StringBinaryToIntegerExpression(strConst, Operator.CHARAT,
-                new IntegerConstant(0), (long) "y".charAt(0));
+                new IntegerConstant(0), (long) 'y');
 
         List<Constraint<?>> constraints = new ArrayList<>();
         constraints.add(new IntegerConstraint(ivar1, Comparator.NE, sBExpr));

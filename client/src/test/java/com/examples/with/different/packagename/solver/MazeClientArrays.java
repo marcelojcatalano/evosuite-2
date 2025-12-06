@@ -26,8 +26,6 @@ public class MazeClientArrays {
     private MazeClientArrays() {
     }
 
-    ;
-
     public static int walk(char[] moves, int moveLength) throws IllegalArgumentException {
         if (moveLength < 0) {
             throw new IllegalArgumentException("length cannot be negative");

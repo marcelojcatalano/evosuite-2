@@ -25,10 +25,6 @@ public class FileAsInputExist {
 
     public boolean inputExists(File f) throws NullPointerException {
 
-        if (f.exists()) {
-            return true;
-        } else {
-            return false;
-        }
+        return f.exists();
     }
 }

@@ -1217,7 +1217,6 @@ public final class HeapVM extends AbstractVM {
         }
 
         // NonNullReference are not stored in the symbolic heap fields
-        return;
 
     }
 

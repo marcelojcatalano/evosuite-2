@@ -57,11 +57,7 @@ public class HardConstraints {
 
         int int1 = (int) (float0 * 100000f) + 1;
 
-        if (int1 == 314151) {
-            return false;
-        }
-
-        return true;
+        return int1 != 314151;
 
     }
 
@@ -82,11 +78,7 @@ public class HardConstraints {
             return false;
         }
 
-        if ((int1 % 25) != 0) {
-            return false;
-        }
-
-        return true;
+        return (int1 % 25) == 0;
     }
 
     public static boolean test0(int int0) {
@@ -103,11 +95,7 @@ public class HardConstraints {
             return false;
         }
 
-        if (int0 >= 26150) {
-            return false;
-        }
-
-        return true;
+        return int0 < 26150;
     }
 
 }

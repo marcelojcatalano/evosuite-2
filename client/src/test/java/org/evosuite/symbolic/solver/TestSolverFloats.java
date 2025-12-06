@@ -46,7 +46,7 @@ public abstract class TestSolverFloats extends TestSolver {
     private static final double DELTA = 1e-15;
 
     @Test
-    public void testEq() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testEq() throws Exception {
 
         DefaultTestCase tc = buildTestCaseEq();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -59,7 +59,7 @@ public abstract class TestSolverFloats extends TestSolver {
     }
 
     @Test
-    public void testFraction() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testFraction() throws Exception {
 
         DefaultTestCase tc = buildTestCaseFraction();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -72,7 +72,7 @@ public abstract class TestSolverFloats extends TestSolver {
     }
 
     @Test
-    public void testGt() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testGt() throws Exception {
 
         DefaultTestCase tc = buildTestCaseGt();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -85,7 +85,7 @@ public abstract class TestSolverFloats extends TestSolver {
     }
 
     @Test
-    public void testGte() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testGte() throws Exception {
 
         DefaultTestCase tc = buildTestCaseGte();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -98,7 +98,7 @@ public abstract class TestSolverFloats extends TestSolver {
     }
 
     @Test
-    public void testLt() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testLt() throws Exception {
 
         DefaultTestCase tc = buildTestCaseLt();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -111,7 +111,7 @@ public abstract class TestSolverFloats extends TestSolver {
     }
 
     @Test
-    public void testLte() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testLte() throws Exception {
 
         DefaultTestCase tc = buildTestCaseLte();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -124,7 +124,7 @@ public abstract class TestSolverFloats extends TestSolver {
     }
 
     @Test
-    public void testNeq() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testNeq() throws Exception {
         DefaultTestCase tc = buildTestCaseNeq();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
         Map<String, Object> solution = solve(getSolver(), constraints);
@@ -245,7 +245,7 @@ public abstract class TestSolverFloats extends TestSolver {
     }
 
     @Test
-    public void testAdd() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testAdd() throws Exception {
 
         DefaultTestCase tc = buildTestCaseFloatAdd();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -258,7 +258,7 @@ public abstract class TestSolverFloats extends TestSolver {
     }
 
     @Test
-    public void testSub() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testSub() throws Exception {
 
         DefaultTestCase tc = buildTestCaseFloatSub();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -271,7 +271,7 @@ public abstract class TestSolverFloats extends TestSolver {
     }
 
     @Test
-    public void testMul() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testMul() throws Exception {
 
         DefaultTestCase tc = buildTestCaseFloatMul();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -280,11 +280,11 @@ public abstract class TestSolverFloats extends TestSolver {
         Double var0 = (Double) solution.get("var0");
         Double var1 = (Double) solution.get("var1");
 
-        assertTrue(var0 == var1 * 2.0);
+        assertEquals(var0, var1 * 2.0, 0.0);
     }
 
     @Test
-    public void testDiv() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testDiv() throws Exception {
 
         DefaultTestCase tc = buildTestCaseFloatDiv();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -293,11 +293,11 @@ public abstract class TestSolverFloats extends TestSolver {
         Double var0 = (Double) solution.get("var0");
         Double var1 = (Double) solution.get("var1");
 
-        assertTrue(var0 == var1 / 2.0);
+        assertEquals(var0, var1 / 2.0, 0.0);
     }
 
     @Test
-    public void testMod() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testMod() throws Exception {
 
         DefaultTestCase tc = buildTestCaseFloatMod();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);

@@ -22,10 +22,10 @@ package org.evosuite.instrumentation.testability;
 import com.examples.with.different.packagename.FlagExample1;
 import org.evosuite.Properties;
 import org.evosuite.classpath.ClassPathHandler;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import static org.junit.Assert.assertEquals;
@@ -44,22 +44,20 @@ public class TestTestabilityTransformation {
     }
 
     @Test
-    public void testSimpleFlag() throws ClassNotFoundException, InstantiationException,
-            IllegalAccessException, SecurityException, NoSuchMethodException,
-            IllegalArgumentException, InvocationTargetException {
+    public void testSimpleFlag() throws Exception {
 
         Properties.TARGET_CLASS = FlagExample1.class.getCanonicalName();
 
         Class<?> originalClass = defaultClassloader.loadClass(FlagExample1.class.getCanonicalName());
         Class<?> instrumentedClass = instrumentingClassloader.loadClass(FlagExample1.class.getCanonicalName());
 
-        Object originalInstance = originalClass.newInstance();
-        Object instrumentedInstance = instrumentedClass.newInstance();
+        Object originalInstance = ReflectionUtils.newInstanceOf(originalClass);
+        Object instrumentedInstance = ReflectionUtils.newInstanceOf(instrumentedClass);
 
         Method originalMethod = originalClass.getMethod("testMe",
-                new Class<?>[]{int.class});
+                int.class);
         Method instrumentedMethod = instrumentedClass.getMethod("testMe",
-                new Class<?>[]{int.class});
+                int.class);
 
         boolean originalResult = (Boolean) originalMethod.invoke(originalInstance, 0);
         boolean instrumentedResult = ((Integer) instrumentedMethod.invoke(instrumentedInstance,

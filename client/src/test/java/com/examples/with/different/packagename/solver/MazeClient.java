@@ -26,8 +26,6 @@ public class MazeClient {
     private MazeClient() {
     }
 
-    ;
-
     public static int walk(char move0, char move1, char move2, char move3, char move4, char move5,
                            char move6, char move7, char move8, char move9, char move10, char move11, char move12,
                            char move13, char move14, char move15, char move16, char move17, char move18, char move19,

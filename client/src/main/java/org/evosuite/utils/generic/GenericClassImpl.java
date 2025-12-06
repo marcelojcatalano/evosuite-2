@@ -1003,8 +1003,7 @@ public class GenericClassImpl implements Serializable, GenericClass<GenericClass
             // of component type TypeVariable, which would lead to
             // ArrayStoreException if we try to assign a WildcardType
             //Type[] arguments = Arrays.copyOf(origArguments, origArguments.length);
-            for (int i = 0; i < origArguments.length; i++)
-                arguments[i] = origArguments[i];
+            System.arraycopy(origArguments, 0, arguments, 0, origArguments.length);
             List<TypeVariable<?>> variables = getTypeVariables();
             for (int i = 0; i < arguments.length; i++) {
                 TypeVariable<?> var = variables.get(i);

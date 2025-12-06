@@ -25,10 +25,6 @@ public class IntExample {
         if (x * y == 0)
             return false;
 
-        if (x == y * 2) {
-            return true;
-        } else {
-            return false;
-        }
+        return x == y * 2;
     }
 }

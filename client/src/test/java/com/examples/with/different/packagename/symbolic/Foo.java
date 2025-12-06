@@ -31,9 +31,6 @@ public class Foo {
         if (z == 0)
             return false;
 
-        if (x == y + z)
-            return false;
-
-        return true;
+        return x != y + z;
     }
 }

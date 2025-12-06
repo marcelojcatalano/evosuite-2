@@ -94,7 +94,6 @@ public class TestCase14 {
         if (double22 != 0.023508383360438468)
             return;
 
-        return;
     }
 
 }

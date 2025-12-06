@@ -251,16 +251,15 @@ public class ContinuousTestGeneration {
 
         //TODO all info
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("Total number of classes in the project: " +
-                ProjectUtil.getNumberTestableClasses(project) + "\n");
-        sb.append("Number of classes in the project that are testable: " +
-                ProjectUtil.getNumberTestableClasses(project) + "\n");
-        sb.append("Number of generated test suites: " +
-                ProjectUtil.getNumberGeneratedTestSuites(project) + "\n");
-        sb.append("Overall coverage: " +
-                ProjectUtil.getOverallCoverage(project) + "\n");
+        String sb = "Total number of classes in the project: " +
+                ProjectUtil.getNumberTestableClasses(project) + "\n" +
+                "Number of classes in the project that are testable: " +
+                ProjectUtil.getNumberTestableClasses(project) + "\n" +
+                "Number of generated test suites: " +
+                ProjectUtil.getNumberGeneratedTestSuites(project) + "\n" +
+                "Overall coverage: " +
+                ProjectUtil.getOverallCoverage(project) + "\n";
 
-        return sb.toString();
+        return sb;
     }
 }

@@ -24,6 +24,7 @@ import org.evosuite.Properties;
 import org.evosuite.symbolic.ConstraintTooLongException;
 import org.evosuite.symbolic.dse.DSEStatistics;
 import org.evosuite.symbolic.expr.*;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -51,7 +52,7 @@ public final class StringMultipleToIntegerExpression extends AbstractExpression<
 
     private final Expression<?> right;
 
-    protected static final Logger log = LoggerFactory.getLogger(StringMultipleToIntegerExpression.class);
+    private static final Logger log = LoggerFactory.getLogger(StringMultipleToIntegerExpression.class);
 
     /**
      * <p>

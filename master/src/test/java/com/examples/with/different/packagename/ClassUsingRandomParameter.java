@@ -28,9 +28,6 @@ import java.util.Random;
 public class ClassUsingRandomParameter {
 
     public boolean doSomethingRandom(Random r, int x) {
-        if (r.nextInt() == x)
-            return true;
-
-        return false;
+        return r.nextInt() == x;
     }
 }

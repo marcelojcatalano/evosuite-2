@@ -24,6 +24,7 @@ import org.evosuite.testcase.TestCase;
 import org.evosuite.testcase.execution.CodeUnderTestException;
 import org.evosuite.testcase.execution.Scope;
 import org.evosuite.utils.NumberFormatter;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

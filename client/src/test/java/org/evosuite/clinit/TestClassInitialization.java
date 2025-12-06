@@ -31,6 +31,7 @@ import org.evosuite.testcase.statements.MethodStatement;
 import org.evosuite.testcase.statements.Statement;
 import org.evosuite.testcase.statements.StringPrimitiveStatement;
 import org.evosuite.testcase.variable.VariableReference;
+import org.evosuite.utils.ReflectionUtils;
 import org.evosuite.utils.generic.GenericMethod;
 import org.junit.Test;
 

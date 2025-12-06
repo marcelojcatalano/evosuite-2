@@ -26,6 +26,7 @@ import org.evosuite.setup.DependencyAnalysis;
 import org.evosuite.setup.InheritanceTree;
 import org.evosuite.setup.TestCluster;
 import org.evosuite.setup.TestClusterGenerator;
+import org.evosuite.utils.ReflectionUtils;
 import org.evosuite.utils.generic.GenericAccessibleObject;
 import org.junit.Test;
 
@@ -47,7 +48,7 @@ public class TestFinalPrimitiveFieldIsNotAddedToCluster {
      * @throws RuntimeException
      */
     @Test
-    public void test() throws ClassNotFoundException, RuntimeException {
+    public void test() throws Exception {
         Properties.TARGET_CLASS = FinalPrimitiveField.class.getCanonicalName();
         Properties.RESET_STATIC_FINAL_FIELDS = true;
 

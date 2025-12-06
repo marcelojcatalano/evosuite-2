@@ -20,11 +20,10 @@
 package org.evosuite.statistics;
 
 import com.examples.with.different.packagename.Compositional;
-
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
-import org.evosuite.SystemTestBase;
 import org.evosuite.Properties.Criterion;
+import org.evosuite.SystemTestBase;
 import org.evosuite.statistics.backend.DebugStatisticsBackend;
 import org.junit.After;
 import org.junit.Assert;
@@ -63,39 +62,37 @@ public class TimelineForCombinedFitness2SystemTest extends SystemTestBase {
         Properties.CRITERION[3] = Properties.Criterion.ONLYMUTATION;
         Properties.CRITERION[4] = Properties.Criterion.CBRANCH;
 
-        StringBuilder analysisCriteria = new StringBuilder();
-        analysisCriteria.append(Properties.Criterion.LINE);
-        analysisCriteria.append(",");
-        analysisCriteria.append(Properties.Criterion.ONLYBRANCH);
-        analysisCriteria.append(",");
-        analysisCriteria.append(Properties.Criterion.METHODTRACE);
-        analysisCriteria.append(",");
-        analysisCriteria.append(Properties.Criterion.METHOD);
-        analysisCriteria.append(",");
-        analysisCriteria.append(Properties.Criterion.METHODNOEXCEPTION);
-        analysisCriteria.append(",");
-        analysisCriteria.append(Properties.Criterion.OUTPUT);
-        analysisCriteria.append(",");
-        analysisCriteria.append(Properties.Criterion.ONLYMUTATION);
-        analysisCriteria.append(",");
-        analysisCriteria.append(Properties.Criterion.CBRANCH);
-        analysisCriteria.append(",");
-        analysisCriteria.append(Properties.Criterion.EXCEPTION);
-        Properties.ANALYSIS_CRITERIA = analysisCriteria.toString();
+        String analysisCriteria = Criterion.LINE +
+                "," +
+                Criterion.ONLYBRANCH +
+                "," +
+                Criterion.METHODTRACE +
+                "," +
+                Criterion.METHOD +
+                "," +
+                Criterion.METHODNOEXCEPTION +
+                "," +
+                Criterion.OUTPUT +
+                "," +
+                Criterion.ONLYMUTATION +
+                "," +
+                Criterion.CBRANCH +
+                "," +
+                Criterion.EXCEPTION;
+        Properties.ANALYSIS_CRITERIA = analysisCriteria;
 
-        StringBuilder outputVariables = new StringBuilder();
-        outputVariables.append(RuntimeVariable.CoverageTimeline);
-        outputVariables.append(",");
-        outputVariables.append(RuntimeVariable.OnlyBranchCoverageTimeline);
-        outputVariables.append(",");
-        outputVariables.append(RuntimeVariable.MethodNoExceptionCoverageTimeline);
-        outputVariables.append(",");
-        outputVariables.append(RuntimeVariable.CBranchFitnessTimeline);
-        outputVariables.append(",");
-        outputVariables.append(RuntimeVariable.CBranchCoverageTimeline);
-        outputVariables.append(",");
-        outputVariables.append(RuntimeVariable.OutputCoverageTimeline);
-        Properties.OUTPUT_VARIABLES = outputVariables.toString();
+        String outputVariables = RuntimeVariable.CoverageTimeline +
+                "," +
+                RuntimeVariable.OnlyBranchCoverageTimeline +
+                "," +
+                RuntimeVariable.MethodNoExceptionCoverageTimeline +
+                "," +
+                RuntimeVariable.CBranchFitnessTimeline +
+                "," +
+                RuntimeVariable.CBranchCoverageTimeline +
+                "," +
+                RuntimeVariable.OutputCoverageTimeline;
+        Properties.OUTPUT_VARIABLES = outputVariables;
 
         String[] command = new String[]{"-generateSuite", "-class", targetClass};
 

@@ -1025,6 +1025,7 @@ public class TP118 {
         for (int i = 0; i < 13; i++) {
             if (((var4 * var2) < (var0 + 481))) {
                 var4 = 250;
+                break;
             }
         }
         if (((var0 * var1) != ((var2 * var3) - (var4 - var1)))) {
@@ -1235,6 +1236,7 @@ public class TP118 {
         for (int i = 0; i < 0; i++) {
             if (((var10 % 156) == (var2 + var4))) {
                 var0 = 309;
+                break;
             }
         }
         if ((((var3 * 260) * (var2 + var0)) > (var2 / 264))) {
@@ -1288,6 +1290,7 @@ public class TP118 {
         for (int i = 0; i < 13; i++) {
             if (((var3 / 371) < (var3 * var4))) {
                 var2 = 250;
+                break;
             }
         }
         for (int i = 0; i < 4; i++) {
@@ -1358,6 +1361,7 @@ public class TP118 {
         for (int i = 0; i < 4; i++) {
             if (((var4 * 367) != (var6 + var4))) {
                 var6 = 487;
+                break;
             }
         }
         if ((((var3 + var2) * (var6 / 408)) != (var2 - var3))) {

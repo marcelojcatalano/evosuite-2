@@ -92,7 +92,7 @@ public class PrivateAccess {
             }
         }
         assert field != null;
-        field.setAccessible(true);
+       // field.setAccessible(true);
 
         try {
             Reflection.setField(field, instance, value);

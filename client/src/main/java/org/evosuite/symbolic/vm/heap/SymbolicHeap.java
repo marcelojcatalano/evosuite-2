@@ -65,7 +65,7 @@ public final class SymbolicHeap {
     public static final String $STRING_BUFFER_CONTENTS = "$stringBuffer_contents";
     public static final String $STRING_BUILDER_CONTENTS = "$stringBuilder_contents";
 
-    protected static final Logger logger = LoggerFactory.getLogger(SymbolicHeap.class);
+    private static final Logger logger = LoggerFactory.getLogger(SymbolicHeap.class);
 
     /**
      * Counter for instances
@@ -107,8 +107,8 @@ public final class SymbolicHeap {
      * Constructor
      */
     public SymbolicHeap() {
-        this.symbolicArrays = SymbolicHeapArraySectionFactory
-                .getInstance()
+        this.symbolicArrays =
+                SymbolicHeapArraySectionFactory.getInstance()
                 .getSymbolicHeapArraySection(Properties.SELECTED_DSE_ARRAYS_MEMORY_MODEL_VERSION);
     }
 

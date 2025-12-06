@@ -31,10 +31,6 @@ public class DseWithSocket {
         Scanner inScan = new Scanner(in);
         String received = inScan.nextLine();
         inScan.close();
-        if (received.equals("Hello World!")) {
-            return true;
-        } else {
-            return false;
-        }
+        return received.equals("Hello World!");
     }
 }

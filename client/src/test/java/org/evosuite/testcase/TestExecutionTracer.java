@@ -24,6 +24,7 @@ import org.evosuite.coverage.branch.BranchPool;
 import org.evosuite.testcase.execution.ExecutionTrace;
 import org.evosuite.testcase.execution.ExecutionTracer;
 import org.evosuite.utils.ClassTransformer;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -107,7 +108,7 @@ public class TestExecutionTracer {
             ExecutionTracer.enable();
             Class<?> targetClass = classTransformer.instrumentClass(fullyQualifiedTargetClass);
             Constructor<?> constructor = targetClass.getConstructor();
-            Object target = constructor.newInstance();
+            Object target = ReflectionUtils.newInstanceOf(targetClass);
             Method method = targetClass.getMethod(methodName, Integer.class,
                     Integer.class);
             method.invoke(target, val1, val2);

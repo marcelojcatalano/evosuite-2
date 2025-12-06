@@ -35,19 +35,11 @@ public class SpecifiedValuesAnswerTest {
     }
 
     private static boolean checkString_3different(BaseString s) {
-        if (s.getString().equals("foo") && s.getString().equals("bar") && s.getString().equals("42")) {
-            return true;
-        } else {
-            return false;
-        }
+        return s.getString().equals("foo") && s.getString().equals("bar") && s.getString().equals("42");
     }
 
     private static boolean checkString_allSame(BaseString s) {
-        if (s.getString().equals("foo") && s.getString().equals("foo") && s.getString().equals("foo")) {
-            return true;
-        } else {
-            return false;
-        }
+        return s.getString().equals("foo") && s.getString().equals("foo") && s.getString().equals("foo");
     }
 
     @Test

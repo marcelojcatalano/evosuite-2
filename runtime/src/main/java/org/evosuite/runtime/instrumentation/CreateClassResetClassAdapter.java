@@ -21,6 +21,7 @@ package org.evosuite.runtime.instrumentation;
 
 import org.evosuite.runtime.classhandling.ClassResetter;
 import org.evosuite.runtime.classhandling.ModifiedTargetStaticFields;
+import org.evosuite.utils.ReflectionUtils;
 import org.objectweb.asm.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

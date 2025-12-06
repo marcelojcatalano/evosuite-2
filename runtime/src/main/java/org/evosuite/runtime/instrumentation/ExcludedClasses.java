@@ -50,6 +50,7 @@ public class ExcludedClasses {
         classesLoaded = true;
         try {
             //Construct BufferedReader from InputStreamReader
+            assert excludedClassesStream != null;
             BufferedReader br = new BufferedReader(new InputStreamReader(excludedClassesStream));
 
             String line = null;
@@ -58,7 +59,7 @@ public class ExcludedClasses {
             }
 
             br.close();
-        } catch (IOException e) {
+        } catch (IOException ignored) {
 
         }
     }

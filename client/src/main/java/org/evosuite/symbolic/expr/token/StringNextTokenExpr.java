@@ -27,6 +27,7 @@ import org.evosuite.symbolic.expr.AbstractExpression;
 import org.evosuite.symbolic.expr.ExpressionVisitor;
 import org.evosuite.symbolic.expr.Variable;
 import org.evosuite.symbolic.expr.str.StringValue;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,7 +47,7 @@ public final class StringNextTokenExpr extends AbstractExpression<String> implem
 
     private static final long serialVersionUID = -4594444543728364120L;
 
-    protected static Logger log = LoggerFactory.getLogger(StringNextTokenExpr.class);
+    private static Logger log = LoggerFactory.getLogger(StringNextTokenExpr.class);
 
     private final TokenizerExpr tokenizerExpr;
 

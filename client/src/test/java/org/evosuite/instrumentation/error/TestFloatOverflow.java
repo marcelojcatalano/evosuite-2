@@ -36,8 +36,8 @@ import static org.junit.Assert.assertTrue;
 @RunWith(Parameterized.class)
 public class TestFloatOverflow {
 
-    private float x;
-    private float y;
+    private final float x;
+    private final float y;
 
     // Creates the test data
     @Parameters

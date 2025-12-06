@@ -38,13 +38,11 @@ public class SymbolicArrayUtil {
         if (arrayVariableName.length() == 0) throw new IllegalArgumentException(ARRAY_NAME_CANNOT_BE_EMPTY);
         if (index < 0) throw new IllegalArgumentException(ARRAY_INDEX_CANNOT_BE_LOWER_THAN_0);
 
-        return new StringBuilder()
-                .append(arrayVariableName)
-                .append(ARRAY_CONTENT_VARIABLE_NAME_SEPARATOR)
-                .append(ARRAY_VARIABLE_NAME_CONTENT_LITERAL)
-                .append(ARRAY_CONTENT_VARIABLE_NAME_SEPARATOR)
-                .append(index)
-                .toString();
+        return arrayVariableName +
+                ARRAY_CONTENT_VARIABLE_NAME_SEPARATOR +
+                ARRAY_VARIABLE_NAME_CONTENT_LITERAL +
+                ARRAY_CONTENT_VARIABLE_NAME_SEPARATOR +
+                index;
     }
 
     public static boolean isArrayContentVariableName(String name) {

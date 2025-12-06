@@ -49,7 +49,7 @@ public class TestStringSearch3 extends RandomizedTC {
         StringVariable var3 = new StringVariable("var3", "<\n V6h");
         StringBinaryToIntegerExpression var3_charAt_0 = new StringBinaryToIntegerExpression(
                 var3, Operator.CHARAT, new IntegerConstant(0),
-                (long) "<\n V6h".charAt(0));
+                (long) '<');
         IntegerConstraint cnstr1 = new IntegerConstraint(var3_charAt_0,
                 Comparator.GE, new IntegerConstant(0));
 

@@ -31,10 +31,7 @@ public class StaticFoo {
             throw new IllegalStateException("Only one call to bar is allowed");
 
         counter++;
-        if (value < 0)
-            return true;
-        else
-            return false;
+        return value < 0;
     }
 
     public static int getCounter() {

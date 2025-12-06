@@ -124,7 +124,7 @@ public class SeedingSchedule extends OneTimeSchedule {
                     if (job.areDependenciesSatisfied(jobs, assigned)) {
                         chosenJob = job;
                         iterator.remove();
-                        break postponedLoop;
+                        break;
                     }
                 }
             }
@@ -146,7 +146,7 @@ public class SeedingSchedule extends OneTimeSchedule {
                     JobDefinition job = toAssign.poll();
                     if (job.areDependenciesSatisfied(jobs, assigned)) {
                         chosenJob = job;
-                        break toExecuteLoop;
+                        break;
                     } else {
                         postponed.add(job);
                     }

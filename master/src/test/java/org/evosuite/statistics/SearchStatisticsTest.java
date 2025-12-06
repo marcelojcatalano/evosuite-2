@@ -19,6 +19,7 @@
  */
 package org.evosuite.statistics;
 
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.Test;
 
 public class SearchStatisticsTest {

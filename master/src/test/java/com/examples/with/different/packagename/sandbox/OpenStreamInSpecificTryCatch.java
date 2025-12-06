@@ -31,11 +31,7 @@ public class OpenStreamInSpecificTryCatch {
         } catch (FileNotFoundException e) {
         }
 
-        if (x > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return x > 0;
     }
 
 }

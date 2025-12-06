@@ -169,7 +169,7 @@ public class DSELegacyAlgorithm extends GeneticAlgorithm<TestSuiteChromosome> {
                     // solver failures / unknowns as already satisfiable in the cache.
                     queryCache.put(constraintSet, result);
                     statisticsLogger.reportNewQueryCachedValue();
-                    logger.debug("Number of stored entries in query cache : " + queryCache.keySet().size());
+                    logger.debug("Number of stored entries in query cache : " + queryCache.size());
 
                     if (result.isSAT()) {
                         logger.debug("query is SAT (solution found)");

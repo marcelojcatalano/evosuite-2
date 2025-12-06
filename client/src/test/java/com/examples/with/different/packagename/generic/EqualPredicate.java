@@ -21,7 +21,7 @@ package com.examples.with.different.packagename.generic;
 
 public class EqualPredicate<T> implements Predicate<T> {
 
-    private T value;
+    private final T value;
 
     public EqualPredicate(final T object) {
         this.value = object;

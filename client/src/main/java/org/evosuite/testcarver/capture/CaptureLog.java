@@ -511,7 +511,6 @@ public final class CaptureLog implements Cloneable {
             final Class<?> enclosingClass = receiverClass.getEnclosingClass();
             if (enclosingClass == null) {
                 // do nothing
-                return;
             } else {
                 if (!receiverClass.isAnonymousClass()
                         && !Modifier.isStatic(receiverClass.getModifiers())) {

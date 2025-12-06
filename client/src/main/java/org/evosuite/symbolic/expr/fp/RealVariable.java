@@ -58,7 +58,7 @@ public final class RealVariable extends AbstractExpression<Double> implements Re
      *
      * @param conV a double.
      */
-    public final void setConcreteValue(double conV) {
+    public void setConcreteValue(double conV) {
         this.concreteValue = conV;
     }
 

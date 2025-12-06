@@ -54,11 +54,11 @@ public class InspectorManager {
                 "java.io.File",
                 Arrays.asList("getPath", "getAbsolutePath",
                         "getCanonicalPath"));
-        blackList.put("java.io.DataOutputStream", Arrays.asList("size"));
+        blackList.put("java.io.DataOutputStream", List.of("size"));
 
         // These methods will contain locale specific strings
         blackList.put("java.util.Date",
-                Arrays.asList("getLocaleString"));
+                List.of("getLocaleString"));
 
         // These methods will include data differing in every run
         blackList.put(
@@ -70,29 +70,29 @@ public class InspectorManager {
                 Arrays.asList("activeCount", "activeGroupCount", "getMaxPriority",
                         "isDaemon", "isDestroyed", "toString"));
         blackList.put("java.util.EventObject",
-                Arrays.asList("toString"));
+                List.of("toString"));
 
         blackList.put(Locale.class.getCanonicalName(),
-                Arrays.asList("getDisplay"));
+                List.of("getDisplay"));
         blackList.put("java.util.Hashtable",
-                Arrays.asList("toString"));
+                List.of("toString"));
         blackList.put("java.util.HashSet",
-                Arrays.asList("toString"));
+                List.of("toString"));
         blackList.put("java.util.HashMap",
-                Arrays.asList("toString"));
+                List.of("toString"));
         blackList.put("java.util.AbstractMap",
-                Arrays.asList("toString"));
+                List.of("toString"));
         blackList.put("java.util.AbstractCollection",
-                Arrays.asList("toString"));
+                List.of("toString"));
 
         blackList.put("java.util.logging.Logger",
-                Arrays.asList("getUseParentHandlers"));
+                List.of("getUseParentHandlers"));
 
         // AWT identifiers are different with every run
         blackList.put("java.awt.Panel",
-                Arrays.asList("toString"));
+                List.of("toString"));
         blackList.put("java.awt.event.ActionEvent",
-                Arrays.asList("toString"));
+                List.of("toString"));
         // TODO: Figure out how to make AWT/Swing component status deterministic between headless/non-headless
         blackList.put("java.awt.Component",
                 Arrays.asList("toString", "isVisible", "isForegroundSet", "isBackgroundSet", "isFontSet", "isCursorSet",
@@ -101,21 +101,21 @@ public class InspectorManager {
         blackList.put("java.awt.Container",
                 Arrays.asList("countComponents", "getComponentCount", "isForegroundSet", "isBackgroundSet", "isFontSet"));
         blackList.put("java.awt.event.MouseWheelEvent",
-                Arrays.asList("toString"));
+                List.of("toString"));
         blackList.put("javax.swing.DefaultListSelectionModel",
-                Arrays.asList("toString"));
+                List.of("toString"));
         blackList.put("javax.swing.JPopupMenu",
                 Arrays.asList("isFontSet", "getComponentCount", "isForegroundSet", "isBackgroundSet", "isFontSet"));
         blackList.put("javax.swing.JInternalFrame",
                 Arrays.asList("getComponentCount", "countComponents", "isForegroundSet", "isBackgroundSet", "isFontSet"));
         blackList.put("javax.swing.text.StyleContext",
-                Arrays.asList("toString"));
+                List.of("toString"));
         blackList.put("java.rmi.server.ObjID",
-                Arrays.asList("toString"));
+                List.of("toString"));
         blackList.put("java.awt.event.InvocationEvent",
-                Arrays.asList("getWhen"));
+                List.of("getWhen"));
         blackList.put("java.lang.StringBuffer",
-                Arrays.asList("capacity"));
+                List.of("capacity"));
     }
 
     /**

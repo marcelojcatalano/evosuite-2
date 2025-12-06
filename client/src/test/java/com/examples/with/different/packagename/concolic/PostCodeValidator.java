@@ -75,11 +75,7 @@ public final class PostCodeValidator extends Validator {
         Matcher matcher = null;
 
         if (strMatch == null) {
-            if (getMandatory() == MANDATORY) {
-                return false;
-            } else {
-                return true;
-            }
+            return getMandatory() != MANDATORY;
         } else {
             strMatch = strMatch.trim();
             System.out.println("strMatch = " + strMatch);

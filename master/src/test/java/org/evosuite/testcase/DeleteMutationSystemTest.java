@@ -19,11 +19,8 @@
  */
 package org.evosuite.testcase;
 
-import static org.junit.Assert.assertEquals;
-
-import java.lang.reflect.Method;
-import java.util.Arrays;
-
+import com.examples.with.different.packagename.TrivialInt;
+import com.examples.with.different.packagename.coverage.IntExampleWithNoElse;
 import org.evosuite.Properties;
 import org.evosuite.SystemTestBase;
 import org.evosuite.TestGenerationContext;
@@ -34,6 +31,7 @@ import org.evosuite.testcase.statements.MethodStatement;
 import org.evosuite.testcase.statements.numeric.IntPrimitiveStatement;
 import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.testsuite.TestSuiteChromosome;
+import org.evosuite.utils.ReflectionUtils;
 import org.evosuite.utils.generic.GenericClass;
 import org.evosuite.utils.generic.GenericClassFactory;
 import org.evosuite.utils.generic.GenericConstructor;
@@ -41,14 +39,16 @@ import org.evosuite.utils.generic.GenericMethod;
 import org.junit.After;
 import org.junit.Test;
 
-import com.examples.with.different.packagename.TrivialInt;
-import com.examples.with.different.packagename.coverage.IntExampleWithNoElse;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+
+import static org.junit.Assert.assertEquals;
 
 public class DeleteMutationSystemTest extends SystemTestBase {
-    private double oldPInsert = Properties.P_TEST_INSERT;
-    private double oldPDelete = Properties.P_TEST_DELETE;
-    private double oldPChange = Properties.P_TEST_CHANGE;
-    private double oldPPool = Properties.PRIMITIVE_POOL;
+    private final double oldPInsert = Properties.P_TEST_INSERT;
+    private final double oldPDelete = Properties.P_TEST_DELETE;
+    private final double oldPChange = Properties.P_TEST_CHANGE;
+    private final double oldPPool = Properties.PRIMITIVE_POOL;
 
     @After
     public void restoreProperties() {
@@ -70,9 +70,9 @@ public class DeleteMutationSystemTest extends SystemTestBase {
         test.addStatement(new IntPrimitiveStatement(test, x));
         VariableReference wrongIntVar = test.addStatement(new IntPrimitiveStatement(test, y));
 
-        Method m = clazz.getRawClass().getMethod("testMe", new Class<?>[]{int.class});
+        Method m = clazz.getRawClass().getMethod("testMe", int.class);
         GenericMethod method = new GenericMethod(m, sut);
-        MethodStatement ms = new MethodStatement(test, method, callee, Arrays.asList(new VariableReference[]{wrongIntVar}));
+        MethodStatement ms = new MethodStatement(test, method, callee, Arrays.asList(wrongIntVar));
         test.addStatement(ms);
 
         return test;
@@ -92,16 +92,16 @@ public class DeleteMutationSystemTest extends SystemTestBase {
         VariableReference wrongIntVar1 = test.addStatement(new IntPrimitiveStatement(test, x1));
         VariableReference wrongIntVar2 = test.addStatement(new IntPrimitiveStatement(test, y1));
 
-        Method m = clazz.getRawClass().getMethod("testMe", new Class<?>[]{int.class, int.class});
+        Method m = clazz.getRawClass().getMethod("testMe", int.class, int.class);
         GenericMethod method = new GenericMethod(m, sut);
-        MethodStatement ms = new MethodStatement(test, method, callee, Arrays.asList(new VariableReference[]{wrongIntVar1, wrongIntVar2}));
+        MethodStatement ms = new MethodStatement(test, method, callee, Arrays.asList(wrongIntVar1, wrongIntVar2));
         test.addStatement(ms);
 
         return test;
     }
 
     @Test
-    public void testSimpleInt() throws NoSuchMethodException, SecurityException, ClassNotFoundException, ConstructionFailedException {
+    public void testSimpleInt() throws Exception {
         Properties.TARGET_CLASS = TrivialInt.class.getCanonicalName();
         TestChromosome test1 = new TestChromosome();
         test1.setTestCase(getIntTest(2938, -1000000));
@@ -117,7 +117,7 @@ public class DeleteMutationSystemTest extends SystemTestBase {
         assertEquals(1.0, fitness.getFitness(suite), 0.01F); // 0.99...
 
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(Properties.TARGET_CLASS);
-        Method m = sut.getMethod("testMe", new Class<?>[]{int.class});
+        Method m = sut.getMethod("testMe", int.class);
         GenericMethod method = new GenericMethod(m, sut);
 
         TestCluster.getInstance().addTestCall(method);
@@ -140,7 +140,7 @@ public class DeleteMutationSystemTest extends SystemTestBase {
                     System.out.println("Improved: " + newFitness);
                     test1 = testNew;
                     oldFitness = newFitness;
-                    System.out.println("" + i + ":" + ((IntPrimitiveStatement) test1.getTestCase().getStatement(1)).getValue());
+                    System.out.println(i + ":" + ((IntPrimitiveStatement) test1.getTestCase().getStatement(1)).getValue());
                     if (newFitness == 0.0) {
                         System.out.println("Iterations: " + i);
                         System.out.println("Not changed: " + notChanged);
@@ -163,7 +163,7 @@ public class DeleteMutationSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testTwoInts() throws NoSuchMethodException, SecurityException, ClassNotFoundException, ConstructionFailedException {
+    public void testTwoInts() throws Exception {
         Properties.TARGET_CLASS = IntExampleWithNoElse.class.getCanonicalName();
         TestChromosome test1 = new TestChromosome();
         test1.setTestCase(getTwoIntTest(1, 1, 22, 22));
@@ -191,7 +191,7 @@ public class DeleteMutationSystemTest extends SystemTestBase {
 
 
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(Properties.TARGET_CLASS);
-        Method m = sut.getMethod("testMe", new Class<?>[]{int.class, int.class});
+        Method m = sut.getMethod("testMe", int.class, int.class);
         GenericMethod method = new GenericMethod(m, sut);
 
         TestCluster.getInstance().addTestCall(method);

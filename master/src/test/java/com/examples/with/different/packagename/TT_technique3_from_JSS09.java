@@ -22,11 +22,7 @@ package com.examples.with.different.packagename;
 public class TT_technique3_from_JSS09 {
 
     public boolean simple(int x) {
-        if (x == 123456) {
-            return true;
-        } else {
-            return false;
-        }
+        return x == 123456;
     }
 
     public boolean complex(int x, int y, int z) {
@@ -36,11 +32,7 @@ public class TT_technique3_from_JSS09 {
         } else {
             if (y > -100) {
                 return false;
-            } else if (z > -10000) {
-                return false;
-            } else {
-                return true;
-            }
+            } else return z <= -10000;
         }
     }
 

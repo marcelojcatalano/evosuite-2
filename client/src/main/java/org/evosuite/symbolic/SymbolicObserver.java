@@ -420,7 +420,7 @@ public class SymbolicObserver extends ExecutionObserver {
                 } else {
                     ReferenceExpression ref = env.heap.getReference(conc_value);
 
-                    if (conc_value != null && isWrapper(conc_value)) {
+                    if (isWrapper(conc_value)) {
                         ReferenceConstant nonNullRef = (ReferenceConstant) ref;
                         Expression<?> expr = findOrCreate(conc_value, nonNullRef);
                         return new ReferenceExpressionPair(ref, expr);
@@ -512,7 +512,7 @@ public class SymbolicObserver extends ExecutionObserver {
                     return new ReferenceExpressionPair(newStringRef, expr);
                 } else {
                     ReferenceExpression ref = env.heap.getReference(conc_value);
-                    if (conc_value != null && isWrapper(conc_value)) {
+                    if (isWrapper(conc_value)) {
                         ReferenceConstant nonNullRef = (ReferenceConstant) ref;
                         Expression<?> expr = findOrCreate(conc_value, nonNullRef);
                         return new ReferenceExpressionPair(ref, expr);
@@ -591,7 +591,7 @@ public class SymbolicObserver extends ExecutionObserver {
                 } else {
                     ReferenceExpression ref = env.heap.getReference(conc_value);
 
-                    if (conc_value != null && isWrapper(conc_value)) {
+                    if (isWrapper(conc_value)) {
                         ReferenceConstant nonNullRef = (ReferenceConstant) ref;
                         Expression<?> expr = findOrCreate(conc_value, nonNullRef);
                         return new ReferenceExpressionPair(ref, expr);
@@ -1461,7 +1461,7 @@ public class SymbolicObserver extends ExecutionObserver {
                     symb_expressions.put(varName, str_expr);
                 } else {
                     symb_references.put(varName, ref);
-                    if (res != null && isWrapper(res)) {
+                    if (isWrapper(res)) {
                         ReferenceConstant nonNullRef = (ReferenceConstant) ref;
                         Expression<?> expr = findOrCreate(res, nonNullRef);
                         symb_expressions.put(varName, expr);
@@ -1751,7 +1751,7 @@ public class SymbolicObserver extends ExecutionObserver {
                     symb_expressions.put(varName, str_expr);
                 } else {
                     symb_references.put(varName, ref);
-                    if (res != null && isWrapper(res)) {
+                    if (isWrapper(res)) {
                         ReferenceConstant nonNullRef = (ReferenceConstant) ref;
                         Expression<?> expr = findOrCreate(res, nonNullRef);
                         symb_expressions.put(varName, expr);

@@ -32,6 +32,7 @@ import org.evosuite.testcase.DefaultTestCase;
 import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.testsuite.TestSuiteChromosome;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.After;
 import org.junit.Assume;
 import org.junit.Before;
@@ -118,7 +119,7 @@ public class TestDSETestSuiteLoops {
     }
 
     @Test
-    public void testAVMSolver() throws NoSuchMethodException, SecurityException, ClassNotFoundException {
+    public void testAVMSolver() throws Exception {
 
         Properties.DSE_SOLVER = Properties.SolverType.EVOSUITE_SOLVER;
         Properties.CRITERION = new Properties.Criterion[]{Criterion.BRANCH};
@@ -172,7 +173,7 @@ public class TestDSETestSuiteLoops {
     }
 
     @Test
-    public void testCVC4Solver() throws NoSuchMethodException, SecurityException, ClassNotFoundException {
+    public void testCVC4Solver() throws Exception {
         String cvc4_path = System.getenv("cvc4_path");
         if (cvc4_path != null) {
             Properties.CVC4_PATH = cvc4_path;

@@ -19,13 +19,9 @@
  */
 package com.examples.with.different.packagename;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 import org.apache.commons.lang3.mutable.MutableObject;
+
+import java.util.*;
 
 /**
  * Snippet from Lang project
@@ -81,7 +77,7 @@ public class ClassHierarchyIncludingInterfaces {
                 final Iterator<Class<?>> wrapped = classes.iterator();
 
                 return new Iterator<Class<?>>() {
-                    Iterator<Class<?>> interfaces = Collections.<Class<?>>emptySet().iterator();
+                    Iterator<Class<?>> interfaces = Collections.emptyIterator();
 
                     @Override
                     public boolean hasNext() {

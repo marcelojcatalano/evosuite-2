@@ -421,7 +421,7 @@ public final class VirtualFileSystem {
         return tokenize(path, File.separatorChar);
     }
 
-    protected static String[] tokenize(String path, char separator) {
+    static String[] tokenize(String path, char separator) {
         String[] tokens = path.split(separator == '\\' ? "\\\\" : File.separator);
         List<String> list = new ArrayList<>(tokens.length);
         for (String token : tokens) {

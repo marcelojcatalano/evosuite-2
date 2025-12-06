@@ -49,8 +49,7 @@ public class TestCase93 {
 
         Assertions.checkEquals(int2, int3);
 
-        StringBuffer stringBuffer1 = new StringBuffer(new String(
-                "Togliere sta roba"));
+        StringBuffer stringBuffer1 = new StringBuffer("Togliere sta roba");
         stringBuffer1.append(boolean0);
         String string3 = stringBuffer1.toString();
 

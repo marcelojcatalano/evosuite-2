@@ -57,7 +57,7 @@ import java.util.*;
  */
 public abstract class ExplorationAlgorithm extends ExplorationAlgorithmBase {
 
-    private static final transient Logger logger = LoggerFactory.getLogger(ExplorationAlgorithm.class);
+    private static final Logger logger = LoggerFactory.getLogger(ExplorationAlgorithm.class);
 
     /**
      * Logger Messages

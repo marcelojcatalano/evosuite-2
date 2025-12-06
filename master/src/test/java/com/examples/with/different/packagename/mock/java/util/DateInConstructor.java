@@ -26,7 +26,7 @@ import java.util.Date;
  */
 public class DateInConstructor {
 
-    private Date date;
+    private final Date date;
 
     public DateInConstructor() {
         this(new Date());
@@ -41,9 +41,6 @@ public class DateInConstructor {
     }
 
     public boolean testMe(Date other) {
-        if (date.after(other))
-            return true;
-        else
-            return false;
+        return date.after(other);
     }
 }

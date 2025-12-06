@@ -541,6 +541,7 @@ public class BooleanTestabilityTransformation {
                 while (start != node) {
                     if (node instanceof InsnNode) {
                         reassignment = true;
+                        break;
                     }
                     start = start.getNext();
                 }

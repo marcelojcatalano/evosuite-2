@@ -19,12 +19,8 @@
  */
 package org.evosuite.testcase;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import com.examples.with.different.packagename.ObjectParameter;
+import com.examples.with.different.packagename.StringConstantInliningExample;
 import com.examples.with.different.packagename.TrivialInt;
 import org.evosuite.testcase.statements.*;
 import org.evosuite.testcase.variable.ArrayIndex;
@@ -34,13 +30,16 @@ import org.evosuite.utils.generic.GenericConstructor;
 import org.evosuite.utils.generic.GenericMethod;
 import org.junit.Test;
 
-import com.examples.with.different.packagename.ObjectParameter;
-import com.examples.with.different.packagename.StringConstantInliningExample;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class TestConstantInliner {
 
     @Test
-    public void testArrayIndexInlining() throws NoSuchMethodException, SecurityException {
+    public void testArrayIndexInlining() throws Exception {
         DefaultTestCase test = new DefaultTestCase();
         ConstructorStatement cs = new ConstructorStatement(test, new GenericConstructor(Object.class.getConstructor(), Object.class), new ArrayList<>());
         VariableReference objectVar = test.addStatement(cs);
@@ -79,7 +78,7 @@ public class TestConstantInliner {
     }
 
     @Test
-    public void testNumericArrayIndexInlining() throws NoSuchMethodException, SecurityException {
+    public void testNumericArrayIndexInlining() throws Exception {
         DefaultTestCase test = new DefaultTestCase();
         PrimitiveStatement<?> primitiveStatement = PrimitiveStatement.getPrimitiveStatement(test, int.class);
         VariableReference intVar = test.addStatement(primitiveStatement);
@@ -120,7 +119,7 @@ public class TestConstantInliner {
 
 
     @Test
-    public void testStringQuoting() throws NoSuchMethodException, SecurityException {
+    public void testStringQuoting() throws Exception {
         DefaultTestCase test = new DefaultTestCase();
         ConstructorStatement cs = new ConstructorStatement(test, new GenericConstructor(StringConstantInliningExample.class.getConstructor(), StringConstantInliningExample.class), new ArrayList<>());
         VariableReference objectVar = test.addStatement(cs);
@@ -143,7 +142,7 @@ public class TestConstantInliner {
     }
 
     @Test
-    public void testStringEndingWithClass() throws NoSuchMethodException, SecurityException {
+    public void testStringEndingWithClass() throws Exception {
         DefaultTestCase test = new DefaultTestCase();
         ConstructorStatement cs = new ConstructorStatement(test, new GenericConstructor(StringConstantInliningExample.class.getConstructor(), StringConstantInliningExample.class), new ArrayList<>());
         VariableReference objectVar = test.addStatement(cs);

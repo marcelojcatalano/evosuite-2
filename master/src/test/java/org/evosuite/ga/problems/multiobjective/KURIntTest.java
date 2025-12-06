@@ -19,10 +19,6 @@
  */
 package org.evosuite.ga.problems.multiobjective;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.evosuite.Properties;
 import org.evosuite.ga.ChromosomeFactory;
 import org.evosuite.ga.FitnessFunction;
@@ -41,7 +37,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static java.util.Comparator.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.util.Comparator.comparingDouble;
 
 /**
  * @author José Campos
@@ -79,7 +79,7 @@ public class KURIntTest {
      * @throws NumberFormatException
      */
     @Test
-    public void testKUR() throws NumberFormatException, IOException {
+    public void testKUR() throws Exception {
         Properties.MUTATION_RATE = 1d / 3d;
 
         ChromosomeFactory<NSGAChromosome> factory = new RandomFactory(false, 3, -5.0, 5.0);

@@ -27,7 +27,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.concurrent.*;
 
@@ -101,7 +100,7 @@ public class JobExecutor {
 
     protected long getRemainingTimeInMs() {
         long elapsed = System.currentTimeMillis() - startTimeInMs;
-        long budgetInMs = configuration.timeInMinutes * 60 * 1000;
+        long budgetInMs = (long) configuration.timeInMinutes * 60 * 1000;
         long remaining = budgetInMs - elapsed;
         return remaining;
     }
@@ -138,7 +137,7 @@ public class JobExecutor {
                     LoggingUtils.getEvoLogger().info("Going to execute " + jobs.size() + " jobs");
 
                     long minutes = configuration.timeInMinutes;
-                    LocalDateTime endBy = LocalDateTime.now().plus(minutes, ChronoUnit.MINUTES);
+                    LocalDateTime endBy = LocalDateTime.now().plusMinutes(minutes);
                     LoggingUtils.getEvoLogger().info("Estimated completion time: " + minutes + " minutes, by " + endBy);
 
                     longestJob = execute(jobs);
@@ -206,7 +205,7 @@ public class JobExecutor {
             long remaining = getRemainingTimeInMs();
             if (remaining <= 0) {
                 //time is over. do not submit any more job
-                break mainLoop;
+                break;
             }
 
             JobDefinition chosenJob = null;
@@ -220,7 +219,7 @@ public class JobExecutor {
                     if (job.areDependenciesSatisfied(jobs, finishedJobs.keySet())) {
                         chosenJob = job;
                         iterator.remove();
-                        break postponedLoop;
+                        break;
                     }
                 }
             }
@@ -248,7 +247,7 @@ public class JobExecutor {
                     JobDefinition job = toExecute.poll();
                     if (job.areDependenciesSatisfied(jobs, finishedJobs.keySet())) {
                         chosenJob = job;
-                        break toExecuteLoop;
+                        break;
                     } else {
                         postponed.add(job);
                     }
@@ -268,13 +267,13 @@ public class JobExecutor {
             }
 
             assert chosenJob != null;
-            longestJob = Math.max(longestJob, chosenJob.seconds * 1000);
+            longestJob = Math.max(longestJob, chosenJob.seconds * 1000L);
 
             try {
                 jobQueue.offer(chosenJob, remaining, TimeUnit.MILLISECONDS);
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt(); //important for check later
-                break mainLoop;
+                break;
             }
         }
 

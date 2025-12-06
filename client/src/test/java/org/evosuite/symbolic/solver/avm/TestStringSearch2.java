@@ -67,14 +67,14 @@ public class TestStringSearch2 extends RandomizedTC {
     }
 
     @Test
-    public void testCreatePathConstraint() throws SecurityException, NoSuchMethodException {
+    public void testCreatePathConstraint() throws Exception {
         DefaultTestCase tc = buildTestCase("urn:pBth:/A/B/C/doc.html#gilada");
         List<BranchCondition> branch_conditions = executeTest(tc);
         assertEquals(11, branch_conditions.size());
     }
 
     @Test
-    public void testSolvePathConstraint() throws SecurityException, NoSuchMethodException {
+    public void testSolvePathConstraint() throws Exception {
         DefaultTestCase tc = buildTestCase("urn:pBth:/A/B/C/doc.html#gilada");
         List<BranchCondition> branch_conditions = executeTest(tc);
 
@@ -103,7 +103,7 @@ public class TestStringSearch2 extends RandomizedTC {
     }
 
     @Test
-    public void testSolveIndexOfConstant() throws SecurityException, NoSuchMethodException {
+    public void testSolveIndexOfConstant() throws Exception {
         DefaultTestCase tc = buildTestCase("V*X-:o%tp");
         List<BranchCondition> branch_conditions = executeTest(tc);
 

@@ -29,10 +29,6 @@ public class SimpleFM_Boolean {
     }
 
     public static boolean bar(Foo foo) {
-        if (foo.foo()) {
-            return true;
-        } else {
-            return false;
-        }
+        return foo.foo();
     }
 }

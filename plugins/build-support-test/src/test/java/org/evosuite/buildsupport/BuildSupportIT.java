@@ -129,11 +129,11 @@ public class BuildSupportIT {
             phase = "test";
             project.executeTarget(phase);
         } catch (Exception e){
-            String res = outBuffer.toString()+"\n" + errBuffer.toString();
+            String res = outBuffer +"\n" + errBuffer;
             throw new RuntimeException("Failed to execute Ant on phase '"+phase+"': "+e.getMessage()+"\nLOGS:\n"+res, e);
         }
 
-        String res = outBuffer.toString()+"\n" + errBuffer.toString();
+        String res = outBuffer +"\n" + errBuffer;
 
         assertTrue(res, res.contains("[junit] Testcase: testInstrumentation took"));
         assertTrue(res, res.contains("[junit] Testcase: testDoesFileExist_deactivatedInstrumentation took"));

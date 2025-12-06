@@ -19,24 +19,18 @@
  */
 package org.evosuite.runtime.mock.java.net;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.SocketAddress;
-import java.net.SocketException;
-import java.net.SocketImpl;
-import java.net.SocketOptions;
-import java.net.UnknownHostException;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
 import org.evosuite.runtime.vnet.EndPointInfo;
 import org.evosuite.runtime.vnet.NativeTcp;
 import org.evosuite.runtime.vnet.VirtualNetwork;
 import org.evosuite.runtime.vnet.VirtualNetwork.ConnectionType;
+import org.evosuite.utils.ReflectionUtils;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.*;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 /*
@@ -126,11 +120,7 @@ public class EvoSuiteSocket extends MockSocketImpl{
 	protected synchronized void create(boolean stream) throws IOException {
 		this.stream = stream;
 
-        if (!stream) {
-				socketCreate(false);
-		} else {
-			socketCreate(true);
-		}
+        socketCreate(stream);
 
         if (socket != null)
 			socket.setCreated();
@@ -145,7 +135,7 @@ public class EvoSuiteSocket extends MockSocketImpl{
 	}
 	
 	@Override
-	protected void connect(String host, int port) throws UnknownHostException, IOException {
+	protected void connect(String host, int port) throws IOException {
 		//from AbstractPlainSocketImpl
         connect(new MockInetSocketAddress(MockInetAddress.getByName(host),port), getTimeout());
 	}

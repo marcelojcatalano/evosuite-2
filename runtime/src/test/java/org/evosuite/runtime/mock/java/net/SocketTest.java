@@ -23,6 +23,7 @@ import org.evosuite.runtime.vnet.EndPointInfo;
 import org.evosuite.runtime.vnet.RemoteTcpServer;
 import org.evosuite.runtime.vnet.VirtualNetwork;
 import org.evosuite.runtime.vnet.VirtualNetwork.ConnectionType;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

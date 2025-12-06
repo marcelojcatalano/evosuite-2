@@ -19,11 +19,8 @@
  */
 package org.evosuite.localsearch;
 
-import static org.junit.Assert.assertEquals;
-
-import java.lang.reflect.Method;
-import java.util.Arrays;
-
+import com.examples.with.different.packagename.localsearch.DseBar;
+import com.examples.with.different.packagename.localsearch.DseFoo;
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
 import org.evosuite.Properties.Criterion;
@@ -32,7 +29,6 @@ import org.evosuite.Properties.StoppingCondition;
 import org.evosuite.SystemTestBase;
 import org.evosuite.TestGenerationContext;
 import org.evosuite.coverage.branch.BranchCoverageSuiteFitness;
-import org.evosuite.ga.ConstructionFailedException;
 import org.evosuite.ga.localsearch.DefaultLocalSearchObjective;
 import org.evosuite.ga.localsearch.LocalSearchObjective;
 import org.evosuite.ga.metaheuristics.GeneticAlgorithm;
@@ -45,13 +41,20 @@ import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.localsearch.TestSuiteLocalSearch;
 import org.evosuite.utils.Randomness;
-import org.evosuite.utils.generic.*;
+import org.evosuite.utils.ReflectionUtils;
+import org.evosuite.utils.generic.GenericClass;
+import org.evosuite.utils.generic.GenericClassFactory;
+import org.evosuite.utils.generic.GenericConstructor;
+import org.evosuite.utils.generic.GenericMethod;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.examples.with.different.packagename.localsearch.DseBar;
-import com.examples.with.different.packagename.localsearch.DseFoo;
+import java.lang.reflect.Method;
+import java.util.Collections;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Andrea Arcuri on 19/03/15.
@@ -94,7 +97,7 @@ public class Issre13SystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testOnSpecificTest() throws ClassNotFoundException, ConstructionFailedException, NoSuchMethodException, SecurityException {
+    public void testOnSpecificTest() throws Exception {
         Properties.TARGET_CLASS = DseBar.class.getCanonicalName();
         Properties.DSE_PROBABILITY = 1.0; // force using DSE
 
@@ -109,26 +112,26 @@ public class Issre13SystemTest extends SystemTestBase {
 
         // DseFoo dseFoo0 = new DseFoo();
         GenericConstructor fooConstructor = new GenericConstructor(fooClass.getConstructors()[0], fooClass);
-        ConstructorStatement fooConstructorStatement = new ConstructorStatement(test, fooConstructor, Arrays.asList(new VariableReference[]{}));
+        ConstructorStatement fooConstructorStatement = new ConstructorStatement(test, fooConstructor, List.of());
         VariableReference fooVar = test.addStatement(fooConstructorStatement);
 
         Method fooIncMethod = fooClass.getMethod("inc");
         GenericMethod incMethod = new GenericMethod(fooIncMethod, fooClass);
-        test.addStatement(new MethodStatement(test, incMethod, fooVar, Arrays.asList(new VariableReference[]{})));
-        test.addStatement(new MethodStatement(test, incMethod, fooVar, Arrays.asList(new VariableReference[]{})));
-        test.addStatement(new MethodStatement(test, incMethod, fooVar, Arrays.asList(new VariableReference[]{})));
-        test.addStatement(new MethodStatement(test, incMethod, fooVar, Arrays.asList(new VariableReference[]{})));
-        test.addStatement(new MethodStatement(test, incMethod, fooVar, Arrays.asList(new VariableReference[]{})));
+        test.addStatement(new MethodStatement(test, incMethod, fooVar, List.of()));
+        test.addStatement(new MethodStatement(test, incMethod, fooVar, List.of()));
+        test.addStatement(new MethodStatement(test, incMethod, fooVar, List.of()));
+        test.addStatement(new MethodStatement(test, incMethod, fooVar, List.of()));
+        test.addStatement(new MethodStatement(test, incMethod, fooVar, List.of()));
 
         // DseBar dseBar0 = new DseBar(string0);
         GenericConstructor gc = new GenericConstructor(clazz.getRawClass().getConstructors()[0], clazz);
-        ConstructorStatement constructorStatement = new ConstructorStatement(test, gc, Arrays.asList(stringVar));
+        ConstructorStatement constructorStatement = new ConstructorStatement(test, gc, Collections.singletonList(stringVar));
         VariableReference callee = test.addStatement(constructorStatement);
 
         // dseBar0.coverMe(dseFoo0);
         Method m = clazz.getRawClass().getMethod("coverMe", fooClass);
         GenericMethod method = new GenericMethod(m, sut);
-        MethodStatement ms = new MethodStatement(test, method, callee, Arrays.asList(fooVar));
+        MethodStatement ms = new MethodStatement(test, method, callee, Collections.singletonList(fooVar));
         test.addStatement(ms);
         System.out.println(test);
 

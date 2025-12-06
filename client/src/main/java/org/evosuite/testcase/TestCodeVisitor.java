@@ -39,6 +39,7 @@ import org.evosuite.testcase.statements.*;
 import org.evosuite.testcase.statements.environment.EnvironmentDataStatement;
 import org.evosuite.testcase.variable.*;
 import org.evosuite.utils.NumberFormatter;
+import org.evosuite.utils.ReflectionUtils;
 import org.evosuite.utils.StringUtil;
 import org.evosuite.utils.generic.*;
 
@@ -505,7 +506,7 @@ public class TestCodeVisitor extends TestVisitor {
             } else {
                 stmt += "assertFalse(";
             }
-            stmt += "" + getVariableName(source) + ");";
+            stmt += getVariableName(source) + ");";
         } else if (source.isWrapperType()) {
             if (source.getVariableClass().equals(Float.class)) {
                 stmt += "assertEquals(" + NumberFormatter.getNumberString(value, this)
@@ -638,7 +639,7 @@ public class TestCodeVisitor extends TestVisitor {
             } else {
                 testCode += "assertFalse(";
             }
-            testCode += "" + target + ");";
+            testCode += target + ");";
         } else if (value.getClass().isEnum()) {
             testCode += "assertEquals(" + NumberFormatter.getNumberString(value, this) + ", "
                     + target + ");";

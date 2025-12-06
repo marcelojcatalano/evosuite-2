@@ -69,7 +69,7 @@ public class TestConstraintSolver {
     }
 
     @Test
-    public void testCase1() throws SecurityException, NoSuchMethodException, SolverEmptyQueryException {
+    public void testCase1() throws Exception {
         DefaultTestCase tc = buildTestCase1();
         // build patch condition
         List<BranchCondition> branch_conditions = executeTest(tc);
@@ -154,7 +154,7 @@ public class TestConstraintSolver {
     }
 
     @Test
-    public void testCase2() throws SecurityException, NoSuchMethodException, SolverEmptyQueryException {
+    public void testCase2() throws Exception {
         DefaultTestCase tc = buildTestCase2();
         // build patch condition
         List<BranchCondition> branchConditions = executeTest(tc);

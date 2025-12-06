@@ -158,7 +158,7 @@ public class NoveltyStrategy extends TestGenerationStrategy {
                 LoggingUtils.getEvoLogger().info("* Total number of test goals: {}", factory.getCoverageGoals().size());
                 if (Properties.PRINT_GOALS) {
                     for (TestFitnessFunction goal : factory.getCoverageGoals())
-                        LoggingUtils.getEvoLogger().info("" + goal.toString());
+                        LoggingUtils.getEvoLogger().info(goal.toString());
                 }
             }
         } else {
@@ -174,7 +174,7 @@ public class NoveltyStrategy extends TestGenerationStrategy {
                             + " " + goalFactory.getCoverageGoals().size());
                     if (Properties.PRINT_GOALS) {
                         for (TestFitnessFunction goal : goalFactory.getCoverageGoals())
-                            LoggingUtils.getEvoLogger().info("" + goal.toString());
+                            LoggingUtils.getEvoLogger().info(goal.toString());
                     }
                 }
             }

@@ -34,11 +34,7 @@ public class ShowInternalConfirmDialogExample {
                 JOptionPane.ERROR_MESSAGE);
         JOptionPane.showInternalConfirmDialog(null, "message0", "title0", JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.ERROR_MESSAGE, null);
-        if (x == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return x == 0;
     }
 
 }

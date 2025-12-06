@@ -35,7 +35,7 @@ public class TestInput1 {
         int int4 = (int) Math.min(Math.abs(-15), Long.MAX_VALUE);
         Assertions.checkEquals(int4, int2);
 
-        int int5 = new String("Togliere sta roba").length();
+        int int5 = "Togliere sta roba".length();
         Assertions.checkEquals(int5, int3);
 
     }

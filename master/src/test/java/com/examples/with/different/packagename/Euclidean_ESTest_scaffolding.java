@@ -19,6 +19,7 @@
  */
 package com.examples.with.different.packagename;
 
+import org.evosuite.runtime.Runtime;
 import org.evosuite.runtime.annotation.EvoSuiteClassExclude;
 import org.junit.After;
 import org.junit.Before;
@@ -27,7 +28,7 @@ import org.junit.BeforeClass;
 @EvoSuiteClassExclude
 public class Euclidean_ESTest_scaffolding {
 
-    private org.evosuite.runtime.thread.ThreadStopper threadStopper = new org.evosuite.runtime.thread.ThreadStopper(org.evosuite.runtime.thread.KillSwitchHandler.getInstance(), 3000);
+    private final org.evosuite.runtime.thread.ThreadStopper threadStopper = new org.evosuite.runtime.thread.ThreadStopper(org.evosuite.runtime.thread.KillSwitchHandler.getInstance(), 3000);
 
     @BeforeClass
     public static void initEvoSuiteFramework() {
@@ -40,7 +41,7 @@ public class Euclidean_ESTest_scaffolding {
         org.evosuite.runtime.sandbox.Sandbox.initializeSecurityManagerForSUT();
         org.evosuite.runtime.classhandling.JDKClassResetter.init();
         initializeClasses();
-        org.evosuite.runtime.Runtime.getInstance().resetRuntime();
+        Runtime.getInstance().resetRuntime();
     }
 
     @Before

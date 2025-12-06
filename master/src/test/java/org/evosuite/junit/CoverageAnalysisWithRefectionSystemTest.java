@@ -19,18 +19,8 @@
  */
 package org.evosuite.junit;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.util.List;
-import java.util.Map;
-
-import com.opencsv.exceptions.CsvException;
+import com.examples.with.different.packagename.*;
+import com.opencsv.CSVReader;
 import org.apache.commons.io.FileUtils;
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
@@ -44,14 +34,16 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.examples.with.different.packagename.ClassHierarchyIncludingInterfaces;
-import com.examples.with.different.packagename.ClassHierarchyIncludingInterfacesTest;
-import com.examples.with.different.packagename.ClassPublicInterface;
-import com.examples.with.different.packagename.ClassPublicInterfaceTest;
-import com.examples.with.different.packagename.ClassWithPrivateInterfaces;
-import com.examples.with.different.packagename.ClassWithPrivateInterfacesTest;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.util.List;
+import java.util.Map;
 
-import com.opencsv.CSVReader;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class CoverageAnalysisWithRefectionSystemTest extends SystemTestBase {
 
@@ -72,7 +64,7 @@ public class CoverageAnalysisWithRefectionSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testGetAllInterfaces() throws IOException, CsvException {
+    public void testGetAllInterfaces() throws Exception {
 
         EvoSuite evosuite = new EvoSuite();
 
@@ -128,7 +120,7 @@ public class CoverageAnalysisWithRefectionSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testHierarchyIncludingInterfaces() throws IOException, CsvException {
+    public void testHierarchyIncludingInterfaces() throws Exception {
 
         EvoSuite evosuite = new EvoSuite();
 

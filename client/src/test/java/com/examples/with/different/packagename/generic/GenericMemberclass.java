@@ -38,9 +38,6 @@ public class GenericMemberclass<T> {
     }
 
     public boolean testMe(MemberClass x, T t) {
-        if (x.getObject() == t)
-            return true;
-        else
-            return false;
+        return x.getObject() == t;
     }
 }

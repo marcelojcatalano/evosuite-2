@@ -36,7 +36,7 @@ public class TestCase68 {
         }
         checkEquals(1, catchCount);
 
-        boolean boolean0 = string1.contains(new StringBuffer().toString());
+        boolean boolean0 = string1.contains("");
 
         checkEquals(true, boolean0);
 

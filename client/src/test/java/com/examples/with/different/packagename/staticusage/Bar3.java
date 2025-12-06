@@ -26,6 +26,5 @@ public class Bar3 {
     }
 
     public static void methodBar3() {
-        return;
     }
 }

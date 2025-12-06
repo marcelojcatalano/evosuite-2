@@ -28,7 +28,7 @@ public class AccessExamples {
      * package visible method in super class in a different package
      */
     void defaultMethodInSuperClass() {
-        System.out.println("");
+        System.out.println();
     }
 
 }

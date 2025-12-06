@@ -45,7 +45,7 @@ public abstract class NotSupportedBySolver extends TestSolver {
     }
 
     @Test
-    public void testStringTokenizer() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringTokenizer() throws Exception {
 
         Solver solver = getSolver();
         DefaultTestCase tc = buildTestTokenizer();
@@ -67,7 +67,7 @@ public abstract class NotSupportedBySolver extends TestSolver {
     }
 
     @Test
-    public void testCos() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testCos() throws Exception {
 
         DefaultTestCase tc = buildTestCaseCos();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -90,7 +90,7 @@ public abstract class NotSupportedBySolver extends TestSolver {
     }
 
     @Test
-    public void testExp() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testExp() throws Exception {
 
         DefaultTestCase tc = buildTestCaseExp();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -113,7 +113,7 @@ public abstract class NotSupportedBySolver extends TestSolver {
     }
 
     @Test
-    public void testLog() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testLog() throws Exception {
 
         DefaultTestCase tc = buildTestCaseLog();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -136,7 +136,7 @@ public abstract class NotSupportedBySolver extends TestSolver {
     }
 
     @Test
-    public void testSin() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testSin() throws Exception {
 
         DefaultTestCase tc = buildTestCaseSin();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -159,7 +159,7 @@ public abstract class NotSupportedBySolver extends TestSolver {
     }
 
     @Test
-    public void testTan() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testTan() throws Exception {
 
         DefaultTestCase tc = buildTestCaseTan();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -213,7 +213,7 @@ public abstract class NotSupportedBySolver extends TestSolver {
     }
 
     @Test
-    public void testAcos() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testAcos() throws Exception {
 
         DefaultTestCase tc = buildTestCaseAcos();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -226,7 +226,7 @@ public abstract class NotSupportedBySolver extends TestSolver {
     }
 
     @Test
-    public void testAsin() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testAsin() throws Exception {
 
         DefaultTestCase tc = buildTestCaseAsin();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -239,7 +239,7 @@ public abstract class NotSupportedBySolver extends TestSolver {
     }
 
     @Test
-    public void testAtan() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testAtan() throws Exception {
 
         DefaultTestCase tc = buildTestCaseAtan();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -252,7 +252,7 @@ public abstract class NotSupportedBySolver extends TestSolver {
     }
 
     @Test
-    public void testAtan2() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testAtan2() throws Exception {
 
         DefaultTestCase tc = buildTestCaseAtan2();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -276,7 +276,7 @@ public abstract class NotSupportedBySolver extends TestSolver {
     }
 
     @Test
-    public void testSqrt() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testSqrt() throws Exception {
         DefaultTestCase tc = buildTestCaseSqrt();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
         Map<String, Object> solution = solve(getSolver(), constraints);
@@ -298,7 +298,7 @@ public abstract class NotSupportedBySolver extends TestSolver {
     }
 
     @Test
-    public void testRound() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testRound() throws Exception {
 
         DefaultTestCase tc = buildTestCaseRound();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);

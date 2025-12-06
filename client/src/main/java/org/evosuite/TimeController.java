@@ -290,7 +290,7 @@ public class TimeController {
 
     private long getLeftTimeBeforeEnd() {
         long timeSinceStart = System.currentTimeMillis() - clientStartTime;
-        long totalTimeLimit = 1000 * calculateForHowLongClientWillRunInSeconds();
+        long totalTimeLimit = 1000L * calculateForHowLongClientWillRunInSeconds();
         return totalTimeLimit - timeSinceStart;
     }
 

@@ -173,8 +173,8 @@ public class CBranchSuiteFitness extends TestSuiteFitnessFunction {
             }
 
             // Determine minimum branch distance for each branch in each context
-            assert (result.getTrace().getTrueDistancesContext().keySet().size() == result
-                    .getTrace().getFalseDistancesContext().keySet().size());
+            assert (result.getTrace().getTrueDistancesContext().size() == result
+                    .getTrace().getFalseDistancesContext().size());
 
             TestChromosome test = new TestChromosome();
             test.setTestCase(result.test);

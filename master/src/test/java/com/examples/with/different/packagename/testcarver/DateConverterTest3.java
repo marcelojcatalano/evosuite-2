@@ -19,7 +19,7 @@
  */
 package com.examples.with.different.packagename.testcarver;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -27,7 +27,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class DateConverterTest3 {
 
@@ -105,7 +105,7 @@ public class DateConverterTest3 {
             calendar = format.getCalendar();
         } catch (Exception e) {
             fail("Error creating Calendar value ='"
-                    + value + ", pattern='" + pattern + "' " + e.toString());
+                    + value + ", pattern='" + pattern + "' " + e);
         }
         return calendar;
     }
@@ -163,7 +163,7 @@ public class DateConverterTest3 {
         if (getExpectedType().equals(Calendar.class)) {
             assertTrue("TYPE ", getExpectedType().isAssignableFrom(result.getClass()));
         } else {
-            assertEquals("TYPE ", getExpectedType(), result.getClass());
+            assertSame("TYPE ", getExpectedType(), result.getClass());
         }
         assertEquals("VALUE ", expected, result);
     }

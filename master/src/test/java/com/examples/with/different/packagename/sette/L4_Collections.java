@@ -59,11 +59,7 @@ public final class L4_Collections {
         list.add(10);
         list.add(20);
 
-        if (list.size() == s) {
-            return true;
-        } else {
-            return false;
-        }
+        return list.size() == s;
     }
 
     public static boolean guessElements(int a, int b) {
@@ -71,11 +67,7 @@ public final class L4_Collections {
         list.add(10);
         list.add(20);
 
-        if (list.get(0) == a && list.get(1) == b) {
-            return true;
-        } else {
-            return false;
-        }
+        return list.get(0) == a && list.get(1) == b;
     }
 
     public static boolean guessSizeAndElements(int s, int a, int b) {
@@ -83,11 +75,7 @@ public final class L4_Collections {
         list.add(10);
         list.add(20);
 
-        if (list.size() == s && list.get(0) == a && list.get(1) == b) {
-            return true;
-        } else {
-            return false;
-        }
+        return list.size() == s && list.get(0) == a && list.get(1) == b;
     }
 
     public static boolean guessIndices(int a, int b) {
@@ -98,11 +86,7 @@ public final class L4_Collections {
         list.add(40);
         list.add(50);
 
-        if (list.get(a) == 20 && list.get(b) == 30) {
-            return true;
-        } else {
-            return false;
-        }
+        return list.get(a) == 20 && list.get(b) == 30;
     }
 
     public static boolean guessElementAndIndex(int a, int i) {
@@ -113,59 +97,31 @@ public final class L4_Collections {
         list.add(40);
         list.add(50);
 
-        if (list.get(i) == a) {
-            return true;
-        } else {
-            return false;
-        }
+        return list.get(i) == a;
     }
 
     public static boolean guessVectorWithSize(
             Vector v) {
-        if (v.size() == 3) {
-            return true;
-        } else {
-            return false;
-        }
+        return v.size() == 3;
     }
 
     public static boolean guessGenericVectorWithSize(Vector<Integer> v) {
-        if (v.size() == 3) {
-            return true;
-        } else {
-            return false;
-        }
+        return v.size() == 3;
     }
 
     public static boolean guessGenericVectorWithElement(Vector<Integer> v) {
-        if (v.size() == 3 && v.get(0).equals(5)) {
-            return true;
-        } else {
-            return false;
-        }
+        return v.size() == 3 && v.get(0).equals(5);
     }
 
     public static boolean guessListWithSize(List l) {
-        if (l.size() == 3) {
-            return true;
-        } else {
-            return false;
-        }
+        return l.size() == 3;
     }
 
     public static boolean guessGenericListWithSize(List<Integer> l) {
-        if (l.size() == 3) {
-            return true;
-        } else {
-            return false;
-        }
+        return l.size() == 3;
     }
 
     public static boolean guessGenericListWithElement(List<Integer> l) {
-        if (l.size() == 3 && l.get(0).equals(5)) {
-            return true;
-        } else {
-            return false;
-        }
+        return l.size() == 3 && l.get(0).equals(5);
     }
 }

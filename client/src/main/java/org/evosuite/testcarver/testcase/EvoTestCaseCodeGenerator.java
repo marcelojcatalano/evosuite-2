@@ -29,6 +29,7 @@ import org.evosuite.testcarver.codegen.ICodeGenerator;
 import org.evosuite.testcase.TestCase;
 import org.evosuite.testcase.statements.*;
 import org.evosuite.testcase.variable.*;
+import org.evosuite.utils.ReflectionUtils;
 import org.evosuite.utils.generic.GenericConstructor;
 import org.evosuite.utils.generic.GenericField;
 import org.evosuite.utils.generic.GenericMethod;
@@ -122,7 +123,6 @@ public final class EvoTestCaseCodeGenerator implements ICodeGenerator<TestCase> 
             }
         } catch (NoSuchMethodException e) {
             logger.info("Method not found; this may happen e.g. if an exception is thrown in the constructor");
-            return;
         } catch (final Exception e) {
             logger.info("Error at log record number {}: {}", logRecNo, e.toString());
             logger.info("Test case so far: " + testCase.toCode());
@@ -216,7 +216,7 @@ public final class EvoTestCaseCodeGenerator implements ICodeGenerator<TestCase> 
             final PrimitiveStatement stringRep = new ImmutableStringPrimitiveStatement(testCase, (String) value);
             final VariableReference stringRepRef = testCase.addStatement(stringRep);
 
-            final MethodStatement m = new MethodStatement(testCase, new GenericMethod(EvoSuiteXStream.class.getMethod("fromString", String.class), EvoSuiteXStream.class), null, Arrays.asList(stringRepRef));
+            final MethodStatement m = new MethodStatement(testCase, new GenericMethod(EvoSuiteXStream.class.getMethod("fromString", String.class), EvoSuiteXStream.class), null, Collections.singletonList(stringRepRef));
             this.oidToVarRefMap.put(oid, testCase.addStatement(m));
         } catch (final Exception e) {
             throw new RuntimeException(e);

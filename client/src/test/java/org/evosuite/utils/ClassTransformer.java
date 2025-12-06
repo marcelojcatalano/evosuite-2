@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class ClassTransformer {
 
-    private static ClassTransformer instance = new ClassTransformer();
+    private static final ClassTransformer instance = new ClassTransformer();
 
     public static ClassTransformer getInstance() {
         return instance;

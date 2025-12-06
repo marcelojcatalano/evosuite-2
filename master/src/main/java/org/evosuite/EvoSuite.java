@@ -245,7 +245,7 @@ public class EvoSuite {
                 }
             }
 
-            if (Properties.JEE == true) {
+            if (Properties.JEE) {
                 throw new IllegalStateException("JEE is not supported due to the Java 9+ update of EvoSuite");
             }
 

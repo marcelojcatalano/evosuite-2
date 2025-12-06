@@ -20,6 +20,7 @@
 
 package org.evosuite.utils;
 
+import com.examples.with.different.packagename.generic.ConcreteGenericClass;
 import com.examples.with.different.packagename.generic.GuavaExample4;
 import com.googlecode.gentyref.TypeToken;
 import org.evosuite.Properties;
@@ -27,7 +28,6 @@ import org.evosuite.Properties.Criterion;
 import org.evosuite.assertion.Assertion;
 import org.evosuite.assertion.Inspector;
 import org.evosuite.assertion.InspectorAssertion;
-import org.evosuite.ga.ConstructionFailedException;
 import org.evosuite.instrumentation.InstrumentingClassLoader;
 import org.evosuite.testcase.DefaultTestCase;
 import org.evosuite.testcase.statements.ConstructorStatement;
@@ -53,11 +53,10 @@ import java.util.List;
 public class TestGenericAccessibleObject {
 
     @Test
-    public void testGenericMethod() throws SecurityException, NoSuchMethodException,
-            ConstructionFailedException {
+    public void testGenericMethod() throws Exception {
         Class<?> targetClass = com.examples.with.different.packagename.generic.GenericMethod.class;
         Method targetMethod = targetClass.getMethod("coverMe",
-                new Class<?>[]{Object.class});
+                Object.class);
         GenericMethod genericMethod = new GenericMethod(targetMethod, targetClass);
         Assert.assertFalse(genericMethod.getOwnerClass().hasTypeVariables());
 
@@ -72,11 +71,10 @@ public class TestGenericAccessibleObject {
     }
 
     @Test
-    public void testGenericMethodWithBounds() throws SecurityException,
-            NoSuchMethodException, ConstructionFailedException {
+    public void testGenericMethodWithBounds() throws Exception {
         Class<?> targetClass = com.examples.with.different.packagename.generic.GenericMethodWithBounds.class;
         Method targetMethod = targetClass.getMethod("is",
-                new Class<?>[]{Comparable.class});
+                Comparable.class);
         GenericMethod genericMethod = new GenericMethod(targetMethod, targetClass);
         Assert.assertFalse(genericMethod.getOwnerClass().hasTypeVariables());
 
@@ -93,11 +91,10 @@ public class TestGenericAccessibleObject {
     }
 
     @Test
-    public void testGenericMethodAlternativeBounds() throws NoSuchMethodException,
-            RuntimeException, ClassNotFoundException {
+    public void testGenericMethodAlternativeBounds() throws Exception {
         Class<?> targetClass = com.examples.with.different.packagename.generic.GenericMethodAlternativeBounds.class;
         Method targetMethod = targetClass.getMethod("create",
-                new Class<?>[]{Class.class});
+                Class.class);
         GenericMethod genericMethod = new GenericMethod(targetMethod, targetClass);
         Assert.assertFalse(genericMethod.getOwnerClass().hasTypeVariables());
 
@@ -116,14 +113,13 @@ public class TestGenericAccessibleObject {
     }
 
     @Test
-    public void testGenericClassWithGenericMethodAndSubclass() throws SecurityException,
-            NoSuchMethodException, ConstructionFailedException {
+    public void testGenericClassWithGenericMethodAndSubclass() throws Exception {
         Class<?> targetClass = com.examples.with.different.packagename.generic.GenericClassWithGenericMethodAndSubclass.class;
         Method targetMethod = targetClass.getMethod("wrap",
-                new Class<?>[]{Object.class});
+                Object.class);
         GenericMethod genericMethod = new GenericMethod(targetMethod, targetClass);
         Assert.assertTrue(genericMethod.getOwnerClass().hasTypeVariables());
-        System.out.println(genericMethod.toString());
+        System.out.println(genericMethod);
         System.out.println(genericMethod.getOwnerClass().toString());
         System.out.println(genericMethod.getGeneratedClass().toString());
 
@@ -140,12 +136,12 @@ public class TestGenericAccessibleObject {
     }
 
     @Test
-    public void testGenericRawParameter() throws SecurityException, NoSuchMethodException {
+    public void testGenericRawParameter() throws Exception {
         Class<?> targetClass = com.examples.with.different.packagename.generic.GenericParameters8.class;
         Method targetMethod = targetClass.getMethod("testMe",
-                new Class<?>[]{List.class});
+                List.class);
         GenericMethod genericMethod = new GenericMethod(targetMethod, targetClass);
-        System.out.println(genericMethod.toString());
+        System.out.println(genericMethod);
         System.out.println(genericMethod.getOwnerClass().toString());
         System.out.println(genericMethod.getGeneratedClass().toString());
         Assert.assertFalse(genericMethod.getOwnerClass().hasTypeVariables());
@@ -169,10 +165,9 @@ public class TestGenericAccessibleObject {
     }
 
     @Test
-    public void testLinkedList() throws SecurityException, NoSuchMethodException,
-            ConstructionFailedException {
+    public void testLinkedList() throws Exception {
         Class<?> targetClass = java.util.LinkedList.class;
-        Method targetMethod = targetClass.getMethod("get", new Class<?>[]{int.class});
+        Method targetMethod = targetClass.getMethod("get", int.class);
         GenericMethod genericMethod = new GenericMethod(targetMethod, targetClass);
         System.out.println(genericMethod.getGeneratedClass().toString());
         Assert.assertTrue(genericMethod.getGeneratedClass().hasWildcardOrTypeVariables());
@@ -183,8 +178,7 @@ public class TestGenericAccessibleObject {
     }
 
     @Test
-    public void testGuavaExample3() throws SecurityException, NoSuchMethodException,
-            ConstructionFailedException {
+    public void testGuavaExample3() throws Exception {
         Class<?> targetClass = com.examples.with.different.packagename.generic.GuavaExample3.class;
 
         GenericClass<?> genericInstantiation = GenericClassFactory.get(
@@ -192,7 +186,7 @@ public class TestGenericAccessibleObject {
                 }.getType());
 
         Method targetMethod = targetClass.getMethod("create",
-                new Class<?>[]{com.examples.with.different.packagename.generic.GuavaExample3.class});
+                com.examples.with.different.packagename.generic.GuavaExample3.class);
         GenericMethod genericMethod = new GenericMethod(targetMethod, targetClass);
         System.out.println(genericMethod.getGeneratedClass().toString());
         Assert.assertTrue(genericMethod.getGeneratedClass().hasWildcardOrTypeVariables());
@@ -205,11 +199,10 @@ public class TestGenericAccessibleObject {
     }
 
     @Test
-    public void testGenericMethodFromReturnValue() throws SecurityException,
-            NoSuchMethodException, ConstructionFailedException {
+    public void testGenericMethodFromReturnValue() throws Exception {
         Class<?> targetClass = com.examples.with.different.packagename.generic.GenericMethodWithBounds.class;
         Method targetMethod = targetClass.getMethod("is",
-                new Class<?>[]{Comparable.class});
+                Comparable.class);
         GenericMethod genericMethod = new GenericMethod(targetMethod, targetClass);
 
         GenericClass<?> generatedType = GenericClassFactory.get(
@@ -221,11 +214,10 @@ public class TestGenericAccessibleObject {
     }
 
     @Test
-    public void testGenericMethodFromReturnValueWithSubclass() throws SecurityException,
-            NoSuchMethodException, ConstructionFailedException {
+    public void testGenericMethodFromReturnValueWithSubclass() throws Exception {
         Class<?> targetClass = com.examples.with.different.packagename.generic.GenericClassWithGenericMethodAndSubclass.class;
         Method targetMethod = targetClass.getMethod("wrap",
-                new Class<?>[]{Object.class});
+                Object.class);
         GenericMethod genericMethod = new GenericMethod(targetMethod, targetClass);
 
         GenericClass<?> generatedType = GenericClassFactory.get(
@@ -238,30 +230,26 @@ public class TestGenericAccessibleObject {
     }
 
     @Test
-    public void testGenericMethodFromReturnValueTypeVariable() throws SecurityException,
-            NoSuchMethodException, ConstructionFailedException {
+    public void testGenericMethodFromReturnValueTypeVariable() throws Exception {
         Class<?> targetClass = com.examples.with.different.packagename.generic.GenericMethodReturningTypeVariable.class;
         Method targetMethod = targetClass.getMethod("get",
-                new Class<?>[]{Object.class});
+                Object.class);
         GenericMethod genericMethod = new GenericMethod(targetMethod, targetClass);
 
         GenericClass<?> generatedType1 = GenericClassFactory.get(Integer.class);
         GenericClass<?> generatedType2 = GenericClassFactory.get(String.class);
 
         GenericMethod instantiatedMethod = genericMethod.getGenericInstantiationFromReturnValue(generatedType2);
-        Assert.assertEquals(instantiatedMethod.getGeneratedClass().getRawClass(),
-                String.class);
+        Assert.assertSame(instantiatedMethod.getGeneratedClass().getRawClass(), String.class);
 
         instantiatedMethod = genericMethod.getGenericInstantiationFromReturnValue(generatedType1);
-        Assert.assertEquals(instantiatedMethod.getGeneratedClass().getRawClass(),
-                Integer.class);
+        Assert.assertSame(instantiatedMethod.getGeneratedClass().getRawClass(), Integer.class);
     }
 
     @Test
-    public void testGenericMethodFromReturnValueTypeVariable2() throws SecurityException,
-            NoSuchMethodException, ConstructionFailedException {
+    public void testGenericMethodFromReturnValueTypeVariable2() throws Exception {
         Class<?> targetClass = com.examples.with.different.packagename.generic.GuavaExample4.class;
-        Method targetMethod = targetClass.getMethod("create", new Class<?>[]{});
+        Method targetMethod = targetClass.getMethod("create");
         GenericMethod genericMethod = new GenericMethod(targetMethod, targetClass);
 
         GenericClass<?> iterableIntegerClass = GenericClassFactory.get(
@@ -270,20 +258,17 @@ public class TestGenericAccessibleObject {
 
         GenericMethod instantiatedMethod = genericMethod.getGenericInstantiationFromReturnValue(iterableIntegerClass);
         System.out.println(instantiatedMethod.getGeneratedClass().toString());
-        Assert.assertEquals(instantiatedMethod.getGeneratedClass().getRawClass(),
-                GuavaExample4.class);
+        Assert.assertSame(instantiatedMethod.getGeneratedClass().getRawClass(), GuavaExample4.class);
     }
 
     @Test
-    public void testGenericMethodAbstractType() throws SecurityException,
-            NoSuchMethodException, ConstructionFailedException {
+    public void testGenericMethodAbstractType() throws Exception {
         Class<?> targetClass = com.examples.with.different.packagename.generic.ConcreteGenericClass.class;
         Method targetMethod = targetClass.getMethod("create",
-                new Class<?>[]{int.class});
+                int.class);
         GenericMethod genericMethod = new GenericMethod(targetMethod, targetClass);
 
-        Assert.assertEquals(genericMethod.getGeneratedClass().getRawClass(),
-                com.examples.with.different.packagename.generic.ConcreteGenericClass.class);
+        Assert.assertSame(genericMethod.getGeneratedClass().getRawClass(), ConcreteGenericClass.class);
 
         GenericClass<?> iterableIntegerClass = GenericClassFactory.get(
                 new TypeToken<com.examples.with.different.packagename.generic.AbstractGenericClass<java.lang.Integer>>() {
@@ -291,35 +276,30 @@ public class TestGenericAccessibleObject {
 
         GenericMethod instantiatedMethod = genericMethod.getGenericInstantiationFromReturnValue(iterableIntegerClass);
         System.out.println(instantiatedMethod.getGeneratedClass().toString());
-        Assert.assertEquals(instantiatedMethod.getGeneratedClass().getRawClass(),
-                com.examples.with.different.packagename.generic.ConcreteGenericClass.class);
+        Assert.assertSame(instantiatedMethod.getGeneratedClass().getRawClass(), ConcreteGenericClass.class);
 
         instantiatedMethod = genericMethod.copyWithOwnerFromReturnType(iterableIntegerClass);
         System.out.println(instantiatedMethod.getGeneratedClass().toString());
-        Assert.assertEquals(instantiatedMethod.getGeneratedClass().getRawClass(),
-                com.examples.with.different.packagename.generic.ConcreteGenericClass.class);
+        Assert.assertSame(instantiatedMethod.getGeneratedClass().getRawClass(), ConcreteGenericClass.class);
 
         instantiatedMethod = genericMethod.getGenericInstantiation(iterableIntegerClass);
         System.out.println(instantiatedMethod.getGeneratedClass().toString());
-        Assert.assertEquals(instantiatedMethod.getGeneratedClass().getRawClass(),
-                com.examples.with.different.packagename.generic.ConcreteGenericClass.class);
+        Assert.assertSame(instantiatedMethod.getGeneratedClass().getRawClass(), ConcreteGenericClass.class);
 
         instantiatedMethod = genericMethod.copyWithNewOwner(iterableIntegerClass);
         System.out.println(instantiatedMethod.getGeneratedClass().toString());
-        Assert.assertEquals(instantiatedMethod.getGeneratedClass().getRawClass(),
-                com.examples.with.different.packagename.generic.ConcreteGenericClass.class);
+        Assert.assertSame(instantiatedMethod.getGeneratedClass().getRawClass(), ConcreteGenericClass.class);
 
     }
 
     @Test
-    public void testClassLoaderChange() throws NoSuchMethodException, SecurityException,
-            ConstructionFailedException {
+    public void testClassLoaderChange() throws Exception {
         Class<?> targetClass = com.examples.with.different.packagename.generic.GenericClassTwoParameters.class;
-        Method creatorMethod = targetClass.getMethod("create", new Class<?>[]{});
+        Method creatorMethod = targetClass.getMethod("create");
         Method targetMethod = targetClass.getMethod("get",
-                new Class<?>[]{Object.class});
-        Method inspectorMethod = targetClass.getMethod("testMe", new Class<?>[]{});
-        Constructor<?> intConst = Integer.class.getConstructor(new Class<?>[]{int.class});
+                Object.class);
+        Method inspectorMethod = targetClass.getMethod("testMe");
+        Constructor<?> intConst = Integer.class.getConstructor(int.class);
 
         GenericClass<?> listOfInteger = GenericClassFactory.get(
                 new TypeToken<com.examples.with.different.packagename.generic.GenericClassTwoParameters<Integer, Integer>>() {

@@ -42,9 +42,6 @@ public class EnvExample {
         fromFile.close();
 
         String date = DateFormat.getDateInstance(DateFormat.SHORT).format(new Date());
-        if (fileContent.equals(date))
-            return true;
-
-        return false;
+        return fileContent.equals(date);
     }
 }

@@ -135,7 +135,7 @@ public class MSecurityManagerTest {
 
 
     @Test
-    public void testReadButNotWriteOfFiles() throws IOException, InterruptedException, ExecutionException, TimeoutException {
+    public void testReadButNotWriteOfFiles() throws Exception {
 
         File tmp = null;
 
@@ -227,7 +227,7 @@ public class MSecurityManagerTest {
 
 
     @Test
-    public void cannotCreateDeleteDirectory() throws InterruptedException, ExecutionException, TimeoutException {
+    public void cannotCreateDeleteDirectory() throws Exception {
 
         File dir = createTempDir();
         dir.deleteOnExit();
@@ -271,7 +271,7 @@ public class MSecurityManagerTest {
      */
     @Ignore
     @Test
-    public void testReadAndWriteOfProperties() throws InterruptedException, ExecutionException, TimeoutException {
+    public void testReadAndWriteOfProperties() throws Exception {
         final String userDir = System.getProperty("user.dir");
         Assert.assertNotNull(userDir);
 
@@ -304,7 +304,7 @@ public class MSecurityManagerTest {
     }
 
     @Test
-    public void testCanLoadSwingStuff() throws InterruptedException, ExecutionException, TimeoutException {
+    public void testCanLoadSwingStuff() throws Exception {
 
         /*
          * This is needed, as it sets a hook, which will be called in the static

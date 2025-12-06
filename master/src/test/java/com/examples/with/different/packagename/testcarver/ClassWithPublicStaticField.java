@@ -26,9 +26,6 @@ public class ClassWithPublicStaticField {
     public static final Locale x = Locale.CHINESE;
 
     public boolean testMe(Locale other) {
-        if (other.equals(x))
-            return true;
-        else
-            return false;
+        return other.equals(x);
     }
 }

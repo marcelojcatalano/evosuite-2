@@ -23,6 +23,7 @@ import org.evosuite.Properties;
 import org.evosuite.symbolic.ConstraintTooLongException;
 import org.evosuite.symbolic.dse.DSEStatistics;
 import org.evosuite.symbolic.expr.*;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.util.HashSet;
 import java.util.Set;

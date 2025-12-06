@@ -37,8 +37,8 @@ import static org.junit.Assert.assertTrue;
 @RunWith(Parameterized.class)
 public class TestLongOverflow {
 
-    private long x;
-    private long y;
+    private final long x;
+    private final long y;
 
     // Creates the test data
     @Parameters

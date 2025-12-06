@@ -21,7 +21,7 @@ package com.examples.with.different.packagename.stable;
 
 public class CanInitializeClass {
 
-    private static int counter;
+    private static final int counter;
 
     static {
         counter = 100500 + 10;
@@ -34,11 +34,7 @@ public class CanInitializeClass {
     }
 
     public boolean isValue(int value) {
-        if (value == this.value) {
-            return true;
-        } else {
-            return false;
-        }
+        return value == this.value;
     }
 
     public static int useNotInitializedClass() {

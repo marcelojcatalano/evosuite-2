@@ -117,7 +117,7 @@ public class GenericMethodTest {
         Assert.assertEquals(1, wt.getUpperBounds().length);
 
         Class<?> upper = (Class<?>) wt.getUpperBounds()[0];
-        Assert.assertEquals(Object.class, upper);
+        Assert.assertSame(Object.class, upper);
     }
 
     @Test
@@ -134,6 +134,6 @@ public class GenericMethodTest {
         Assert.assertEquals(1, wt.getUpperBounds().length);
 
         Class<?> upper = (Class<?>) wt.getUpperBounds()[0];
-        Assert.assertEquals(Object.class, upper);
+        Assert.assertSame(Object.class, upper);
     }
 }

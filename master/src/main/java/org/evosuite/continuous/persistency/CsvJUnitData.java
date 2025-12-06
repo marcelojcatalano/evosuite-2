@@ -87,7 +87,7 @@ public class CsvJUnitData {
 
         CsvJUnitData data = new CsvJUnitData();
         try {
-            data.targetClass = getValue(rows, "TARGET_CLASS").trim();
+            data.targetClass = Objects.requireNonNull(getValue(rows, "TARGET_CLASS")).trim();
             data.configurationId = 0; //TODO. note: it has nothing to do with configuration_id, need refactoring
 
             // get coverage (value and bitstring)
@@ -96,7 +96,7 @@ public class CsvJUnitData {
                 // end with "Coverage" or "Score", e.g., BranchCoverage, WeakMutationScore, etc
                 if (!columnName.equals(RuntimeVariable.Coverage.name()) &&
                         (columnName.endsWith("Coverage") || columnName.endsWith("Score"))) {
-                    data.coverageValues.put(columnName, Double.parseDouble(getValue(rows, columnName)));
+                    data.coverageValues.put(columnName, Double.parseDouble(Objects.requireNonNull(getValue(rows, columnName))));
                 }
 
                 // this is assuming that all coverage/score runtime variables
@@ -111,9 +111,9 @@ public class CsvJUnitData {
                 }
             }
 
-            data.totalNumberOfStatements = Integer.parseInt(getValue(rows, RuntimeVariable.Length.toString()));
-            data.durationInSeconds = Integer.parseInt(getValue(rows, RuntimeVariable.Total_Time.toString())) / 1000;
-            data.numberOfTests = Integer.parseInt(getValue(rows, RuntimeVariable.Size.toString()));
+            data.totalNumberOfStatements = Integer.parseInt(Objects.requireNonNull(getValue(rows, RuntimeVariable.Length.toString())));
+            data.durationInSeconds = Integer.parseInt(Objects.requireNonNull(getValue(rows, RuntimeVariable.Total_Time.toString()))) / 1000;
+            data.numberOfTests = Integer.parseInt(Objects.requireNonNull(getValue(rows, RuntimeVariable.Size.toString())));
 
             data.totalNumberOfFailures = 0; //TODO
         } catch (Exception e) {

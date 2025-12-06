@@ -50,10 +50,7 @@ public class ExampleHardForGA {
             return false;
         final int c3 = a / c1;
         final int c4 = b / c2;
-        if (c3 == c4)
-            return true;
-
-        return false;
+        return c3 == c4;
     }
 
 //	public static void main(String[] args) {

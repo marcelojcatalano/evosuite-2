@@ -23,11 +23,7 @@ public class TestCaseSqrt {
 
     public static boolean test(double x, double y) {
         double sqrt_y = Math.sqrt(y);
-        if (x == sqrt_y) {
-            return true;
-        } else {
-            return false;
-        }
+        return x == sqrt_y;
     }
 
 }

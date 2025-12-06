@@ -85,7 +85,7 @@ package com.examples.with.different.packagename;
  *  <li>null - {@code null}</li>
  *  <li>empty - a zero-length string ({@code ""})</li>
  *  <li>space - the space character ({@code ' '}, char 32)</li>
- *  <li>whitespace - the characters defined by {@link Character#isWhitespace(char)}</li>
+ *  <li>whitespace - the characters defined by {@link java.lang.Character#isWhitespace(char)}</li>
  *  <li>trim - the characters &lt;= 32 as in {@link String#trim()}</li>
  * </ul>
  *

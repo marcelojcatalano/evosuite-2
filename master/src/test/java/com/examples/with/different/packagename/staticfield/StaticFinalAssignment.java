@@ -27,9 +27,6 @@ public class StaticFinalAssignment {
     public static final String FOO = "foo";
 
     public boolean testMe() {
-        if (FOO.equals("foo"))
-            return true;
-        else
-            return false;
+        return FOO.equals("foo");
     }
 }

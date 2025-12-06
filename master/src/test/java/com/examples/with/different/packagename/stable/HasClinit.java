@@ -38,102 +38,62 @@ public class HasClinit {
     public boolean reflecStringBranch() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
         Field field = HasClinit.class.getDeclaredField("SOME_STRING_VALUE");
         Object object = field.get(null);
-        if (object == null) {
-            return false;
-        } else {
-            return true;
-        }
+        return object != null;
     }
 
     public boolean reflecDoubleBranch() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
         Field field = HasClinit.class.getDeclaredField("SOME_DOUBLE_VALUE");
         double doubleValue = field.getLong(null);
-        if (doubleValue != 2f) {
-            return false;
-        } else {
-            return true;
-        }
+        return doubleValue == 2f;
     }
 
     public boolean reflecFloatBranch() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
         Field field = HasClinit.class.getDeclaredField("SOME_FLOAT_VALUE");
         long floatValue = field.getLong(null);
-        if (floatValue != 2f) {
-            return false;
-        } else {
-            return true;
-        }
+        return floatValue == 2f;
     }
 
 
     public boolean reflecIntBranch() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
         Field field = HasClinit.class.getDeclaredField("SOME_INT_VALUE");
         int intValue = field.getInt(null);
-        if (intValue != 22222) {
-            return false;
-        } else {
-            return true;
-        }
+        return intValue == 22222;
     }
 
     public boolean reflecLongBranch() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
         Field field = HasClinit.class.getDeclaredField("SOME_LONG_VALUE");
         long longValue = field.getLong(null);
-        if (longValue != 2) {
-            return false;
-        } else {
-            return true;
-        }
+        return longValue == 2;
     }
 
     public boolean reflecShortBranch() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
         Field field = HasClinit.class.getDeclaredField("SOME_SHORT_VALUE");
         short shortValue = field.getShort(null);
-        if (shortValue != 22222) {
-            return false;
-        } else {
-            return true;
-        }
+        return shortValue == 22222;
     }
 
     public boolean reflecCharBranch() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
         Field field = HasClinit.class.getDeclaredField("SOME_CHAR_VALUE");
         char charValue = field.getChar(null);
-        if (charValue != 'c') {
-            return false;
-        } else {
-            return true;
-        }
+        return charValue == 'c';
     }
 
     public boolean reflectDoubleBranch() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
         Field field = HasClinit.class.getDeclaredField("SOME_DOUBLE_VALUE");
         double doubleValue = field.getDouble(null);
-        if (doubleValue != 2f) {
-            return false;
-        } else {
-            return true;
-        }
+        return doubleValue == 2f;
     }
 
     public boolean reflecBooleanBranch() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
         Field field = HasClinit.class.getDeclaredField("SOME_TRUE_VALUE");
         boolean booleanValue = field.getBoolean(null);
-        if (booleanValue != true) {
-            return false;
-        } else {
-            return true;
-        }
+        return booleanValue;
     }
 
     public boolean reflecByteBranch() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
         Field field = HasClinit.class.getDeclaredField("SOME_BYTE_VALUE");
         byte byteValue = field.getByte(null);
-        if (byteValue != 2) {
-            return false;
-        } else {
-            return true;
-        }
+        return byteValue == 2;
     }
 
 

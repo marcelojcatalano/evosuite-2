@@ -26,6 +26,7 @@ import org.evosuite.result.TestGenerationResult;
 import org.evosuite.result.TestGenerationResultBuilder;
 import org.evosuite.rmi.ClientServices;
 import org.evosuite.rmi.service.MasterNodeRemote;
+import org.evosuite.runtime.EvoContext;
 import org.evosuite.runtime.RuntimeSettings;
 import org.evosuite.runtime.classhandling.JDKClassResetter;
 import org.evosuite.runtime.instrumentation.MethodCallReplacementCache;
@@ -184,6 +185,9 @@ public class ClientProcess {
         }
 
         try {
+            // Inicialización completa del contexto EvoSuite
+            EvoContext.get().initFull();
+
             LoggingUtils.getEvoLogger().info("* Starting " + getIdentifier());
             ClientProcess process = new ClientProcess();
             TimeController.resetSingleton();

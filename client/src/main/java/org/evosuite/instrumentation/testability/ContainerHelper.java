@@ -24,6 +24,7 @@ import org.evosuite.setup.TestCluster;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by Andrea Arcuri on 26/03/15.
@@ -64,7 +65,7 @@ public class ContainerHelper {
         int matching = 0;
         double min_distance = Double.MAX_VALUE;
         for (Object o2 : c) {
-            if (o2 == o1 || (o2 != null && o2.equals(o1)))
+            if (Objects.equals(o2, o1))
                 matching++;
             else {
                 if (o2 != null && o1 != null) {

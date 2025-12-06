@@ -90,8 +90,8 @@ public class TestOverloading {
         TestCase test = new DefaultTestCase();
         ConstantValue intValue = new ConstantValue(test, int.class);
         VariableReference stringVar = new VariableReferenceImpl(test, String.class);
-        List<VariableReference> parameters1 = Arrays.asList(intValue);
-        List<VariableReference> parameters2 = Arrays.asList(stringVar);
+        List<VariableReference> parameters1 = List.of(intValue);
+        List<VariableReference> parameters2 = List.of(stringVar);
 
         assertFalse(genericConstructor1.isOverloaded(parameters1));
         assertFalse(genericConstructor2.isOverloaded(parameters2));
@@ -111,8 +111,8 @@ public class TestOverloading {
         TestCase test = new DefaultTestCase();
         ConstantValue intValue = new ConstantValue(test, int.class);
         VariableReference integerVar = new VariableReferenceImpl(test, Integer.class);
-        List<VariableReference> parameters1 = Arrays.asList(intValue);
-        List<VariableReference> parameters2 = Arrays.asList(integerVar);
+        List<VariableReference> parameters1 = List.of(intValue);
+        List<VariableReference> parameters2 = List.of(integerVar);
 
         assertTrue(genericMethod1.isOverloaded());
         assertTrue(genericMethod2.isOverloaded());
@@ -135,8 +135,8 @@ public class TestOverloading {
         TestCase test = new DefaultTestCase();
         ConstantValue intValue = new ConstantValue(test, int.class);
         VariableReference stringVar = new VariableReferenceImpl(test, String.class);
-        List<VariableReference> parameters1 = Arrays.asList(intValue);
-        List<VariableReference> parameters2 = Arrays.asList(stringVar);
+        List<VariableReference> parameters1 = List.of(intValue);
+        List<VariableReference> parameters2 = List.of(stringVar);
 
         assertFalse(genericMethod1.isOverloaded());
         assertFalse(genericMethod2.isOverloaded());

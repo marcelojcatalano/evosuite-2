@@ -24,6 +24,7 @@ import org.evosuite.Properties;
 import org.evosuite.symbolic.ConstraintTooLongException;
 import org.evosuite.symbolic.dse.DSEStatistics;
 import org.evosuite.symbolic.expr.*;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,7 +43,7 @@ public final class StringUnaryToIntegerExpression extends AbstractExpression<Lon
 
     private static final long serialVersionUID = -384874147850376188L;
 
-    protected static final Logger log = LoggerFactory.getLogger(StringUnaryToIntegerExpression.class);
+    private static final Logger log = LoggerFactory.getLogger(StringUnaryToIntegerExpression.class);
 
     // protected int conretIntValue;
 

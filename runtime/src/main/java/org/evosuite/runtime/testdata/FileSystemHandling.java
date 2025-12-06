@@ -22,6 +22,7 @@ package org.evosuite.runtime.testdata;
 import org.evosuite.runtime.vfs.FSObject;
 import org.evosuite.runtime.vfs.VFile;
 import org.evosuite.runtime.vfs.VirtualFileSystem;
+import org.evosuite.utils.ReflectionUtils;
 
 /**
  * This class is used create files as test data

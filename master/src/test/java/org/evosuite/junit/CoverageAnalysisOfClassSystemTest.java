@@ -19,21 +19,16 @@
  */
 package org.evosuite.junit;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-
-import com.opencsv.exceptions.CsvException;
+import com.examples.with.different.packagename.Calculator;
+import com.examples.with.different.packagename.CalculatorTest;
+import com.examples.with.different.packagename.coverage.MethodWithSeveralInputArguments;
+import com.examples.with.different.packagename.coverage.TestMethodWithSeveralInputArguments;
+import com.opencsv.CSVReader;
 import org.apache.commons.io.FileUtils;
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
-import org.evosuite.SystemTestBase;
 import org.evosuite.Properties.StatisticsBackend;
+import org.evosuite.SystemTestBase;
 import org.evosuite.continuous.persistency.CsvJUnitData;
 import org.evosuite.statistics.OutputVariable;
 import org.evosuite.statistics.RuntimeVariable;
@@ -42,12 +37,13 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.examples.with.different.packagename.Calculator;
-import com.examples.with.different.packagename.CalculatorTest;
-import com.examples.with.different.packagename.coverage.MethodWithSeveralInputArguments;
-import com.examples.with.different.packagename.coverage.TestMethodWithSeveralInputArguments;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
-import com.opencsv.CSVReader;
+import static org.junit.Assert.assertEquals;
 
 public class CoverageAnalysisOfClassSystemTest extends SystemTestBase {
 
@@ -101,7 +97,7 @@ public class CoverageAnalysisOfClassSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testOneClassMoreThanOneCriterion() throws IOException, CsvException {
+    public void testOneClassMoreThanOneCriterion() throws Exception {
 
         EvoSuite evosuite = new EvoSuite();
 
@@ -138,7 +134,7 @@ public class CoverageAnalysisOfClassSystemTest extends SystemTestBase {
         reader.close();
 
         assertEquals(CsvJUnitData.getValue(rows, "TARGET_CLASS"), Calculator.class.getCanonicalName());
-        assertEquals(CsvJUnitData.getValue(rows, "criterion"), Properties.Criterion.BRANCH.toString() + ";" + Properties.Criterion.LINE.toString());
+        assertEquals(CsvJUnitData.getValue(rows, "criterion"), Properties.Criterion.BRANCH + ";" + Properties.Criterion.LINE);
 
         assertEquals(0.8, Double.valueOf(CsvJUnitData.getValue(rows, RuntimeVariable.Coverage.name())), 0.01);
         assertEquals(8, (int) Integer.valueOf(CsvJUnitData.getValue(rows, RuntimeVariable.Covered_Goals.name())));

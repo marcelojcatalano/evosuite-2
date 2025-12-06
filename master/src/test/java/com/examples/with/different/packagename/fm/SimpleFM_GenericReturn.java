@@ -29,9 +29,6 @@ public class SimpleFM_GenericReturn {
     }
 
     public boolean bar(Foo<String> bar, String x) {
-        if (bar.foo().isEmpty())
-            return true;
-        else
-            return false;
+        return bar.foo().isEmpty();
     }
 }

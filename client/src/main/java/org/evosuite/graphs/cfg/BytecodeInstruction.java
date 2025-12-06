@@ -730,7 +730,7 @@ public class BytecodeInstruction extends ASMWrapper implements Serializable,
             return "IINC " + ((IincInsnNode) asmNode).var + " Type=" + type
                     + ", Opcode=" + opcode;
         else if (asmNode instanceof InsnNode)
-            return "" + opcode;
+            return opcode;
         else if (asmNode instanceof IntInsnNode)
             return "INT " + ((IntInsnNode) asmNode).operand + " Type=" + type
                     + ", Opcode=" + opcode;

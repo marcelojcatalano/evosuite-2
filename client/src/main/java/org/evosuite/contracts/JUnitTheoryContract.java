@@ -25,13 +25,14 @@ import org.evosuite.testcase.statements.ConstructorStatement;
 import org.evosuite.testcase.statements.MethodStatement;
 import org.evosuite.testcase.statements.Statement;
 import org.evosuite.testcase.variable.VariableReference;
+import org.evosuite.utils.ReflectionUtils;
 import org.evosuite.utils.generic.GenericConstructor;
 import org.evosuite.utils.generic.GenericMethod;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class JUnitTheoryContract extends Contract {
@@ -42,7 +43,7 @@ public class JUnitTheoryContract extends Contract {
 
     public JUnitTheoryContract(GenericMethod theoryMethod) throws InstantiationException, IllegalAccessException {
         this.theoryMethod = theoryMethod;
-        this.theoryReceiver = theoryMethod.getDeclaringClass().newInstance();
+        this.theoryReceiver = ReflectionUtils.newInstanceOf(theoryMethod.getDeclaringClass());
         if (theoryMethod.getParameterTypes().length != 1)
             throw new IllegalArgumentException("Number of arguments needs to be one");
     }
@@ -94,7 +95,7 @@ public class JUnitTheoryContract extends Contract {
             Statement st1 = new ConstructorStatement(test, constructor, new ArrayList<>());
             VariableReference receiver = test.addStatement(st1, position + 1);
 
-            Statement st2 = new MethodStatement(test, theoryMethod, receiver, Arrays.asList(test.getStatement(pos).getReturnValue()));
+            Statement st2 = new MethodStatement(test, theoryMethod, receiver, Collections.singletonList(test.getStatement(pos).getReturnValue()));
             test.addStatement(st2, position + 2);
             st2.addComment("Violates theory: " + theoryMethod.getName());
 
@@ -115,15 +116,7 @@ public class JUnitTheoryContract extends Contract {
     public void changeClassLoader(ClassLoader classLoader) {
         theoryMethod.changeClassLoader(classLoader);
 
-        try {
-            theoryReceiver = theoryMethod.getDeclaringClass().newInstance();
-        } catch (InstantiationException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        theoryReceiver = ReflectionUtils.newInstanceOf(theoryMethod.getDeclaringClass());
     }
 
     @Override

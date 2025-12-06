@@ -179,9 +179,7 @@ public class CallContext implements Serializable {
             return;
         List<String> values = new ArrayList<>(Arrays.asList(excludedPackages));
         values.add("org.junit");
-        for (String junitClass : Properties.JUNIT.split(":")) {
-            values.add(junitClass);
-        }
+        Collections.addAll(values, Properties.JUNIT.split(":"));
         excludedPackages = new String[values.size()];
         excludedPackages = values.toArray(excludedPackages);
     }

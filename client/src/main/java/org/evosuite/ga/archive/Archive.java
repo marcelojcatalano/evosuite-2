@@ -33,6 +33,7 @@ import org.evosuite.testcase.statements.Statement;
 import org.evosuite.testcase.statements.reflection.PrivateFieldStatement;
 import org.evosuite.testcase.statements.reflection.PrivateMethodStatement;
 import org.evosuite.testsuite.TestSuiteChromosome;
+import org.evosuite.utils.ReflectionUtils;
 import org.evosuite.utils.generic.*;
 import org.objectweb.asm.Type;
 import org.slf4j.Logger;

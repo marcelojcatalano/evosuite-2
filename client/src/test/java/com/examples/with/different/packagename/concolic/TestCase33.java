@@ -26,15 +26,9 @@ public class TestCase33 {
     }
 
     public static boolean bar(String s) {
-        StringBuffer bf = new StringBuffer();
-        bf.append('b');
-        bf.append('a');
-        bf.append('r');
-        String bf_str = bf.toString();
-        if (s.equals(bf_str)) {
-            return true;
-        } else {
-            return false;
-        }
+        String bf_str = "b" +
+                'a' +
+                'r';
+        return s.equals(bf_str);
     }
 }

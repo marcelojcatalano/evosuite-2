@@ -76,7 +76,7 @@ public abstract class TestSolverBitwise extends TestSolver {
     }
 
     @Test
-    public void testBitAnd() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testBitAnd() throws Exception {
 
         Solver solver = getSolver();
         DefaultTestCase tc = buildTestCaseBitAnd();
@@ -90,7 +90,7 @@ public abstract class TestSolverBitwise extends TestSolver {
     }
 
     @Test
-    public void testBitOr() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testBitOr() throws Exception {
 
         Solver solver = getSolver();
         DefaultTestCase tc = buildTestCaseBitOr();
@@ -99,7 +99,7 @@ public abstract class TestSolverBitwise extends TestSolver {
     }
 
     @Test
-    public void testBitXor() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testBitXor() throws Exception {
 
         try {
 
@@ -119,7 +119,7 @@ public abstract class TestSolverBitwise extends TestSolver {
     }
 
     @Test
-    public void testBitNot() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testBitNot() throws Exception {
 
         Solver solver = getSolver();
 
@@ -129,7 +129,7 @@ public abstract class TestSolverBitwise extends TestSolver {
     }
 
     @Test
-    public void testShiftLeft() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testShiftLeft() throws Exception {
         Solver solver = getSolver();
 
         DefaultTestCase tc = buildTestCaseShiftLeft();
@@ -139,7 +139,7 @@ public abstract class TestSolverBitwise extends TestSolver {
     }
 
     @Test
-    public void testShiftRight() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testShiftRight() throws Exception {
         Solver solver = getSolver();
 
         DefaultTestCase tc = buildTestCaseShiftRight();
@@ -153,7 +153,7 @@ public abstract class TestSolverBitwise extends TestSolver {
     }
 
     @Test
-    public void testShiftRightUnsigned() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testShiftRightUnsigned() throws Exception {
 
         Solver solver = getSolver();
 

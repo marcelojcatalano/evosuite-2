@@ -23,7 +23,6 @@ import com.examples.with.different.packagename.AbstractEnumInInnerClass;
 import com.examples.with.different.packagename.AbstractEnumUser;
 import com.examples.with.different.packagename.EnumInInnerClass;
 import com.examples.with.different.packagename.EnumUser;
-import org.evosuite.ga.ConstructionFailedException;
 import org.evosuite.testcase.statements.ArrayStatement;
 import org.evosuite.testcase.statements.AssignmentStatement;
 import org.evosuite.testcase.statements.EnumPrimitiveStatement;
@@ -39,7 +38,7 @@ import org.junit.Test;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Set;
 
 import static org.junit.Assert.*;
@@ -91,7 +90,7 @@ public class TestCodeVisitorTest {
     }
 
     @Test
-    public void testGenerics_methodWithExtends() throws NoSuchMethodException, ConstructionFailedException {
+    public void testGenerics_methodWithExtends() throws Exception {
 
         //first construct a test case for the Generic method
         TestCase tc = new DefaultTestCase();
@@ -115,7 +114,7 @@ public class TestCodeVisitorTest {
         assertEquals(1, tv.getBounds().length);
 
         Class<?> upper = (Class<?>) tv.getBounds()[0];
-        assertEquals(FakeAbstractClass.class, upper);
+        assertSame(FakeAbstractClass.class, upper);
 
 
         //Finally, visit the test
@@ -124,7 +123,7 @@ public class TestCodeVisitorTest {
     }
 
     @Test
-    public void testGenerics_staticMethod() throws NoSuchMethodException, ConstructionFailedException {
+    public void testGenerics_staticMethod() throws Exception {
 
         //first construct a test case for the Generic method
         TestCase tc = new DefaultTestCase();
@@ -147,7 +146,7 @@ public class TestCodeVisitorTest {
         assertEquals(1, wt.getUpperBounds().length);
 
         Class<?> upper = (Class<?>) wt.getUpperBounds()[0];
-        assertEquals(Object.class, upper);
+        assertSame(Object.class, upper);
 
         //Finally, visit the test
         TestCodeVisitor visitor = new TestCodeVisitor();
@@ -156,7 +155,7 @@ public class TestCodeVisitorTest {
     }
 
     @Test
-    public void testGenerics_staticMethodWithExtends() throws NoSuchMethodException, ConstructionFailedException {
+    public void testGenerics_staticMethodWithExtends() throws Exception {
 
         //first construct a test case for the Generic method
         TestCase tc = new DefaultTestCase();
@@ -178,7 +177,7 @@ public class TestCodeVisitorTest {
         assertEquals(1, wt.getUpperBounds().length);
 
         Class<?> upper = (Class<?>) wt.getUpperBounds()[0];
-        assertEquals(Object.class, upper);
+        assertSame(Object.class, upper);
 
         //Finally, visit the test
         TestCodeVisitor visitor = new TestCodeVisitor();
@@ -186,7 +185,7 @@ public class TestCodeVisitorTest {
     }
 
     @Test
-    public void testClashingImportNames() throws NoSuchMethodException, ConstructionFailedException {
+    public void testClashingImportNames() throws Exception {
         TestCase tc = new DefaultTestCase();
         TestFactory.getInstance().addConstructor(tc,
                 new GenericConstructor(com.examples.with.different.packagename.otherpackage.ExampleWithInnerClass.class.getDeclaredConstructor(), com.examples.with.different.packagename.otherpackage.ExampleWithInnerClass.class), 0, 0);
@@ -207,7 +206,7 @@ public class TestCodeVisitorTest {
     }
 
     @Test
-    public void testClashingImportNamesSubClasses() throws NoSuchMethodException, ConstructionFailedException {
+    public void testClashingImportNamesSubClasses() throws Exception {
         TestCase tc = new DefaultTestCase();
         TestFactory.getInstance().addConstructor(tc,
                 new GenericConstructor(com.examples.with.different.packagename.otherpackage.ExampleWithInnerClass.Foo.class.getDeclaredConstructor(), com.examples.with.different.packagename.otherpackage.ExampleWithInnerClass.Foo.class), 0, 0);
@@ -283,7 +282,7 @@ public class TestCodeVisitorTest {
 
         Method m = EnumUser.class.getDeclaredMethod("foo", EnumInInnerClass.AnEnum.class);
         GenericMethod gm = new GenericMethod(m, EnumUser.class);
-        MethodStatement ms = new MethodStatement(tc, gm, userObject, Arrays.asList(enumObject));
+        MethodStatement ms = new MethodStatement(tc, gm, userObject, Collections.singletonList(enumObject));
         tc.addStatement(ms);
 
         //Finally, visit the test
@@ -298,7 +297,7 @@ public class TestCodeVisitorTest {
      * don't contain the name of the anonymous class they might represent
      */
     @Test
-    public void testInnerClassAbstractEnum() throws NoSuchMethodException, ConstructionFailedException {
+    public void testInnerClassAbstractEnum() throws Exception {
 
         //first construct a test case for the Generic method
         TestCase tc = new DefaultTestCase();
@@ -311,7 +310,7 @@ public class TestCodeVisitorTest {
 
         Method m = AbstractEnumUser.class.getDeclaredMethod("foo", AbstractEnumInInnerClass.AnEnum.class);
         GenericMethod gm = new GenericMethod(m, AbstractEnumUser.class);
-        MethodStatement ms = new MethodStatement(tc, gm, userObject, Arrays.asList(enumObject));
+        MethodStatement ms = new MethodStatement(tc, gm, userObject, Collections.singletonList(enumObject));
         tc.addStatement(ms);
 
         //Finally, visit the test

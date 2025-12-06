@@ -190,7 +190,7 @@ public class PropertiesNoveltySearchFactory extends PropertiesSearchAlgorithmFac
             // TODO also, question: is branchMap.size() really intended here?
             // I think BranchPool.getBranchCount() was intended
             Properties.SEARCH_BUDGET = Properties.SEARCH_BUDGET
-                    * (BranchPool.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT()).getNumBranchlessMethods(Properties.TARGET_CLASS) + BranchPool.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT()).getBranchCountForClass(Properties.TARGET_CLASS) * 2);
+                    * (BranchPool.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT()).getNumBranchlessMethods(Properties.TARGET_CLASS) + BranchPool.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT()).getBranchCountForClass(Properties.TARGET_CLASS) * 2L);
             stopping_condition.setLimit(Properties.SEARCH_BUDGET);
             logger.info("Setting dynamic length limit to " + Properties.SEARCH_BUDGET);
         }

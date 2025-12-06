@@ -29,7 +29,7 @@ import java.util.function.Function;
  * @author Ignacio Lebrero
  */
 public class TestClosureClass {
-    private static List<Integer> list = new ArrayList();
+    private static final List<Integer> list = new ArrayList();
 
     public static int closureTest(int in) {
         if (in == 0) list.add(1);

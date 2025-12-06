@@ -20,9 +20,9 @@
 package org.evosuite.assertion.stable;
 
 import org.evosuite.assertion.ComparisonTraceEntry;
+import org.junit.Assert;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -36,7 +36,7 @@ public class TestComparisonAssertion {
         int y = 42;
         int z = 43;
         assertTrue(ComparisonTraceEntry.equals(x, y));
-        assertFalse(ComparisonTraceEntry.equals(x, z));
+        Assert.assertFalse(ComparisonTraceEntry.equals(x, z));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class TestComparisonAssertion {
         Integer y = 42;
         Integer z = 43;
         assertTrue(ComparisonTraceEntry.equals(x, y));
-        assertFalse(ComparisonTraceEntry.equals(x, z));
+        Assert.assertFalse(ComparisonTraceEntry.equals(x, z));
     }
 
     @Test
@@ -54,7 +54,7 @@ public class TestComparisonAssertion {
         float y = 42F;
         float z = 43F;
         assertTrue(ComparisonTraceEntry.equals(x, y));
-        assertFalse(ComparisonTraceEntry.equals(x, z));
+        Assert.assertFalse(ComparisonTraceEntry.equals(x, z));
     }
 
     @Test
@@ -63,7 +63,7 @@ public class TestComparisonAssertion {
         float y = 42.001F;
         float z = 42.1F;
         assertTrue(ComparisonTraceEntry.equals(x, y));
-        assertFalse(ComparisonTraceEntry.equals(x, z));
+        Assert.assertFalse(ComparisonTraceEntry.equals(x, z));
     }
 
     @Test
@@ -72,7 +72,7 @@ public class TestComparisonAssertion {
         Float y = 42.0F;
         Float z = 43.0F;
         assertTrue(ComparisonTraceEntry.equals(x, y));
-        assertFalse(ComparisonTraceEntry.equals(x, z));
+        Assert.assertFalse(ComparisonTraceEntry.equals(x, z));
     }
 
     @Test
@@ -81,7 +81,7 @@ public class TestComparisonAssertion {
         double y = 42.0;
         double z = 43.0;
         assertTrue(ComparisonTraceEntry.equals(x, y));
-        assertFalse(ComparisonTraceEntry.equals(x, z));
+        Assert.assertFalse(ComparisonTraceEntry.equals(x, z));
     }
 
     @Test
@@ -90,7 +90,7 @@ public class TestComparisonAssertion {
         double y = Double.NaN;
         double z = 43.0;
         assertTrue(ComparisonTraceEntry.equals(x, y));
-        assertFalse(ComparisonTraceEntry.equals(x, z));
+        Assert.assertFalse(ComparisonTraceEntry.equals(x, z));
     }
 
     @Test
@@ -99,7 +99,7 @@ public class TestComparisonAssertion {
         double y = 42.0002;
         double z = 42.1;
         assertTrue(ComparisonTraceEntry.equals(x, y));
-        assertFalse(ComparisonTraceEntry.equals(x, z));
+        Assert.assertFalse(ComparisonTraceEntry.equals(x, z));
     }
 
 
@@ -109,7 +109,7 @@ public class TestComparisonAssertion {
         Double y = 42d;
         Double z = 43d;
         assertTrue(ComparisonTraceEntry.equals(x, y));
-        assertFalse(ComparisonTraceEntry.equals(x, z));
+        Assert.assertFalse(ComparisonTraceEntry.equals(x, z));
     }
 
     @Test
@@ -118,6 +118,6 @@ public class TestComparisonAssertion {
         String y = "Foo";
         String z = "Bar";
         assertTrue(ComparisonTraceEntry.equals(x, y));
-        assertFalse(ComparisonTraceEntry.equals(x, z));
+        Assert.assertFalse(ComparisonTraceEntry.equals(x, z));
     }
 }

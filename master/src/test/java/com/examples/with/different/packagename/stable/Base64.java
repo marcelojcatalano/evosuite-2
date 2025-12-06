@@ -182,7 +182,7 @@ public class Base64 {
 
             chunckCount = (CHUNK_SEPARATOR.length == 0 ? 0 : (int) Math
                     .ceil((float) encodedDataLengthLong / CHUNK_SIZE));
-            encodedDataLengthLong += chunckCount * CHUNK_SEPARATOR.length;
+            encodedDataLengthLong += (long) chunckCount * CHUNK_SEPARATOR.length;
         }
 
         if (encodedDataLengthLong > Integer.MAX_VALUE) {

@@ -25,11 +25,7 @@ public class FileExist {
 
     public boolean fooExists() {
         File f = new File("foo");
-        if (f.exists()) {
-            return true;
-        } else {
-            return false;
-        }
+        return f.exists();
     }
 
 }

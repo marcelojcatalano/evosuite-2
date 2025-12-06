@@ -28,17 +28,10 @@ import java.util.List;
 public class GenericParameters4 {
 
     public boolean testMe1(List<Integer> intList) {
-        if (intList.size() > 0) {
-            return true;
-        }
-
-        return false;
+        return intList.size() > 0;
     }
 
     public boolean testMe2(List<String> stringList) {
-        if (stringList.size() > 0) {
-            return true;
-        }
-        return false;
+        return stringList.size() > 0;
     }
 }

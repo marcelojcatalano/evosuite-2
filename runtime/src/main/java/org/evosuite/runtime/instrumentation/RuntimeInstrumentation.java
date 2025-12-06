@@ -21,6 +21,7 @@ package org.evosuite.runtime.instrumentation;
 
 import org.evosuite.runtime.RuntimeSettings;
 import org.evosuite.runtime.util.ComputeClassWriter;
+import org.evosuite.runtime.util.SafeClassFilters;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.ClassWriter;
@@ -75,20 +76,31 @@ public class RuntimeInstrumentation {
     }
 
     public static boolean checkIfCanInstrument(String className) {
+
+        // 1) Bloqueo explícito (AWT, Swing, sun.*, jdk.internal.*, etc.)
+        if (SafeClassFilters.isBlocked(className)) return false;
+
+        // 2) Paquetes específicos de EvoSuite
         for (String s : ExcludedClasses.getPackagesShouldNotBeInstrumented()) {
             if (className.startsWith(s)) {
                 return false;
             }
         }
 
+        // 3) Mockito genera clases dinámicas que rompen el análisis
         if (className.contains("EnhancerByMockito")) {
-            //very special case, as Mockito will create classes on the fly
             return false;
         }
 
-        // Instrumenting clover coverage instrumentation helper classes breaks clover
-        return !className.contains("__CLR");
+        // 4) Clover — nunca instrumentar estas clases
+        if (className.contains("__CLR")) {
+            return false;
+        }
+
+        // Si pasó todos los filtros → OK instrumentar
+        return true;
     }
+
 
     public boolean isAlreadyInstrumented(ClassReader reader) {
         ClassNode classNode = new ClassNode();

@@ -202,7 +202,7 @@ public abstract class Solver {
                 if (evaluation == null) {
                     throw new NullPointerException();
                 }
-                if (evaluation == false) {
+                if (!evaluation) {
                     return false;
                 }
             }

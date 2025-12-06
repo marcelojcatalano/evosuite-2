@@ -121,7 +121,7 @@ public class PropertiesMapElitesSearchFactory
                     * (BranchPool.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT())
                     .getNumBranchlessMethods(Properties.TARGET_CLASS)
                     + BranchPool.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT())
-                    .getBranchCountForClass(Properties.TARGET_CLASS) * 2);
+                    .getBranchCountForClass(Properties.TARGET_CLASS) * 2L);
             stopping_condition.setLimit(Properties.SEARCH_BUDGET);
             logger.info("Setting dynamic length limit to " + Properties.SEARCH_BUDGET);
         }

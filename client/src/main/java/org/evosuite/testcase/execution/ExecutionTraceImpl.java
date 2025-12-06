@@ -31,6 +31,7 @@ import org.evosuite.coverage.dataflow.Use;
 import org.evosuite.setup.CallContext;
 import org.evosuite.statistics.RuntimeVariable;
 import org.evosuite.utils.ArrayUtil;
+import org.evosuite.utils.ReflectionUtils;
 import org.objectweb.asm.Opcodes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -1563,7 +1564,7 @@ public class ExecutionTraceImpl implements ExecutionTrace, Cloneable {
         for (String var : passedDefinitions.keySet()) {
             r.append("  for variable: " + var + ": ");
             for (Integer objectId : passedDefinitions.get(var).keySet()) {
-                if (passedDefinitions.get(var).keySet().size() > 1) {
+                if (passedDefinitions.get(var).size() > 1) {
                     r.append("\n\ton object " + objectId + ": ");
                 }
                 r.append(toDefUseTraceInformation(var, objectId));
@@ -1585,7 +1586,7 @@ public class ExecutionTraceImpl implements ExecutionTrace, Cloneable {
     public String toDefUseTraceInformation(String targetVar) {
         StringBuffer r = new StringBuffer();
         for (Integer objectId : passedDefinitions.get(targetVar).keySet()) {
-            if (passedDefinitions.get(targetVar).keySet().size() > 1) {
+            if (passedDefinitions.get(targetVar).size() > 1) {
                 r.append("\n\ton object " + objectId + ": ");
             }
             r.append(toDefUseTraceInformation(targetVar, objectId));
@@ -1608,7 +1609,7 @@ public class ExecutionTraceImpl implements ExecutionTrace, Cloneable {
         if (passedDefinitions.get(var) == null) {
             return "";
         }
-        if ((objectId == -1) && (passedDefinitions.get(var).keySet().size() == 1)) {
+        if ((objectId == -1) && (passedDefinitions.get(var).size() == 1)) {
             objectId = (Integer) passedDefinitions.get(var).keySet().toArray()[0];
         }
         if (passedDefinitions.get(var).get(objectId) == null) {

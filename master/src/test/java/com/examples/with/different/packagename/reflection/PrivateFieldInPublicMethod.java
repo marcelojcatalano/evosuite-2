@@ -24,9 +24,9 @@ package com.examples.with.different.packagename.reflection;
  */
 public class PrivateFieldInPublicMethod {
 
-    private boolean flag = false;
+    private final boolean flag = false;
 
-    private String s = "foo";
+    private final String s = "foo";
 
     public void flag() {
         if (flag) {

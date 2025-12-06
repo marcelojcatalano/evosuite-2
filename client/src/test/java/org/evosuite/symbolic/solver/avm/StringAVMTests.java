@@ -45,7 +45,7 @@ public class StringAVMTests extends RandomizedTC {
         StringConstant symb_regex = ExpressionFactory.buildNewStringConstant(format);
         StringBinaryComparison strComp = new StringBinaryComparison(symb_regex, Operator.PATTERNMATCHES, var, 0L);
         StringConstraint constraint = new StringConstraint(strComp, Comparator.NE, new IntegerConstant(0));
-        List<Constraint<?>> constraints = Collections.<Constraint<?>>singletonList(constraint);
+        List<Constraint<?>> constraints = Collections.singletonList(constraint);
         return constraints;
     }
 

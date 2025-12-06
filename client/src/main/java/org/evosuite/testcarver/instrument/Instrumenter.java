@@ -792,8 +792,7 @@ public final class Instrumenter {
                                         Type returnType = Type.getReturnType(methodInsnNode.desc);
                                         Type[] newargs = new Type[args.length + 1];
                                         newargs[0] = Type.getObjectType(methodInsnNode.owner);
-                                        for (int i = 0; i < args.length; i++)
-                                            newargs[i + 1] = args[i];
+                                        System.arraycopy(args, 0, newargs, 1, args.length);
                                         methodInsnNode.desc = Type.getMethodDescriptor(returnType, newargs);
                                         methodInsnNode.owner = PackageInfo.getEvoSuitePackageWithSlash() + "/testcarver/wrapper/" + methodInsnNode.owner;
                                     } else {

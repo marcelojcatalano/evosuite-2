@@ -49,7 +49,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringLength() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringLength() throws Exception {
 
         DefaultTestCase tc = buildTestLength();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -58,13 +58,13 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testNegativeLength() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testNegativeLength() throws Exception {
 
         IntegerConstraint newIntegerConstraint = new IntegerConstraint(
                 new StringUnaryToIntegerExpression(new StringVariable("var0", "01234"), Operator.LENGTH, (long) 5),
                 Comparator.LT, new IntegerConstant(0));
 
-        Collection<Constraint<?>> constraints = Collections.<Constraint<?>>singleton(newIntegerConstraint);
+        Collection<Constraint<?>> constraints = Collections.singleton(newIntegerConstraint);
 
         Map<String, Object> solution = solve(getSolver(), constraints);
 
@@ -179,7 +179,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringEquals() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringEquals() throws Exception {
 
         DefaultTestCase tc = buildTestEquals();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -188,7 +188,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringEqualsIgnoreCase() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringEqualsIgnoreCase() throws Exception {
 
         DefaultTestCase tc = buildTestEqualsIgnoreCase();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -197,7 +197,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringNotEquals() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringNotEquals() throws Exception {
 
         DefaultTestCase tc = buildTestNotEquals();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -206,7 +206,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringStartsWith() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringStartsWith() throws Exception {
 
         DefaultTestCase tc = buildTestStartsWith();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -215,7 +215,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringStartsWithIndex() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringStartsWithIndex() throws Exception {
 
         DefaultTestCase tc = buildTestStartsWithIndex();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -224,7 +224,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringEndsWith() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringEndsWith() throws Exception {
         DefaultTestCase tc = buildTestEndsWith();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
         Map<String, Object> solution = solve(getSolver(), constraints);
@@ -241,7 +241,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringCharAt() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringCharAt() throws Exception {
         DefaultTestCase tc = buildTestCharAt();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
         Map<String, Object> solution = solve(getSolver(), constraints);
@@ -258,7 +258,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringContains() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringContains() throws Exception {
 
         DefaultTestCase tc = buildTestContains();
 
@@ -268,7 +268,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringIndexOfChar() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringIndexOfChar() throws Exception {
 
         DefaultTestCase tc = buildTestIndexOfChar();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -277,7 +277,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringIndexOfCharInt() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringIndexOfCharInt() throws Exception {
 
         DefaultTestCase tc = buildTestIndexOfCharInt();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -286,7 +286,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringIndexOfString() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringIndexOfString() throws Exception {
 
         DefaultTestCase tc = buildTestIndexOfString();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -295,7 +295,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringIndexOfStringInt() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringIndexOfStringInt() throws Exception {
 
         DefaultTestCase tc = buildTestIndexOfStringInt();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -331,7 +331,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringTrim() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringTrim() throws Exception {
 
         DefaultTestCase tc = buildTestTrim();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -340,7 +340,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringAppendString() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringAppendString() throws Exception {
 
         DefaultTestCase tc = buildTestAppendString();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -349,7 +349,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringSubstringFromTo() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringSubstringFromTo() throws Exception {
 
         DefaultTestCase tc = buildTestSubstringFromTo();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -358,7 +358,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringUpperCase() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringUpperCase() throws Exception {
 
         DefaultTestCase tc = buildTestUpperCase();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -367,7 +367,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringLowerCase() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringLowerCase() throws Exception {
 
         DefaultTestCase tc = buildTestLowerCase();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -412,7 +412,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringLastIndexOfChar() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringLastIndexOfChar() throws Exception {
 
         DefaultTestCase tc = buildTestLastIndexOfChar();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -421,7 +421,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringLastIndexOfCharInt() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringLastIndexOfCharInt() throws Exception {
 
         DefaultTestCase tc = buildTestLastIndexOfCharInt();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -430,7 +430,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringLastIndexOfString() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringLastIndexOfString() throws Exception {
 
         DefaultTestCase tc = buildTestLastIndexOfString();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -440,7 +440,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
 
     @Test
     public void testStringLastIndexOfStringInt()
-            throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+            throws Exception {
 
         DefaultTestCase tc = buildTestLastIndexOfStringInt();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -467,7 +467,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringSubstring() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringSubstring() throws Exception {
 
         DefaultTestCase tc = buildTestSubstring();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -476,7 +476,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringConcat() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringConcat() throws Exception {
 
         DefaultTestCase tc = buildTestConcat();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -512,7 +512,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringReplaceChar() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringReplaceChar() throws Exception {
 
         DefaultTestCase tc = buildTestReplaceChar();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -522,7 +522,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
 
     @Test
     public void testStringReplaceCharSequence()
-            throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+            throws Exception {
 
         DefaultTestCase tc = buildTestReplaceCharSequence();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -531,7 +531,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringReplaceFirst() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringReplaceFirst() throws Exception {
 
         DefaultTestCase tc = buildTestReplaceFirst();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -549,7 +549,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringCompareTo() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringCompareTo() throws Exception {
 
         DefaultTestCase tc = buildTestCompareTo();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -567,7 +567,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringToInteger() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringToInteger() throws Exception {
 
         DefaultTestCase tc = buildTestStringToInteger();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -576,7 +576,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testIntegerToString() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testIntegerToString() throws Exception {
 
         DefaultTestCase tc = buildTestIntegerToString();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -630,7 +630,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringAppendChar() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringAppendChar() throws Exception {
 
         DefaultTestCase tc = buildTestAppendChar();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -639,7 +639,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringAppendBoolean() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringAppendBoolean() throws Exception {
 
         DefaultTestCase tc = buildTestAppendBoolean();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -648,7 +648,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringAppendFloat() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringAppendFloat() throws Exception {
 
         DefaultTestCase tc = buildTestAppendFloat();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -657,7 +657,7 @@ public abstract class TestSolverStringFunctions extends TestSolver {
     }
 
     @Test
-    public void testStringAppendInteger() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringAppendInteger() throws Exception {
 
         DefaultTestCase tc = buildTestAppendInteger();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);

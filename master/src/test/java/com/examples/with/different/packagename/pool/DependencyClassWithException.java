@@ -31,10 +31,7 @@ public class DependencyClassWithException {
     }
 
     public boolean isFoo() {
-        if (x == 5)
-            return true;
-        else
-            return false;
+        return x == 5;
     }
 
 }

@@ -21,7 +21,6 @@ package org.evosuite.mock.java.net;
 
 import com.examples.with.different.packagename.mock.java.net.ReadFromInputURL;
 import com.examples.with.different.packagename.mock.java.net.ReadFromURL;
-
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
 import org.evosuite.SystemTestBase;
@@ -33,6 +32,7 @@ import org.evosuite.runtime.testdata.EvoSuiteURL;
 import org.evosuite.runtime.testdata.NetworkHandling;
 import org.evosuite.strategy.TestGenerationStrategy;
 import org.evosuite.testsuite.TestSuiteChromosome;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.Assert;
 import org.junit.Test;
 

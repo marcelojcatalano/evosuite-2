@@ -33,7 +33,7 @@ public final class IntegerBinaryExpression extends AbstractExpression<Long>
 
     private static final long serialVersionUID = -986689442489666986L;
 
-    protected static final Logger log = LoggerFactory
+    private static final Logger log = LoggerFactory
             .getLogger(IntegerBinaryExpression.class);
 
     private final Expression<Long> left;

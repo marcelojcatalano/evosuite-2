@@ -26,7 +26,7 @@ import java.util.Date;
  */
 public class DateInConstructor {
 
-    private long millis;
+    private final long millis;
 
     public DateInConstructor() {
         this(new Date());

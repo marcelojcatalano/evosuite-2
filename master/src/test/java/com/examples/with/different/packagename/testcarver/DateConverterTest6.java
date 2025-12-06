@@ -19,13 +19,13 @@
  */
 package com.examples.with.different.packagename.testcarver;
 
+import org.junit.Test;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-
-import org.junit.Test;
 
 import static org.junit.Assert.*;
 
@@ -101,10 +101,10 @@ public class DateConverterTest6 {
             Object result = converter.convert(getExpectedType(), value);
             Class<?> resultType = (result == null ? null : result.getClass());
             Class<?> expectType = (expected == null ? null : expected.getClass());
-            assertEquals("TYPE " + msg, expectType, resultType);
+            assertSame("TYPE " + msg, expectType, resultType);
             assertEquals("VALUE " + msg, expected, result);
         } catch (Exception ex) {
-            fail(msg + " threw " + ex.toString());
+            fail(msg + " threw " + ex);
         }
     }
 
@@ -122,10 +122,10 @@ public class DateConverterTest6 {
             Object result = converter.convert(String.class, value);
             Class<?> resultType = (result == null ? null : result.getClass());
             Class<?> expectType = (expected == null ? null : expected.getClass());
-            assertEquals("TYPE " + msg, expectType, resultType);
+            assertSame("TYPE " + msg, expectType, resultType);
             assertEquals("VALUE " + msg, expected, result);
         } catch (Exception ex) {
-            fail(msg + " threw " + ex.toString());
+            fail(msg + " threw " + ex);
         }
     }
 
@@ -178,7 +178,7 @@ public class DateConverterTest6 {
             calendar = format.getCalendar();
         } catch (Exception e) {
             fail("Error creating Calendar value ='"
-                    + value + ", pattern='" + pattern + "' " + e.toString());
+                    + value + ", pattern='" + pattern + "' " + e);
         }
         return calendar;
     }

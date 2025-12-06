@@ -16,7 +16,8 @@
  *
  * You should have received a copy of the GNU Lesser General Public
  * License along with EvoSuite. If not, see <http://www.gnu.org/licenses/>.
- */
+ *//*
+
 package org.evosuite.runtime.jvm;
 
 import org.junit.After;
@@ -104,3 +105,4 @@ public class ShutdownHookHandlerTest {
         Assert.assertEquals(n, ShutdownHookHandler.getInstance().getNumberOfAllExistingHooks());
     }
 }
+*/

@@ -40,10 +40,6 @@ public class DseWithServer {
         String received = inScan.nextLine();
         inScan.close();
         server.close();
-        if (received.startsWith("Hello") && received.endsWith("World")) {
-            return true;
-        } else {
-            return false;
-        }
+        return received.startsWith("Hello") && received.endsWith("World");
     }
 }

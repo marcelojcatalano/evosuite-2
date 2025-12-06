@@ -19,11 +19,7 @@
  */
 package org.evosuite.ga.metaheuristics;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.List;
-
+import com.examples.with.different.packagename.Calculator;
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
 import org.evosuite.Properties.Algorithm;
@@ -42,7 +38,10 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.examples.with.different.packagename.Calculator;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.List;
 
 /**
  * NSGA-II test
@@ -291,7 +290,7 @@ public class NSGAIISystemTest extends SystemTestBase {
 
     @Test
     public void testIntegration() {
-        Properties.MUTATION_RATE = 1d / 1d;
+        Properties.MUTATION_RATE = 1d;
         Properties.CRITERION = new Criterion[2];
         Properties.CRITERION[0] = Criterion.RHO;
         Properties.CRITERION[1] = Criterion.AMBIGUITY;
@@ -317,7 +316,7 @@ public class NSGAIISystemTest extends SystemTestBase {
 
         @SuppressWarnings("unchecked")
         GeneticAlgorithm<TestSuiteChromosome> ga =
-                (GeneticAlgorithm<TestSuiteChromosome>) getGAFromResult(result);
+                getGAFromResult(result);
 
         final FitnessFunction<TestSuiteChromosome> rho = ga.getFitnessFunctions().get(0);
         final FitnessFunction<TestSuiteChromosome> ag = ga.getFitnessFunctions().get(1);

@@ -24,7 +24,7 @@ public class TestCase89 {
 
     public class InnerClass {
 
-        private int innerField;
+        private final int innerField;
 
         public InnerClass(int val) {
             innerField = TestCase89.this.outerField;

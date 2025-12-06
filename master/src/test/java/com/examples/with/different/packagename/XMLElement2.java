@@ -223,7 +223,7 @@ public class XMLElement2 {
      * </dd>
      * </dl>
      */
-    private Hashtable entities;
+    private final Hashtable entities;
 
     /**
      * The line number where the element starts.
@@ -237,19 +237,19 @@ public class XMLElement2 {
      * </dd>
      * </dl>
      */
-    private int lineNr;
+    private final int lineNr;
 
     /**
      * <code>true</code> if the case of the element and attribute names are case
      * insensitive.
      */
-    private boolean ignoreCase;
+    private final boolean ignoreCase;
 
     /**
      * <code>true</code> if the leading and trailing whitespace of #PCDATA
      * sections have to be ignored.
      */
-    private boolean ignoreWhitespace;
+    private final boolean ignoreWhitespace;
 
     /**
      * Character read too much. This character provides push-back functionality

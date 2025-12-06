@@ -25,6 +25,7 @@ import org.evosuite.classpath.ClassPathHandler;
 import org.evosuite.instrumentation.InstrumentingClassLoader;
 import org.evosuite.runtime.RuntimeSettings;
 import org.evosuite.runtime.mock.MockFramework;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -56,7 +57,7 @@ public class MockRuntimeLoadingTest {
         MockFramework.enable();
         Class<?> clazz = cl.loadClass(MemoryCheck.class.getCanonicalName());
 
-        Object mc = clazz.newInstance();
+        Object mc = ReflectionUtils.newInstanceOf(clazz);
         String expected = "500"; //this is hard coded in the mock
         Assert.assertEquals(expected, mc.toString());
     }

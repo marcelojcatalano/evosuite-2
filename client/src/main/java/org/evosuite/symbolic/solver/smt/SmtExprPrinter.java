@@ -205,7 +205,7 @@ public final class SmtExprPrinter implements SmtExprVisitor<String, Void> {
 
     @Override
     public String visit(SmtBooleanConstant n, Void arg) {
-        if (n.booleanValue() == true) {
+        if (n.booleanValue()) {
             return "true";
         } else {
             return "false";

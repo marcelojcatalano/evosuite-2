@@ -66,25 +66,25 @@ public final class VM {
         ignoreCallback = false;
     }
 
-    protected int nrCallbacksPath = 0;
-    protected int nrCallbacksMethodExploration = 0;
+    private int nrCallbacksPath = 0;
+    private int nrCallbacksMethodExploration = 0;
 
     /**
      * To be called before executing a new path through a method.
      */
-    protected void zeroPathCallbacks() {
+    private void zeroPathCallbacks() {
         vm.nrCallbacksPath = 0;
     }
 
     /**
      * To be called before exploring a new method.
      */
-    protected void zeroAllCallbacks() {
+    private void zeroAllCallbacks() {
         zeroPathCallbacks();
         vm.nrCallbacksMethodExploration = 0;
     }
 
-    protected void countCallback() {
+    private void countCallback() {
         nrCallbacksPath += 1;
         nrCallbacksMethodExploration += 1;
     }
@@ -101,10 +101,10 @@ public final class VM {
      * For each monitored VM ByteCode instruction, we call each listener.
      */
     // protected IVM[] listeners = new IVM[] { new InsnLogger() };
-    protected IVM[] listeners = new IVM[0];
+    private IVM[] listeners = new IVM[0];
 
-    protected List<IVM> prependListeners = new LinkedList<>();
-    protected List<IVM> appendListeners = new LinkedList<>();
+    private List<IVM> prependListeners = new LinkedList<>();
+    private List<IVM> appendListeners = new LinkedList<>();
 
     /**
      * Registers paramListeners and any listernes previously queued via
@@ -173,7 +173,7 @@ public final class VM {
 
     private boolean stopped = false;
 
-    protected static void handleException(Throwable t) {
+    private static void handleException(Throwable t) {
         /**
          * Listeners are not supposed to throw exceptions to the VM except the
          * StopVMException.
@@ -3546,7 +3546,7 @@ public final class VM {
             interpret((IVM ivm) -> ivm.INVOKEDYNAMIC(concatenationResult, stringOwnerClass, stringRecipe));
     }
 
-    protected static Class<?> getArrayComponentType(int componentTypeInt) {
+    private static Class<?> getArrayComponentType(int componentTypeInt) {
         switch (componentTypeInt) {
             case 4:
                 return boolean.class;

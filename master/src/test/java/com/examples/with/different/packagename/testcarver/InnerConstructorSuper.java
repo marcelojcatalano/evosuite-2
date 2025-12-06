@@ -21,7 +21,7 @@ package com.examples.with.different.packagename.testcarver;
 
 public abstract class InnerConstructorSuper {
 
-    private boolean foo;
+    private final boolean foo;
 
     public InnerConstructorSuper(boolean aBoolean) {
         super();

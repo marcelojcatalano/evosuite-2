@@ -24,6 +24,7 @@ import org.evosuite.coverage.ControlFlowDistance;
 import org.evosuite.graphs.cfg.BytecodeInstructionPool;
 import org.evosuite.graphs.cfg.ControlDependency;
 import org.evosuite.testcase.execution.ExecutionResult;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

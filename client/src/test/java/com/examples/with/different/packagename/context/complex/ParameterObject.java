@@ -33,10 +33,7 @@ public class ParameterObject extends AParameterObject {
     }
 
     public boolean isEnabled() {
-        if (intero > 146 && intero < 157) {
-            return true;
-        }
-        return false;
+        return intero > 146 && intero < 157;
     }
 
     public String getStringa() {

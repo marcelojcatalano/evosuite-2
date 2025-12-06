@@ -85,7 +85,7 @@ public abstract class ExplorationAlgorithmBase implements Serializable {
 
     protected final boolean showProgress;
 
-    private static final transient Logger logger = LoggerFactory.getLogger(ExplorationAlgorithmBase.class);
+    private static final Logger logger = LoggerFactory.getLogger(ExplorationAlgorithmBase.class);
 
     private static final long serialVersionUID = -3426910907322781226L;
 

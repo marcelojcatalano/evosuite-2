@@ -35,10 +35,6 @@ public class ReceiveTcp {
         Scanner in = new Scanner(s.getInputStream());
         String msg = in.nextLine();
 
-        if (msg.equals("Got message on TCP connection")) {
-            return true;
-        } else {
-            return false;
-        }
+        return msg.equals("Got message on TCP connection");
     }
 }

@@ -35,11 +35,7 @@ public class Example_URL {
             String line = in.nextLine();
             in.close();
 
-            if (line.contains("<html>")) {
-                return true;
-            } else {
-                return false;
-            }
+            return line.contains("<html>");
 
         } catch (IOException e) {
             return false;

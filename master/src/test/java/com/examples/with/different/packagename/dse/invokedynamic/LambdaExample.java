@@ -29,7 +29,7 @@ import java.util.function.Function;
 public class LambdaExample {
 
     public interface Function2<One, Two, Three> {
-        public Three apply(One a, Two b);
+        Three apply(One a, Two b);
     }
 
     public static int test(int in, int in2) {

@@ -23,7 +23,6 @@ import com.examples.with.different.packagename.concolic.MIMETypeTest;
 import org.apache.commons.lang3.SystemUtils;
 import org.evosuite.symbolic.expr.Constraint;
 import org.evosuite.symbolic.solver.DefaultTestCaseConcolicExecutor;
-import org.evosuite.symbolic.solver.SolverTimeoutException;
 import org.evosuite.testcase.DefaultTestCase;
 import org.junit.Assume;
 import org.junit.Before;
@@ -50,7 +49,7 @@ public class TestMIMEType {
     }
 
     @Test
-    public void testMIMEType() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testMIMEType() throws Exception {
 
         DefaultTestCase tc = buildMIMETypeTest();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);

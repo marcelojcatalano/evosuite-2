@@ -24,7 +24,7 @@ package com.examples.with.different.packagename.seeding;
  */
 
 public class NumericDynamicDoubleSeeding {
-    private static double CONSTANT = 1500d;
+    private static final double CONSTANT = 1500d;
 
     public static double check(double a) {
 

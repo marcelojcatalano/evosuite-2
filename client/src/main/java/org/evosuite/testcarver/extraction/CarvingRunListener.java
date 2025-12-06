@@ -31,6 +31,7 @@ import org.evosuite.testcarver.testcase.CarvedTestCase;
 import org.evosuite.testcarver.testcase.EvoTestCaseCodeGenerator;
 import org.evosuite.testcase.TestCase;
 import org.evosuite.utils.LoggingUtils;
+import org.evosuite.utils.ReflectionUtils;
 import org.evosuite.utils.generic.GenericTypeInference;
 import org.junit.runner.Description;
 import org.junit.runner.notification.RunListener;

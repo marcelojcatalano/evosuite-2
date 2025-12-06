@@ -29,6 +29,7 @@ import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testcase.execution.ExecutionTrace;
 import org.evosuite.testcase.execution.TestCaseExecutor;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.util.HashMap;
 import java.util.HashSet;

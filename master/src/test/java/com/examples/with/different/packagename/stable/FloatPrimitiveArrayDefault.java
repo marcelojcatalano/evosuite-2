@@ -51,10 +51,7 @@ public class FloatPrimitiveArrayDefault {
     }
 
     public boolean moreThanTwoAndZero() {
-        if (moreThanTwo() && isZero())
-            return true;
-        else
-            return false;
+        return moreThanTwo() && isZero();
     }
 
     /*
@@ -68,9 +65,6 @@ public class FloatPrimitiveArrayDefault {
 
      */
     public boolean moreThanTwo() {
-        if (this.floatArray.length > 2)
-            return true;
-        else
-            return false;
+        return this.floatArray.length > 2;
     }
 }

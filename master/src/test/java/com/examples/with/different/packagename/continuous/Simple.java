@@ -24,19 +24,11 @@ public class Simple {
     private int counter = 0;
 
     public boolean reached16() {
-        if (counter == 16) {
-            return true;
-        } else {
-            return false;
-        }
+        return counter == 16;
     }
 
     public boolean reached8() {
-        if (counter == 8) {
-            return true;
-        } else {
-            return false;
-        }
+        return counter == 8;
     }
 
     public void incr() {

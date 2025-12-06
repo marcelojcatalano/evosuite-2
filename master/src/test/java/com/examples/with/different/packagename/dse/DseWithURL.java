@@ -31,10 +31,6 @@ public class DseWithURL {
         Scanner in = new Scanner(conn.getInputStream());
         String line = in.nextLine();
         in.close();
-        if (line.contains("<html>")) {
-            return true;
-        } else {
-            return false;
-        }
+        return line.contains("<html>");
     }
 }

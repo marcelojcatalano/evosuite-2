@@ -170,8 +170,10 @@ public class AllUsesAnalysis {
             for (ClassCallNode child : ccfg.getCcg().getChildren(ccgNode)) {
                 if (child == null)
                     continue;
-                if (!child.equals(ccgNode))
+                if (!child.equals(ccgNode)) {
                     add = false;
+                    break;
+                }
             }
 
             if (add)

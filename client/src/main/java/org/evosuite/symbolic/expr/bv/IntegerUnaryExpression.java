@@ -23,6 +23,7 @@ import org.evosuite.Properties;
 import org.evosuite.symbolic.ConstraintTooLongException;
 import org.evosuite.symbolic.dse.DSEStatistics;
 import org.evosuite.symbolic.expr.*;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +35,7 @@ public final class IntegerUnaryExpression extends AbstractExpression<Long> imple
 
     private static final long serialVersionUID = 1966395070897274841L;
 
-    protected static final Logger log = LoggerFactory.getLogger(IntegerUnaryExpression.class);
+    private static final Logger log = LoggerFactory.getLogger(IntegerUnaryExpression.class);
 
     private final Operator op;
     private final Expression<Long> expr;

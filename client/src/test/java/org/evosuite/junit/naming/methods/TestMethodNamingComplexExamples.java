@@ -25,7 +25,6 @@ import org.evosuite.coverage.io.input.InputCoverageTestFitness;
 import org.evosuite.coverage.io.output.OutputCoverageGoal;
 import org.evosuite.coverage.io.output.OutputCoverageTestFitness;
 import org.evosuite.coverage.method.MethodCoverageTestFitness;
-import org.evosuite.ga.ConstructionFailedException;
 import org.evosuite.testcase.DefaultTestCase;
 import org.evosuite.testcase.TestCase;
 import org.evosuite.testcase.TestFitnessFunction;
@@ -46,7 +45,7 @@ import static org.junit.Assert.assertEquals;
 public class TestMethodNamingComplexExamples {
 
     @Test
-    public void testTwoTestsOutputGoals() throws NoSuchMethodException, ConstructionFailedException, ClassNotFoundException {
+    public void testTwoTestsOutputGoals() throws Exception {
         TestFitnessFunction goal1 = new MethodCoverageTestFitness("FooClass", "keys()[I");
         TestFitnessFunction goal2 = new MethodCoverageTestFitness("FooClass", "<init>(LFooClass;)V");
 
@@ -76,7 +75,7 @@ public class TestMethodNamingComplexExamples {
     }
 
     @Test
-    public void testThreeTestsOutputGoals() throws NoSuchMethodException, ConstructionFailedException, ClassNotFoundException {
+    public void testThreeTestsOutputGoals() throws Exception {
 
         // Method goals
         TestFitnessFunction goal1 = new MethodCoverageTestFitness("FooClass", "mist(I)V");
@@ -116,7 +115,7 @@ public class TestMethodNamingComplexExamples {
     }
 
     @Test
-    public void testOverloadedMethods() throws NoSuchMethodException, ConstructionFailedException, ClassNotFoundException {
+    public void testOverloadedMethods() throws Exception {
 
         // Method goals
         TestFitnessFunction goal1 = new MethodCoverageTestFitness("FooClass", "<init>(LFooClass;)V");
@@ -150,7 +149,7 @@ public class TestMethodNamingComplexExamples {
     }
 
     @Test
-    public void testOverloadedMethodsNoArgs() throws NoSuchMethodException, ConstructionFailedException, ClassNotFoundException {
+    public void testOverloadedMethodsNoArgs() throws Exception {
 
         // Method goals
         TestFitnessFunction goal1 = new MethodCoverageTestFitness("FooClass", "<init>(LFooClass;)V");
@@ -185,7 +184,7 @@ public class TestMethodNamingComplexExamples {
 
 
     @Test
-    public void testConstructors() throws NoSuchMethodException, ConstructionFailedException, ClassNotFoundException {
+    public void testConstructors() throws Exception {
 
         // method goal
         TestFitnessFunction goal1 = new MethodCoverageTestFitness("FooClass", "<init>(LFooClass;)V");
@@ -214,7 +213,7 @@ public class TestMethodNamingComplexExamples {
 
 
     @Test
-    public void testExactSameTests() throws NoSuchMethodException, ConstructionFailedException, ClassNotFoundException {
+    public void testExactSameTests() throws Exception {
 
         // method goals
         TestFitnessFunction goal1 = new MethodCoverageTestFitness("FooClass", "values([B)[B");
@@ -249,7 +248,7 @@ public class TestMethodNamingComplexExamples {
     }
 
     @Test
-    public void testConstructorAndOverloadedMethods() throws NoSuchMethodException, ConstructionFailedException, ClassNotFoundException {
+    public void testConstructorAndOverloadedMethods() throws Exception {
 
         // method goal
         TestFitnessFunction goal1 = new MethodCoverageTestFitness("FooClass", "<init>(LFooClass;)V");
@@ -291,7 +290,7 @@ public class TestMethodNamingComplexExamples {
     }
 
     @Test
-    public void testIDNamingWithSameMethodGoals() throws NoSuchMethodException, ConstructionFailedException, ClassNotFoundException {
+    public void testIDNamingWithSameMethodGoals() throws Exception {
 
         // method goals
         TestFitnessFunction goal1 = new MethodCoverageTestFitness("FooClass", "<init>()V");
@@ -327,7 +326,7 @@ public class TestMethodNamingComplexExamples {
     }
 
     @Test
-    public void testIDNamingWithSameMethodGoals2() throws NoSuchMethodException, ConstructionFailedException, ClassNotFoundException {
+    public void testIDNamingWithSameMethodGoals2() throws Exception {
 
         // method goals
         TestFitnessFunction goal1 = new MethodCoverageTestFitness("FooClass", "<init>(LField;II)V");

@@ -55,6 +55,8 @@ import org.evosuite.testcase.execution.ExecutionTracer;
 import org.evosuite.testcase.execution.TestCaseExecutor;
 import org.evosuite.testcase.execution.reset.ClassReInitializer;
 import org.evosuite.utils.ArrayUtil;
+import org.evosuite.utils.InstantiationFactory;
+import org.evosuite.utils.NetworkInterfaceHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -93,6 +95,10 @@ public class TestGenerationContext {
     private TestGenerationContext() {
         originalClassLoader = this.getClass().getClassLoader();
         classLoader = new InstrumentingClassLoader();
+
+       InstantiationFactory.registerHandler(
+                new NetworkInterfaceHandler()
+        );
     }
 
     public static TestGenerationContext getInstance() {
@@ -206,9 +212,7 @@ public class TestGenerationContext {
                         DependencyAnalysis.getInheritanceTree());
                 // 2. Use the callGraph
                 testClusterGenerator.generateCluster(DependencyAnalysis.getCallGraph());
-            } catch (RuntimeException e) {
-                logger.error(e.getMessage(), e);
-            } catch (ClassNotFoundException e) {
+            } catch (RuntimeException | ClassNotFoundException e) {
                 logger.error(e.getMessage(), e);
             }
         }

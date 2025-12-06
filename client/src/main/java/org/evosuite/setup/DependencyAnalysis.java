@@ -34,6 +34,7 @@ import org.evosuite.junit.CoverageAnalysis;
 import org.evosuite.rmi.ClientServices;
 import org.evosuite.setup.callgraph.CallGraph;
 import org.evosuite.setup.callgraph.CallGraphGenerator;
+import org.evosuite.setup.snapshot.SnapshotLoader;
 import org.evosuite.statistics.RuntimeVariable;
 import org.evosuite.utils.ArrayUtil;
 import org.objectweb.asm.ClassReader;
@@ -71,19 +72,60 @@ public class DependencyAnalysis {
 
     public static void initInheritanceTree(List<String> classPath) {
         if (inheritanceTree == null) {
-            logger.debug("Calculate inheritance hierarchy");
-            inheritanceTree = InheritanceTreeGenerator.createFromClassPath(classPath);
+
+            // === SNAPSHOT HOOK IMPLEMENTADO (pero deshabilitado por Properties) ===
+            if (Properties.USE_SNAPSHOTS) {
+                String jdk = SnapshotLoader.detectJdkVersion();
+                InheritanceTree snap = SnapshotLoader.loadInheritanceSnapshot(jdk);
+                if (snap != null) {
+                    logger.debug("Loaded inheritance tree snapshot for JDK: " + jdk);
+                    inheritanceTree = snap;
+                }
+            }
+            // === END HOOK ===
+
+            if (inheritanceTree == null) {
+                logger.debug("Calculate inheritance hierarchy");
+                inheritanceTree = InheritanceTreeGenerator.createFromClassPath(classPath);
+
+                // Guardar snapshot si está habilitado
+                if (Properties.USE_SNAPSHOTS) {
+                    SnapshotLoader.saveInheritanceSnapshot(
+                            SnapshotLoader.detectJdkVersion(), inheritanceTree
+                    );
+                }
+            }
         }
+
         TestClusterGenerator clusterGenerator = new TestClusterGenerator(inheritanceTree);
         TestGenerationContext.getInstance().setTestClusterGenerator(clusterGenerator);
         InheritanceTreeGenerator.gatherStatistics(inheritanceTree);
     }
 
+
     public static void initCallGraph(String className) {
+
+        // === SNAPSHOT HOOK IMPLEMENTADO ===
+        if (Properties.USE_SNAPSHOTS) {
+            CallGraph snap = SnapshotLoader.loadCallGraph(className);
+            if (snap != null) {
+                logger.debug("Loaded call graph snapshot for class: " + className);
+                callGraphs.put(className, snap);
+                return;
+            }
+        }
+        // === END HOOK ===
+
         logger.debug("Calculate call tree");
         CallGraph callGraph = CallGraphGenerator.analyze(className);
         callGraphs.put(className, callGraph);
-        // include all the project classes in the inheritance tree and in the callgraph.
+
+        // Guardar snapshot
+        if (Properties.USE_SNAPSHOTS) {
+            SnapshotLoader.saveCallGraph(className, callGraph);
+        }
+
+        // incluir clases extra del proyecto
         if (ArrayUtil.contains(Properties.CRITERION, Criterion.IBRANCH)
                 || Properties.INSTRUMENT_CONTEXT) {
 
@@ -94,11 +136,10 @@ public class DependencyAnalysis {
             }
         }
 
-        // TODO: Need to make sure that all classes in calltree are instrumented
         logger.debug("Update call tree with calls to overridden methods");
         CallGraphGenerator.update(callGraph, inheritanceTree);
-
     }
+
 
     private static void analyze(String className) throws RuntimeException,
             ClassNotFoundException {
@@ -296,17 +337,36 @@ public class DependencyAnalysis {
     }
 
     public static ClassNode getClassNode(String className) {
+
+        // === SNAPSHOT HOOK IMPLEMENTADO ===
+        if (Properties.USE_SNAPSHOTS) {
+            ClassNode snap = SnapshotLoader.loadClassNode(className);
+            if (snap != null) {
+                logger.debug("Loaded ClassNode snapshot for: " + className);
+                classCache.put(className, snap);
+                return snap;
+            }
+        }
+        // === END HOOK ===
+
         if (!classCache.containsKey(className)) {
             try {
-                classCache.put(className, loadClassNode(className));
+                ClassNode cn = loadClassNode(className);
+                classCache.put(className, cn);
+
+                // Guardamos snapshot
+                if (Properties.USE_SNAPSHOTS && cn != null) {
+                    SnapshotLoader.saveClassNode(className, cn);
+                }
+
             } catch (IOException e) {
                 classCache.put(className, null);
             }
         }
 
         return classCache.get(className);
-
     }
+
 
     public static Collection<ClassNode> getAllClassNodes() {
         return classCache.values();
@@ -326,7 +386,7 @@ public class DependencyAnalysis {
         ClassNode cn = new ClassNode();
         try {
             ClassReader reader = new ClassReader(classStream);
-            reader.accept(cn, ClassReader.SKIP_FRAMES); // |
+            reader.accept(cn, ClassReader.SKIP_FRAMES | ClassReader.SKIP_DEBUG); // |
             // ClassReader.SKIP_DEBUG);
         } finally {
             classStream.close(); // ASM does not close the stream
@@ -341,27 +401,22 @@ public class DependencyAnalysis {
         ClientServices.getInstance().getClientNode()
                 .trackOutputVariable(RuntimeVariable.Instrumented_Predicates, BranchPool.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT()).getNumArtificialBranches());
         int numBranches = BranchPool.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT()).getBranchCounter() * 2;
-        ClientServices
-                .getInstance()
+        ClientServices.getInstance()
                 .getClientNode()
                 .trackOutputVariable(RuntimeVariable.Total_Branches, numBranches);
-        ClientServices
-                .getInstance()
+        ClientServices.getInstance()
                 .getClientNode()
                 .trackOutputVariable(RuntimeVariable.Total_Branches_Real,
                         ((BranchPool.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT()).getBranchCounter() - BranchPool.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT()).getNumArtificialBranches())) * 2);
-        ClientServices
-                .getInstance()
+        ClientServices.getInstance()
                 .getClientNode()
                 .trackOutputVariable(RuntimeVariable.Total_Branches_Instrumented,
                         (BranchPool.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT()).getNumArtificialBranches() * 2));
-        ClientServices
-                .getInstance()
+        ClientServices.getInstance()
                 .getClientNode()
                 .trackOutputVariable(RuntimeVariable.Branchless_Methods,
                         BranchPool.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT()).getBranchlessMethods().size());
-        ClientServices
-                .getInstance()
+        ClientServices.getInstance()
                 .getClientNode()
                 .trackOutputVariable(RuntimeVariable.Total_Methods,
                         CFGMethodAdapter.getNumMethods(TestGenerationContext.getInstance().getClassLoaderForSUT()));
@@ -373,8 +428,7 @@ public class DependencyAnalysis {
             switch (pc) {
                 case DEFUSE:
                 case ALLDEFS:
-                    ClientServices
-                            .getInstance()
+                    ClientServices.getInstance()
                             .getClientNode()
                             .trackOutputVariable(RuntimeVariable.Definitions,
                                     DefUsePool.getDefCounter());
@@ -385,8 +439,7 @@ public class DependencyAnalysis {
                 case WEAKMUTATION:
                 case STRONGMUTATION:
                 case MUTATION:
-                    ClientServices
-                            .getInstance()
+                    ClientServices.getInstance()
                             .getClientNode()
                             .trackOutputVariable(RuntimeVariable.Mutants,
                                     MutationPool.getInstance(TestGenerationContext.getInstance().getClassLoaderForSUT()).getMutantCounter());

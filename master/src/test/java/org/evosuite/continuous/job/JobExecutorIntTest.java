@@ -19,29 +19,28 @@
  */
 package org.evosuite.continuous.job;
 
+import com.examples.with.different.packagename.continuous.Simple;
+import com.examples.with.different.packagename.continuous.Trivial;
+import com.examples.with.different.packagename.continuous.UsingSimpleAndTrivial;
+import org.apache.commons.io.FileUtils;
+import org.evosuite.Properties;
+import org.evosuite.Properties.AvailableSchedule;
+import org.evosuite.classpath.ClassPathHandler;
+import org.evosuite.continuous.CtgConfiguration;
+import org.evosuite.continuous.persistency.StorageManager;
+import org.evosuite.continuous.persistency.StorageManager.TestsOnDisk;
+import org.evosuite.junit.writer.TestSuiteWriter;
+import org.evosuite.utils.FileIOUtils;
+import org.evosuite.utils.ReflectionUtils;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-
-import org.apache.commons.io.FileUtils;
-import org.evosuite.junit.writer.TestSuiteWriter;
-import org.evosuite.utils.FileIOUtils;
-import org.junit.Assert;
-
-import org.evosuite.Properties;
-import org.evosuite.classpath.ClassPathHandler;
-import org.evosuite.continuous.CtgConfiguration;
-import org.evosuite.Properties.AvailableSchedule;
-import org.evosuite.continuous.persistency.StorageManager;
-import org.evosuite.continuous.persistency.StorageManager.TestsOnDisk;
-import org.junit.Before;
-import org.junit.Test;
-
-import com.examples.with.different.packagename.continuous.Simple;
-import com.examples.with.different.packagename.continuous.Trivial;
-import com.examples.with.different.packagename.continuous.UsingSimpleAndTrivial;
 
 import static org.junit.Assert.assertTrue;
 
@@ -125,7 +124,7 @@ public class JobExecutorIntTest {
                 try {
                     content = FileUtils.readFileToString(log);
                 } catch (IOException e) {
-                    msg += "Failed to read file " + log.getName() + " due to: " + e.toString() + "\n";
+                    msg += "Failed to read file " + log.getName() + " due to: " + e + "\n";
                 }
                 if (content != null) {
                     msg += "Content for file: " + log.getName() + "\n";
@@ -172,7 +171,7 @@ public class JobExecutorIntTest {
 
         JobDefinition ust = new JobDefinition(30, memory,
                 UsingSimpleAndTrivial.class.getName(), 0,
-                new HashSet<>(Arrays.asList(new String[]{Simple.class.getName(), Trivial.class.getName()})),
+                new HashSet<>(Arrays.asList(Simple.class.getName(), Trivial.class.getName())),
                 null);
 
 

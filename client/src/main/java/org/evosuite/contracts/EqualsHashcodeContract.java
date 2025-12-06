@@ -32,7 +32,7 @@ import org.evosuite.testcase.variable.VariableReferenceImpl;
 import org.evosuite.utils.generic.GenericMethod;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -112,17 +112,17 @@ public class EqualsHashcodeContract extends Contract {
 
             // Create x = a.equals(b)
             Statement st1 = new MethodStatement(test, genericEqualsMethod, a,
-                    Arrays.asList(b));
+                    Collections.singletonList(b));
             VariableReference x = test.addStatement(st1, statement.getPosition() + 1);
 
             // Create y = a.hashCode();
             Statement st2 = new MethodStatement(test, genericHashCodeMethod, a,
-                    Arrays.asList(new VariableReference[]{}));
+                    List.of());
             VariableReference y = test.addStatement(st2, statement.getPosition() + 2);
 
             // Create z = b.hashCode();
             Statement st3 = new MethodStatement(test, genericHashCodeMethod, b,
-                    Arrays.asList(new VariableReference[]{}));
+                    List.of());
             VariableReference z = test.addStatement(st3, statement.getPosition() + 3);
 
             // Create w = z == z

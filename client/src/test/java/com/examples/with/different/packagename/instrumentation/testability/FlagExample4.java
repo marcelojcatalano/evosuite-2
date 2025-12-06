@@ -31,10 +31,6 @@ public class FlagExample4 {
             if (y == 223558)
                 flag2 = true;
         }
-        if (flag2) {
-            return true;
-        } else {
-            return false;
-        }
+        return flag2;
     }
 }

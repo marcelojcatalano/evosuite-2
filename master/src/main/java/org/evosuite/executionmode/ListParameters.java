@@ -23,6 +23,7 @@ import org.apache.commons.cli.Option;
 import org.evosuite.Properties;
 import org.evosuite.Properties.Parameter;
 import org.evosuite.utils.LoggingUtils;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

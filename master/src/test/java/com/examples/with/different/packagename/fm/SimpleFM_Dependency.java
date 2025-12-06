@@ -30,7 +30,7 @@ public class SimpleFM_Dependency {
 
     public static class Foo {
 
-        private Bar bar;
+        private final Bar bar;
 
         public Foo(Bar bar) {
             this.bar = bar;
@@ -42,10 +42,6 @@ public class SimpleFM_Dependency {
     }
 
     public static boolean bar(Foo foo) {
-        if (foo.foo()) {
-            return true;
-        } else {
-            return false;
-        }
+        return foo.foo();
     }
 }

@@ -29,11 +29,7 @@ public class ReadFromSystemIn {
         String line = scanner.nextLine();
         scanner.close();
 
-        if (line.equals("Hello World")) {
-            return true;
-        } else {
-            return false;
-        }
+        return line.equals("Hello World");
     }
 
 }

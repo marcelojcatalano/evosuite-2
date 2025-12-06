@@ -71,7 +71,7 @@ public final class TestChromosome extends AbstractTestChromosome<TestChromosome>
     /**
      * To keep track of what has changed since last fitness evaluation
      */
-    protected MutationHistory<TestMutationHistoryEntry> mutationHistory = new MutationHistory<>();
+    private MutationHistory<TestMutationHistoryEntry> mutationHistory = new MutationHistory<>();
 
     /**
      * Secondary objectives used during ranking
@@ -445,7 +445,7 @@ public final class TestChromosome extends AbstractTestChromosome<TestChromosome>
         return changed;
     }
 
-    protected boolean deleteStatement(TestFactory testFactory, int num) {
+    private boolean deleteStatement(TestFactory testFactory, int num) {
 
         try {
 

@@ -24,7 +24,7 @@ package com.examples.with.different.packagename.coverage;
  */
 public class ClassWithObserver {
     private boolean f;
-    private int size;
+    private final int size;
 
     public ClassWithObserver(int size) {
         this.size = size;

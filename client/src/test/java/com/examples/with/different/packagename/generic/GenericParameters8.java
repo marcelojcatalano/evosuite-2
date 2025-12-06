@@ -25,10 +25,6 @@ public class GenericParameters8 {
 
 
     public boolean testMe(List list) {
-        if (list.get(0) instanceof String) {
-            return true;
-        } else {
-            return false;
-        }
+        return list.get(0) instanceof String;
     }
 }

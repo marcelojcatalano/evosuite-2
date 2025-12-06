@@ -19,14 +19,13 @@
  */
 package com.examples.with.different.packagename;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import com.examples.with.different.packagename.ClassHierarchyIncludingInterfaces.Interfaces;
+import org.junit.Test;
 
 import java.util.Iterator;
 
-import org.junit.Test;
-
-import com.examples.with.different.packagename.ClassHierarchyIncludingInterfaces.Interfaces;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertSame;
 
 /**
  * Snippet from Lang project
@@ -55,10 +54,10 @@ public class ClassHierarchyIncludingInterfacesTest {
     @Test
     public void testHierarchyIncludingInterfaces() {
         final Iterator<Class<?>> iter = ClassHierarchyIncludingInterfaces.hierarchy(StringParameterizedChild.class, Interfaces.INCLUDE).iterator();
-        assertEquals(StringParameterizedChild.class, iter.next());
-        assertEquals(GenericParent.class, iter.next());
-        assertEquals(GenericConsumer.class, iter.next());
-        assertEquals(Object.class, iter.next());
+        assertSame(StringParameterizedChild.class, iter.next());
+        assertSame(GenericParent.class, iter.next());
+        assertSame(GenericConsumer.class, iter.next());
+        assertSame(Object.class, iter.next());
         assertFalse(iter.hasNext());
     }
 }

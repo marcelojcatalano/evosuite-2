@@ -23,9 +23,6 @@ public class SimpleMutationExample2 {
 
     public boolean add(int x, int y) {
         int z = x + y;
-        if (z > 0)
-            return true;
-        else
-            return false;
+        return z > 0;
     }
 }

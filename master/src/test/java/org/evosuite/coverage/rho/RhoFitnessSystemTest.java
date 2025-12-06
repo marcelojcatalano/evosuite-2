@@ -19,17 +19,8 @@
  */
 package org.evosuite.coverage.rho;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.List;
-
-import com.opencsv.exceptions.CsvException;
+import com.examples.with.different.packagename.Compositional;
+import com.opencsv.CSVReader;
 import org.apache.commons.io.FileUtils;
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
@@ -43,9 +34,10 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.examples.with.different.packagename.Compositional;
+import java.io.*;
+import java.util.List;
 
-import com.opencsv.CSVReader;
+import static org.junit.Assert.assertEquals;
 
 public class RhoFitnessSystemTest extends SystemTestBase {
 
@@ -95,7 +87,7 @@ public class RhoFitnessSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testZeroRhoScoreWithoutPreviousCoverage() throws IOException, CsvException {
+    public void testZeroRhoScoreWithoutPreviousCoverage() throws Exception {
 
         EvoSuite evosuite = new EvoSuite();
 
@@ -127,7 +119,7 @@ public class RhoFitnessSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testZeroRhoScoreWithPreviousCoverage() throws IOException, CsvException {
+    public void testZeroRhoScoreWithPreviousCoverage() throws Exception {
 
         EvoSuite evosuite = new EvoSuite();
 

@@ -27,6 +27,7 @@ package org.evosuite.instrumentation.testability;
 import org.evosuite.Properties;
 import org.evosuite.TestGenerationContext;
 import org.evosuite.classpath.ResourceList;
+import org.evosuite.utils.ReflectionUtils;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.ClassNode;

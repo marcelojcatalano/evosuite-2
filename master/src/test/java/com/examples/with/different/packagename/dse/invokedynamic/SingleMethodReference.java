@@ -35,7 +35,7 @@ public class SingleMethodReference {
     }
 
     private static class MyIntegerClassWithState implements GetIntContext {
-        private int val;
+        private final int val;
 
         public MyIntegerClassWithState(int x) {
             this.val = x;

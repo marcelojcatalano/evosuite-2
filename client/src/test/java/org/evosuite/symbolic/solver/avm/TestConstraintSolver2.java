@@ -34,8 +34,8 @@ import org.evosuite.symbolic.solver.*;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.*;
@@ -57,7 +57,7 @@ public class TestConstraintSolver2 extends RandomizedTC {
 
         StringConstraint constr1 = new StringConstraint(strEqual, Comparator.NE, const_zero);
 
-        return Arrays.<Constraint<?>>asList(constr1);
+        return List.of(constr1);
     }
 
     @Test
@@ -72,7 +72,7 @@ public class TestConstraintSolver2 extends RandomizedTC {
             System.out.println(c.toString());
         }
 
-        System.out.println("");
+        System.out.println();
         System.out.println("Initial: " + INIT_STRING);
 
         EvoSuiteSolver solver = new EvoSuiteSolver();

@@ -23,6 +23,7 @@ import org.evosuite.Properties;
 import org.evosuite.symbolic.ConstraintTooLongException;
 import org.evosuite.symbolic.dse.DSEStatistics;
 import org.evosuite.symbolic.expr.*;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +35,7 @@ public final class RealUnaryToIntegerExpression extends AbstractExpression<Long>
 
     private static final long serialVersionUID = 9086637495150131445L;
 
-    protected static final Logger log = LoggerFactory.getLogger(RealUnaryToIntegerExpression.class);
+    private static final Logger log = LoggerFactory.getLogger(RealUnaryToIntegerExpression.class);
 
     private final Operator op;
 

@@ -618,7 +618,7 @@ public class TestGenericClassImpl {
         GenericClass<?> instantiatedList = arrayListClass.getWithParametersFromSuperclass(iterableIntegerClass);
 
         Type parameterType = instantiatedList.getParameterTypes().get(0);
-        Assert.assertEquals(Integer.class, GenericTypeReflector.erase(parameterType));
+        Assert.assertSame(Integer.class, GenericTypeReflector.erase(parameterType));
     }
 
 

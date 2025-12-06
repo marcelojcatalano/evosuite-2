@@ -75,7 +75,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test1() throws SecurityException, NoSuchMethodException {
+    public void test1() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -126,7 +126,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test2() throws SecurityException, NoSuchMethodException {
+    public void test2() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -174,7 +174,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test3() throws SecurityException, NoSuchMethodException {
+    public void test3() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -240,7 +240,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test4() throws SecurityException, NoSuchMethodException, NoSuchFieldException {
+    public void test4() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -315,7 +315,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test5() throws SecurityException, NoSuchMethodException, NoSuchFieldException {
+    public void test5() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -372,7 +372,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test6() throws SecurityException, NoSuchMethodException, NoSuchFieldException {
+    public void test6() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -416,7 +416,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test7() throws SecurityException, NoSuchMethodException, NoSuchFieldException {
+    public void test7() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -448,7 +448,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test8() throws SecurityException, NoSuchMethodException, NoSuchFieldException {
+    public void test8() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -509,7 +509,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test9() throws SecurityException, NoSuchMethodException, NoSuchFieldException {
+    public void test9() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -557,7 +557,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test10() throws SecurityException, NoSuchMethodException, NoSuchFieldException {
+    public void test10() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -651,7 +651,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test11() throws SecurityException, NoSuchMethodException, NoSuchFieldException {
+    public void test11() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -686,7 +686,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test12() throws SecurityException, NoSuchMethodException, NoSuchFieldException {
+    public void test12() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -717,7 +717,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test13() throws SecurityException, NoSuchMethodException, NoSuchFieldException {
+    public void test13() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -762,7 +762,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test14() throws SecurityException, NoSuchMethodException, NoSuchFieldException {
+    public void test14() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -792,7 +792,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test15() throws SecurityException, NoSuchMethodException, NoSuchFieldException {
+    public void test15() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -824,7 +824,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test16() throws SecurityException, NoSuchMethodException, NoSuchFieldException {
+    public void test16() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;
@@ -855,7 +855,7 @@ public class SymbolicObserverTest {
     }
 
     @Test
-    public void test17() throws SecurityException, NoSuchMethodException, NoSuchFieldException {
+    public void test17() throws Exception {
         Properties.CLIENT_ON_THREAD = true;
         Properties.PRINT_TO_SYSTEM = true;
         Properties.TIMEOUT = 5000000;

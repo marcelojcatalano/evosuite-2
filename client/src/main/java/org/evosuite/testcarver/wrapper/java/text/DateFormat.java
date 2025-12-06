@@ -26,6 +26,7 @@ import org.evosuite.testcarver.capture.FieldRegistry;
 import org.evosuite.testcarver.instrument.Instrumenter;
 import org.evosuite.testcarver.wrapper.java.util.Calendar;
 import org.evosuite.testcarver.wrapper.java.util.Date;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.text.FieldPosition;
 import java.text.NumberFormat;
@@ -160,7 +161,7 @@ public abstract class DateFormat extends java.text.DateFormat {
     // TODO: This needs to create an instance of the wrapper class, which it currently doesn't do!
     public static java.text.DateFormat getInstance_final() {
         Capturer.capture(Instrumenter.CAPTURE_ID_JAVA_TEXT_DATEFORMAT, CaptureUtil.loadClass("java/text/DateFormat"), "getInstance", "()Ljava/text/DateFormat;", new Object[]{});
-        java.text.DateFormat ret = java.text.DateFormat.getInstance();
+        java.text.DateFormat ret = ReflectionUtils.newInstanceOf(java.text.DateFormat.class);
         FieldRegistry.register(ret);
         Capturer.enable(Instrumenter.CAPTURE_ID_JAVA_TEXT_DATEFORMAT, CaptureUtil.loadClass("java/text/DateFormat"), ret);
         return ret;

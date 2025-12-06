@@ -26,7 +26,6 @@ import org.evosuite.classpath.ClassPathHandler;
 import org.evosuite.coverage.TestFitnessFactory;
 import org.evosuite.coverage.branch.BranchCoverageFactory;
 import org.evosuite.coverage.branch.BranchCoverageSuiteFitness;
-import org.evosuite.ga.ConstructionFailedException;
 import org.evosuite.testcase.DefaultTestCase;
 import org.evosuite.testcase.TestFactory;
 import org.evosuite.testcase.TestFitnessFunction;
@@ -117,7 +116,7 @@ public class TestTestSuiteMinimizer {
     }
 
     @Test
-    public void minimizeSuiteHalfCoverage() throws ClassNotFoundException, NoSuchFieldException, SecurityException, ConstructionFailedException, NoSuchMethodException {
+    public void minimizeSuiteHalfCoverage() throws Exception {
         Properties.TARGET_CLASS = FlagExample1.class.getCanonicalName();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(Properties.TARGET_CLASS);
         GenericClass<?> clazz = GenericClassFactory.get(sut);
@@ -136,7 +135,7 @@ public class TestTestSuiteMinimizer {
 
         ConstructorStatement ct = new ConstructorStatement(test, gc, parameters);
 
-        Method m = clazz.getRawClass().getMethod("testMe", new Class<?>[]{int.class});
+        Method m = clazz.getRawClass().getMethod("testMe", int.class);
         GenericMethod method = new GenericMethod(m, sut);
         testFactory.addMethod(test, method, 11, 0);
 
@@ -160,7 +159,7 @@ public class TestTestSuiteMinimizer {
     }
 
     @Test
-    public void minimizeSuiteHalfCoverageWithTwoFitnessFunctions() throws ClassNotFoundException, ConstructionFailedException, NoSuchMethodException, SecurityException {
+    public void minimizeSuiteHalfCoverageWithTwoFitnessFunctions() throws Exception {
         Properties.TARGET_CLASS = FlagExample1.class.getCanonicalName();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(Properties.TARGET_CLASS);
         GenericClass<?> clazz = GenericClassFactory.get(sut);
@@ -179,7 +178,7 @@ public class TestTestSuiteMinimizer {
 
         ConstructorStatement ct = new ConstructorStatement(test, gc, parameters);
 
-        Method m = clazz.getRawClass().getMethod("testMe", new Class<?>[]{int.class});
+        Method m = clazz.getRawClass().getMethod("testMe", int.class);
         GenericMethod method = new GenericMethod(m, sut);
         testFactory.addMethod(test, method, 11, 0);
 
@@ -209,7 +208,7 @@ public class TestTestSuiteMinimizer {
     }
 
     @Test
-    public void minimizeSuiteFullCoverage() throws ClassNotFoundException, NoSuchFieldException, SecurityException, ConstructionFailedException, NoSuchMethodException {
+    public void minimizeSuiteFullCoverage() throws Exception {
         Properties.TARGET_CLASS = FlagExample1.class.getCanonicalName();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(Properties.TARGET_CLASS);
         GenericClass<?> clazz = GenericClassFactory.get(sut);
@@ -228,7 +227,7 @@ public class TestTestSuiteMinimizer {
 
         ConstructorStatement ct = new ConstructorStatement(test, gc, parameters);
 
-        Method m = clazz.getRawClass().getMethod("testMe", new Class<?>[]{int.class});
+        Method m = clazz.getRawClass().getMethod("testMe", int.class);
         GenericMethod method = new GenericMethod(m, sut);
         testFactory.addMethod(test, method, 11, 0);
 
@@ -260,7 +259,7 @@ public class TestTestSuiteMinimizer {
     }
 
     @Test
-    public void minimizeSuiteFullCoverageWithTwoFitnessFunctions() throws ClassNotFoundException, NoSuchFieldException, SecurityException, ConstructionFailedException, NoSuchMethodException {
+    public void minimizeSuiteFullCoverageWithTwoFitnessFunctions() throws Exception {
         Properties.TARGET_CLASS = FlagExample1.class.getCanonicalName();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(Properties.TARGET_CLASS);
         GenericClass<?> clazz = GenericClassFactory.get(sut);
@@ -279,7 +278,7 @@ public class TestTestSuiteMinimizer {
 
         ConstructorStatement ct = new ConstructorStatement(test, gc, parameters);
 
-        Method m = clazz.getRawClass().getMethod("testMe", new Class<?>[]{int.class});
+        Method m = clazz.getRawClass().getMethod("testMe", int.class);
         GenericMethod method = new GenericMethod(m, sut);
         testFactory.addMethod(test, method, 11, 0);
 
@@ -316,7 +315,7 @@ public class TestTestSuiteMinimizer {
     }
 
     @Test
-    public void minimizeSuiteFullCoverageWithTwoFitnessFunctionsMinimizeTestsEnabled() throws ClassNotFoundException, NoSuchFieldException, SecurityException, ConstructionFailedException, NoSuchMethodException {
+    public void minimizeSuiteFullCoverageWithTwoFitnessFunctionsMinimizeTestsEnabled() throws Exception {
         Properties.TARGET_CLASS = FlagExample1.class.getCanonicalName();
         Class<?> sut = TestGenerationContext.getInstance().getClassLoaderForSUT().loadClass(Properties.TARGET_CLASS);
         GenericClass<?> clazz = GenericClassFactory.get(sut);
@@ -335,7 +334,7 @@ public class TestTestSuiteMinimizer {
 
         ConstructorStatement ct = new ConstructorStatement(test, gc, parameters);
 
-        Method m = clazz.getRawClass().getMethod("testMe", new Class<?>[]{int.class});
+        Method m = clazz.getRawClass().getMethod("testMe", int.class);
         GenericMethod method = new GenericMethod(m, sut);
         testFactory.addMethod(test, method, 11, 0);
 

@@ -30,18 +30,10 @@ public class ResetOrderClassA {
     }
 
     public boolean checkObjectsAreEqual() {
-        if (object == ResetOrderClassB.OBJECT) {
-            return true;
-        } else {
-            return false;
-        }
+        return object == ResetOrderClassB.OBJECT;
     }
 
     public boolean checkObjectsAreNotEqual() {
-        if (object != ResetOrderClassB.OBJECT) {
-            return true;
-        } else {
-            return false;
-        }
+        return object != ResetOrderClassB.OBJECT;
     }
 }

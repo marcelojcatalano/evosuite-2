@@ -80,7 +80,7 @@ public class EvoInvocationListenerTest {
         AGenericClass<String> aGenericClass = (AGenericClass<String>) mock(AGenericClass.class);
 
         Method m = aGenericClass.getClass().getDeclaredMethod("genericAsInput", Object.class);
-        assertEquals("" + Object.class.toString(), m.getParameterTypes()[0].toString());
+        assertEquals(String.valueOf(Object.class), m.getParameterTypes()[0].toString());
     }
 
     @Test

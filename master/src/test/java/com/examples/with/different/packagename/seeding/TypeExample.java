@@ -25,12 +25,7 @@ public class TypeExample {
     public class X {
     }
 
-    ;
-
     public boolean testMe(Object o) {
-        if (o instanceof ObjectCastExample)
-            return true;
-        else
-            return false;
+        return o instanceof ObjectCastExample;
     }
 }

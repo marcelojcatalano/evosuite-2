@@ -24,6 +24,7 @@ import org.evosuite.Properties;
 import org.evosuite.TestGenerationContext;
 import org.evosuite.classpath.ResourceList;
 import org.evosuite.graphs.cfg.CFGClassAdapter;
+import org.evosuite.utils.ReflectionUtils;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.ClassWriter;
@@ -126,11 +127,7 @@ public class TestabilityTransformationClassLoader extends ClassLoader {
                     logger.info("Seeing class for first time: " + name);
                     Class<?> instrumentedClass = null;
                     //LoggingUtils.muteCurrentOutAndErrStream();
-                    try {
-                        instrumentedClass = instrumentClass(name);
-                    } finally {
-                        //LoggingUtils.restorePreviousOutAndErrStream();
-                    }
+                    instrumentedClass = instrumentClass(name);
                     return instrumentedClass;
                 }
             }

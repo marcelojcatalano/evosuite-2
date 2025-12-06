@@ -19,16 +19,15 @@
  */
 package com.examples.with.different.packagename.testreader;
 
-import org.junit.Test;
-
 import com.examples.with.different.packagename.testreader.TestExample.MockingBird;
+import org.junit.Test;
 
 
 public class SimpleTestExample04 {
 
     @Test
     public void test() {
-        MockingBird bird = new MockingBird(new String("killSelf"));
-        bird.doIt(new String("You")).doIt("Me").doIt("Them").doIt("Everybody!");
+        MockingBird bird = new MockingBird("killSelf");
+        bird.doIt("You").doIt("Me").doIt("Them").doIt("Everybody!");
     }
 }

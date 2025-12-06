@@ -19,17 +19,17 @@
  */
 package com.examples.with.different.packagename.testcarver;
 
+import org.evosuite.utils.ReflectionUtils;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.text.ParsePosition;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.text.NumberFormat;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.ParsePosition;
-
-import com.examples.with.different.packagename.testcarver.ConversionException;
 
 /**
  * {@link org.apache.commons.beanutils.Converter} implementaion that handles conversion
@@ -91,7 +91,7 @@ public abstract class NumberConverter extends AbstractConverter {
     private static final Integer ONE = 1;
 
     private String pattern;
-    private boolean allowDecimals;
+    private final boolean allowDecimals;
     private boolean useLocaleFormat;
     private Locale locale;
 
@@ -405,22 +405,22 @@ public abstract class NumberConverter extends AbstractConverter {
 
         // Byte
         if (targetType.equals(Byte.class)) {
-            return new Byte(value);
+            return Byte.valueOf(value);
         }
 
         // Short
         if (targetType.equals(Short.class)) {
-            return new Short(value);
+            return Short.valueOf(value);
         }
 
         // Integer
         if (targetType.equals(Integer.class)) {
-            return new Integer(value);
+            return Integer.valueOf(value);
         }
 
         // Long
         if (targetType.equals(Long.class)) {
-            return new Long(value);
+            return Long.valueOf(value);
         }
 
         // Float
@@ -488,7 +488,7 @@ public abstract class NumberConverter extends AbstractConverter {
             }
         } else {
             if (locale == null) {
-                format = NumberFormat.getInstance();
+                format = ReflectionUtils.newInstanceOf(NumberFormat.class);
             } else {
                 format = NumberFormat.getInstance(locale);
             }

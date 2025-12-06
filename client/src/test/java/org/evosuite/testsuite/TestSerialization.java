@@ -26,12 +26,15 @@ import org.evosuite.testcase.statements.PrimitiveStatement;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class TestSerialization {
 
     @Test
-    public void testSerializationNonEmptySuite() throws IOException, ClassNotFoundException {
+    public void testSerializationNonEmptySuite() throws Exception {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
 

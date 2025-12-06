@@ -21,7 +21,10 @@ package org.evosuite.runtime.mock.java.time;
 
 import org.evosuite.runtime.mock.StaticReplacementMock;
 
-import java.time.*;
+import java.time.Clock;
+import java.time.Month;
+import java.time.YearMonth;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 
@@ -29,11 +32,6 @@ import java.time.temporal.TemporalAccessor;
  * Created by gordon on 24/01/2016.
  */
 public class MockYearMonth implements StaticReplacementMock {
-    @Override
-    public String getMockedClassName() {
-        return YearMonth.class.getName();
-    }
-
     public static YearMonth now() {
         return now(MockClock.systemDefaultZone());
     }
@@ -64,5 +62,10 @@ public class MockYearMonth implements StaticReplacementMock {
 
     public static YearMonth parse(CharSequence text, DateTimeFormatter formatter) {
         return YearMonth.parse(text, formatter);
+    }
+
+    @Override
+    public String getMockedClassName() {
+        return YearMonth.class.getName();
     }
 }

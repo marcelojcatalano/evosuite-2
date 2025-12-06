@@ -24,6 +24,7 @@ import org.evosuite.TimeController;
 import org.evosuite.classpath.ResourceList;
 import org.evosuite.testcarver.capture.CaptureLog;
 import org.evosuite.utils.CollectionUtil;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

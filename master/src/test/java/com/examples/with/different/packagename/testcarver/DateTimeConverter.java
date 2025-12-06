@@ -19,15 +19,15 @@
  */
 package com.examples.with.different.packagename.testcarver;
 
+import org.evosuite.utils.ReflectionUtils;
+
+import java.text.DateFormat;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Calendar;
 import java.util.TimeZone;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.text.ParsePosition;
-
-import com.examples.with.different.packagename.testcarver.ConversionException;
 
 /**
  * {@link org.apache.commons.beanutils.Converter} implementaion
@@ -386,7 +386,7 @@ public abstract class DateTimeConverter extends AbstractConverter {
         if (type.equals(Calendar.class)) {
             Calendar calendar = null;
             if (locale == null && timeZone == null) {
-                calendar = Calendar.getInstance();
+                calendar = ReflectionUtils.newInstanceOf(Calendar.class);
             } else if (locale == null) {
                 calendar = Calendar.getInstance(timeZone);
             } else if (timeZone == null) {

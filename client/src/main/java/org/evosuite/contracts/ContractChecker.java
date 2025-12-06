@@ -27,6 +27,7 @@ import org.evosuite.testcase.execution.ExecutionObserver;
 import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testcase.execution.Scope;
 import org.evosuite.testcase.statements.Statement;
+import org.evosuite.utils.ReflectionUtils;
 import org.evosuite.utils.generic.GenericMethod;
 import org.junit.experimental.theories.Theory;
 import org.slf4j.Logger;

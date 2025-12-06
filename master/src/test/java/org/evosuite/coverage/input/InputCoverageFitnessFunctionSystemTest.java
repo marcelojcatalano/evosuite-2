@@ -51,8 +51,6 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 
-import static junit.framework.TestCase.assertEquals;
-
 
 /**
  * @author Jose Miguel Rojas
@@ -124,13 +122,13 @@ public class InputCoverageFitnessFunctionSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testInputCoverageClassWithField() throws NoSuchFieldException, NoSuchMethodException {
+    public void testInputCoverageClassWithField() throws Exception {
         Class<?> sut = ClassWithField.class;
 
         DefaultTestCase tc = new DefaultTestCase();
         // ClassWithField classWithField0 = new ClassWithField();
         GenericConstructor constructor = new GenericConstructor(sut.getConstructors()[0], sut);
-        ConstructorStatement constructorStatement = new ConstructorStatement(tc, constructor, Arrays.asList(new VariableReference[]{}));
+        ConstructorStatement constructorStatement = new ConstructorStatement(tc, constructor, List.of());
         VariableReference obj = tc.addStatement(constructorStatement);
 
         // classWithField0.testFoo(classWithField0.BOOLEAN_FIELD);
@@ -151,8 +149,8 @@ public class InputCoverageFitnessFunctionSystemTest extends SystemTestBase {
         testSuite.addTest(tc);
 
         FitnessFunction ffunction = FitnessFunctions.getFitnessFunction(Properties.Criterion.INPUT);
-        assertEquals("Should be 0.0", 0.0, ffunction.getFitness(testSuite), 0.0);
-        assertEquals("Should be 1.0", 1.0, testSuite.getCoverage(ffunction), 0.0);
+        Assert.assertEquals("Should be 0.0", 0.0, ffunction.getFitness(testSuite), 0.0);
+        Assert.assertEquals("Should be 1.0", 1.0, testSuite.getCoverage(ffunction), 0.0);
 
     }
 

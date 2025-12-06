@@ -21,7 +21,9 @@ package org.evosuite.runtime.mock.java.time;
 
 import org.evosuite.runtime.mock.StaticReplacementMock;
 
-import java.time.*;
+import java.time.Clock;
+import java.time.Year;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 
@@ -29,11 +31,6 @@ import java.time.temporal.TemporalAccessor;
  * Created by gordon on 24/01/2016.
  */
 public class MockYear implements StaticReplacementMock {
-    @Override
-    public String getMockedClassName() {
-        return Year.class.getName();
-    }
-
     public static Year now() {
         return now(MockClock.systemDefaultZone());
     }
@@ -64,6 +61,11 @@ public class MockYear implements StaticReplacementMock {
 
     public static boolean isLeap(long year) {
         return Year.isLeap(year);
+    }
+
+    @Override
+    public String getMockedClassName() {
+        return Year.class.getName();
     }
 
 }

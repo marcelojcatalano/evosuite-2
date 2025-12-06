@@ -25,9 +25,6 @@ package com.examples.with.different.packagename;
 public class AbstractEnumUser {
 
     public boolean foo(AbstractEnumInInnerClass.AnEnum foo) {
-        if (foo.foo(0))
-            return true;
-        else
-            return false;
+        return foo.foo(0);
     }
 }

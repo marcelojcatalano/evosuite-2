@@ -19,6 +19,8 @@
  */
 package com.examples.with.different.packagename.sette;
 
+import org.evosuite.utils.ReflectionUtils;
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -40,7 +42,7 @@ public final class DateParser {
         Matcher m = DateParser.pattern.matcher(s);
 
         if (m.matches()) {
-            Calendar cal = Calendar.getInstance();
+            Calendar cal = ReflectionUtils.newInstanceOf(Calendar.class);
             cal.setTimeZone(TimeZone.getTimeZone("GMT"));
             cal.set(Integer.parseInt(m.group(1)), Integer.parseInt(m.group(2)) - 1,
                     Integer.parseInt(m.group(3)), 0, 0, 0);

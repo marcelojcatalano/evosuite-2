@@ -19,11 +19,7 @@
  */
 package org.evosuite.testcase;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-
+import com.examples.with.different.packagename.pool.*;
 import org.apache.commons.io.FileUtils;
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
@@ -37,20 +33,14 @@ import org.evosuite.testcase.statements.numeric.IntPrimitiveStatement;
 import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.utils.generic.GenericClassFactory;
-import org.evosuite.utils.generic.GenericClassImpl;
 import org.evosuite.utils.generic.GenericConstructor;
 import org.evosuite.utils.generic.GenericMethod;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.*;
 
-import com.examples.with.different.packagename.pool.ClassDependingOnExceptionClass;
-import com.examples.with.different.packagename.pool.DependencyClass;
-import com.examples.with.different.packagename.pool.DependencyClassWithException;
-import com.examples.with.different.packagename.pool.DependencySubClass;
-import com.examples.with.different.packagename.pool.OtherClass;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class PoolSystemTest extends SystemTestBase {
 
@@ -200,7 +190,7 @@ public class PoolSystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testPoolWithException() throws IOException, NoSuchMethodException, SecurityException {
+    public void testPoolWithException() throws Exception {
         File f = File.createTempFile("EvoSuiteTestPool", null, FileUtils.getTempDirectory());
         String filename = f.getAbsolutePath();
         f.delete();
@@ -217,11 +207,11 @@ public class PoolSystemTest extends SystemTestBase {
                 new ArrayList<>()));
         VariableReference int42 = test.addStatement(new IntPrimitiveStatement(test, 42));
         GenericMethod foo = new GenericMethod(DependencyClassWithException.class.getMethod("foo", int.class), DependencyClassWithException.class);
-        test.addStatement(new MethodStatement(test, foo, instance, Arrays.asList(int42)));
-        test.addStatement(new MethodStatement(test, foo, instance, Arrays.asList(int42)));
-        test.addStatement(new MethodStatement(test, foo, instance, Arrays.asList(int42)));
-        test.addStatement(new MethodStatement(test, foo, instance, Arrays.asList(int42)));
-        test.addStatement(new MethodStatement(test, foo, instance, Arrays.asList(int42)));
+        test.addStatement(new MethodStatement(test, foo, instance, Collections.singletonList(int42)));
+        test.addStatement(new MethodStatement(test, foo, instance, Collections.singletonList(int42)));
+        test.addStatement(new MethodStatement(test, foo, instance, Collections.singletonList(int42)));
+        test.addStatement(new MethodStatement(test, foo, instance, Collections.singletonList(int42)));
+        test.addStatement(new MethodStatement(test, foo, instance, Collections.singletonList(int42)));
         String[] command = new String[]{"-generateSuite", "-class", targetClass};
         TestSuiteChromosome best = new TestSuiteChromosome();
         best.addTest(test);

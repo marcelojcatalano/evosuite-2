@@ -31,9 +31,6 @@ public class ObjectTest {
     }
 
     public boolean isEqual(Object y) {
-        if (x.equals(y))
-            return true;
-
-        return false;
+        return x.equals(y);
     }
 }

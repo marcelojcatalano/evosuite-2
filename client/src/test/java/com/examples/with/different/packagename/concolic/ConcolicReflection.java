@@ -19,6 +19,8 @@
  */
 package com.examples.with.different.packagename.concolic;
 
+import org.evosuite.utils.ReflectionUtils;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -39,7 +41,7 @@ public class ConcolicReflection {
             throws ClassNotFoundException, NoSuchMethodException, SecurityException, InstantiationException,
             IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         Class<?> clazz = ConcolicReflection.class;
-        Object newObject = clazz.newInstance();
+        Object newObject = ReflectionUtils.newInstanceOf(clazz);
         if (x != 10) {
             return null;
         } else {
@@ -60,7 +62,7 @@ public class ConcolicReflection {
             throws ClassNotFoundException, NoSuchMethodException, SecurityException, InstantiationException,
             IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         Class<?> clazz = Object.class;
-        Object newObject = clazz.newInstance();
+        Object newObject = ReflectionUtils.newInstanceOf(clazz);
         if (x != 10) {
             return null;
         } else {
@@ -72,7 +74,7 @@ public class ConcolicReflection {
             InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         Class<?> clazz = ConcolicReflection.class;
         Constructor<?> ctor = clazz.getConstructor();
-        Object newObject = ctor.newInstance();
+        Object newObject = ReflectionUtils.newInstanceOf(clazz);
         if (x != 10) {
             return null;
         } else {
@@ -82,11 +84,7 @@ public class ConcolicReflection {
 
     public boolean greaterThanZero(Integer x) {
         int intValue = x;
-        if (intValue > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return intValue > 0;
     }
 
     public static Object methodInvoke(int x) throws IllegalAccessException, IllegalArgumentException,
@@ -106,7 +104,7 @@ public class ConcolicReflection {
             InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         Class<?> clazz = Object.class;
         Constructor<?> ctor = clazz.getConstructor();
-        Object newObject = ctor.newInstance();
+        Object newObject = ReflectionUtils.newInstanceOf(clazz);
         if (x != 10) {
             return null;
         } else {

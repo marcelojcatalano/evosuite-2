@@ -33,10 +33,7 @@ public class DependencyClass {
     }
 
     public boolean isFoo() {
-        if (x == 3)
-            return true;
-        else
-            return false;
+        return x == 3;
     }
 
 }

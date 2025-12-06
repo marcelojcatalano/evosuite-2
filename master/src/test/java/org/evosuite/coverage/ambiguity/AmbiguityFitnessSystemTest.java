@@ -19,15 +19,8 @@
  */
 package org.evosuite.coverage.ambiguity;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.List;
-
+import com.examples.with.different.packagename.Compositional;
+import com.examples.with.different.packagename.coverage.IndirectlyCoverableBranches;
 import org.apache.commons.io.FileUtils;
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
@@ -41,13 +34,19 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.examples.with.different.packagename.Compositional;
-import com.examples.with.different.packagename.coverage.IndirectlyCoverableBranches;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 
 public class AmbiguityFitnessSystemTest extends SystemTestBase {
 
-    private static String MATRIX_CONTENT =
+    private static final String MATRIX_CONTENT =
             "1 0 0 1 +\n" +
                     "0 1 1 0 -\n" +
                     "0 0 1 0 +\n";
@@ -214,7 +213,7 @@ public class AmbiguityFitnessSystemTest extends SystemTestBase {
         ambiguity += 0.0; // {25}
         ambiguity += (4.0 / ((double) goals.size())) * (3.0 / 2.0); // {28,29,30,31}
         ambiguity += (2.0 / ((double) goals.size())) * (1.0 / 2.0); // {34,35}
-        ambiguity += (3.0 / ((double) goals.size())) * (2.0 / 2.0); // {38,39,41}
+        ambiguity += (3.0 / ((double) goals.size())); // {38,39,41}
         assertEquals(0.8333, ambiguity, 0.0001);
         //assertEquals(ambiguity * 1.0 / ((double) goals.size()), best.getFitnessInstanceOf(AmbiguityCoverageSuiteFitness.class), 0.001);
         assertEquals(FitnessFunction.normalize(ambiguity), best.getFitnessInstanceOf(AmbiguityCoverageSuiteFitness.class), 0.001);

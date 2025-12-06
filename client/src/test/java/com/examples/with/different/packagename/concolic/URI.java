@@ -19,6 +19,8 @@
  */
 package com.examples.with.different.packagename.concolic;
 
+import java.net.MalformedURLException;
+
 public class URI {
 
     /**
@@ -97,7 +99,7 @@ public class URI {
             if (allowDotDot)
                 relPath.append("../");
             else {
-                relPath.append(otherURI.uri.substring(0, commonPath + 1));
+                relPath.append(otherURI.uri, 0, commonPath + 1);
                 break;
             }
         }
@@ -196,7 +198,7 @@ public class URI {
      */
     public String getParentDirectory() {
         if (uri.endsWith("/")) {
-            int lastSlash = uri.substring(0, uri.length()).lastIndexOf('/');
+            int lastSlash = uri.lastIndexOf('/');
             return uri.substring(0, lastSlash + 1);
         } else {
             int lastSlash = uri.lastIndexOf('/');

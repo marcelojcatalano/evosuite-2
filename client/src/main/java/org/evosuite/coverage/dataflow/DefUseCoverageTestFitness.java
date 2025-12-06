@@ -32,6 +32,7 @@ import org.evosuite.testcase.TestFitnessFunction;
 import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testcase.execution.ExecutionTrace;
 import org.evosuite.utils.ArrayUtil;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

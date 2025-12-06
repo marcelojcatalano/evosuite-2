@@ -47,7 +47,7 @@ public abstract class TestSolverMath extends TestSolver {
     }
 
     @Test
-    public void testAbs() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testAbs() throws Exception {
 
         DefaultTestCase tc = buildTestCaseAbs();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -88,7 +88,7 @@ public abstract class TestSolverMath extends TestSolver {
     }
 
     @Test
-    public void testMax() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testMax() throws Exception {
 
         DefaultTestCase tc = buildTestCaseMax();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -101,7 +101,7 @@ public abstract class TestSolverMath extends TestSolver {
     }
 
     @Test
-    public void testMin() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testMin() throws Exception {
 
         DefaultTestCase tc = buildTestCaseMin();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
@@ -114,7 +114,7 @@ public abstract class TestSolverMath extends TestSolver {
     }
 
     @Test
-    public void testNeg() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testNeg() throws Exception {
 
         DefaultTestCase tc = buildTestCaseNeg();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);

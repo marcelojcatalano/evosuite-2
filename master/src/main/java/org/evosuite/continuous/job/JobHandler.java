@@ -36,7 +36,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -124,10 +123,10 @@ public class JobHandler extends Thread {
                 builder.directory(dir);
                 builder.redirectErrorStream(true);
 
-                LocalDateTime endBy = LocalDateTime.now().plus(job.seconds, ChronoUnit.SECONDS);
+                LocalDateTime endBy = LocalDateTime.now().plusSeconds(job.seconds);
 
                 LoggingUtils.getEvoLogger().info("Going to start job for: " + job.cut +
-                        ". Expected to end in " + job.seconds + " seconds, by " + endBy.toString());
+                        ". Expected to end in " + job.seconds + " seconds, by " + endBy);
 
 
                 logger.debug("Base directory: " + baseDir);

@@ -108,14 +108,13 @@ public class DSETestCase implements Comparable<DSETestCase>, Cloneable {
 
     @Override
     public String toString() {
-        return new StringBuilder()
-                .append(DSE_TEST_CASE)
-                .append(SCORE)
-                .append(score)
-                .append(TEST_CASE)
-                .append(testCase)
-                .append(ORIGINAL_PATH_CONDITION)
-                .append(originalPathCondition)
-                .append('}').toString();
+        return DSE_TEST_CASE +
+                SCORE +
+                score +
+                TEST_CASE +
+                testCase +
+                ORIGINAL_PATH_CONDITION +
+                originalPathCondition +
+                '}';
     }
 }

@@ -90,7 +90,7 @@ public final class SolverCache {
      */
     public SolverResult getCachedResult() {
 
-        if (valid_cached_solution == false) {
+        if (!valid_cached_solution) {
             throw new IllegalArgumentException(CONTRAINT_NOT_CACHED_EXCEPTION_MESSAGE);
         }
 

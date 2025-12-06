@@ -21,7 +21,7 @@ package com.examples.with.different.packagename.purity;
 
 public class ToStringInspector extends AbstractToStringInspector {
 
-    private String prefix;
+    private final String prefix;
 
     public ToStringInspector(String str) {
         if (str == null) {

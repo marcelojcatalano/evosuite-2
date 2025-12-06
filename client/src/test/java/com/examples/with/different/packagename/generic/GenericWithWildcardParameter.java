@@ -26,9 +26,6 @@ public class GenericWithWildcardParameter<T> {
 
 
     public boolean foo(List<? extends T> x) {
-        if (x instanceof LinkedList)
-            return true;
-        else
-            return false;
+        return x instanceof LinkedList;
     }
 }

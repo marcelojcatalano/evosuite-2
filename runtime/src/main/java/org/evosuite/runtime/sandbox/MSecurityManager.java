@@ -21,6 +21,7 @@ package org.evosuite.runtime.sandbox;
 
 import org.evosuite.runtime.RuntimeSettings;
 import org.evosuite.runtime.vfs.VirtualFileSystem;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -499,7 +500,7 @@ public class MSecurityManager extends SecurityManager {
 
             //it is an EvoSuite thread but, in special occasions, we might want to ignore its privileged status
 
-            if (privilegedThreadToIgnore == null || !Thread.currentThread().equals(privilegedThreadToIgnore)) {
+            if (!Thread.currentThread().equals(privilegedThreadToIgnore)) {
 
                 if (defaultManager == null) {
                     return true; // no security manager, so allow it

@@ -21,6 +21,7 @@
 package com.examples.with.different.packagename.generic;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -32,8 +33,7 @@ public class GenericVarArgMethod {
         List<E> list = new ArrayList<>();
         list.add(e1);
         list.add(e2);
-        for (E e : others)
-            list.add(e);
+        Collections.addAll(list, others);
         return list;
     }
 }

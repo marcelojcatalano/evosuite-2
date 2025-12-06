@@ -19,12 +19,14 @@
  */
 package com.examples.with.different.packagename.testcarver;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Locale;
-
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.junit.Assert;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Locale;
 
 /**
  * Test Case for the ArrayConverter class.
@@ -103,7 +105,7 @@ public class ArrayConverterTestCase extends TestCase {
             msg = "String --> int[]";
             checkArray(msg, intArray, arrayConverter.convert(int[].class, stringA));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // String --> int[] (with braces)
@@ -111,7 +113,7 @@ public class ArrayConverterTestCase extends TestCase {
             msg = "String --> Integer[] (with braces)";
             checkArray(msg, IntegerArray, arrayConverter.convert(Integer[].class, "{" + stringA + "}"));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // String[] --> int[]
@@ -119,7 +121,7 @@ public class ArrayConverterTestCase extends TestCase {
             msg = "String[] --> int[]";
             checkArray(msg, intArray, arrayConverter.convert(int[].class, strArray));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // String[] --> Integer[]
@@ -127,7 +129,7 @@ public class ArrayConverterTestCase extends TestCase {
             msg = "String[] --> Integer[]";
             checkArray(msg, IntegerArray, arrayConverter.convert(Integer[].class, strArray));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // long[] --> int[]
@@ -135,7 +137,7 @@ public class ArrayConverterTestCase extends TestCase {
             msg = "long[] --> int[]";
             checkArray(msg, intArray, arrayConverter.convert(int[].class, longArray));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // Long --> int[]
@@ -143,7 +145,7 @@ public class ArrayConverterTestCase extends TestCase {
             msg = "Long --> int[]";
             checkArray(msg, new int[]{LONGArray[0].intValue()}, arrayConverter.convert(int[].class, LONGArray[0]));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // LONG[] --> int[]
@@ -151,40 +153,40 @@ public class ArrayConverterTestCase extends TestCase {
             msg = "LONG[] --> int[]";
             checkArray(msg, intArray, arrayConverter.convert(int[].class, LONGArray));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // Long --> String
         try {
             msg = "Long --> String";
-            assertEquals(msg, LONGArray[0] + "", arrayConverter.convert(String.class, LONGArray[0]));
+            Assert.assertEquals(msg, LONGArray[0] + "", arrayConverter.convert(String.class, LONGArray[0]));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // LONG[] --> String (first)
         try {
             msg = "LONG[] --> String (first)";
-            assertEquals(msg, LONGArray[0] + "", arrayConverter.convert(String.class, LONGArray));
+            Assert.assertEquals(msg, LONGArray[0] + "", arrayConverter.convert(String.class, LONGArray));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // LONG[] --> String (all)
         try {
             msg = "LONG[] --> String (all)";
             arrayConverter.setOnlyFirstToString(false);
-            assertEquals(msg, stringB, arrayConverter.convert(String.class, LONGArray));
+            Assert.assertEquals(msg, stringB, arrayConverter.convert(String.class, LONGArray));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // Collection of Long --> String
         try {
             msg = "Collection of Long --> String";
-            assertEquals(msg, stringB, arrayConverter.convert(String.class, longList));
+            Assert.assertEquals(msg, stringB, arrayConverter.convert(String.class, longList));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // LONG[] --> String[]
@@ -192,7 +194,7 @@ public class ArrayConverterTestCase extends TestCase {
             msg = "long[] --> String[]";
             checkArray(msg, strArray, arrayConverter.convert(String[].class, LONGArray));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // Collection of String --> Integer[]
@@ -200,7 +202,7 @@ public class ArrayConverterTestCase extends TestCase {
             msg = "Collection of String --> Integer[]";
             checkArray(msg, IntegerArray, arrayConverter.convert(Integer[].class, strList));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // Collection of Long --> int[]
@@ -208,7 +210,7 @@ public class ArrayConverterTestCase extends TestCase {
             msg = "Collection of Long --> int[]";
             checkArray(msg, intArray, arrayConverter.convert(int[].class, longList));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
     }
 
@@ -224,9 +226,7 @@ public class ArrayConverterTestCase extends TestCase {
         // Test Data
         String[] array = new String[]{"10", "  11", "12  ", "  13  "};
         ArrayList list = new ArrayList();
-        for (int i = 0; i < array.length; i++) {
-            list.add(array[i]);
-        }
+        Collections.addAll(list, array);
 
         // Expected results
         String msg = null;
@@ -238,7 +238,7 @@ public class ArrayConverterTestCase extends TestCase {
             msg = "String[] --> int[]";
             checkArray(msg, expectedInt, arrayConverter.convert(int[].class, array));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // Test String[] --> Integer[]
@@ -246,7 +246,7 @@ public class ArrayConverterTestCase extends TestCase {
             msg = "String[] --> Integer[]";
             checkArray(msg, expectedInteger, arrayConverter.convert(Integer[].class, array));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // Test List --> int[]
@@ -254,7 +254,7 @@ public class ArrayConverterTestCase extends TestCase {
             msg = "List --> int[]";
             checkArray(msg, expectedInt, arrayConverter.convert(int[].class, list));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
 
         // Test List --> Integer[]
@@ -262,7 +262,7 @@ public class ArrayConverterTestCase extends TestCase {
             msg = "List --> Integer[]";
             checkArray(msg, expectedInteger, arrayConverter.convert(Integer[].class, list));
         } catch (Exception e) {
-            fail(msg + " failed " + e);
+            Assert.fail(msg + " failed " + e);
         }
     }
 
@@ -303,19 +303,19 @@ public class ArrayConverterTestCase extends TestCase {
             Object result = matrixConverter.convert(int[][].class, matrixString);
 
             // Check it actually worked OK
-            assertEquals("Check int[][].class", int[][].class, result.getClass());
+            Assert.assertSame("Check int[][].class", int[][].class, result.getClass());
             int[][] matrix = (int[][]) result;
-            assertEquals("Check int[][] length", expected.length, matrix.length);
+            Assert.assertEquals("Check int[][] length", expected.length, matrix.length);
             for (int i = 0; i < expected.length; i++) {
-                assertEquals("Check int[" + i + "] length", expected[i].length, matrix[i].length);
+                Assert.assertEquals("Check int[" + i + "] length", expected[i].length, matrix[i].length);
                 for (int j = 0; j < expected[i].length; j++) {
                     String label = "Matrix int[" + i + "," + j + "] element";
-                    assertEquals(label, expected[i][j], matrix[i][j]);
+                    Assert.assertEquals(label, expected[i][j], matrix[i][j]);
                     // System.out.println(label + " = " + matrix[i][j]);
                 }
             }
         } catch (Exception e) {
-            fail("Matrix Conversion threw " + e);
+            Assert.fail("Matrix Conversion threw " + e);
         }
     }
 
@@ -327,7 +327,7 @@ public class ArrayConverterTestCase extends TestCase {
         int[] oneArray = new int[1];
         IntegerConverter intConverter = new IntegerConverter();
 
-        assertNull("Null Default", new ArrayConverter(int[].class, intConverter, -1).convert(int[].class, null));
+        Assert.assertNull("Null Default", new ArrayConverter(int[].class, intConverter, -1).convert(int[].class, null));
         checkArray("Zero Length", zeroArray, new ArrayConverter(int[].class, intConverter, 0).convert(int[].class, null));
         checkArray("One Length", oneArray, new ArrayConverter(Integer[].class, intConverter, 1).convert(int[].class, null));
     }
@@ -340,7 +340,7 @@ public class ArrayConverterTestCase extends TestCase {
         IntegerConverter intConverter = new IntegerConverter();
 
         checkArray("Empty String", zeroArray, new ArrayConverter(int[].class, intConverter, -1).convert(int[].class, ""));
-        assertNull("Default String", new ArrayConverter(int[].class, intConverter).convert(String.class, null));
+        Assert.assertNull("Default String", new ArrayConverter(int[].class, intConverter).convert(String.class, null));
     }
 
     /**
@@ -349,19 +349,19 @@ public class ArrayConverterTestCase extends TestCase {
     public void testErrors() {
         try {
             new ArrayConverter(null, new DateConverter());
-            fail("Default Type missing - expected IllegalArgumentException");
+            Assert.fail("Default Type missing - expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
             // expected result
         }
         try {
             new ArrayConverter(Boolean.class, new DateConverter());
-            fail("Default Type not an array - expected IllegalArgumentException");
+            Assert.fail("Default Type not an array - expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
             // expected result
         }
         try {
             new ArrayConverter(int[].class, null);
-            fail("Component Converter missing - expected IllegalArgumentException");
+            Assert.fail("Component Converter missing - expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
             // expected result
         }
@@ -376,22 +376,22 @@ public class ArrayConverterTestCase extends TestCase {
 
         // test underscore not allowed (the default)
         String[] result = (String[]) converter.convert(String[].class, value);
-        assertNotNull("result.null", result);
-        assertEquals("result.length", 4, result.length);
-        assertEquals("result[0]", "first", result[0]);
-        assertEquals("result[1]", "value", result[1]);
-        assertEquals("result[2]", "second", result[2]);
-        assertEquals("result[3]", "value", result[3]);
+        Assert.assertNotNull("result.null", result);
+        Assert.assertEquals("result.length", 4, result.length);
+        Assert.assertEquals("result[0]", "first", result[0]);
+        Assert.assertEquals("result[1]", "value", result[1]);
+        Assert.assertEquals("result[2]", "second", result[2]);
+        Assert.assertEquals("result[3]", "value", result[3]);
 
         // configure the converter to allow underscore
         converter.setAllowedChars(new char[]{'.', '-', '_'});
 
         // test underscore allowed
         result = (String[]) converter.convert(String[].class, value);
-        assertNotNull("result.null", result);
-        assertEquals("result.length", 2, result.length);
-        assertEquals("result[0]", "first_value", result[0]);
-        assertEquals("result[1]", "second_value", result[1]);
+        Assert.assertNotNull("result.null", result);
+        Assert.assertEquals("result.length", 2, result.length);
+        Assert.assertEquals("result[0]", "first_value", result[0]);
+        Assert.assertEquals("result[1]", "second_value", result[1]);
     }
 
     /**
@@ -402,17 +402,17 @@ public class ArrayConverterTestCase extends TestCase {
      * @param result   Result array value
      */
     private void checkArray(String msg, Object expected, Object result) {
-        assertNotNull(msg + " Expected Null", expected);
-        assertNotNull(msg + " Result   Null", result);
-        assertTrue(msg + " Result   not array", result.getClass().isArray());
-        assertTrue(msg + " Expected not array", expected.getClass().isArray());
+        Assert.assertNotNull(msg + " Expected Null", expected);
+        Assert.assertNotNull(msg + " Result   Null", result);
+        Assert.assertTrue(msg + " Result   not array", result.getClass().isArray());
+        Assert.assertTrue(msg + " Expected not array", expected.getClass().isArray());
         int resultLth = Array.getLength(result);
-        assertEquals(msg + " Size", Array.getLength(expected), resultLth);
-        assertEquals(msg + " Type", expected.getClass(), result.getClass());
+        Assert.assertEquals(msg + " Size", Array.getLength(expected), resultLth);
+        Assert.assertSame(msg + " Type", expected.getClass(), result.getClass());
         for (int i = 0; i < resultLth; i++) {
             Object expectElement = Array.get(expected, i);
             Object resultElement = Array.get(result, i);
-            assertEquals(msg + " Element " + i, expectElement, resultElement);
+            Assert.assertEquals(msg + " Element " + i, expectElement, resultElement);
         }
     }
 }

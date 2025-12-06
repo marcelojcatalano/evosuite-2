@@ -29,7 +29,7 @@ public class TestCase66 {
         int catchCount = 0;
 
         try {
-            string1.startsWith(null, 0);
+            string1.startsWith(null);
         } catch (NullPointerException ex) {
             catchCount++;
         }
@@ -48,8 +48,8 @@ public class TestCase66 {
 
         checkEquals(1, catchCount);
 
-        boolean boolean0 = string1.startsWith("Tog", 0);
-        boolean boolean1 = string0.startsWith("Tog", 0);
+        boolean boolean0 = string1.startsWith("Tog");
+        boolean boolean1 = string0.startsWith("Tog");
 
         checkEquals(boolean1, boolean0);
 

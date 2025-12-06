@@ -20,6 +20,7 @@
 package org.evosuite.symbolic.solver;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public abstract class ResultParser {
 
@@ -36,10 +37,10 @@ public abstract class ResultParser {
             // Long.MAX_VALUE
             BigDecimal bigNumerator = new BigDecimal(numeratorStr);
             BigDecimal bigDenominator = new BigDecimal(denominatorStr);
-            BigDecimal rational = bigNumerator.divide(bigDenominator, BIG_DECIMAL_SCALE, BigDecimal.ROUND_UP);
+            BigDecimal rational = bigNumerator.divide(bigDenominator, BIG_DECIMAL_SCALE, RoundingMode.UP);
             value = rational.doubleValue();
         }
-        if (sign == true) {
+        if (sign) {
             return -value;
         } else {
             return value;

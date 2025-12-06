@@ -50,6 +50,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -299,11 +300,11 @@ public class FunctionalMockStatementTest {
         Object aInt = i;
         Object aInteger = 7;
 
-        assertEquals(aInt.getClass(), Integer.class);
-        assertEquals(aInt.getClass(), aInteger.getClass());
+        assertSame(aInt.getClass(), Integer.class);
+        assertSame(aInt.getClass(), aInteger.getClass());
 
         Object aChar = c;
-        assertEquals(aChar.getClass(), Character.class);
+        assertSame(aChar.getClass(), Character.class);
 
         //just recall the two diverge
         assertTrue(TypeUtils.isAssignable(aChar.getClass(), Integer.TYPE));
@@ -326,7 +327,7 @@ public class FunctionalMockStatementTest {
 
         casted = (int) (Character) aChar;
 
-        assertEquals(casted.getClass(), Integer.class);
+        assertSame(casted.getClass(), Integer.class);
     }
 
     @Test
@@ -540,7 +541,7 @@ public class FunctionalMockStatementTest {
         VariableReference mock = tc.addStatement(mockStmt);
         VariableReference result = tc.addStatement(new MethodStatement(tc,
                 new GenericMethod(this.getClass().getDeclaredMethod("all_once", Foo.class), FunctionalMockStatementTest.class),
-                null, Arrays.asList(mock)));
+                null, Collections.singletonList(mock)));
 
         Assert.assertFalse(mockStmt.doesNeedToUpdateInputs());
         Assert.assertEquals(0, mockStmt.getNumParameters());
@@ -562,7 +563,7 @@ public class FunctionalMockStatementTest {
         VariableReference mock = tc.addStatement(mockStmt);
         VariableReference result = tc.addStatement(new MethodStatement(tc,
                 new GenericMethod(this.getClass().getDeclaredMethod("all_twice", Foo.class), FunctionalMockStatementTest.class),
-                null, Arrays.asList(mock)));
+                null, Collections.singletonList(mock)));
 
         Assert.assertFalse(mockStmt.doesNeedToUpdateInputs());
         Assert.assertEquals(0, mockStmt.getNumParameters());
@@ -599,7 +600,7 @@ public class FunctionalMockStatementTest {
         VariableReference mock = tc.addStatement(mockStmt);
         VariableReference result = tc.addStatement(new MethodStatement(tc,
                 new GenericMethod(this.getClass().getDeclaredMethod("getFirstInArray", Foo.class), FunctionalMockStatementTest.class),
-                null, Arrays.asList(mock)));
+                null, Collections.singletonList(mock)));
 
 
         //if not executed, should be no way to tell if needs new inputs
@@ -620,7 +621,7 @@ public class FunctionalMockStatementTest {
         Assert.assertEquals(String[].class, types.get(0));
 
         //add int variable to list of mock expected returns
-        mockStmt.addMissingInputs(Arrays.asList(mockedArray));
+        mockStmt.addMissingInputs(Collections.singletonList(mockedArray));
         Assert.assertEquals(1, mockStmt.getNumParameters());
         Assert.assertTrue(mockStmt.getParameterReferences().get(0).same(mockedArray));
 
@@ -642,7 +643,7 @@ public class FunctionalMockStatementTest {
         VariableReference mock = tc.addStatement(mockStmt);
         VariableReference result = tc.addStatement(new MethodStatement(tc,
                 new GenericMethod(this.getClass().getDeclaredMethod("base", Foo.class), FunctionalMockStatementTest.class),
-                null, Arrays.asList(mock)));
+                null, Collections.singletonList(mock)));
 
 
         //if not executed, should be no way to tell if needs new inputs
@@ -663,7 +664,7 @@ public class FunctionalMockStatementTest {
         Assert.assertEquals(int.class, types.get(0));
 
         //add int variable to list of mock expected returns
-        mockStmt.addMissingInputs(Arrays.asList(mockedInput));
+        mockStmt.addMissingInputs(Collections.singletonList(mockedInput));
         Assert.assertEquals(1, mockStmt.getNumParameters());
         Assert.assertTrue(mockStmt.getParameterReferences().get(0).same(mockedInput));
 

@@ -19,6 +19,7 @@
  */
 package org.evosuite.coverage.exception;
 
+import com.examples.with.different.packagename.ImplicitExplicitException;
 import com.examples.with.different.packagename.coverage.ImplicitAndExplicitExceptionInSameMethod;
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
@@ -32,8 +33,6 @@ import org.evosuite.testsuite.TestSuiteChromosome;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
-
-import com.examples.with.different.packagename.ImplicitExplicitException;
 
 import java.util.Map;
 
@@ -71,8 +70,7 @@ public class ImplicitExplicitExceptionsSystemTest extends SystemTestBase {
 
         Properties.TARGET_CLASS = targetClass;
         Properties.CRITERION = new Criterion[]{Properties.Criterion.EXCEPTION};
-        Properties.OUTPUT_VARIABLES = "" +
-                RuntimeVariable.Explicit_MethodExceptions + "," +
+        Properties.OUTPUT_VARIABLES = RuntimeVariable.Explicit_MethodExceptions + "," +
                 RuntimeVariable.Explicit_TypeExceptions + "," +
                 RuntimeVariable.Implicit_MethodExceptions + "," +
                 RuntimeVariable.Implicit_TypeExceptions;

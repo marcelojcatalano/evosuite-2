@@ -33,7 +33,7 @@ import static org.junit.Assert.assertTrue;
 public class SymbolicObserverTestNull {
 
     @Test
-    public void testNullAssignment() throws NoSuchFieldException, SecurityException {
+    public void testNullAssignment() throws Exception {
         TestCaseBuilder builder = new TestCaseBuilder();
         VariableReference var0 = builder.appendNull(TestCaseNullAssignment.class);
         Field x_field = TestCaseNullAssignment.class.getField("x");

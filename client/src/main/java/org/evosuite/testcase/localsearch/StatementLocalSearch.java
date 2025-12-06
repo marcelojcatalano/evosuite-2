@@ -85,7 +85,7 @@ public abstract class StatementLocalSearch {
 
         StatementLocalSearch search = null;
         if (statement instanceof NullStatement) {
-            if (Properties.LOCAL_SEARCH_REFERENCES == false)
+            if (!Properties.LOCAL_SEARCH_REFERENCES)
                 return null;
 
             search = new ReferenceLocalSearch();
@@ -95,7 +95,7 @@ public abstract class StatementLocalSearch {
                 if (Properties.LOCAL_SEARCH_STRINGS)
                     search = new StringAVMLocalSearch();
             } else {
-                if (Properties.LOCAL_SEARCH_PRIMITIVES == false)
+                if (!Properties.LOCAL_SEARCH_PRIMITIVES)
                     return null;
 
                 if (type.equals(Integer.class) || type.equals(int.class)) {
@@ -119,22 +119,22 @@ public abstract class StatementLocalSearch {
                 }
             }
         } else if (statement instanceof ArrayStatement) {
-            if (Properties.LOCAL_SEARCH_ARRAYS == false)
+            if (!Properties.LOCAL_SEARCH_ARRAYS)
                 return null;
 
             search = new ArrayLocalSearch();
         } else if (statement instanceof MethodStatement) {
-            if (Properties.LOCAL_SEARCH_REFERENCES == false)
+            if (!Properties.LOCAL_SEARCH_REFERENCES)
                 return null;
 
             search = new ReferenceLocalSearch();
         } else if (statement instanceof ConstructorStatement) {
-            if (Properties.LOCAL_SEARCH_REFERENCES == false)
+            if (!Properties.LOCAL_SEARCH_REFERENCES)
                 return null;
 
             search = new ReferenceLocalSearch();
         } else if (statement instanceof FieldStatement) {
-            if (Properties.LOCAL_SEARCH_REFERENCES == false)
+            if (!Properties.LOCAL_SEARCH_REFERENCES)
                 return null;
 
             search = new ReferenceLocalSearch();

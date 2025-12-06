@@ -27,7 +27,7 @@ public class BooleanExample {
 
     public static int isTrue(boolean value) {
         new BooleanExample();
-        if (value == true) {
+        if (value) {
             return 1;
         } else {
             return 0;

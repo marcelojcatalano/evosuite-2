@@ -220,7 +220,7 @@ public class LangModel {
      */
     public double score(String str, boolean verbose) {
 
-        if (verbose == true) {
+        if (verbose) {
             System.out.println("String is " + str);
         } // if
 
@@ -249,7 +249,7 @@ public class LangModel {
             } // if
             String bigram = first_char + " " + second_char;
 
-            if (verbose == true) {
+            if (verbose) {
                 System.out.println("Bigram is " + bigram);
             } // if
 
@@ -259,7 +259,7 @@ public class LangModel {
                 // Get direct bigram probabilities
                 double bigram_prob = bigram_probs.get(bigram);
                 log_prob = log_prob + bigram_prob;
-                if (verbose == true) {
+                if (verbose) {
                     System.out.println("Direct bigram prob: "
                             + Math.pow(10, bigram_prob) + "\n");
                 } // if
@@ -275,7 +275,7 @@ public class LangModel {
                 double unigram_prob = unigram_probs.get(second_char);
                 log_prob = log_prob + unigram_prob;
 
-                if (verbose == true) {
+                if (verbose) {
                     double bigram_prob = unigram_backoff_prob + unigram_prob;
                     System.out.println("Inferred bigram prob: "
                             + Math.pow(10, bigram_prob)

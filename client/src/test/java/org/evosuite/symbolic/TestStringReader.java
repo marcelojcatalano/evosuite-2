@@ -22,7 +22,6 @@ package org.evosuite.symbolic;
 import com.examples.with.different.packagename.solver.TestCaseReader;
 import org.evosuite.symbolic.expr.Constraint;
 import org.evosuite.symbolic.solver.DefaultTestCaseConcolicExecutor;
-import org.evosuite.symbolic.solver.SolverTimeoutException;
 import org.evosuite.testcase.DefaultTestCase;
 import org.evosuite.testcase.variable.VariableReference;
 import org.junit.Test;
@@ -30,7 +29,7 @@ import org.junit.Test;
 import java.lang.reflect.Method;
 import java.util.Collection;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 public abstract class TestStringReader {
 
@@ -44,11 +43,11 @@ public abstract class TestStringReader {
     }
 
     @Test
-    public void testStringReader() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringReader() throws Exception {
 
         DefaultTestCase tc = buildTestStringReader();
         Collection<Constraint<?>> constraints = DefaultTestCaseConcolicExecutor.execute(tc);
-        assertTrue(!constraints.isEmpty());
+        assertFalse(constraints.isEmpty());
     }
 
 }

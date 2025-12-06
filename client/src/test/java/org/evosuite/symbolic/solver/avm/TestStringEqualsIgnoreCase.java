@@ -28,7 +28,6 @@ import org.evosuite.symbolic.expr.bv.StringBinaryComparison;
 import org.evosuite.symbolic.expr.constraint.StringConstraint;
 import org.evosuite.symbolic.expr.str.StringConstant;
 import org.evosuite.symbolic.expr.str.StringVariable;
-import org.evosuite.symbolic.solver.SolverTimeoutException;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -41,7 +40,7 @@ import static org.junit.Assert.*;
 public class TestStringEqualsIgnoreCase extends RandomizedTC {
 
     @Test
-    public void testStringEqualsIgnoreCase() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void testStringEqualsIgnoreCase() throws Exception {
 
         IntegerConstant zero = new IntegerConstant(0);
         StringVariable stringVar0 = new StringVariable("var0", "");
@@ -53,7 +52,7 @@ public class TestStringEqualsIgnoreCase extends RandomizedTC {
         StringBinaryComparison cmp2 = new StringBinaryComparison(stringVar0, Operator.EQUALSIGNORECASE, strConst, 1L);
         StringConstraint constr2 = new StringConstraint(cmp2, Comparator.NE, zero);
 
-        Collection<Constraint<?>> constraints = Arrays.<Constraint<?>>asList(constr1, constr2);
+        Collection<Constraint<?>> constraints = Arrays.asList(constr1, constr2);
 
         EvoSuiteSolver solver = new EvoSuiteSolver();
 
@@ -62,7 +61,7 @@ public class TestStringEqualsIgnoreCase extends RandomizedTC {
         String var0 = (String) solution.get("var0");
 
         assertNotNull(var0);
-        assertFalse(var0.equals("bar"));
+        assertNotEquals("bar", var0);
         assertTrue(var0.equalsIgnoreCase("bar"));
     }
 

@@ -21,9 +21,12 @@ package org.evosuite.runtime.mock.java.time;
 
 import org.evosuite.runtime.mock.StaticReplacementMock;
 
-import java.time.*;
+import java.time.Clock;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.*;
+import java.time.temporal.TemporalAccessor;
 
 
 /**
@@ -31,16 +34,11 @@ import java.time.temporal.*;
  */
 public class MockLocalDate implements StaticReplacementMock {
 
-    @Override
-    public String getMockedClassName() {
-        return LocalDate.class.getName();
-    }
-
-    // ---- static methods -------
-
     public static LocalDate now() {
         return now(MockClock.systemDefaultZone());
     }
+
+    // ---- static methods -------
 
     public static LocalDate now(ZoneId zone) {
         return now(MockClock.system(zone));
@@ -76,6 +74,11 @@ public class MockLocalDate implements StaticReplacementMock {
 
     public static LocalDate parse(CharSequence text, DateTimeFormatter formatter) {
         return LocalDate.parse(text, formatter);
+    }
+
+    @Override
+    public String getMockedClassName() {
+        return LocalDate.class.getName();
     }
 
 }

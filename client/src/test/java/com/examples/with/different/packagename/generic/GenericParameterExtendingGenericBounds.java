@@ -32,10 +32,7 @@ public class GenericParameterExtendingGenericBounds<T extends Map<String, ?>> ex
     private static final long serialVersionUID = -5120901091724267526L;
 
     public boolean testMe() {
-        if (size() == 2)
-            return true;
-        else
-            return false;
+        return size() == 2;
     }
 
 }

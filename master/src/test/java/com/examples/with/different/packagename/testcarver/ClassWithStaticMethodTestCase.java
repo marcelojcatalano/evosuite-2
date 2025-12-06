@@ -19,9 +19,10 @@
  */
 package com.examples.with.different.packagename.testcarver;
 
-import static org.junit.Assert.*;
-
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
 
 public class ClassWithStaticMethodTestCase {
 

@@ -31,6 +31,7 @@ import org.evosuite.coverage.branch.BranchPool;
 import org.evosuite.instrumentation.InstrumentingClassLoader;
 import org.evosuite.junit.CoverageAnalysis;
 import org.evosuite.runtime.sandbox.Sandbox;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

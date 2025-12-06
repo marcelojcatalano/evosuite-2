@@ -34,10 +34,7 @@ public abstract class AbstractGenericClass<T> {
     }
 
     boolean testMe(AbstractGenericClass<Locale> other) {
-        if (value == other.value)
-            return true;
-        else
-            return false;
+        return value == other.value;
     }
 
 }

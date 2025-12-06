@@ -50,7 +50,7 @@ public abstract class Plot extends Graph {
     private static final String JENKINS_URL = JenkinsLocationConfiguration.get().getUrl();
 
     public Plot(ProjectAction project, String yLabel) {
-        super(Calendar.getInstance(), 350, 150);
+        super(ReflectionUtils.newInstanceOf(Calendar.class), 350, 150);
 
         this.project = project;
         this.yLabel = yLabel;

@@ -37,8 +37,8 @@ import static org.junit.Assert.assertTrue;
 @RunWith(Parameterized.class)
 public class TestDoubleOverflow {
 
-    private double x;
-    private double y;
+    private final double x;
+    private final double y;
 
     // Creates the test data
     @Parameters

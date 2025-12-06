@@ -19,29 +19,19 @@
  */
 package org.evosuite.continuous.job;
 
-import java.util.List;
-import java.util.Set;
-
+import com.examples.with.different.packagename.continuous.*;
+import org.evosuite.Properties.AvailableSchedule;
 import org.evosuite.classpath.ClassPathHandler;
 import org.evosuite.continuous.CtgConfiguration;
-import org.evosuite.Properties.AvailableSchedule;
 import org.evosuite.continuous.project.ProjectAnalyzer;
 import org.evosuite.continuous.project.ProjectStaticData;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.examples.with.different.packagename.continuous.BaseForSeeding;
-import com.examples.with.different.packagename.continuous.MoreBranches;
-import com.examples.with.different.packagename.continuous.NoBranches;
-import com.examples.with.different.packagename.continuous.OnlyAbstract;
-import com.examples.with.different.packagename.continuous.OnlyAbstractImpl;
-import com.examples.with.different.packagename.continuous.Simple;
-import com.examples.with.different.packagename.continuous.SomeBranches;
-import com.examples.with.different.packagename.continuous.SomeInterface;
-import com.examples.with.different.packagename.continuous.SomeInterfaceImpl;
-import com.examples.with.different.packagename.continuous.Trivial;
-import com.examples.with.different.packagename.continuous.UsingSimpleAndTrivial;
+import java.util.List;
+import java.util.Set;
 
 public class JobSchedulerTest {
 
@@ -203,7 +193,7 @@ public class JobSchedulerTest {
          */
 
         //we have 9 classes, but 2 have no code
-        Assert.assertEquals("Wrong number of jobs: " + jobs.toString(), 8, jobs.size()); //FIXME should be 7
+        Assert.assertEquals("Wrong number of jobs: " + jobs, 8, jobs.size()); //FIXME should be 7
 
         JobDefinition seeding = null;
         for (JobDefinition job : jobs) {
@@ -216,7 +206,7 @@ public class JobSchedulerTest {
 
         Set<String> in = seeding.inputClasses;
         Assert.assertNotNull(in);
-        System.out.println(in.toString());
+        System.out.println(in);
         Assert.assertTrue(in.contains(NoBranches.class.getName()));
         Assert.assertTrue(in.contains(SomeBranches.class.getName()));
         Assert.assertTrue(in.contains(SomeInterfaceImpl.class.getName()));
@@ -246,7 +236,7 @@ public class JobSchedulerTest {
         List<JobDefinition> jobs = scheduler.createNewSchedule();
         Assert.assertNotNull(jobs);
 
-        Assert.assertEquals("Wrong number of jobs: " + jobs.toString(), 3, jobs.size());
+        Assert.assertEquals("Wrong number of jobs: " + jobs, 3, jobs.size());
 
         //UsingSimpleAndTrivial should be the last in the schedule, as it depends on the first 2
         JobDefinition seeding = jobs.get(2);
@@ -255,7 +245,7 @@ public class JobSchedulerTest {
 
         Set<String> in = seeding.inputClasses;
         Assert.assertNotNull(in);
-        System.out.println(in.toString());
+        System.out.println(in);
         Assert.assertTrue(in.contains(Simple.class.getName()));
         Assert.assertTrue(in.contains(Trivial.class.getName()));
         Assert.assertEquals(2, in.size());
@@ -284,7 +274,7 @@ public class JobSchedulerTest {
         List<JobDefinition> jobs = scheduler.createNewSchedule();
         Assert.assertNotNull(jobs);
 
-        Assert.assertEquals("Wrong number of jobs: " + jobs.toString(), 3, jobs.size());
+        Assert.assertEquals("Wrong number of jobs: " + jobs, 3, jobs.size());
 
         //UsingSimpleAndTrivial should be the last in the schedule, as it depends on the other 2
         JobDefinition seeding = jobs.get(2);
@@ -293,7 +283,7 @@ public class JobSchedulerTest {
 
         Set<String> in = seeding.inputClasses;
         Assert.assertNotNull(in);
-        System.out.println(in.toString());
+        System.out.println(in);
         Assert.assertTrue(in.contains(Simple.class.getName()));
         Assert.assertTrue(in.contains(Trivial.class.getName()));
         Assert.assertEquals(2, in.size());

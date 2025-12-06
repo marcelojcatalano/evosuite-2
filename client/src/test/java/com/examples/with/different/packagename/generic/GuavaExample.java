@@ -24,7 +24,7 @@ import java.util.Map;
 
 public class GuavaExample<R, C, V> {
 
-    private R value;
+    private final R value;
 
     private GuavaExample(R value) {
         this.value = value;

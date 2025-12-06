@@ -56,7 +56,7 @@ public class MethodNoExceptionCoverageSuiteFitness extends MethodCoverageSuiteFi
 
     @Override
     protected void handleConstructorExceptions(TestChromosome test, ExecutionResult result, Set<String> calledMethods) {
-        return; // No-op
+        // No-op
     }
 
     /**

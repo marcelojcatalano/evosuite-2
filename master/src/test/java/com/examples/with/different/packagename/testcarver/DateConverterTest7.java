@@ -19,7 +19,7 @@
  */
 package com.examples.with.different.packagename.testcarver;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -27,7 +27,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class DateConverterTest7 {
 
@@ -101,14 +101,14 @@ public class DateConverterTest7 {
             Object result = converter.convert(getExpectedType(), value);
             Class<?> resultType = (result == null ? null : result.getClass());
             Class<?> expectType = (expected == null ? null : expected.getClass());
-            assertEquals("TYPE " + msg, expectType, resultType);
+            assertSame("TYPE " + msg, expectType, resultType);
             boolean v1 = expected instanceof Date;
             boolean v2 = result instanceof Date;
             long t1 = ((Date) expected).getTime();
             long t2 = ((Date) result).getTime();
             assertEquals("VALUE " + msg + ", " + v1 + ", " + v2 + ", " + t1 + ", " + t2, expected, result);
         } catch (Exception ex) {
-            fail(msg + " threw " + ex.toString());
+            fail(msg + " threw " + ex);
         }
     }
 
@@ -126,10 +126,10 @@ public class DateConverterTest7 {
             Object result = converter.convert(String.class, value);
             Class<?> resultType = (result == null ? null : result.getClass());
             Class<?> expectType = (expected == null ? null : expected.getClass());
-            assertEquals("TYPE " + msg, expectType, resultType);
+            assertSame("TYPE " + msg, expectType, resultType);
             assertEquals("VALUE " + msg, expected, result);
         } catch (Exception ex) {
-            fail(msg + " threw " + ex.toString());
+            fail(msg + " threw " + ex);
         }
     }
 
@@ -182,7 +182,7 @@ public class DateConverterTest7 {
             calendar = format.getCalendar();
         } catch (Exception e) {
             fail("Error creating Calendar value ='"
-                    + value + ", pattern='" + pattern + "' " + e.toString());
+                    + value + ", pattern='" + pattern + "' " + e);
         }
         return calendar;
     }

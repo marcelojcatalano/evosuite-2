@@ -29,6 +29,7 @@ import org.evosuite.instrumentation.mutation.ReplaceVariable;
 import org.evosuite.rmi.ClientServices;
 import org.evosuite.statistics.RuntimeVariable;
 import org.evosuite.testsuite.AbstractFitnessFactory;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;

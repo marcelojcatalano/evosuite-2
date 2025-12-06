@@ -240,9 +240,8 @@ public class FunctionalMockStatement extends EntityWithParametersStatement {
         }
 
         //ad-hoc list of classes we should not really mock
-        List<Class<?>> avoid = Arrays.asList(
-                //add here if needed
-        );
+        //add here if needed
+        List<Class<?>> avoid = List.of();
 
         return !avoid.contains(rawClass);
     }

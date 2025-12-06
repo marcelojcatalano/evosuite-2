@@ -62,7 +62,7 @@ public class TestPatternSearch extends RandomizedTC {
                 Comparator.NE, new IntegerConstant(0));
 
         List<Constraint<?>> constraints = Collections
-                .<Constraint<?>>singletonList(constraint);
+                .singletonList(constraint);
 
         try {
             EvoSuiteSolver solver = new EvoSuiteSolver();

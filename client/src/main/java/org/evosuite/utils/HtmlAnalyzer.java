@@ -26,7 +26,10 @@ import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.Serializable;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class HtmlAnalyzer implements Serializable {
 
@@ -64,7 +67,7 @@ public class HtmlAnalyzer implements Serializable {
         }
         String msg = "No source found for " + fullClassName;
         logger.debug(msg);
-        return Arrays.asList(msg);
+        return List.of(msg);
     }
 
     /**

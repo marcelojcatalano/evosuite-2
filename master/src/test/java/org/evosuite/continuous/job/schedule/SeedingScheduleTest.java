@@ -19,20 +19,20 @@
  */
 package org.evosuite.continuous.job.schedule;
 
+import org.evosuite.continuous.job.JobDefinition;
+import org.junit.Assert;
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.evosuite.continuous.job.JobDefinition;
-import org.junit.Assert;
-import org.junit.Test;
-
 public class SeedingScheduleTest {
 
     @Test
     public void testSortingOneDependency() {
-        Set<String> dep1 = new HashSet<>(Arrays.asList("e"));
+        Set<String> dep1 = new HashSet<>(List.of("e"));
 
         JobDefinition a = new JobDefinition(1, 1, "a", 0, dep1, null);
         JobDefinition b = new JobDefinition(1, 1, "b", 0, null, null);
@@ -54,7 +54,7 @@ public class SeedingScheduleTest {
 
     @Test
     public void testSortingTwoDependencies() {
-        Set<String> dep1 = new HashSet<>(Arrays.asList("e"));
+        Set<String> dep1 = new HashSet<>(List.of("e"));
         Set<String> dep2 = new HashSet<>(Arrays.asList("a", "c"));
 
         JobDefinition a = new JobDefinition(1, 1, "a", 0, dep1, null);
@@ -77,8 +77,8 @@ public class SeedingScheduleTest {
 
     @Test
     public void testSortingPostponedDependencies() {
-        Set<String> dep1 = new HashSet<>(Arrays.asList("b"));
-        Set<String> dep2 = new HashSet<>(Arrays.asList("c"));
+        Set<String> dep1 = new HashSet<>(List.of("b"));
+        Set<String> dep2 = new HashSet<>(List.of("c"));
 
         JobDefinition a = new JobDefinition(1, 1, "a", 0, dep1, null);
         JobDefinition b = new JobDefinition(1, 1, "b", 0, dep2, null);

@@ -30,6 +30,7 @@ import org.evosuite.graphs.cfg.ControlDependency;
 import org.evosuite.testcase.TestChromosome;
 import org.evosuite.testcase.TestFitnessFunction;
 import org.evosuite.testcase.execution.ExecutionResult;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;

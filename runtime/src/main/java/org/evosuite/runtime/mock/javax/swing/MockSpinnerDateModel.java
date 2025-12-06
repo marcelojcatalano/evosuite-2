@@ -22,6 +22,7 @@ package org.evosuite.runtime.mock.javax.swing;
 import org.evosuite.runtime.mock.OverrideMock;
 import org.evosuite.runtime.mock.java.util.MockCalendar;
 import org.evosuite.runtime.mock.java.util.MockDate;
+import org.evosuite.utils.ReflectionUtils;
 
 import javax.swing.*;
 import java.util.Calendar;

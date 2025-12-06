@@ -35,10 +35,7 @@ public class TargetMethodPrefix {
      * @throws InterruptedException
      */
     public boolean foo_bar0(String x) {
-        if (x.length() > 1)
-            return true;
-        else
-            return false;
+        return x.length() > 1;
     }
 
     /**
@@ -49,10 +46,7 @@ public class TargetMethodPrefix {
      * @throws InterruptedException
      */
     public boolean foo_bar1(String x) {
-        if (x.length() > 0)
-            return true;
-        else
-            return false;
+        return x.length() > 0;
     }
 
     /**

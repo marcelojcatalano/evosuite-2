@@ -24,6 +24,7 @@ import org.evosuite.runtime.TooManyResourcesException;
 import org.evosuite.runtime.agent.InstrumentingAgent;
 import org.evosuite.runtime.sandbox.Sandbox;
 import org.evosuite.runtime.util.AtMostOnceLogger;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

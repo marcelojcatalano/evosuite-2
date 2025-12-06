@@ -28,10 +28,7 @@ public class ExitVM {
     }
 
     public boolean getExit() {
-        if (exit)
-            return true;
-        else
-            return false;
+        return exit;
     }
 
     public void exit() {

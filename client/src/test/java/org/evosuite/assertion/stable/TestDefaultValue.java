@@ -50,7 +50,7 @@ public class TestDefaultValue {
     }
 
     @Test
-    public void testDouble() throws SecurityException, NoSuchMethodException {
+    public void testDouble() throws Exception {
         TestCaseBuilder builder = new TestCaseBuilder();
         ArrayReference doubleArray0 = builder.appendArrayStmt(Double[].class,
                 10);
@@ -65,7 +65,7 @@ public class TestDefaultValue {
     }
 
     @Test
-    public void testFloat() throws SecurityException, NoSuchMethodException {
+    public void testFloat() throws Exception {
         TestCaseBuilder builder = new TestCaseBuilder();
         ArrayReference floatArray0 = builder.appendArrayStmt(Float[].class, 10);
         VariableReference float0 = builder.appendNull(Float.class);
@@ -80,7 +80,7 @@ public class TestDefaultValue {
     }
 
     @Test
-    public void testInteger() throws SecurityException, NoSuchMethodException {
+    public void testInteger() throws Exception {
         TestCaseBuilder builder = new TestCaseBuilder();
         ArrayReference integerArray0 = builder.appendArrayStmt(Integer[].class, 10);
         VariableReference integer0 = builder.appendNull(Integer.class);
@@ -94,7 +94,7 @@ public class TestDefaultValue {
     }
 
     @Test
-    public void testLong() throws SecurityException, NoSuchMethodException {
+    public void testLong() throws Exception {
         TestCaseBuilder builder = new TestCaseBuilder();
         ArrayReference longArray0 = builder.appendArrayStmt(Long[].class, 10);
         VariableReference long0 = builder.appendNull(Long.class);
@@ -108,7 +108,7 @@ public class TestDefaultValue {
     }
 
     @Test
-    public void testCharacter() throws SecurityException, NoSuchMethodException {
+    public void testCharacter() throws Exception {
         TestCaseBuilder builder = new TestCaseBuilder();
         ArrayReference characterArray0 = builder.appendArrayStmt(Character[].class, 10);
         VariableReference character0 = builder.appendNull(Character.class);
@@ -122,7 +122,7 @@ public class TestDefaultValue {
     }
 
     @Test
-    public void testByte() throws SecurityException, NoSuchMethodException {
+    public void testByte() throws Exception {
         TestCaseBuilder builder = new TestCaseBuilder();
         ArrayReference integerArray0 = builder.appendArrayStmt(Byte[].class, 10);
         VariableReference integer0 = builder.appendNull(Byte.class);
@@ -136,7 +136,7 @@ public class TestDefaultValue {
     }
 
     @Test
-    public void testShort() throws SecurityException, NoSuchMethodException {
+    public void testShort() throws Exception {
         TestCaseBuilder builder = new TestCaseBuilder();
         ArrayReference integerArray0 = builder.appendArrayStmt(Short[].class, 10);
         VariableReference integer0 = builder.appendNull(Short.class);

@@ -68,8 +68,8 @@ public class TestCase27 {
 
         {
             // branch 4
-            int int0 = string0.indexOf(OLD_CHAR, 0);
-            int int1 = string1.indexOf(OLD_CHAR, 0);
+            int int0 = string0.indexOf(OLD_CHAR);
+            int int1 = string1.indexOf(OLD_CHAR);
             checkEquals(int0, int1);
         }
 
@@ -82,8 +82,8 @@ public class TestCase27 {
 
         {
             // branch 6
-            int int0 = string0.indexOf(OLD_STRING, 0);
-            int int1 = string1.indexOf(OLD_STRING, 0);
+            int int0 = string0.indexOf(OLD_STRING);
+            int int1 = string1.indexOf(OLD_STRING);
             checkEquals(int0, int1);
         }
 

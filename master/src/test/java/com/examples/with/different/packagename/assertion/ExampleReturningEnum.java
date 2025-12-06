@@ -25,9 +25,7 @@ package com.examples.with.different.packagename.assertion;
  */
 public class ExampleReturningEnum {
 
-    public static enum Foo {FOO, BAR}
-
-    ;
+    public enum Foo {FOO, BAR}
 
     public Foo foo(boolean x) {
         if (x)

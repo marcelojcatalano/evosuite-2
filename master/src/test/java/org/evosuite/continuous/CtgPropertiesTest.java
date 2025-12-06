@@ -20,10 +20,10 @@
 package org.evosuite.continuous;
 
 import org.evosuite.Properties;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Andrea Arcuri on 21/11/15.

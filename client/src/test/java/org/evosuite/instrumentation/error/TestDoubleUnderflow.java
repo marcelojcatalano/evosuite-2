@@ -37,8 +37,8 @@ import static org.junit.Assert.assertTrue;
 @RunWith(Parameterized.class)
 public class TestDoubleUnderflow {
 
-    private double x;
-    private double y;
+    private final double x;
+    private final double y;
 
     // Creates the test data
     @Parameters
@@ -60,7 +60,7 @@ public class TestDoubleUnderflow {
 
 
     private void assertUnderflow(BigDecimal preciseResult, int distance, double doubleResult) {
-        BigDecimal maxResult = new BigDecimal(-Double.MAX_VALUE);
+        BigDecimal maxResult = BigDecimal.valueOf(-Double.MAX_VALUE);
         if (preciseResult.compareTo(maxResult) < 0) {
             assertTrue("Expected negative value for " + x + " and " + y + ": " + distance, distance < 0);
             assertEquals(Double.NEGATIVE_INFINITY, doubleResult, 0.0);

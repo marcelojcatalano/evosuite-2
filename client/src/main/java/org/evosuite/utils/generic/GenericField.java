@@ -27,6 +27,7 @@ import org.evosuite.ga.ConstructionFailedException;
 import org.evosuite.setup.TestClusterGenerator;
 import org.evosuite.setup.TestUsageChecker;
 import org.evosuite.utils.LoggingUtils;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

@@ -34,8 +34,6 @@ public class FactoryExample {
     public void testInt(int x) {
     }
 
-    ;
-
     public static void testStatic() {
         // no-op
     }

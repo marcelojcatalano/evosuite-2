@@ -180,7 +180,7 @@ public class DeprecatedTestSuiteDSE {
     private void calculateUncoveredBranches() {
         unsolvedBranchConditions.clear();
 
-        if (Properties.DSE_NEGATE_ALL_CONDITIONS == true) {
+        if (Properties.DSE_NEGATE_ALL_CONDITIONS) {
 
             for (TestChromosome testChromosome : pathConditions.keySet()) {
                 final List<BranchCondition> pathCondition = pathConditions.get(testChromosome);
@@ -221,7 +221,7 @@ public class DeprecatedTestSuiteDSE {
             }
             logger.info("Update set of unsolved branch conditions to " + unsolvedBranchConditions.size());
 
-            if (Properties.DSE_RANK_BRANCH_CONDITIONS == false) {
+            if (!Properties.DSE_RANK_BRANCH_CONDITIONS) {
                 Randomness.shuffle((ArrayList<TestBranchPair>) unsolvedBranchConditions);
             }
         }
@@ -263,7 +263,7 @@ public class DeprecatedTestSuiteDSE {
         TestBranchPair pair;
         pair = getNextTestBranchPair();
 
-        if (Properties.DSE_NEGATE_ALL_CONDITIONS == true) {
+        if (Properties.DSE_NEGATE_ALL_CONDITIONS) {
             return pair;
         }
 
@@ -660,7 +660,7 @@ public class DeprecatedTestSuiteDSE {
 
     private void calculateUncoveredBranches(TestChromosome newTestChromosome) {
 
-        if (Properties.DSE_NEGATE_ALL_CONDITIONS == true) {
+        if (Properties.DSE_NEGATE_ALL_CONDITIONS) {
             final List<BranchCondition> pathCondition = pathConditions.get(newTestChromosome);
             for (BranchCondition targetBranchCondition : pathCondition) {
                 if (!unsolvableBranchConditions.contains(targetBranchCondition)) {

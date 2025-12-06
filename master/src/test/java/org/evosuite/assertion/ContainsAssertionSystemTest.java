@@ -53,6 +53,7 @@ public class ContainsAssertionSystemTest extends SystemTestBase {
             for (Assertion ass : test.getAssertions()) {
                 if (ass instanceof ContainsAssertion) {
                     hasContainsAssertion = true;
+                    break;
                 }
             }
             Assert.assertTrue("Test has no contains assertions: " + test.toCode(),

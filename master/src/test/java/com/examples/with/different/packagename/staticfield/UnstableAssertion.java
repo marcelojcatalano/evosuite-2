@@ -25,9 +25,8 @@ public class UnstableAssertion {
     private static int value;
 
     public void setFlag(int x) {
-        if (flag == false) {
+        if (!flag) {
             flag = true;
-            return;
         }
     }
 
@@ -36,7 +35,7 @@ public class UnstableAssertion {
     }
 
     public void setValue(int x) {
-        if (flag == false) {
+        if (!flag) {
             flag = true;
             if (x == 0) {
                 value = 0;

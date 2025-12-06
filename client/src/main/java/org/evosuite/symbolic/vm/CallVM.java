@@ -20,6 +20,7 @@
 package org.evosuite.symbolic.vm;
 
 import org.evosuite.dse.AbstractVM;
+import org.evosuite.dse.MainConfig;
 import org.evosuite.symbolic.LambdaUtils;
 import org.evosuite.symbolic.expr.Expression;
 import org.evosuite.symbolic.expr.Operator;
@@ -86,7 +87,7 @@ public final class CallVM extends AbstractVM {
     @Override
     public void HANDLER_BEGIN(int access, String className, String methName, String methDesc) {
 
-        if (conf.CLINIT.equals(methName)) {
+        if (MainConfig.CLINIT.equals(methName)) {
 
             discardFramesClassInitializer(className, methName);
 
@@ -94,7 +95,7 @@ public final class CallVM extends AbstractVM {
 
             // the method or constructor containing this handler
             Member function = null;
-            if (conf.INIT.equals(methName))
+            if (MainConfig.INIT.equals(methName))
                 function = resolveConstructorOverloading(className, methDesc);
             else
                 function = resolveMethodOverloading(className, methName, methDesc);
@@ -121,11 +122,11 @@ public final class CallVM extends AbstractVM {
      */
     @Override
     public void METHOD_MAXS(String className, String methName, String methDesc, int maxStack, int maxLocals) {
-        if (conf.CLINIT.equals(methName))
+        if (MainConfig.CLINIT.equals(methName))
             return;
 
         Member member = null;
-        if (conf.INIT.equals(methName))
+        if (MainConfig.INIT.equals(methName))
             member = resolveConstructorOverloading(className, methDesc);
         else
             member = resolveMethodOverloading(className, methName, methDesc);
@@ -166,12 +167,12 @@ public final class CallVM extends AbstractVM {
     public void METHOD_BEGIN(int access, String className, String methName, String methDesc) {
         /* TODO: Use access param to determine needsThis */
 
-        if (conf.CLINIT.equals(methName)) {
+        if (MainConfig.CLINIT.equals(methName)) {
             CLINIT_BEGIN(className);
             return;
         }
 
-        if (env.topFrame().weInvokedInstrumentedCode() == false
+        if (!env.topFrame().weInvokedInstrumentedCode()
                 || env.topFrame().weInvokedSyntheticLambdaCodeThatInvokesNonInstrCode()) {
             /** TODO: Stream API seems to need special treatment as the call stack is of the form:
              4 - lambda static method call (instrumented)
@@ -191,7 +192,7 @@ public final class CallVM extends AbstractVM {
         // called us
         Frame frame;
         boolean calleeNeedsThis = false;
-        if (conf.INIT.equals(methName)) {
+        if (MainConfig.INIT.equals(methName)) {
             Constructor<?> constructor = resolveConstructorOverloading(className, methDesc);
             int maxLocals = conf.MAX_LOCALS_DEFAULT;
             MemberInfo memberInfo = memberInfos.get(constructor);
@@ -200,7 +201,7 @@ public final class CallVM extends AbstractVM {
             frame = new ConstructorFrame(constructor, maxLocals);
             calleeNeedsThis = true;
 
-            if (callerFrame.weInvokedInstrumentedCode() == false) {
+            if (!callerFrame.weInvokedInstrumentedCode()) {
                 /**
                  * Since this is a constructor called from un-instrumented code,
                  * we need to "simulate" the missing NEW. This means 1) create a
@@ -227,7 +228,7 @@ public final class CallVM extends AbstractVM {
          * operand stack! Instead, METHOD_BEGIN_PARAM will supply the concrete
          * parameter values and create corresponding symbolic constants.
          */
-        if (callerFrame.weInvokedInstrumentedCode() == false) {
+        if (!callerFrame.weInvokedInstrumentedCode()) {
 
             env.pushFrame(frame);
 
@@ -499,7 +500,7 @@ public final class CallVM extends AbstractVM {
         stackParamCount = 0;
         env.topFrame().invokeNeedsThis = true;
 
-        if (conf.INIT.equals(methName)) {
+        if (MainConfig.INIT.equals(methName)) {
             boolean instrumented = !conf.isIgnored(className);
             env.topFrame().invokeInstrumentedCode(instrumented);
             env.topFrame().invokeLambdaSyntheticCodeThatInvokesNonInstrCode(false);
@@ -718,7 +719,6 @@ public final class CallVM extends AbstractVM {
 
         if (callResultIsPushed()) { // RETURN already did
             // it
-            return;
         } else {
             /**
              * We are returning from uninstrumented code. This is the only way
@@ -741,7 +741,6 @@ public final class CallVM extends AbstractVM {
 
         if (callResultIsPushed()) {// RETURN already did
             // it
-            return;
         } else {
             /**
              * We are returning from uninstrumented code. This is the only way
@@ -758,7 +757,8 @@ public final class CallVM extends AbstractVM {
 
         if (callResultIsPushed())
             // RETURN already did it
-            return;
+        {
+        }
         else {
             /**
              * We are returning from uninstrumented code. This is the only way
@@ -775,7 +775,6 @@ public final class CallVM extends AbstractVM {
 
         if (callResultIsPushed()) {
             // RETURN already did it
-            return;
         } else {
             /**
              * We are returning from uninstrumented code. This is the only way
@@ -792,7 +791,6 @@ public final class CallVM extends AbstractVM {
 
         if (callResultIsPushed()) {
             // RETURN already did it
-            return;
         } else {
             /**
              * We are returning from uninstrumented code. This is the only way
@@ -809,7 +807,6 @@ public final class CallVM extends AbstractVM {
 
         if (callResultIsPushed()) {// RETURN already did
             // it
-            return;
         } else {
             /**
              * We are returning from uninstrumented code. This is the only way
@@ -912,7 +909,7 @@ public final class CallVM extends AbstractVM {
         Frame topFrame = env.topFrame();
         if (topFrame instanceof StaticInitializerFrame) {
             StaticInitializerFrame clinitFrame = (StaticInitializerFrame) topFrame;
-            if (methName.equals(conf.INIT) && clinitFrame.getClassName().equals(className)) {
+            if (methName.equals(MainConfig.INIT) && clinitFrame.getClassName().equals(className)) {
                 return true;
             }
         }
@@ -925,7 +922,7 @@ public final class CallVM extends AbstractVM {
     }
 
     private boolean discardFramesClassInitializer(String className, String methName) {
-        if (!conf.CLINIT.equals(methName))
+        if (!MainConfig.CLINIT.equals(methName))
             throw new IllegalArgumentException("methName should be <clinit>");
 
         if (env.topFrame() instanceof FakeBottomFrame)
@@ -934,7 +931,7 @@ public final class CallVM extends AbstractVM {
         Frame topFrame = env.topFrame();
         if (topFrame instanceof StaticInitializerFrame) {
             StaticInitializerFrame clinitFrame = (StaticInitializerFrame) topFrame;
-            if (methName.equals(conf.CLINIT) && clinitFrame.getClassName().equals(className)) {
+            if (methName.equals(MainConfig.CLINIT) && clinitFrame.getClassName().equals(className)) {
                 return true;
             }
         }
@@ -1122,8 +1119,8 @@ public final class CallVM extends AbstractVM {
          * descriptor))
          */
         final int methodModifiers = staticMethod.getModifiers();
-        if (Modifier.isNative(methodModifiers) && Modifier.isFinal(methodModifiers))
-            return;
+        if (Modifier.isNative(methodModifiers) && Modifier.isFinal(methodModifiers)) {
+        }
 
     }
 

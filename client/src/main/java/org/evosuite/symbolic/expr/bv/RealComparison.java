@@ -26,6 +26,7 @@ import org.evosuite.symbolic.expr.AbstractExpression;
 import org.evosuite.symbolic.expr.Expression;
 import org.evosuite.symbolic.expr.ExpressionVisitor;
 import org.evosuite.symbolic.expr.Variable;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,7 +37,7 @@ public final class RealComparison extends AbstractExpression<Long> implements
         IntegerValue {
     private static final long serialVersionUID = 1L;
 
-    protected static final Logger log = LoggerFactory.getLogger(RealComparison.class);
+    private static final Logger log = LoggerFactory.getLogger(RealComparison.class);
 
     /**
      * <p>

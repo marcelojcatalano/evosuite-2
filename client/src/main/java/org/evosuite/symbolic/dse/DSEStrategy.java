@@ -132,13 +132,12 @@ public class DSEStrategy extends TestGenerationStrategy {
             // tests due to lack of
             // determinism
             LoggingUtils.getEvoLogger()
-                    .info(new StringBuilder()
-                            .append("* Search finished after ")
-                            .append(endTime - startTime)
-                            .append("s, fitness: ")
-                            .append(testSuite.getFitness())
-                            .append(" and coverage: ")
-                            .append(testSuite.getCoverage()).toString());
+                    .info("* Search finished after " +
+                            (endTime - startTime) +
+                            "s, fitness: " +
+                            testSuite.getFitness() +
+                            " and coverage: " +
+                            testSuite.getCoverage());
         }
 
         // Search is finished, send statistics

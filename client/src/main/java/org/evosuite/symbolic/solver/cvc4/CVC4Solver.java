@@ -30,6 +30,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public final class CVC4Solver extends SmtSolver {
@@ -110,7 +111,7 @@ public final class CVC4Solver extends SmtSolver {
         ByteArrayOutputStream stdout = new ByteArrayOutputStream();
         try {
             launchNewSolvingProcess(cmd, smtQueryStr, (int) cvcTimeout, stdout);
-            String output = stdout.toString("UTF-8");
+            String output = stdout.toString(StandardCharsets.UTF_8);
 
             if (output.startsWith("unknown")) {
                 logger.debug("timeout reached when using cvc4");

@@ -63,7 +63,6 @@ public class Regex {
         //print(StringUtils.PrettyPrint(re.regex.matchinexact.fsaexact));
         //if (0 == re.regex.matchinexact.Match(txt)) {
         if (Pattern.matches(url, txt)) {
-            ;
         }
         //print(StringUtils.PrettyPrint(re.regex.matchinexact));
 
@@ -73,7 +72,6 @@ public class Regex {
         //print(StringUtils.PrettyPrint(re.regex.matchinexact.fsaexact));
         //  if (0 == re.regex.matchinexact.Match(txt)) {
         if (Pattern.matches(date, txt)) {
-            ;
         }
         //print(StringUtils.PrettyPrint(re.regex.matchinexact));
 
@@ -83,7 +81,6 @@ public class Regex {
         //print(StringUtils.PrettyPrint(re.regex.matchinexact.fsaexact));
         // if (0 == re.regex.matchinexact.Match(txt)) {
         if (Pattern.matches(fpe, txt)) {
-            ;
         }
         //print(StringUtils.PrettyPrint(re.regex.matchinexact));
     }

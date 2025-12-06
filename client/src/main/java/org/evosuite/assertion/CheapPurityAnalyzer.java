@@ -108,7 +108,7 @@ public class CheapPurityAnalyzer {
     private void addCacheValue(MethodEntry entry, boolean new_value) {
         if (isCached(entry)) {
             boolean old_value = this.purityCache.get(entry);
-            if (old_value == false && new_value == true) {
+            if (!old_value && new_value) {
                 String fullyQuantifiedMethodName = entry.className + "."
                         + entry.methodName + entry.descriptor;
 
@@ -280,7 +280,7 @@ public class CheapPurityAnalyzer {
         InheritanceTree inheritanceTree = DependencyAnalysis
                 .getInheritanceTree();
 
-        String className = "" + entry.className;
+        String className = entry.className;
 //		while (className.contains("[L")) {
 //			className = className.substring(2, className.length() - 1);
 //		}

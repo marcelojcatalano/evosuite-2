@@ -29,11 +29,7 @@ public class OpenStream {
     public boolean open(int x) throws FileNotFoundException {
         new FileOutputStream(FILE_NAME);
 
-        if (x > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return x > 0;
     }
 
 }

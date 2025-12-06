@@ -26,6 +26,7 @@ import org.evosuite.symbolic.expr.AbstractExpression;
 import org.evosuite.symbolic.expr.Expression;
 import org.evosuite.symbolic.expr.ExpressionVisitor;
 import org.evosuite.symbolic.expr.Variable;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -61,7 +62,7 @@ public final class IntegerComparison extends AbstractExpression<Long> implements
     private final Expression<Long> left;
     private final Expression<Long> right;
 
-    protected static final Logger log = LoggerFactory.getLogger(IntegerComparison.class);
+    private static final Logger log = LoggerFactory.getLogger(IntegerComparison.class);
 
     /**
      * {@inheritDoc}

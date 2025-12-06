@@ -60,11 +60,11 @@ public class TestGetStaticGraph {
 
         Map<String, Set<String>> expectedStaticFields = new HashMap<>();
         expectedStaticFields.put(Bar2.class.getCanonicalName(),
-                new HashSet<>(Arrays.asList("fieldBar2")));
+                new HashSet<>(List.of("fieldBar2")));
         expectedStaticFields.put(Bar6.class.getCanonicalName(),
-                new HashSet<>(Arrays.asList("fieldBar6")));
+                new HashSet<>(List.of("fieldBar6")));
         expectedStaticFields.put(Bar7.class.getCanonicalName(),
-                new HashSet<>(Arrays.asList("fieldBar7")));
+                new HashSet<>(List.of("fieldBar7")));
 
         Map<String, Set<String>> staticFields = graph.getStaticFields();
         assertEquals(expectedStaticFields, staticFields);

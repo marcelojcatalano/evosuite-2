@@ -265,7 +265,7 @@ public class ClassControlFlowGraph extends EvoSuiteGraph<CCFGNode, CCFGEdge> {
         } else
             throw new IllegalStateException(
                     "purity analysis should not reach this kind of CCFGNode: "
-                            + currentNode.getClass().toString());
+                            + currentNode.getClass());
 
         Set<CCFGNode> children = getChildren(nextNode);
         for (CCFGNode child : children) {

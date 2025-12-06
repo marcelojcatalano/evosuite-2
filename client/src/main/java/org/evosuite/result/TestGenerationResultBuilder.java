@@ -38,6 +38,7 @@ import org.evosuite.testcase.TestCase;
 import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.utils.LoggingUtils;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;

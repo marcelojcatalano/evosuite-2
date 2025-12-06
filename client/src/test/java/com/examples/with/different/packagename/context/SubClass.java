@@ -29,16 +29,11 @@ public class SubClass extends ISubClass {
 
     public boolean checkFiftneen(int i) {
         boolean bol = bla(i);
-        if (bol)
-            return true;
-        return false;
+        return bol;
     }
 
     private boolean bla(int i) {
-        boolean bol = false;
-        if (i * 2 == 6) {
-            bol = true;
-        }
+        boolean bol = i * 2 == 6;
         bol = subsubclass.innermethod(i) || bol;
         return bol;
     }

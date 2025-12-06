@@ -22,6 +22,7 @@ package org.evosuite.runtime.mock.javax.swing;
 import org.evosuite.runtime.Runtime;
 import org.evosuite.runtime.RuntimeSettings;
 import org.evosuite.runtime.mock.java.io.MockFile;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

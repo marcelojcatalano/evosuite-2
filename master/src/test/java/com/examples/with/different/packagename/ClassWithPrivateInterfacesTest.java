@@ -19,12 +19,11 @@
  */
 package com.examples.with.different.packagename;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import org.junit.Test;
 
 import java.util.List;
 
-import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  * Snippet from Lang project
@@ -61,12 +60,12 @@ public class ClassWithPrivateInterfacesTest {
         final List<Class<?>> list = ClassWithPrivateInterfaces.getAllInterfaces(CY.class);
 
         assertEquals(6, list.size());
-        assertEquals(IB.class, list.get(0));
-        assertEquals(IC.class, list.get(1));
-        assertEquals(ID.class, list.get(2));
-        assertEquals(IE.class, list.get(3));
-        assertEquals(IF.class, list.get(4));
-        assertEquals(IA.class, list.get(5));
+        assertSame(IB.class, list.get(0));
+        assertSame(IC.class, list.get(1));
+        assertSame(ID.class, list.get(2));
+        assertSame(IE.class, list.get(3));
+        assertSame(IF.class, list.get(4));
+        assertSame(IA.class, list.get(5));
 
         assertNull(ClassWithPrivateInterfaces.getAllInterfaces(null));
     }

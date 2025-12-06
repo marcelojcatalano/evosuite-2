@@ -26,6 +26,7 @@ import org.evosuite.coverage.mutation.Mutation;
 import org.evosuite.coverage.mutation.MutationPool;
 import org.evosuite.graphs.cfg.BytecodeInstruction;
 import org.evosuite.instrumentation.BooleanValueInterpreter;
+import org.evosuite.utils.ReflectionUtils;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.*;
 import org.objectweb.asm.tree.analysis.Frame;

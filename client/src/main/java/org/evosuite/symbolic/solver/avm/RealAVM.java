@@ -216,10 +216,10 @@ final class RealAVM extends VariableAVM {
         double dist = DistanceEstimator.getDistance(cnstr);
         if (!distWrsn(dist)) {
             checkpointVar(dist);
-            return;// true;
+            // true;
         } else {
             restoreVar();
-            return;// false;
+            // false;
         }
     }
 

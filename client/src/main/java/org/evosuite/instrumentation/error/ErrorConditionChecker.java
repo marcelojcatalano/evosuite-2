@@ -74,7 +74,7 @@ public class ErrorConditionChecker {
     }
 
     public static int scaleTo(double value, int max) {
-        return (int) (Math.ceil(max * (1.0 * value / (value + 1.0))));
+        return (int) (Math.ceil(max * (value / (value + 1.0))));
     }
 
     /**

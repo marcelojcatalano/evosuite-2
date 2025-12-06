@@ -34,9 +34,6 @@ public class IntegerCollectionAllBranch {
         anotherList.add(17);
         anotherList.add(34);
 
-        if (aList.containsAll(anotherList))
-            return true;
-        else
-            return false;
+        return aList.containsAll(anotherList);
     }
 }

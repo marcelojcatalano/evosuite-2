@@ -28,9 +28,6 @@ import java.util.List;
 public class GenericParameters6 {
 
     public boolean testMe(List<?> aList) {
-        if (aList.contains("test"))
-            return true;
-        else
-            return false;
+        return aList.contains("test");
     }
 }

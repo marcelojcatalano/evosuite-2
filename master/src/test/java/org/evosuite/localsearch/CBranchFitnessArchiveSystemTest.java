@@ -19,13 +19,7 @@
  */
 package org.evosuite.localsearch;
 
-import static org.junit.Assert.assertTrue;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
-
+import com.examples.with.different.packagename.cbranch.CBranchExample;
 import org.evosuite.Properties;
 import org.evosuite.Properties.Criterion;
 import org.evosuite.SystemTestBase;
@@ -38,14 +32,20 @@ import org.evosuite.symbolic.TestCaseBuilder;
 import org.evosuite.testcase.DefaultTestCase;
 import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.testsuite.TestSuiteChromosome;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.Test;
 
-import com.examples.with.different.packagename.cbranch.CBranchExample;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
 
 public class CBranchFitnessArchiveSystemTest extends SystemTestBase {
 
     @Test
-    public void test() throws NoSuchMethodException, SecurityException, ClassNotFoundException {
+    public void test() throws Exception {
         Properties.TARGET_CLASS = CBranchExample.class.getCanonicalName();
         Properties.CRITERION = new Criterion[]{Criterion.CBRANCH};
         Properties.TEST_ARCHIVE = true;

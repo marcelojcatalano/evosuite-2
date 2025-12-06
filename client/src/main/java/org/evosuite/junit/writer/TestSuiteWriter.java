@@ -279,16 +279,15 @@ public class TestSuiteWriter implements Opcodes {
      * @return
      */
     private String getEmptyTest() {
-        StringBuilder bd = new StringBuilder();
-        bd.append(METHOD_SPACE);
-        bd.append("@Test\n");
-        bd.append(METHOD_SPACE);
-        bd.append("public void " + NOT_GENERATED_TEST_NAME + "() {\n");
-        bd.append(BLOCK_SPACE);
-        bd.append("// EvoSuite did not generate any tests\n");
-        bd.append(METHOD_SPACE);
-        bd.append("}\n");
-        return bd.toString();
+        String bd = METHOD_SPACE +
+                "@Test\n" +
+                METHOD_SPACE +
+                "public void " + NOT_GENERATED_TEST_NAME + "() {\n" +
+                BLOCK_SPACE +
+                "// EvoSuite did not generate any tests\n" +
+                METHOD_SPACE +
+                "}\n";
+        return bd;
     }
 
     private void removeUnnecessaryDownCasts(List<ExecutionResult> results) {

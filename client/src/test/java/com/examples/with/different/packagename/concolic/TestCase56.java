@@ -32,7 +32,6 @@ public class TestCase56 {
             return;
         }
         if (int2 == int0) {
-            return;
         }
 
     }

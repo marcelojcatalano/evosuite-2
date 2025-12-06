@@ -37,6 +37,7 @@ import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.TestSuiteFitnessFunction;
 import org.evosuite.utils.Randomness;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,7 +46,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertTrue;
@@ -85,6 +86,7 @@ public class TestLocalSearchMIMEType {
         } else {
             ExecutionTracer.disableTraceCalls();
         }
+
         TestGenerationContext.getInstance().resetContext();
         ClassReInitializer.resetSingleton();
 
@@ -210,7 +212,7 @@ public class TestLocalSearchMIMEType {
 
     @Test
     public void testFitness()
-            throws NoSuchFieldException, SecurityException, NoSuchMethodException, ClassNotFoundException {
+            throws Exception {
         Properties.RESET_STATIC_FINAL_FIELDS = false;
         Properties.TEST_ARCHIVE = false;
         Properties.LOCAL_SEARCH_PROBABILITY = 1.0;
@@ -223,7 +225,7 @@ public class TestLocalSearchMIMEType {
         Properties.TARGET_CLASS = MIMEType.class.getName();
 
         String classPath = ClassPathHandler.getInstance().getTargetProjectClasspath();
-        DependencyAnalysis.analyzeClass(MIMEType.class.getName(), Arrays.asList(classPath));
+        DependencyAnalysis.analyzeClass(MIMEType.class.getName(), Collections.singletonList(classPath));
 
         TestSuiteChromosome suite = new TestSuiteChromosome();
         DefaultTestCase test0 = createTestCase0();
@@ -265,7 +267,7 @@ public class TestLocalSearchMIMEType {
 
         for (TestSuiteFitnessFunction ff : fitnessFunctions) {
             double oldFitness = ff.getFitness(suite);
-            System.out.println(ff.toString() + "->" + oldFitness);
+            System.out.println(ff + "->" + oldFitness);
         }
         double oldFitness = suite.getFitness();
         System.out.println("oldFitness->" + oldFitness);
@@ -282,7 +284,7 @@ public class TestLocalSearchMIMEType {
 
         for (TestSuiteFitnessFunction ff : fitnessFunctions) {
             double newFitness = ff.getFitness(suite);
-            System.out.println(ff.toString() + "->" + newFitness);
+            System.out.println(ff + "->" + newFitness);
 
         }
         double newFitness = suite.getFitness();

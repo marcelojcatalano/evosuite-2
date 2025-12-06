@@ -22,7 +22,7 @@ package com.examples.with.different.packagename;
 public class MemberClassWithParameter {
 
     public class MemberClass {
-        private Integer x;
+        private final Integer x;
 
         public MemberClass(Integer x) {
             this.x = x;
@@ -34,9 +34,6 @@ public class MemberClassWithParameter {
     }
 
     public boolean testMe(MemberClass x, Integer y) {
-        if (x.getX().equals(y))
-            return true;
-        else
-            return false;
+        return x.getX().equals(y);
     }
 }

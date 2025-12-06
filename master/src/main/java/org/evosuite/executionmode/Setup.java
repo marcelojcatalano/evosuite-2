@@ -26,6 +26,7 @@ import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
 import org.evosuite.Properties.NoSuchParameterException;
 import org.evosuite.utils.LoggingUtils;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -76,14 +77,12 @@ public class Setup {
             }
         }
 
-        if (args.length > 0) {
-            for (final String arg : args) {
-                String element = arg.trim();
-                if (element.isEmpty()) {
-                    continue;
-                }
-                addEntryToCP(element);
+        for (final String arg : args) {
+            String element = arg.trim();
+            if (element.isEmpty()) {
+                continue;
             }
+            addEntryToCP(element);
         }
 
         Properties.MIN_FREE_MEM = 0; //TODO why this is done???

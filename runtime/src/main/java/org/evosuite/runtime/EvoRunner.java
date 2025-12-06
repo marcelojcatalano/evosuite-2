@@ -21,6 +21,7 @@ package org.evosuite.runtime;
 
 import org.evosuite.annotations.EvoSuiteTest;
 import org.evosuite.runtime.instrumentation.EvoClassLoader;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.Test;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.FrameworkMethod;
@@ -103,16 +104,11 @@ public class EvoRunner extends BlockJUnit4ClassRunner {
 
         org.evosuite.runtime.agent.InstrumentingAgent.activate();
 
-        try {
-            /*
-             *  be sure that reflection on "klass" is executed here when
-             *  the agent is active
-             */
-            klass.newInstance();
-        } catch (InstantiationException | IllegalAccessException e) {
-            //shouldn't really happen
-            logger.error("Failed to initialize test class " + klass.getName());
-        }
+        /*
+         *  be sure that reflection on "klass" is executed here when
+         *  the agent is active
+         */
+        ReflectionUtils.newInstanceOf(klass);
         org.evosuite.runtime.agent.InstrumentingAgent.deactivate();
 
         return klass;

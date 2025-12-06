@@ -26,6 +26,7 @@ import org.evosuite.ga.stoppingconditions.StoppingCondition;
 import org.evosuite.rmi.ClientServices;
 import org.evosuite.rmi.service.ClientState;
 import org.evosuite.rmi.service.ClientStateInformation;
+import org.evosuite.utils.ReflectionUtils;
 
 import java.io.Serializable;
 

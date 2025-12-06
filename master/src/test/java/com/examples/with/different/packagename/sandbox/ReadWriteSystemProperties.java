@@ -31,10 +31,6 @@ public class ReadWriteSystemProperties {
         System.setProperty(A_PROPERTY, dir);
         String readBack = System.getProperty(A_PROPERTY);
 
-        if (readBack.equals(s)) {
-            return true;
-        } else {
-            return false;
-        }
+        return readBack.equals(s);
     }
 }

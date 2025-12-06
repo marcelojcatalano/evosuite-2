@@ -334,7 +334,7 @@ public class RegexDistanceUtils {
         }
 
         public int getNumberOfRows() {
-            return transitions.keySet().size();
+            return transitions.size();
         }
 
         public int getNumberOfColumns() {

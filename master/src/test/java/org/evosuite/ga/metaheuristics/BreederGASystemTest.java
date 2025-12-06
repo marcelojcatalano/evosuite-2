@@ -46,7 +46,7 @@ public class BreederGASystemTest extends SystemTestBase {
 
         GeneticAlgorithm<?> ga = getGAFromResult(result);
 
-        Assert.assertEquals(BreederGA.class, ga.getClass());
+        Assert.assertSame(BreederGA.class, ga.getClass());
 
         TestSuiteChromosome best = (TestSuiteChromosome) ga.getBestIndividual();
         System.out.println("EvolvedTestSuite:\n" + best);

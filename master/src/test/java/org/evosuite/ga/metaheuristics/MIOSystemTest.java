@@ -19,13 +19,13 @@
  */
 package org.evosuite.ga.metaheuristics;
 
+import com.examples.with.different.packagename.BMICalculator;
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
 import org.evosuite.SystemTestBase;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.junit.Assert;
 import org.junit.Test;
-import com.examples.with.different.packagename.BMICalculator;
 
 /**
  * System tests for the implementation of the Many Independent Objective (MIO) algorithm
@@ -50,12 +50,12 @@ public class MIOSystemTest extends SystemTestBase {
         EvoSuite evoSuite = new EvoSuite();
 
         GeneticAlgorithm<TestSuiteChromosome> ga = getGAFromResult(evoSuite.parseCommandLine(command));
-        Assert.assertEquals(TestSuiteAdapter.class, ga.getClass());
+        Assert.assertSame(TestSuiteAdapter.class, ga.getClass());
 
         @SuppressWarnings("unchecked")
         TestSuiteAdapter<MIO> mio = (TestSuiteAdapter<MIO>) ga;
 
-        Assert.assertEquals(MIO.class, mio.getAlgorithm().getClass());
+        Assert.assertSame(MIO.class, mio.getAlgorithm().getClass());
 
         TestSuiteChromosome best = mio.getBestIndividual();
         System.out.println("EvolvedTestSuite:\n" + best);

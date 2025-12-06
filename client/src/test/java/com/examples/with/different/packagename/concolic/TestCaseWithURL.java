@@ -31,18 +31,10 @@ public class TestCaseWithURL {
         Scanner in = new Scanner(conn.getInputStream());
         String line = in.nextLine();
         in.close();
-        if (line.contains("<html>")) {
-            return true;
-        } else {
-            return false;
-        }
+        return line.contains("<html>");
     }
 
     public static boolean isZero(int value) {
-        if (value == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return value == 0;
     }
 }

@@ -19,11 +19,8 @@
  */
 package org.evosuite.localsearch;
 
-import static org.junit.Assert.assertEquals;
-
-import java.lang.reflect.Method;
-import java.util.Arrays;
-
+import com.examples.with.different.packagename.localsearch.ArrayLengthExample;
+import com.examples.with.different.packagename.localsearch.BasicArrayExample;
 import org.evosuite.Properties;
 import org.evosuite.Properties.LocalSearchBudgetType;
 import org.evosuite.SystemTestBase;
@@ -45,12 +42,18 @@ import org.evosuite.testcase.variable.ArrayReference;
 import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.testsuite.TestSuiteChromosome;
 import org.evosuite.testsuite.localsearch.TestSuiteLocalSearch;
-import org.evosuite.utils.generic.*;
+import org.evosuite.utils.ReflectionUtils;
+import org.evosuite.utils.generic.GenericClass;
+import org.evosuite.utils.generic.GenericClassFactory;
+import org.evosuite.utils.generic.GenericConstructor;
+import org.evosuite.utils.generic.GenericMethod;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.examples.with.different.packagename.localsearch.ArrayLengthExample;
-import com.examples.with.different.packagename.localsearch.BasicArrayExample;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+
+import static org.junit.Assert.assertEquals;
 
 public class LocalSearchArraySystemTest extends SystemTestBase {
 
@@ -85,9 +88,9 @@ public class LocalSearchArraySystemTest extends SystemTestBase {
 
         }
 
-        Method m = clazz.getRawClass().getMethod("testMe", new Class<?>[]{int[].class});
+        Method m = clazz.getRawClass().getMethod("testMe", int[].class);
         GenericMethod method = new GenericMethod(m, sut);
-        MethodStatement ms = new MethodStatement(test, method, callee, Arrays.asList(new VariableReference[]{arrayVar}));
+        MethodStatement ms = new MethodStatement(test, method, callee, Arrays.asList(arrayVar));
         test.addStatement(ms);
 
         return test;
@@ -116,31 +119,31 @@ public class LocalSearchArraySystemTest extends SystemTestBase {
     }
 
     @Test
-    public void testEmptyArrayLengthLocalSearch() throws ClassNotFoundException, ConstructionFailedException, NoSuchMethodException, SecurityException {
+    public void testEmptyArrayLengthLocalSearch() throws Exception {
         Properties.TARGET_CLASS = ArrayLengthExample.class.getCanonicalName();
         runArrayExample(0, 0.0);
     }
 
     @Test
-    public void testArrayLengthLocalSearch() throws ClassNotFoundException, ConstructionFailedException, NoSuchMethodException, SecurityException {
+    public void testArrayLengthLocalSearch() throws Exception {
         Properties.TARGET_CLASS = ArrayLengthExample.class.getCanonicalName();
         runArrayExample(2, 0.0);
     }
 
     @Test
-    public void testLongArrayLengthLocalSearch() throws ClassNotFoundException, ConstructionFailedException, NoSuchMethodException, SecurityException {
+    public void testLongArrayLengthLocalSearch() throws Exception {
         Properties.TARGET_CLASS = ArrayLengthExample.class.getCanonicalName();
         runArrayExample(10, 0.0);
     }
 
     @Test
-    public void testBasicArrayLocalSearch() throws ClassNotFoundException, ConstructionFailedException, NoSuchMethodException, SecurityException {
+    public void testBasicArrayLocalSearch() throws Exception {
         Properties.TARGET_CLASS = BasicArrayExample.class.getCanonicalName();
         runArrayExample(4, 0.0);
     }
 
     @Test
-    public void testBasicArrayLocalSearchAndLength() throws ClassNotFoundException, ConstructionFailedException, NoSuchMethodException, SecurityException {
+    public void testBasicArrayLocalSearchAndLength() throws Exception {
         Properties.TARGET_CLASS = BasicArrayExample.class.getCanonicalName();
         runArrayExample(0, 1.0); // Requires double execution
     }

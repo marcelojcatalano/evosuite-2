@@ -1564,17 +1564,17 @@ public final class ArithmeticVM extends AbstractVM {
 
     @Override
     public void I2B() {
-        return; /* ignore I2B */
+        /* ignore I2B */
     }
 
     @Override
     public void I2C() {
-        return; /* ignore I2C */
+        /* ignore I2C */
     }
 
     @Override
     public void I2S() {
-        return; /* ignore I2C */
+        /* ignore I2C */
     }
 
     @Override

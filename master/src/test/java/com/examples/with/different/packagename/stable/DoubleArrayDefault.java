@@ -32,25 +32,16 @@ public class DoubleArrayDefault {
     }
 
     public boolean moreThanTwo() {
-        if (this.doubleArray.length > 2)
-            return true;
-        else
-            return false;
+        return this.doubleArray.length > 2;
     }
 
     public boolean moreThanTwoAndNull() {
-        if (moreThanTwo() && isNull())
-            return true;
-        else
-            return false;
+        return moreThanTwo() && isNull();
     }
 
 
     public boolean moreThanTwoAndNonNull() {
-        if (moreThanTwo() && !isNull())
-            return true;
-        else
-            return false;
+        return moreThanTwo() && !isNull();
     }
 
     public boolean isNull() {

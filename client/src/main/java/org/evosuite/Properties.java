@@ -22,7 +22,6 @@ package org.evosuite;
 import org.evosuite.classpath.ClassPathHandler;
 import org.evosuite.lm.MutationType;
 import org.evosuite.runtime.LoopCounter;
-import org.evosuite.runtime.Runtime;
 import org.evosuite.runtime.RuntimeSettings;
 import org.evosuite.runtime.sandbox.Sandbox;
 import org.evosuite.symbolic.dse.algorithm.DSEAlgorithms;
@@ -94,6 +93,21 @@ public class Properties {
 
         double max() default Double.MAX_VALUE;
     }
+
+    // ==================================================================
+// SNAPSHOT SYSTEM
+// ==================================================================
+
+    @Parameter(
+            key = "use_snapshots", group = "Test Creation",
+            description = "If true, EvoSuite will attempt to load cached snapshots (InheritanceTree, CallGraph, ClassNodes)")
+    public static boolean USE_SNAPSHOTS = false;
+
+    @Parameter(
+            key = "save_snapshots", group = "Test Creation",
+            description = "If true, EvoSuite will save snapshots after computing analysis")
+    public static boolean SAVE_SNAPSHOTS = false;
+
 
     // ---------------------------------------------------------------
     // Test sequence creation
@@ -2360,7 +2374,7 @@ public class Properties {
              * Those cases should be handled here before starting the search.
              */
 
-            Runtime.getInstance().resetRuntime(); //it is important to initialize the VFS
+            org.evosuite.runtime.Runtime.getInstance().resetRuntime(); //it is important to initialize the VFS
 
 
             LoopCounter.getInstance().setActive(false);

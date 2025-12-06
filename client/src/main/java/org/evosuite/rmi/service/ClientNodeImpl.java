@@ -19,8 +19,8 @@
  */
 package org.evosuite.rmi.service;
 
-import org.evosuite.Properties;
 import org.evosuite.*;
+import org.evosuite.Properties;
 import org.evosuite.Properties.NoSuchParameterException;
 import org.evosuite.classpath.ClassPathHandler;
 import org.evosuite.coverage.ClassStatisticsPrinter;

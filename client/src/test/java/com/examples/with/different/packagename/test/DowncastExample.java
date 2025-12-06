@@ -33,19 +33,11 @@ public class DowncastExample {
     }
 
     public boolean testMe(Number x) {
-        if (x instanceof Double) {
-            return true;
-        } else {
-            return false;
-        }
+        return x instanceof Double;
     }
 
     public boolean testWithInteger(Integer x) {
-        if (x.equals(42)) {
-            return true;
-        } else {
-            return false;
-        }
+        return x.equals(42);
     }
 
     public AbstractSuperclass getAbstractFoo() {

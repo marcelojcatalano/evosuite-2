@@ -86,11 +86,10 @@ public class TargetCoverageReachedStoppingCondition extends StoppingConditionImp
     public void setLimit(long limit) throws InvalidParameterException {
         if (!isInputValid(limit)) {
             throw new InvalidParameterException(
-                    new StringBuilder()
-                            .append(ERROR_LIMIT_PARAMETER_MUST_BE_IN_BOUNDS)
-                            .append(MINIMUM_LIMIT_INPUT_VALUE)
-                            .append(AND)
-                            .append(MAXIMUM_LIMIT_INPUT_VALUE).toString()
+                    ERROR_LIMIT_PARAMETER_MUST_BE_IN_BOUNDS +
+                            MINIMUM_LIMIT_INPUT_VALUE +
+                            AND +
+                            MAXIMUM_LIMIT_INPUT_VALUE
             );
         }
         targetCoverage = (int) limit;

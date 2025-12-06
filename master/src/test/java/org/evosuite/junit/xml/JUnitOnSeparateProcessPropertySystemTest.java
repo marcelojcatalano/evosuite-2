@@ -19,10 +19,7 @@
  */
 package org.evosuite.junit.xml;
 
-import static org.junit.Assert.assertFalse;
-
-import java.util.Map;
-
+import com.examples.with.different.packagename.junit.Foo;
 import org.evosuite.EvoSuite;
 import org.evosuite.Properties;
 import org.evosuite.SystemTestBase;
@@ -32,13 +29,16 @@ import org.evosuite.statistics.OutputVariable;
 import org.evosuite.statistics.RuntimeVariable;
 import org.evosuite.statistics.backend.DebugStatisticsBackend;
 import org.evosuite.testsuite.TestSuiteChromosome;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.objectweb.asm.Type;
 
-import com.examples.with.different.packagename.junit.Foo;
+import java.util.Map;
+
+import static org.junit.Assert.assertFalse;
 //import org.evosuite.testsuite.SearchStatistics;
 
 public class JUnitOnSeparateProcessPropertySystemTest extends SystemTestBase {

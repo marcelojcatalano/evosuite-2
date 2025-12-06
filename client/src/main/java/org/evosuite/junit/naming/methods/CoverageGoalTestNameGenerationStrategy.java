@@ -38,6 +38,7 @@ import org.evosuite.testcase.execution.TestCaseExecutor;
 import org.evosuite.testcase.statements.ConstructorStatement;
 import org.evosuite.testcase.statements.MethodStatement;
 import org.evosuite.testcase.statements.Statement;
+import org.evosuite.utils.ReflectionUtils;
 import org.objectweb.asm.Type;
 
 import java.lang.reflect.Modifier;
@@ -342,7 +343,8 @@ public class CoverageGoalTestNameGenerationStrategy implements TestNameGeneratio
 
         List<ExecutionResult> newResults = new ArrayList<>();
         for (ExecutionResult result : origResults) {
-            ExecutionResult newResult = TestCaseExecutor.getInstance().runTest(result.test);
+            TestCaseExecutor.getInstance();
+            ExecutionResult newResult = TestCaseExecutor.runTest(result.test);
             newResults.add(newResult);
         }
 

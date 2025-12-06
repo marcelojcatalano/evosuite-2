@@ -50,7 +50,7 @@ public class TestCase61 {
 
         try {
             String nullStringRef = null;
-            string0.indexOf(nullStringRef, 0);
+            string0.indexOf(nullStringRef);
         } catch (NullPointerException ex) {
             catchCount++;
         }

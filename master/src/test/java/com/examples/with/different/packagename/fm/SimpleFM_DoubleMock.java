@@ -33,10 +33,6 @@ public class SimpleFM_DoubleMock {
     }
 
     public static boolean something(Foo foo, Bar bar) {
-        if (foo.foo() && bar.bar()) {
-            return true;
-        } else {
-            return false;
-        }
+        return foo.foo() && bar.bar();
     }
 }

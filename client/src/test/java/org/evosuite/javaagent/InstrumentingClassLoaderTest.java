@@ -26,6 +26,7 @@ import org.evosuite.instrumentation.InstrumentingClassLoader;
 import org.evosuite.instrumentation.testability.TestabilityTransformationClassLoader;
 import org.evosuite.testcase.execution.ExecutionTrace;
 import org.evosuite.testcase.execution.ExecutionTracer;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -59,7 +60,7 @@ public class InstrumentingClassLoaderTest {
         TestabilityTransformationClassLoader instrumentingClassLoader = new TestabilityTransformationClassLoader();
         Class<?> changedClass = instrumentingClassLoader.loadClass(ClassLoaderTestSubject.class.getName());
         Assert.assertEquals(instrumentingClassLoader, changedClass.getClassLoader());
-        Object changed = changedClass.getConstructor().newInstance();
+        Object changed = ReflectionUtils.newInstanceOf(changedClass);
         ExecutionTracer.enable();
         ExecutionTracer.getExecutionTracer().clear();
         TestUtil.invokeMethod(changed, "trySomethingElse");
@@ -89,7 +90,7 @@ public class InstrumentingClassLoaderTest {
         Assert.assertEquals(instrumentingClassLoader, changedClass.getClassLoader());
         Assert.assertTrue(changedClass.hashCode() != originalClass.hashCode());
         Assert.assertNotEquals(changedClass, originalClass);
-        Object changed = changedClass.getConstructor().newInstance();
+        Object changed = ReflectionUtils.newInstanceOf(changedClass);
         try {
             @SuppressWarnings("unused")
             ClassLoaderTestSubject casted = (ClassLoaderTestSubject) changed;
@@ -119,10 +120,10 @@ public class InstrumentingClassLoaderTest {
         Assert.assertEquals(instrumentingClassLoader, changedClass.getClassLoader());
         Assert.assertTrue(changedClass.hashCode() != originalClass.hashCode());
 
-        InnerClassesTestSubject original = originalClass.newInstance();
+        InnerClassesTestSubject original =ReflectionUtils.newInstanceOf(originalClass);
         Assert.assertEquals("abcd", original.toString());
 
-        Object modified = changedClass.newInstance();
+        Object modified = ReflectionUtils.newInstanceOf(changedClass);
         Assert.assertEquals("abcd", modified.toString());
     }
 }

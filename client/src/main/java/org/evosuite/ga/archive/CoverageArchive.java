@@ -135,7 +135,7 @@ public class CoverageArchive extends Archive {
      */
     @Override
     public int getNumberOfTargets() {
-        return this.covered.keySet().size() + this.uncovered.size();
+        return this.covered.size() + this.uncovered.size();
     }
 
     /**

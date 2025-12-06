@@ -33,7 +33,9 @@ import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.utils.generic.GenericField;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.sameInstance;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertSame;
 
 /**
  * Created by gordon on 27/12/2016.
@@ -45,16 +47,16 @@ public class DowncastTest {
         TestCaseBuilder builder = new TestCaseBuilder();
         VariableReference var = builder.appendConstructor(DowncastExample.class.getConstructor());
         VariableReference int0 = builder.appendIntPrimitive(42);
-        VariableReference num0 = builder.appendMethod(var, DowncastExample.class.getMethod("getANumber", new Class<?>[]{int.class}), int0);
+        VariableReference num0 = builder.appendMethod(var, DowncastExample.class.getMethod("getANumber", int.class), int0);
         num0.setType(Integer.class); // This would be set during execution
-        VariableReference boolean0 = builder.appendMethod(var, DowncastExample.class.getMethod("testMe", new Class<?>[]{Number.class}), num0);
+        VariableReference boolean0 = builder.appendMethod(var, DowncastExample.class.getMethod("testMe", Number.class), num0);
         PrimitiveAssertion assertion = new PrimitiveAssertion();
         assertion.setSource(boolean0);
         assertion.setValue(false);
         DefaultTestCase test = builder.getDefaultTestCase();
         test.getStatement(boolean0.getStPosition()).addAssertion(assertion);
         test.removeDownCasts();
-        assertEquals(Number.class, test.getStatement(2).getReturnClass());
+        assertThat(test.getStatement(2).getReturnClass(), sameInstance(Number.class));
     }
 
     @Test
@@ -62,16 +64,16 @@ public class DowncastTest {
         TestCaseBuilder builder = new TestCaseBuilder();
         VariableReference var = builder.appendConstructor(DowncastExample.class.getConstructor());
         VariableReference int0 = builder.appendIntPrimitive(42);
-        VariableReference num0 = builder.appendMethod(var, DowncastExample.class.getMethod("getANumber", new Class<?>[]{int.class}), int0);
+        VariableReference num0 = builder.appendMethod(var, DowncastExample.class.getMethod("getANumber", int.class), int0);
         num0.setType(Integer.class); // This would be set during execution
-        VariableReference boolean0 = builder.appendMethod(var, DowncastExample.class.getMethod("testWithInteger", new Class<?>[]{Integer.class}), num0);
+        VariableReference boolean0 = builder.appendMethod(var, DowncastExample.class.getMethod("testWithInteger", Integer.class), num0);
         PrimitiveAssertion assertion = new PrimitiveAssertion();
         assertion.setSource(boolean0);
         assertion.setValue(false);
         DefaultTestCase test = builder.getDefaultTestCase();
         test.getStatement(boolean0.getStPosition()).addAssertion(assertion);
         test.removeDownCasts();
-        assertEquals(Integer.class, test.getStatement(2).getReturnClass());
+        assertSame(Integer.class, test.getStatement(2).getReturnClass());
     }
 
     @Test
@@ -89,7 +91,7 @@ public class DowncastTest {
         test.getStatement(num0.getStPosition()).addAssertion(assertion);
         test.removeDownCasts();
         System.out.println(test);
-        assertEquals(AbstractSuperclass.class, test.getStatement(1).getReturnClass());
+        assertSame(AbstractSuperclass.class, test.getStatement(1).getReturnClass());
     }
 
     @Test
@@ -107,11 +109,11 @@ public class DowncastTest {
         test.getStatement(num0.getStPosition()).addAssertion(assertion);
         test.removeDownCasts();
         System.out.println(test);
-        assertEquals(ConcreteSubclass.class, test.getStatement(1).getReturnClass());
+        assertSame(ConcreteSubclass.class, test.getStatement(1).getReturnClass());
     }
 
     @Test
-    public void testDownCastUnnecessaryForField() throws NoSuchMethodException, NoSuchFieldException {
+    public void testDownCastUnnecessaryForField() throws Exception {
         TestCaseBuilder builder = new TestCaseBuilder();
         VariableReference var = builder.appendConstructor(DowncastExample.class.getConstructor());
         VariableReference num0 = builder.appendMethod(var, DowncastExample.class.getMethod("getAbstractFoo"));
@@ -127,11 +129,11 @@ public class DowncastTest {
         test.getStatement(num0.getStPosition()).addAssertion(assertion);
         test.removeDownCasts();
         System.out.println(test);
-        assertEquals(AbstractSuperclass.class, test.getStatement(1).getReturnClass());
+        assertSame(AbstractSuperclass.class, test.getStatement(1).getReturnClass());
     }
 
     @Test
-    public void testDownCastNecessaryForField() throws NoSuchMethodException, NoSuchFieldException {
+    public void testDownCastNecessaryForField() throws Exception {
         TestCaseBuilder builder = new TestCaseBuilder();
         VariableReference var = builder.appendConstructor(DowncastExample.class.getConstructor());
         VariableReference num0 = builder.appendMethod(var, DowncastExample.class.getMethod("getAbstractFoo"));
@@ -147,11 +149,11 @@ public class DowncastTest {
         test.getStatement(num0.getStPosition()).addAssertion(assertion);
         test.removeDownCasts();
         System.out.println(test);
-        assertEquals(ConcreteSubclass.class, test.getStatement(1).getReturnClass());
+        assertSame(ConcreteSubclass.class, test.getStatement(1).getReturnClass());
     }
 
     @Test
-    public void testFieldReferenceNeedsDowncast() throws NoSuchMethodException, NoSuchFieldException {
+    public void testFieldReferenceNeedsDowncast() throws Exception {
         TestCaseBuilder builder = new TestCaseBuilder();
         VariableReference var = builder.appendConstructor(DowncastExample.class.getConstructor());
         VariableReference num0 = builder.appendMethod(var, DowncastExample.class.getMethod("getAbstractFoo"));
@@ -166,11 +168,11 @@ public class DowncastTest {
         test.removeDownCasts();
         System.out.println(test);
         FieldReference fr2 = (FieldReference) test.getStatement(3).getReturnValue();
-        assertEquals(ConcreteSubclass.class, fr2.getSource().getVariableClass());
+        assertSame(ConcreteSubclass.class, fr2.getSource().getVariableClass());
     }
 
     @Test
-    public void testFieldReferenceDoesNotNeedDowncast() throws NoSuchMethodException, NoSuchFieldException {
+    public void testFieldReferenceDoesNotNeedDowncast() throws Exception {
         TestCaseBuilder builder = new TestCaseBuilder();
         VariableReference var = builder.appendConstructor(DowncastExample.class.getConstructor());
         VariableReference num0 = builder.appendMethod(var, DowncastExample.class.getMethod("getAbstractFoo"));
@@ -185,7 +187,7 @@ public class DowncastTest {
         test.removeDownCasts();
         System.out.println(test);
         FieldReference fr2 = (FieldReference) test.getStatement(3).getReturnValue();
-        assertEquals(AbstractSuperclass.class, fr2.getSource().getVariableClass());
+        assertSame(AbstractSuperclass.class, fr2.getSource().getVariableClass());
     }
 
 }

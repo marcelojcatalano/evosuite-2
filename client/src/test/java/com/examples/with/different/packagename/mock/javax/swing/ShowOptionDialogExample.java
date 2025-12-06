@@ -27,10 +27,6 @@ public class ShowOptionDialogExample {
 
         int retval = JOptionPane.showOptionDialog(null, "message0", "title0", JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.ERROR_MESSAGE, null, new Object[]{"Hello", "Goodbye"}, "Goodbye");
-        if (retval == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return retval == 0;
     }
 }

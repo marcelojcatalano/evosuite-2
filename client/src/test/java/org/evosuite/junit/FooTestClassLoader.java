@@ -33,7 +33,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 import static org.junit.Assert.assertNotNull;
@@ -49,36 +49,32 @@ public class FooTestClassLoader {
     }
 
     private static String createFooTestJavaText() {
-        StringBuffer buff = new StringBuffer();
-        buff.append("package com.examples.with.different.packagename.junit;\n");
-        buff.append("import static org.junit.Assert.assertEquals;\n");
-        buff.append("import org.junit.Test;\n");
-        buff.append("public class FooTest {\n");
 
-        buff.append("	@Test\n");
-        buff.append("	public void test1() {\n");
-        buff.append("		Foo foo = new Foo();\n");
-        buff.append("		int result = foo.add(10, 15);\n");
-        buff.append("		assertEquals(25, result);\n");
-        buff.append("	}\n");
+        String buff = "package com.examples.with.different.packagename.junit;\n" +
+                "import static org.junit.Assert.assertEquals;\n" +
+                "import org.junit.Test;\n" +
+                "public class FooTest {\n" +
+                "	@Test\n" +
+                "	public void test1() {\n" +
+                "		Foo foo = new Foo();\n" +
+                "		int result = foo.add(10, 15);\n" +
+                "		assertEquals(25, result);\n" +
+                "	}\n" +
+                "	@Test\n" +
+                "	public void test2() {\n" +
+                "		Foo foo = new Foo();\n" +
+                "		int result = foo.add(20, 35);\n" +
+                "		assertEquals(55, result);\n" +
+                "	}\n" +
+                "	@Test \n" +
+                "	public void test3() {\n" +
+                "		Foo foo = new Foo();\n" +
+                "		int result = foo.add(10, 35);\n" +
+                "		assertEquals(46, result);\n" +
+                "	}\n" +
+                "}\n";
 
-        buff.append("	@Test\n");
-        buff.append("	public void test2() {\n");
-        buff.append("		Foo foo = new Foo();\n");
-        buff.append("		int result = foo.add(20, 35);\n");
-        buff.append("		assertEquals(55, result);\n");
-        buff.append("	}\n");
-
-        buff.append("	@Test \n");
-        buff.append("	public void test3() {\n");
-        buff.append("		Foo foo = new Foo();\n");
-        buff.append("		int result = foo.add(10, 35);\n");
-        buff.append("		assertEquals(46, result);\n");
-        buff.append("	}\n");
-
-        buff.append("}\n");
-
-        return buff.toString();
+        return buff;
     }
 
     private static File createNewTmpDir() {
@@ -174,9 +170,7 @@ public class FooTestClassLoader {
                     Foo.class.getClassLoader());
             Class<?> clazz = urlClassLoader.loadClass(FOO_TEST_CLASS_NAME);
             return clazz;
-        } catch (ClassNotFoundException e) {
-            return null;
-        } catch (MalformedURLException e) {
+        } catch (ClassNotFoundException | MalformedURLException e) {
             return null;
         }
     }
@@ -189,14 +183,13 @@ public class FooTestClassLoader {
 
         DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<>();
         StandardJavaFileManager fileManager = compiler.getStandardFileManager(
-                diagnostics, Locale.getDefault(), Charset.forName("UTF-8"));
+                diagnostics, Locale.getDefault(), StandardCharsets.UTF_8);
         Iterable<? extends JavaFileObject> compilationUnits = fileManager
                 .getJavaFileObjectsFromFiles(Collections
                         .singletonList(javaFile));
 
         List<String> optionList;
-        optionList = new ArrayList<>();
-        optionList.addAll(Arrays.asList("-d", javaBinDirName));
+        optionList = new ArrayList<>(Arrays.asList("-d", javaBinDirName));
         CompilationTask task = compiler.getTask(null, fileManager, diagnostics,
                 optionList, null, compilationUnits);
         boolean compiled = task.call();

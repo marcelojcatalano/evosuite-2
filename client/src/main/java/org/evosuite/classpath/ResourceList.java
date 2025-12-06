@@ -176,12 +176,23 @@ public class ResourceList {
      * @param name a fully qualifying name, e.g. org.some.Foo
      * @return
      */
-    public InputStream getClassAsStream(String name) {
+    public InputStream getClassAsStream(String className) {
 
-        String path = name.replace('.', '/') + ".class";
-        String windowsPath = name.replace(".", "\\") + ".class";
+        // === JDK11+ exclusion guard ===
+        if (className.startsWith("java.")
+                || className.startsWith("javax.")
+                || className.startsWith("sun.")
+                || className.startsWith("com.sun.")
+                || className.startsWith("jdk.")
+                || className.startsWith("org.w3c.")
+                || className.startsWith("org.xml.")) {
+            return null; // No cargar clases del JDK
+        }
 
-        String cpEntry = getCache().mapClassToCP.get(name);
+        String path = className.replace('.', '/') + ".class";
+        String windowsPath = className.replace(".", "\\") + ".class";
+
+        String cpEntry = getCache().mapClassToCP.get(className);
         if (cpEntry == null) {
 			
 			/*
@@ -190,19 +201,19 @@ public class ResourceList {
 				the SUT.
 			 */
 
-            InputStream ins = getClassAsStreamFromClassLoader(name);
+            InputStream ins = getClassAsStreamFromClassLoader(className);
             if (ins != null) {
                 return ins;
             }
 
-            if (!getCache().missingClasses.contains(name)) {
-                getCache().missingClasses.add(name);
+            if (!getCache().missingClasses.contains(className)) {
+                getCache().missingClasses.add(className);
                 /*
                  * Note: can't really have "warn" here, as the SUT can use the classloader,
                  * and try to load garbage (eg random string generated as test data) that
                  * would fill the logs
                  */
-                logger.debug("The class " + name + " is not on the classpath"); //only log once
+                logger.debug("The class " + className + " is not on the classpath"); //only log once
             }
             return null;
         }
@@ -256,6 +267,7 @@ public class ResourceList {
      * @param includeInternalClasses should internal classes (ie static and anonymous having $ in their name) be included?
      * @return
      */
+    // TODO JDK11+: reduce cache to project classes only (future optimization)
     public Set<String> getAllClasses(String classPathEntry, boolean includeInternalClasses) {
         return getAllClasses(classPathEntry, "", includeInternalClasses);
     }
@@ -563,10 +575,24 @@ public class ResourceList {
     private void scanJar(String jarEntry) {
         JarFile zf = getCache().getJar(jarEntry);
 
+        assert zf != null;
         Enumeration<?> e = zf.entries();
         while (e.hasMoreElements()) {
             JarEntry ze = (JarEntry) e.nextElement();
             String entryName = ze.getName();
+
+            // === JDK11+ global exclusions ===
+            // Skip core JDK and internal modules to avoid illegal reflection and ASM crashes
+            if (entryName.startsWith("java/")
+                    || entryName.startsWith("javax/")
+                    || entryName.startsWith("sun/")
+                    || entryName.startsWith("com/sun/")
+                    || entryName.startsWith("jdk/")
+                    || entryName.startsWith("org/w3c/")
+                    || entryName.startsWith("org/xml/")) {
+                continue;
+            }
+
 
             if (!entryName.endsWith(".class")) {
                 continue;

@@ -21,8 +21,8 @@ package com.examples.with.different.packagename.purity;
 
 public class InterfaceInspectorCalls {
 
-    private InterfaceInspector iInspector1;
-    private InterfaceInspector iInspector2;
+    private final InterfaceInspector iInspector1;
+    private final InterfaceInspector iInspector2;
 
     public InterfaceInspectorCalls(int x) {
         iInspector1 = new AllPureInspectors(x);

@@ -22,11 +22,7 @@ package com.examples.with.different.packagename.papers.pafm;
 public class PAFM_old {
 
     public boolean checkIfOK(AnInterface x) {
-        if (x.isOK()) {
-            return true;
-        } else {
-            return false;
-        }
+        return x.isOK();
     }
 
     private boolean aPrivateMethod(int y) {

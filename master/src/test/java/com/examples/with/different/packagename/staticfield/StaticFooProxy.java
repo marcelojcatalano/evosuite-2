@@ -26,10 +26,7 @@ public class StaticFooProxy {
 
     public static boolean bar(int x) throws IllegalStateException {
         boolean ret_val = StaticFoo.bar(x);
-        if (ret_val)
-            return true;
-        else
-            return false;
+        return ret_val;
     }
 
 }

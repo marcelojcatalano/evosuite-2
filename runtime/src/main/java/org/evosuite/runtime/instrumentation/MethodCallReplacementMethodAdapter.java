@@ -21,6 +21,7 @@
 package org.evosuite.runtime.instrumentation;
 
 
+import org.evosuite.utils.ReflectionUtils;
 import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.commons.GeneratorAdapter;

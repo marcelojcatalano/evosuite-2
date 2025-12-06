@@ -26,6 +26,7 @@ import org.evosuite.rmi.ClientServices;
 import org.evosuite.statistics.RuntimeVariable;
 import org.evosuite.testcase.TestFitnessFunction;
 import org.evosuite.testsuite.AbstractFitnessFactory;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -117,8 +118,8 @@ public class AmbiguityCoverageFactory extends
         goals = RhoAux.getLineGoals();
         ClientServices.getInstance().getClientNode().trackOutputVariable(RuntimeVariable.Total_Goals, goals.size());
 
-        max_ambiguity_score = (1.0) // goals.size() / goals.size()
-                * ((((double) goals.size()) - 1.0) / 2.0);
+        max_ambiguity_score = // goals.size() / goals.size()
+                ((((double) goals.size()) - 1.0) / 2.0);
 
         if (Properties.USE_EXISTING_COVERAGE) {
             // extremely important: before loading any previous coverage (i.e., from a coverage

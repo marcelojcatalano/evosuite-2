@@ -33,7 +33,7 @@ public class TargetMethod {
                 throw new NullPointerException();
             }
         } catch (Exception e) {
-            System.out.println(e.toString());
+            System.out.println(e);
         }
 
         if (x > 0) {
@@ -45,11 +45,7 @@ public class TargetMethod {
     }
 
     public boolean bar(Integer x) {
-        if (x < 500) {
-            return false;
-        } else {
-            return true;
-        }
+        return x >= 500;
     }
 
     public int getY() {

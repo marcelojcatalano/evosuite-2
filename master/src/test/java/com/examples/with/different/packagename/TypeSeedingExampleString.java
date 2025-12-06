@@ -24,9 +24,7 @@ public class TypeSeedingExampleString {
 
     public boolean testMe(Object o) {
         if (o instanceof String) {
-            if (o.equals("test")) {
-                return true;
-            }
+            return o.equals("test");
         }
 
         return false;

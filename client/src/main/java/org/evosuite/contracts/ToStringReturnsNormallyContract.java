@@ -29,7 +29,6 @@ import org.evosuite.testcase.variable.VariableReference;
 import org.evosuite.utils.generic.GenericMethod;
 
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -100,7 +99,7 @@ public class ToStringReturnsNormallyContract extends Contract {
 
             GenericMethod method = new GenericMethod(hashCodeMethod, a.getGenericClass());
 
-            Statement st1 = new MethodStatement(test, method, a, Arrays.asList(new VariableReference[]{}));
+            Statement st1 = new MethodStatement(test, method, a, List.of());
             test.addStatement(st1, position + 1);
             st1.addComment("Throws exception: " + exception.getMessage());
 

@@ -26,6 +26,7 @@ import org.evosuite.testcase.TestFitnessFunction;
 import org.evosuite.testcase.execution.ExecutionObserver;
 import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testcase.execution.TestCaseExecutor;
+import org.evosuite.utils.ReflectionUtils;
 import org.objectweb.asm.Type;
 
 import java.util.Objects;

@@ -19,18 +19,11 @@
  */
 package com.examples.with.different.packagename.testcarver;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Collection;
+import java.io.IOException;
 import java.io.StreamTokenizer;
 import java.io.StringReader;
-import java.io.IOException;
 import java.lang.reflect.Array;
-
-import com.examples.with.different.packagename.testcarver.ConversionException;
-import com.examples.with.different.packagename.testcarver.Converter;
+import java.util.*;
 
 /**
  * Generic {@link Converter} implementaion that handles conversion
@@ -130,8 +123,8 @@ import com.examples.with.different.packagename.testcarver.Converter;
  */
 public class ArrayConverter extends AbstractConverter {
 
-    private Object defaultTypeInstance;
-    private Converter elementConverter;
+    private final Object defaultTypeInstance;
+    private final Converter elementConverter;
     private int defaultSize;
     private char delimiter = ',';
     private char[] allowedChars = new char[]{'.', '-'};
@@ -392,14 +385,13 @@ public class ArrayConverter extends AbstractConverter {
      * @return A String representation of this array converter
      */
     public String toString() {
-        StringBuffer buffer = new StringBuffer();
-        buffer.append(toString(getClass()));
-        buffer.append("[UseDefault=");
-        buffer.append(isUseDefault());
-        buffer.append(", ");
-        buffer.append(elementConverter.toString());
-        buffer.append(']');
-        return buffer.toString();
+        String buffer = toString(getClass()) +
+                "[UseDefault=" +
+                isUseDefault() +
+                ", " +
+                elementConverter.toString() +
+                ']';
+        return buffer;
     }
 
     /**

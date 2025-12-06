@@ -37,7 +37,6 @@ public class ImmutableStringPrimitiveStatement extends StringPrimitiveStatement 
 
     @Override
     public void delta() {
-        return;
     }
 
     @Override

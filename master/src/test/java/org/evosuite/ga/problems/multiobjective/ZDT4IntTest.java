@@ -19,10 +19,6 @@
  */
 package org.evosuite.ga.problems.multiobjective;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.evosuite.Properties;
 import org.evosuite.ga.ChromosomeFactory;
 import org.evosuite.ga.FitnessFunction;
@@ -40,6 +36,10 @@ import org.evosuite.ga.variables.DoubleVariable;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.util.Comparator.comparingDouble;
 
@@ -86,7 +86,7 @@ public class ZDT4IntTest {
      * @throws NumberFormatException
      */
     @Test
-    public void testZDT4() throws NumberFormatException, IOException {
+    public void testZDT4() throws Exception {
         Properties.MUTATION_RATE = 1d / 10d;
 
         ChromosomeFactory<NSGAChromosome> factory = new RandomFactory(true, 10, -5.0, 5.0);

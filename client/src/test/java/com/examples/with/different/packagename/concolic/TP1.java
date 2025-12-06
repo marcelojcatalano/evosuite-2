@@ -982,7 +982,7 @@ public class TP1 implements TPInterface4, TPInterface2 {
                 System.out.println("TP1 - TP1method8- LineInMethod: 42");
                 break;
             case 5:
-                var3 = (var2 * var4) - (var2 * var4);
+                var3 = 0;
                 break;
             case 6:
                 var4 = ((var6 + var5) % 306) + (var0 % 365);
@@ -1004,6 +1004,7 @@ public class TP1 implements TPInterface4, TPInterface2 {
         for (int i = 0; i < 11; i++) {
             if ((((var2 % 495) % 325) < (var5 % 382))) {
                 var0 = ((var1 - 284) / 213) - (var1 * 120);
+                break;
             }
         }
         if (((var2 - var1) >= ((var3 - var1) + (var1 * var3)))) {
@@ -1366,6 +1367,7 @@ public class TP1 implements TPInterface4, TPInterface2 {
         for (int i = 0; i < 4; i++) {
             if (((var7 + var5) <= ((var10 % 472) - ((var0 + 203) * (var2 + var9))))) {
                 var7 = (var5 * var3) + (var9 - 47);
+                break;
             }
         }
         if (((var5 - var10) > (var2 * var0))) {
@@ -1450,6 +1452,7 @@ public class TP1 implements TPInterface4, TPInterface2 {
         for (int i = 0; i < 2; i++) {
             if (((var3 * 386) != (var0 + var4))) {
                 var0 = var4 % 211;
+                break;
             }
         }
         if ((((var0 + var6) * (var2 * var3)) >= (var6 % 69))) {

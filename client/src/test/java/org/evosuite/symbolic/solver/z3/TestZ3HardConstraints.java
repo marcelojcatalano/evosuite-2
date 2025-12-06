@@ -23,7 +23,6 @@ import com.examples.with.different.packagename.concolic.HardConstraints;
 import org.evosuite.symbolic.TestCaseBuilder;
 import org.evosuite.symbolic.expr.Constraint;
 import org.evosuite.symbolic.solver.DefaultTestCaseConcolicExecutor;
-import org.evosuite.symbolic.solver.SolverTimeoutException;
 import org.evosuite.testcase.DefaultTestCase;
 import org.evosuite.testcase.variable.VariableReference;
 import org.junit.Test;
@@ -38,7 +37,7 @@ import static org.junit.Assert.*;
 public class TestZ3HardConstraints extends TestZ3 {
 
     @Test
-    public void test0() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void test0() throws Exception {
         Z3Solver solver = new Z3Solver();
 
         DefaultTestCase tc = buildTestCase0();
@@ -52,7 +51,7 @@ public class TestZ3HardConstraints extends TestZ3 {
     }
 
     @Test
-    public void test1() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void test1() throws Exception {
         Z3Solver solver = new Z3Solver();
 
         DefaultTestCase tc = buildTestCase1();
@@ -66,7 +65,7 @@ public class TestZ3HardConstraints extends TestZ3 {
     }
 
     @Test
-    public void test2() throws SecurityException, NoSuchMethodException, SolverTimeoutException {
+    public void test2() throws Exception {
         Z3Solver solver = new Z3Solver();
 
         DefaultTestCase tc = buildTestCase2();

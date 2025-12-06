@@ -50,15 +50,15 @@ public class SpecifiedValuesAnswer<T> implements Answer<T> {
                 unboxing of primitive values (eg int)
              */
             if (values instanceof Integer[]) {
-                return (T) new Integer(0);
+                return (T) Integer.valueOf(0);
             } else if (values instanceof Double[]) {
                 return (T) new Double(0);
             } else if (values instanceof Float[]) {
                 return (T) new Float(0);
             } else if (values instanceof Long[]) {
-                return (T) new Long(0);
+                return (T) Long.valueOf(0);
             } else if (values instanceof Short[]) {
-                return (T) new Short((short) 0);
+                return (T) Short.valueOf((short) 0);
             } else {
                 return null;
             }

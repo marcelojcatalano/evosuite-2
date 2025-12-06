@@ -27,6 +27,7 @@ import org.evosuite.symbolic.expr.AbstractExpression;
 import org.evosuite.symbolic.expr.ExpressionVisitor;
 import org.evosuite.symbolic.expr.Variable;
 import org.evosuite.symbolic.expr.bv.StringComparison;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,7 +46,7 @@ public final class HasMoreTokensExpr extends AbstractExpression<Long> implements
 
 
     private static final long serialVersionUID = 2154812241163764621L;
-    protected static Logger log = LoggerFactory.getLogger(HasMoreTokensExpr.class);
+    private static Logger log = LoggerFactory.getLogger(HasMoreTokensExpr.class);
 
     public HasMoreTokensExpr(TokenizerExpr tokenizerExpr, Long con) {
         super(con, 1 + tokenizerExpr.getSize(), tokenizerExpr.containsSymbolicVariable());

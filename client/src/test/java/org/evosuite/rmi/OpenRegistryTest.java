@@ -23,7 +23,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.net.ServerSocket;
-import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -33,7 +32,7 @@ import java.rmi.server.UnicastRemoteObject;
 public class OpenRegistryTest {
 
     @Test
-    public void openTest() throws RemoteException, NotBoundException {
+    public void openTest() throws Exception {
         int port = 2000;
 
         for (int i = 0; i < 10000; i++) {

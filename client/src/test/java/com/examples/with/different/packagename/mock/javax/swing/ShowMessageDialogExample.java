@@ -25,29 +25,17 @@ public class ShowMessageDialogExample {
 
     public boolean showMessageDialog0(int x) {
         JOptionPane.showMessageDialog(null, "alert");
-        if (x == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return x == 0;
     }
 
     public boolean showMessageDialog1(int x) {
         JOptionPane.showMessageDialog(null, "alert", "alert", JOptionPane.ERROR_MESSAGE);
-        if (x == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return x == 0;
     }
 
     public boolean showMessageDialog2(int x) {
         JOptionPane.showMessageDialog(null, "alert", "alert", JOptionPane.ERROR_MESSAGE, null);
-        if (x == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return x == 0;
     }
 
 }

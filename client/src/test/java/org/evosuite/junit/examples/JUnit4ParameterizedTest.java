@@ -33,8 +33,8 @@ import static org.junit.Assert.assertEquals;
 @RunWith(Parameterized.class)
 public class JUnit4ParameterizedTest {
 
-    private Integer input;
-    private Boolean output;
+    private final Integer input;
+    private final Boolean output;
     private FlagExample1 cut;
 
     @Before

@@ -41,11 +41,7 @@ public class TestCaseWithFile {
     }
 
     public static boolean isZero(int value) {
-        if (value == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return value == 0;
     }
 
 }

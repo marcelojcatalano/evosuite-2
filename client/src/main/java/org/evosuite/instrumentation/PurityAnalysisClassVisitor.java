@@ -96,7 +96,7 @@ public class PurityAnalysisClassVisitor extends ClassVisitor {
                                      String descriptor, String signature, String[] exceptions) {
 
 
-        if (visitingInterface == true) {
+        if (visitingInterface) {
             purityAnalyzer.addInterfaceMethod(className.replace('/', '.'),
                     name, descriptor);
         } else {

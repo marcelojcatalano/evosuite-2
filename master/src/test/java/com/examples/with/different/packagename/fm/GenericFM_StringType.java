@@ -29,10 +29,6 @@ public class GenericFM_StringType {
     }
 
     public static boolean bar(Foo<String> foo) {
-        if (foo.foo("Test").equals("Bar")) {
-            return true;
-        } else {
-            return false;
-        }
+        return foo.foo("Test").equals("Bar");
     }
 }

@@ -29,10 +29,7 @@ public class ArrayLocalSearchExample {
                 return false;
             if (x[2] != 20)
                 return false;
-            if (x[3] != 30)
-                return false;
-
-            return true;
+            return x[3] == 30;
         }
 
         return false;

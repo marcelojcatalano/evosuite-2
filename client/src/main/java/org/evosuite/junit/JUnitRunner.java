@@ -57,6 +57,11 @@ public class JUnitRunner {
     public JUnitRunner(Class<?> junitClass) {
         this.testResults = new ArrayList<>();
         this.junitClass = junitClass;
+
+        // Inicializar handlers ANTES de correr los tests
+        org.evosuite.runtime.instrumentation.InstantiationHelper
+                .getInstance()
+                .loadDefaults();
     }
 
     public void run() {

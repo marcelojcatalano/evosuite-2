@@ -40,10 +40,7 @@ public class NoClassInit {
             throw new IllegalStateException("Only one call to bar is allowed");
 
         instance = new NoClassInit();
-        if (value < 0)
-            return true;
-        else
-            return false;
+        return value < 0;
     }
 
 }

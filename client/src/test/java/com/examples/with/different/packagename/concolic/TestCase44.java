@@ -25,11 +25,7 @@ public class TestCase44 {
 
         public boolean bar(int i) {
 
-            if (i == Integer.MAX_VALUE) {
-                return true;
-            } else {
-                return false;
-            }
+            return i == Integer.MAX_VALUE;
         }
     }
 

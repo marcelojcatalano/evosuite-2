@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MultiThreads {
 
-    private static volatile AtomicBoolean FLAG = new AtomicBoolean(false);
+    private static final AtomicBoolean FLAG = new AtomicBoolean(false);
 
     public void foo() throws InterruptedException {
         synchronized (FLAG) {
@@ -48,7 +48,6 @@ public class MultiThreads {
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
-                return;
             }
         }
     }

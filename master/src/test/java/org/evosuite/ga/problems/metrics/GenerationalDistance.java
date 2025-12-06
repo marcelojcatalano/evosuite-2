@@ -33,7 +33,7 @@ package org.evosuite.ga.problems.metrics;
  * doi={10.1109/CEC.2000.870296}}
  */
 public class GenerationalDistance extends Metrics {
-    private static int P = 2;
+    private static final int P = 2;
 
     /**
      * Gets the distance between a point and the nearest one in a given front

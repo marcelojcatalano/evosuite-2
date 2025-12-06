@@ -25,7 +25,6 @@ import org.evosuite.symbolic.expr.constraint.IntegerConstraint;
 import org.evosuite.symbolic.vm.ConstraintFactory;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.util.Collection;
 import java.util.LinkedList;
 
@@ -34,8 +33,7 @@ import static org.junit.Assert.assertTrue;
 public abstract class TestSolverUNSAT extends TestSolver {
 
     @Test
-    public void testUNSAT() throws SolverTimeoutException, IOException, SolverParseException, SolverEmptyQueryException,
-            SolverErrorException {
+    public void testUNSAT() throws Exception {
         Solver solver = getSolver();
 
         Collection<Constraint<?>> constraints = new LinkedList<>();

@@ -130,7 +130,7 @@ public final class TestSuiteChromosome
      *
      * @param source a {@link org.evosuite.testsuite.TestSuiteChromosome} object.
      */
-    protected TestSuiteChromosome(TestSuiteChromosome source) {
+    private TestSuiteChromosome(TestSuiteChromosome source) {
         super(source);
     }
 
@@ -274,7 +274,7 @@ public final class TestSuiteChromosome
             result += "Test " + i + ": \n";
             i++;
             if (test.getLastExecutionResult() != null) {
-                result += test.getTestCase().toCode(test.getLastExecutionResult().exposeExceptionMapping());
+                result += test.getTestCase().toCode(test.getLastExecutionResult().getCopyOfExceptionMapping());
             } else {
                 result += test.getTestCase().toCode() + "\n";
             }

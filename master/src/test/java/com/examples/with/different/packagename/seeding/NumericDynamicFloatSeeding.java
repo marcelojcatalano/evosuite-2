@@ -24,7 +24,7 @@ package com.examples.with.different.packagename.seeding;
  */
 
 public class NumericDynamicFloatSeeding {
-    private static float CONSTANT = 1500f;
+    private static final float CONSTANT = 1500f;
 
     public static float check(float a) {
 

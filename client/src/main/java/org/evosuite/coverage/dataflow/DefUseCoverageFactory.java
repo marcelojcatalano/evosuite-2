@@ -32,6 +32,7 @@ import org.evosuite.testcase.execution.ExecutionResult;
 import org.evosuite.testsuite.AbstractFitnessFactory;
 import org.evosuite.utils.JdkPureMethodsList;
 import org.evosuite.utils.LoggingUtils;
+import org.evosuite.utils.ReflectionUtils;
 import org.objectweb.asm.Type;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -72,7 +72,7 @@ public class Calendar extends java.util.Calendar {
 
     public static java.util.Calendar getInstance() {
         Capturer.capture(Instrumenter.CAPTURE_ID_JAVA_UTIL_CALENDAR, CaptureUtil.loadClass("java/util/Calendar"), "getInstance", "()Ljava/util/Calendar;", new Object[]{});
-        Calendar ret = new Calendar(java.util.Calendar.getInstance());
+        Calendar ret = new Calendar(Calendar.getInstance());
         FieldRegistry.register(ret);
         Capturer.enable(Instrumenter.CAPTURE_ID_JAVA_UTIL_CALENDAR, CaptureUtil.loadClass("java/util/Calendar"), ret);
         return ret;

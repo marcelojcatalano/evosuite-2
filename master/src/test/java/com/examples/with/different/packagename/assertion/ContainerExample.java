@@ -25,7 +25,7 @@ import java.util.List;
 
 public class ContainerExample {
 
-    private List<String> stuff = new ArrayList<>();
+    private final List<String> stuff = new ArrayList<>();
 
     public Collection<String> add(String thing) {
         if (!thing.equals("foo"))

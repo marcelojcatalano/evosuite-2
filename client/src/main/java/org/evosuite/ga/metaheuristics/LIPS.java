@@ -40,6 +40,7 @@ import org.evosuite.testsuite.TestSuiteFitnessFunction;
 import org.evosuite.utils.ArrayUtil;
 import org.evosuite.utils.BudgetConsumptionMonitor;
 import org.evosuite.utils.Randomness;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -268,7 +269,7 @@ public class LIPS extends GeneticAlgorithm<TestChromosome> {
             computeCollateralCoverage(test);
 
             // update the time needed to reach the max coverage
-            budgetMonitor.checkMaxCoverage(this.archive.keySet().size());
+            budgetMonitor.checkMaxCoverage(this.archive.size());
         }
     }
 
@@ -466,7 +467,7 @@ public class LIPS extends GeneticAlgorithm<TestChromosome> {
     }
 
     protected double numberOfCoveredTargets() {
-        return this.archive.keySet().size();
+        return this.archive.size();
     }
 
     /**

@@ -24,6 +24,7 @@ import org.evosuite.Properties;
 import org.evosuite.TestGenerationContext;
 import org.evosuite.instrumentation.InstrumentingClassLoader;
 import org.evosuite.runtime.mock.MockList;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

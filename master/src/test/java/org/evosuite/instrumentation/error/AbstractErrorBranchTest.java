@@ -46,24 +46,23 @@ public class AbstractErrorBranchTest extends SystemTestBase {
 
         String[] command = new String[]{"-generateSuite", "-class", targetClassName};
 
-        StringBuilder s = new StringBuilder();
-        s.append(RuntimeVariable.Coverage);
-        s.append(",");
-        s.append(RuntimeVariable.BranchCoverage);
-        s.append(",");
-        s.append(RuntimeVariable.Covered_Goals);
-        s.append(",");
-        s.append(RuntimeVariable.Total_Goals);
-        s.append(",");
-        s.append(RuntimeVariable.Covered_Branches);
-        s.append(",");
-        s.append(RuntimeVariable.Covered_Branchless_Methods);
-        s.append(",");
-        s.append(RuntimeVariable.Covered_Branches_Real);
-        s.append(",");
-        s.append(RuntimeVariable.Covered_Branches_Instrumented);
-        s.append(",");
-        Properties.OUTPUT_VARIABLES = s.toString();
+        String s = RuntimeVariable.Coverage +
+                "," +
+                RuntimeVariable.BranchCoverage +
+                "," +
+                RuntimeVariable.Covered_Goals +
+                "," +
+                RuntimeVariable.Total_Goals +
+                "," +
+                RuntimeVariable.Covered_Branches +
+                "," +
+                RuntimeVariable.Covered_Branchless_Methods +
+                "," +
+                RuntimeVariable.Covered_Branches_Real +
+                "," +
+                RuntimeVariable.Covered_Branches_Instrumented +
+                ",";
+        Properties.OUTPUT_VARIABLES = s;
 
         Object result = evosuite.parseCommandLine(command);
 

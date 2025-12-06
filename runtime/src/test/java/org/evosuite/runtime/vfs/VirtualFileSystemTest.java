@@ -23,6 +23,7 @@ import org.evosuite.runtime.mock.MockFramework;
 import org.evosuite.runtime.mock.java.io.MockFile;
 import org.evosuite.runtime.mock.java.io.MockFileInputStream;
 import org.evosuite.runtime.mock.java.io.MockFileOutputStream;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

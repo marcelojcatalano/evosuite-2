@@ -28,7 +28,7 @@ import java.util.List;
  */
 public class GenericMethodAlternativeBounds {
 
-    public static enum Foo {
+    public enum Foo {
 
     }
 

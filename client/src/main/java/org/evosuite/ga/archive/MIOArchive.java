@@ -106,7 +106,7 @@ public class MIOArchive extends Archive {
      */
     @Override
     public int getNumberOfTargets() {
-        return this.archive.keySet().size();
+        return this.archive.size();
     }
 
     /**

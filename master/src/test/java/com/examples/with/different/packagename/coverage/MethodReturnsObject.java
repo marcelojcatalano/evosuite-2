@@ -26,10 +26,7 @@ public class MethodReturnsObject {
             return null;
         } else {
             ClassWithObserver c = new ClassWithObserver(s);
-            if (integer > 0)
-                c.setF(true);
-            else
-                c.setF(false);
+            c.setF(integer > 0);
             return c;
         }
     }

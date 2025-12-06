@@ -20,6 +20,7 @@
 package org.evosuite.runtime.mock.java.net;
 
 import org.evosuite.runtime.vnet.VirtualNetwork;
+import org.evosuite.utils.ReflectionUtils;
 import org.junit.Assert;
 import org.junit.Test;
 

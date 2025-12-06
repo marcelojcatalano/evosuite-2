@@ -24,11 +24,7 @@ public class TestCaseCastIntToReal {
     public static boolean test(int int_x) {
 
         double double_x = int_x;
-        if (double_x == 0 && int_x != 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return double_x == 0 && int_x != 0;
 
     }
 

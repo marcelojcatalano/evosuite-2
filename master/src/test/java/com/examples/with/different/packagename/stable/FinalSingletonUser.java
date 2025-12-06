@@ -30,17 +30,11 @@ public class FinalSingletonUser {
     }
 
     public boolean isZero() {
-        if (myId == 0)
-            return true;
-        else
-            return false;
+        return myId == 0;
     }
 
     public boolean isNotZero() {
-        if (myId != 0)
-            return true;
-        else
-            return false;
+        return myId != 0;
     }
 
 }

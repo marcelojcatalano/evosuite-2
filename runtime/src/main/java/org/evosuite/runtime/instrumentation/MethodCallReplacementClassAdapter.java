@@ -122,8 +122,10 @@ public class MethodCallReplacementClassAdapter extends ClassVisitor {
             boolean found = false;
             String instrumentedInterface = InstrumentedClass.class.getCanonicalName().replace('.', '/');
             for (String interf : interfaces) {
-                if (interf.equals(instrumentedInterface))
+                if (interf.equals(instrumentedInterface)) {
                     found = true;
+                    break;
+                }
             }
             if (!found) {
                 logger.info("Adding mock interface to class " + name);

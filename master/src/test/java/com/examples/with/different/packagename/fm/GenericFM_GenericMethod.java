@@ -28,10 +28,6 @@ public class GenericFM_GenericMethod {
     }
 
     public static boolean bar(Foo foo) {
-        if (foo.foo("Test").equals("Bar")) {
-            return true;
-        } else {
-            return false;
-        }
+        return foo.foo("Test").equals("Bar");
     }
 }

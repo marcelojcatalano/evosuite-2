@@ -25,9 +25,6 @@ package com.examples.with.different.packagename;
 public class EnumUser {
 
     public boolean foo(EnumInInnerClass.AnEnum val) {
-        if (val == EnumInInnerClass.AnEnum.FOO)
-            return true;
-        else
-            return false;
+        return val == EnumInInnerClass.AnEnum.FOO;
     }
 }

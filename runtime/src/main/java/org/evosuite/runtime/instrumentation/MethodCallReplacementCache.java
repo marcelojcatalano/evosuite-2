@@ -209,12 +209,7 @@ public class MethodCallReplacementCache {
             } else if (StaticReplacementMock.class.isAssignableFrom(mock)) {
 
                 String mockedName;
-                try {
-                    mockedName = ((StaticReplacementMock) mock.newInstance()).getMockedClassName();
-                } catch (InstantiationException | IllegalAccessException e1) {
-                    logger.error("Cannot instantiate mock " + mock.getCanonicalName());
-                    continue;
-                }
+                mockedName = ((StaticReplacementMock)org.evosuite.utils.ReflectionUtils.newInstanceOf(mock)).getMockedClassName();
                 Class<?> mocked;
                 try {
                     mocked = StaticReplacementMock.class.getClassLoader().loadClass(mockedName);

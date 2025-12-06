@@ -80,13 +80,11 @@ public class ArraySymbolicLengthName {
      * @return
      */
     public static String buildSymbolicLengthDimensionName(String arrayReferenceName, int dimension) {
-        return new StringBuilder()
-                .append(arrayReferenceName)
-                .append(ARRAY_LENGTH_NAME_SEPARATOR)
-                .append(ARRAY_LENGTH_SYMBOLIC_NAME_SUFFIX)
-                .append(ARRAY_LENGTH_NAME_SEPARATOR)
-                .append(dimension)
-                .toString();
+        return arrayReferenceName +
+                ARRAY_LENGTH_NAME_SEPARATOR +
+                ARRAY_LENGTH_SYMBOLIC_NAME_SUFFIX +
+                ARRAY_LENGTH_NAME_SEPARATOR +
+                dimension;
     }
 
     /**

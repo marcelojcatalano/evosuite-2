@@ -38,14 +38,14 @@ public enum MyEnum {
     /**
      * Display string for the relationship.
      */
-    private String stringValue;
+    private final String stringValue;
 
     /**
      * Simple constructor.
      *
      * @param stringValue display string for the relationship
      */
-    private MyEnum(String stringValue) {
+    MyEnum(String stringValue) {
         this.stringValue = stringValue;
     }
 

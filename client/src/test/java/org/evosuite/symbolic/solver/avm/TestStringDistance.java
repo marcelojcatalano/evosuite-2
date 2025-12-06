@@ -149,7 +149,7 @@ public class TestStringDistance extends RandomizedTC {
         StringConstraint stringConstraint = new StringConstraint(comp,
                 Comparator.NE, zero);
         Collection<Constraint<?>> cnstr = Collections
-                .<Constraint<?>>singletonList(stringConstraint);
+                .singletonList(stringConstraint);
         return cnstr;
     }
 

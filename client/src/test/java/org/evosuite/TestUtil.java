@@ -19,8 +19,8 @@
  */
 package org.evosuite;
 
-import junit.framework.Assert;
 import org.evosuite.instrumentation.testability.TestabilityTransformationClassLoader;
+import org.junit.Assert;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -34,7 +34,7 @@ public class TestUtil {
         Assert.assertEquals("Must start test with '-DDPROJECT_PREFIX=" + projectPrefix + "'.",
                 Properties.PROJECT_PREFIX, projectPrefix);
         String targetClass = clazz.getName();
-        Assert.assertEquals("Must start test with '-DTARGET_CLASS=" + targetClass + "'.", Properties.TARGET_CLASS,
+        org.junit.Assert.assertEquals("Must start test with '-DTARGET_CLASS=" + targetClass + "'.", Properties.TARGET_CLASS,
                 targetClass);
     }
 
@@ -45,10 +45,10 @@ public class TestUtil {
         // TODO When doing so remember to also remove the -javaagent param from
         // the launch config
         String projectPrefix = clazz.substring(0, clazz.lastIndexOf("."));
-        Assert.assertEquals("Must start test with '-DDPROJECT_PREFIX=" + projectPrefix + "'.",
+        org.junit.Assert.assertEquals("Must start test with '-DDPROJECT_PREFIX=" + projectPrefix + "'.",
                 Properties.PROJECT_PREFIX, projectPrefix);
         String targetClass = clazz;
-        Assert.assertEquals("Must start test with '-DTARGET_CLASS=" + targetClass + "'.", Properties.TARGET_CLASS,
+        org.junit.Assert.assertEquals("Must start test with '-DTARGET_CLASS=" + targetClass + "'.", Properties.TARGET_CLASS,
                 targetClass);
     }
 

@@ -80,7 +80,6 @@ public class ClassPathHacker {
                 cause = "Failed to add " + locator.getLocationNotOnClasspath() + " to system classpath";
                 junitCheckAvailable = false;
                 //throw new RuntimeException("Failed to add " + locator.getLocationNotOnClasspath() + " to system classpath");
-                return;
             }
         }
 

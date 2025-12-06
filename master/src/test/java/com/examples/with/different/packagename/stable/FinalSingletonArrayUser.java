@@ -38,31 +38,19 @@ public class FinalSingletonArrayUser {
     }
 
     public boolean isEqualToFirst(byte myFloat) {
-        if (myFloat == CONSTANT_ARRAY[0])
-            return true;
-        else
-            return false;
+        return myFloat == CONSTANT_ARRAY[0];
     }
 
     public boolean isEqualToSecond(byte myFloat) {
-        if (myFloat == CONSTANT_ARRAY[1])
-            return true;
-        else
-            return false;
+        return myFloat == CONSTANT_ARRAY[1];
     }
 
     public boolean isFirstZero() {
-        if (CONSTANT_ARRAY[0] == (byte) 0)
-            return true;
-        else
-            return false;
+        return CONSTANT_ARRAY[0] == (byte) 0;
     }
 
     public boolean isSecondZero() {
-        if (CONSTANT_ARRAY[1] == (byte) 0)
-            return true;
-        else
-            return false;
+        return CONSTANT_ARRAY[1] == (byte) 0;
     }
 
     public static void clear() {

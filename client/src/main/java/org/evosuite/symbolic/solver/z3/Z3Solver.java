@@ -30,6 +30,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 public class Z3Solver extends SmtSolver {
@@ -87,9 +88,9 @@ public class Z3Solver extends SmtSolver {
         String output;
         try {
             launchNewSolvingProcess(z3Cmd, queryStr, (int) hard_timeout, stdout);
-            output = stdout.toString("UTF-8");
+            output = stdout.toString(StandardCharsets.UTF_8);
         } catch (SolverErrorException ex) {
-            output = stdout.toString("UTF-8");
+            output = stdout.toString(StandardCharsets.UTF_8);
             if (!output.startsWith("unsat")) {
                 throw ex;
             }

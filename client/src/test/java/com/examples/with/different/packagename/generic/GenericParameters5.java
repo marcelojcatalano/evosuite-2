@@ -28,10 +28,7 @@ import java.util.List;
 public class GenericParameters5 {
 
     public boolean testMe(List<?> aList) {
-        if (aList.isEmpty())
-            return true;
-        else
-            return false;
+        return aList.isEmpty();
     }
 
 }

@@ -23,6 +23,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
 import org.evosuite.TimeController;
 import org.evosuite.testcarver.exception.CapturerException;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,7 +44,7 @@ public final class Capturer {
 
     private static final ArrayList<String[]> classesToBeObserved = new ArrayList<>();
 
-    private static final transient Logger logger = LoggerFactory.getLogger(Capturer.class);
+    private static final Logger logger = LoggerFactory.getLogger(Capturer.class);
 
     /*
      * TODO this needs refactoring.

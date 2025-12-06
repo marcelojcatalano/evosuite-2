@@ -27,11 +27,7 @@ public class ShowInternalMessageDialogExample {
         JOptionPane.showInternalMessageDialog(null, "message0");
         JOptionPane.showInternalMessageDialog(null, "message0", "title0", JOptionPane.ERROR_MESSAGE);
         JOptionPane.showInternalMessageDialog(null, "message0", "title0", JOptionPane.ERROR_MESSAGE, null);
-        if (x == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return x == 0;
     }
 
 }

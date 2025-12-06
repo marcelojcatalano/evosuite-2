@@ -24,7 +24,6 @@ public class Fieldaccess {
     public String foo;
 
     public void testMe() {
-        foo.toString();
     }
 
 }

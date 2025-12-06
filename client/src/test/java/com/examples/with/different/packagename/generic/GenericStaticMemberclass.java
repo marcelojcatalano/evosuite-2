@@ -35,10 +35,7 @@ public class GenericStaticMemberclass<T> {
     }
 
     public boolean testMe(MemberClass<T> x, T t) {
-        if (x.getObject().equals(t))
-            return true;
-        else
-            return false;
+        return x.getObject().equals(t);
     }
 
 }

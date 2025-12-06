@@ -29,10 +29,6 @@ public class SimpleFM_Int {
     }
 
     public static boolean bar(Foo foo) {
-        if (foo.foo() == 42) {
-            return true;
-        } else {
-            return false;
-        }
+        return foo.foo() == 42;
     }
 }

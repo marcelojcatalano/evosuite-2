@@ -29,11 +29,7 @@ public class TestCaseWithReset {
 
     public static boolean isZero(int value) {
         if (count == 0) {
-            if (value == 0) {
-                return true;
-            } else {
-                return false;
-            }
+            return value == 0;
         } else
             return false;
     }

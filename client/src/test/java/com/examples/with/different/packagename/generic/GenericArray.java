@@ -26,9 +26,6 @@ package com.examples.with.different.packagename.generic;
 public class GenericArray<T> {
 
     public boolean testMe(T[] parameters, T obj) {
-        if (parameters[1] == obj)
-            return true;
-        else
-            return false;
+        return parameters[1] == obj;
     }
 }

@@ -19,6 +19,7 @@
  */
 package org.evosuite.runtime;
 
+import org.evosuite.runtime.util.SafeReflection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,9 +47,8 @@ public class GuiSupport {
     static {
         try {
             //AWT classes check GraphicsEnvironment for headless state
-            headless = java.awt.GraphicsEnvironment.class.getDeclaredField("headless");
-            headless.setAccessible(true);
-        } catch (NoSuchFieldException | SecurityException | IllegalArgumentException e) {
+            headless = SafeReflection.findField(GraphicsEnvironment.class, "headless");
+        } catch (SecurityException | IllegalArgumentException e) {
             //this should never happen. if it doesn't work, then all GUI tests would be messed up :(
             throw new RuntimeException("ERROR: failed to use reflection for AWT Headless state: " + e.getMessage(), e);
         }
@@ -113,12 +113,11 @@ public class GuiSupport {
         //changing system property is not enough
         java.lang.System.setProperty("java.awt.headless", "" + isHeadless);
 
-        try {
-            headless.set(null, isHeadless);
-        } catch (IllegalAccessException e) {
-            //this should never happen. if it doesn't work, then all GUI tests would be messed up :(
-            throw new RuntimeException("ERROR: failed to change AWT Headless state: " + e.getMessage(), e);
-        }
+        Field headless = SafeReflection.findField(GraphicsEnvironment.class, "headless");
+        SafeReflection.set(headless, null, isHeadless);
+    }
 
+    public static boolean isHeadless() {
+        return GraphicsEnvironment.isHeadless();
     }
 }

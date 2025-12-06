@@ -24,6 +24,7 @@ import org.evosuite.Properties;
 import org.evosuite.symbolic.ConstraintTooLongException;
 import org.evosuite.symbolic.dse.DSEStatistics;
 import org.evosuite.symbolic.expr.*;
+import org.evosuite.utils.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,7 +43,7 @@ public final class StringBinaryExpression extends AbstractExpression<String> imp
 
     private static final long serialVersionUID = -986689442489666986L;
 
-    protected static final Logger log = LoggerFactory.getLogger(StringBinaryExpression.class);
+    private static final Logger log = LoggerFactory.getLogger(StringBinaryExpression.class);
 
     private final Expression<String> left;
     private final Operator op;

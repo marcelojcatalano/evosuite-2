@@ -25,3 +25,15 @@ master/dependency-reduced-pom.xml
 shaded/dependency-reduced-pom.xml
 standalone_runtime/dependency-reduced-pom.xml
 nbactions.xml
+/client/.metadata/.plugins/org.eclipse.jdt.launching/.install.xml
+/.emt4j/dependencies
+/runtime/src/main/java/org/evosuite/utils/GenerateSnapshot$ClassInfo.class
+/runtime/src/main/java/org/evosuite/utils/GenerateSnapshot.class
+/generated-snapshots/jdk-11_0_29/JDK_inheritance.xml
+/generated-snapshots/jdk-11_0_29/JDK_inheritance_shaded.xml
+/generated-snapshots/jdk-11_0_29/jdkPureMethods.txt
+/.rewrite-cache/LOG.old.1764685494810298
+/plugins/maven-test/projects/EnvModule/log.txt
+/.emt4j/modules
+/plugins/maven-test/projects/EnvModule/.evosuite/project_info.xml
+/report.html

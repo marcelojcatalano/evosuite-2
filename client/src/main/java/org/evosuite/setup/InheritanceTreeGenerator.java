@@ -37,6 +37,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.PathMatcher;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.regex.Pattern;
 import java.util.zip.GZIPInputStream;
@@ -82,18 +86,26 @@ public class InheritanceTreeGenerator {
         }
 
         logger.debug("CP: {}", classPath);
+        String regexPattern = "regex:.*evosuite-.*\\.jar";
+        PathMatcher matcher = FileSystems.getDefault().getPathMatcher(regexPattern);
+
+
         for (String classPathEntry : classPath) {
             logger.debug("Looking at CP entry: {}", classPathEntry);
             if (classPathEntry.isEmpty())
                 continue;
 
-            if (classPathEntry.matches(".*evosuite-.*\\.jar"))
+
+            if (matcher.matches(Paths.get(classPathEntry)))
                 continue;
 
             logger.debug("Analyzing classpath entry {}", classPathEntry);
             LoggingUtils.getEvoLogger().info("  - " + classPathEntry);
             for (String className : ResourceList.getInstance(
-                    TestGenerationContext.getInstance().getClassLoaderForSUT()).getAllClasses(classPathEntry, "", true, false)) {
+                            TestGenerationContext.getInstance().getClassLoaderForSUT()
+                    )
+                    .getAllClasses(classPathEntry, "", true, false)
+            ) {
                 // handle individual class
                 analyzeClassStream(inheritanceTree, ResourceList.getInstance(
                         TestGenerationContext.getInstance().getClassLoaderForSUT()).getClassAsStream(className), false);
@@ -147,20 +159,23 @@ public class InheritanceTreeGenerator {
 
 
     private static void analyze(InheritanceTree inheritanceTree, File file) {
-        if (!file.canRead()) {
+        if (file == null || !file.canRead()) {
             return;
         }
-        if (file.getName().endsWith(".jar")) {
-            // handle jar file
-            analyzeJarFile(inheritanceTree, file);
-        } else if (file.getName().endsWith(".class")) {
-            // handle individual class
-            analyzeClassFile(inheritanceTree, file);
-        } else if (file.isDirectory()) {
-            // handle directory
-            analyzeDirectory(inheritanceTree, file);
-        } else {
-            // Invalid entry?
+
+        if (file.exists() && file.isFile()) {
+            if (file.getName().endsWith(".jar")) {
+                // handle jar file
+                analyzeJarFile(inheritanceTree, file);
+            } else if (file.getName().endsWith(".class")) {
+                // handle individual class
+                analyzeClassFile(inheritanceTree, file);
+            } else if (file.isDirectory()) {
+                // handle directory
+                analyzeDirectory(inheritanceTree, file);
+            } else {
+                // Invalid entry?
+            }
         }
     }
 
@@ -426,7 +441,7 @@ public class InheritanceTreeGenerator {
         try {
             FileOutputStream stream = new FileOutputStream(new File(resourceFolder + jdkFile));
             XStream xstream = new XStream();
-            XStream.setupDefaultSecurity(xstream);
+            //  XStream.setupDefaultSecurity(xstream);
             xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
             xstream.toXML(inheritanceTree, stream);
         } catch (FileNotFoundException e) {
@@ -436,7 +451,7 @@ public class InheritanceTreeGenerator {
 
     public static InheritanceTree readJDKData() {
         XStream xstream = new XStream();
-        XStream.setupDefaultSecurity(xstream);
+        // XStream.setupDefaultSecurity(xstream);
         xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
 
         String fileName;
@@ -458,27 +473,27 @@ public class InheritanceTreeGenerator {
 
     public static InheritanceTree readInheritanceTree(String fileName) throws IOException {
         XStream xstream = new XStream();
-        XStream.setupDefaultSecurity(xstream);
+        // XStream.setupDefaultSecurity(xstream);
         xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
-        GZIPInputStream inheritance = new GZIPInputStream(new FileInputStream(new File(fileName)));
+        GZIPInputStream inheritance = new GZIPInputStream(Files.newInputStream(new File(fileName).toPath()));
         return (InheritanceTree) xstream.fromXML(inheritance);
     }
 
     public static InheritanceTree readUncompressedInheritanceTree(String fileName)
             throws IOException {
         XStream xstream = new XStream();
-        XStream.setupDefaultSecurity(xstream);
+        //  XStream.setupDefaultSecurity(xstream);
         xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
-        try (InputStream inheritance = new FileInputStream(fileName)) {
+        try (InputStream inheritance = Files.newInputStream(Paths.get(fileName))) {
             return (InheritanceTree) xstream.fromXML(inheritance);
         }
     }
 
     public static void writeInheritanceTree(InheritanceTree tree, File file) throws IOException {
         XStream xstream = new XStream();
-        XStream.setupDefaultSecurity(xstream);
+        //  XStream.setupDefaultSecurity(xstream);
         xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
-        try (GZIPOutputStream output = new GZIPOutputStream(new FileOutputStream(file))) {
+        try (GZIPOutputStream output = new GZIPOutputStream(Files.newOutputStream(file.toPath()))) {
             xstream.toXML(tree, output);
         }
     }

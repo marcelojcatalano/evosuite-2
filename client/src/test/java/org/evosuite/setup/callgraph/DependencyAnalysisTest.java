@@ -27,6 +27,9 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +43,10 @@ public class DependencyAnalysisTest {
         Properties.CRITERION = new Criterion[1];
         Properties.CRITERION[0] = Criterion.IBRANCH;
         List<String> classpath = new ArrayList<>();
-        String cp = System.getProperty("user.dir") + "/target/test-classes";
+        //   String cp = System.getProperty("user.dir") + "/target/test-classes";
+        Path currentRelativePath = Paths.get("");
+        String s = currentRelativePath.toAbsolutePath().toString();
+        String cp = Paths.get(s, File.separator, "target", File.separator, "test-classes").toString();
         classpath.add(cp);
         ClassPathHandler.getInstance().addElementToTargetProjectClassPath(cp);
         try {

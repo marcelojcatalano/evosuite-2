@@ -39,10 +39,7 @@ import java.lang.annotation.Target;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Central property repository. All global parameters of EvoSuite should be
@@ -2392,9 +2389,8 @@ public class Properties {
      * Update the evosuite.properties file with the current setting
      */
     public void writeConfiguration() {
-        URL fileURL = this.getClass().getClassLoader()
-                .getResource("evosuite.properties");
-        String name = fileURL.getFile();
+        URL fileURL = Thread.currentThread().getContextClassLoader().getResource("evosuite.properties");
+        String name = Objects.requireNonNull(fileURL).getFile();
         writeConfiguration(name);
     }
 
@@ -2426,10 +2422,7 @@ public class Properties {
             }
         }
 
-        for (String group : fieldMap.keySet()) {
-            if (group.equals("Runtime"))
-                continue;
-
+        fieldMap.keySet().stream().filter(group -> !group.equals("Runtime")).forEach(group -> {
             buffer.append("#--------------------------------------\n");
             buffer.append("# ");
             buffer.append(group);
@@ -2449,7 +2442,7 @@ public class Properties {
                 }
                 buffer.append("\n\n");
             }
-        }
+        });
         FileIOUtils.writeFile(buffer.toString(), fileName);
     }
 

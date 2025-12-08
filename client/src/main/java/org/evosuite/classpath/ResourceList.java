@@ -19,6 +19,7 @@
  */
 package org.evosuite.classpath;
 
+import org.apache.commons.lang3.StringUtils;
 import org.evosuite.runtime.InitializingListenerUtils;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.Opcodes;
@@ -31,6 +32,8 @@ import java.io.*;
 import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 
 /**
@@ -285,44 +288,46 @@ public class ResourceList {
      * @param excludeAnonymous       if including internal classes, should though still exclude the anonymous? (ie keep only the static ones)
      * @return
      */
-    public Set<String> getAllClasses(String classPathEntry, String prefix, boolean includeInternalClasses, boolean excludeAnonymous) {
+    public Set<String> getAllClasses(String classPathEntry,
+                                     String prefix,
+                                     boolean includeInternalClasses,
+                                     boolean excludeAnonymous) {
 
-        if (classPathEntry.contains(File.pathSeparator)) {
-            Set<String> retval = new LinkedHashSet<>();
-            for (String element : classPathEntry.split(File.pathSeparator)) {
-                retval.addAll(getAllClasses(element, prefix, includeInternalClasses, excludeAnonymous));
-            }
-            return retval;
-        } else {
+        // Split robusto del classpath
+        String[] entries = classPathEntry.split(Pattern.quote(File.pathSeparator), -1);
 
-            classPathEntry = (new File(classPathEntry)).getAbsolutePath();
-
-            addEntry(classPathEntry);
-
-            //no need to scan the classpath entry cache if it does not have the given prefix
-            Set<String> cps = getCache().mapPrefixToCPs.get(prefix);
-            if (cps == null || !cps.contains(classPathEntry)) {
-                return Collections.emptySet();
-            }
-
-            Set<String> classes = new LinkedHashSet<>();
-
-            for (String className : getCache().mapCPtoClasses.get(classPathEntry)) {
-                if (!className.startsWith(prefix)) {
-                    continue;
-                }
-                if (!includeInternalClasses && className.contains("$")) {
-                    continue;
-                }
-                if (includeInternalClasses && excludeAnonymous && className.matches(".*\\$\\d+$")) {
-                    continue;
-                }
-
-                classes.add(className);
-            }
-
-            return classes;
+        // Si hay múltiples entradas, procesar todas via stream
+        if (entries.length > 1) {
+            return Arrays.stream(entries)
+                    .filter(s -> !StringUtils.isBlank(s))
+                    .flatMap(s -> getAllClasses(s, prefix, includeInternalClasses, excludeAnonymous).stream())
+                    .collect(Collectors.toCollection(LinkedHashSet::new));
         }
+
+        // Caso simple: una sola entrada real
+        String cpEntry = new File(classPathEntry).getAbsolutePath();
+        addEntry(cpEntry);
+
+        Set<String> cps = getCache().mapPrefixToCPs.get(prefix);
+        if (cps == null || !cps.contains(cpEntry)) {
+            return Collections.emptySet();
+        }
+
+        return getCache().mapCPtoClasses.getOrDefault(cpEntry, Collections.emptySet())
+                .stream()
+
+                // Debe matchear el prefix
+                .filter(name -> name.startsWith(prefix))
+
+                // Internas (Foo$Bar)
+                .filter(name -> includeInternalClasses || !name.contains("$"))
+
+                // Anónimas (Foo$1)
+                .filter(name ->
+                        !(includeInternalClasses && excludeAnonymous && name.matches(".*\\$\\d+$"))
+                )
+
+                .collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     public static boolean isInterface(String resource) throws IOException {

@@ -20,6 +20,8 @@
 
 package org.evosuite.setup.callgraph;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * class name - method name pair
  * adapted from CallTreeEntry
@@ -33,6 +35,10 @@ public class CallGraphEntry {
     private final String methodName;
 
     public CallGraphEntry(String sourceClass, String sourceMethod) {
+        if (sourceClass == null || sourceMethod == null || StringUtils.isBlank(sourceClass) || StringUtils.isBlank(sourceMethod)) {
+            throw new IllegalArgumentException("Source class and method name cannot be null");
+        }
+
         this.className = sourceClass.replaceAll("/", ".");
         this.methodName = sourceMethod;
     }

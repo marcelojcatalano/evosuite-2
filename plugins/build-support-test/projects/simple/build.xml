@@ -31,7 +31,7 @@
 
     <!-- this needs to be set with -D. Done automatically from tests.
         Uncomment (and update) if open from IDE  -->
-    <!--<property name="evosuiteVersion" value="1.0.5-SNAPSHOT" />-->
+    <property name="evosuiteVersion" value="1.0.5" />
     <property name="EvoSuiteCompiledTestFolder" value="build/tests" />
 
 
@@ -101,10 +101,6 @@
                 includeantruntime="false"
                 fork="${compile.fork}"
         >
-            <classpath>
-                <pathelement path="${java.home}/../lib/tools.jar" />
-                <pathelement path="${env.JAVA_HOME}/lib/tools.jar" />
-            </classpath>
         </javac>
     </target>
 
@@ -129,8 +125,6 @@
             <classpath>
                 <pathelement path="${build.classes}"/>
                 <path refid="dependency.classpath" />
-                <pathelement path="${java.home}/../lib/tools.jar" />
-                <pathelement path="${env.JAVA_HOME}/lib/tools.jar" />
             </classpath>
         </javac>
     </target>
@@ -147,8 +141,6 @@
                 <pathelement path="${build.classes}"/>
                 <pathelement path="${build.tests}"/>
                 <path refid="dependency.classpath" />
-                <pathelement path="${java.home}/../lib/tools.jar" />
-                <pathelement path="${env.JAVA_HOME}/lib/tools.jar" />
             </classpath>
             <batchtest fork="yes">
                 <fileset dir="${test.java}">

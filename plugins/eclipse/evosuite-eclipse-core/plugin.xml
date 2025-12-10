@@ -167,12 +167,12 @@
    <extension
          id="id1"
          point="org.eclipse.core.resources.builders">
-      <builder></builder>
+	   <builder/>
    </extension>
    <extension
          point="org.eclipse.ui.startup">
-      <startup
-            class="org.evosuite.eclipse.Activator"></startup>
+	   <startup
+			   class="org.evosuite.eclipse.Activator"/>
    </extension>
    	
 	<extension point="org.eclipse.ui.preferencePages">
@@ -247,7 +247,7 @@
 		    <visibleWhen>
       			<with variable="activeMenuSelection">
       			  <and>
-      				<count value="1"></count>
+					  <count value="1"/>
         			<iterate ifEmpty="false" operator="and">
 						<and>
 							<instanceof value="org.eclipse.jdt.core.IJavaElement"/>

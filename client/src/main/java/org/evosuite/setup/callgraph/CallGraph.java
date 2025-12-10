@@ -330,19 +330,12 @@ public class CallGraph implements Iterable<CallGraphEntry> {
 
     public boolean isCalledMethodOld(String className, String methodName) {
 
-
         CallGraphEntry tmp = new CallGraphEntry(className, methodName);
-        for (CallGraphEntry e : graph.getEdges().keySet()) {
-            if (e.equals(tmp)) {
-                for (List<CallGraphEntry> c : PathFinder.getPahts(graph, e)) {
-                    for (CallGraphEntry entry : c) {
-                        if (entry.getClassName().equals(this.className))
-                            return true;
-                    }
-                }
-            }
-        }
-        return false;
+        return graph.getEdges().keySet().stream()
+                .filter(e -> e.equals(tmp))
+                .flatMap(e -> PathFinder.getPahts(graph, e).stream())
+                .flatMap(Collection::stream)
+                .anyMatch(entry -> entry.getClassName().equals(this.className));
     }
 
     /*

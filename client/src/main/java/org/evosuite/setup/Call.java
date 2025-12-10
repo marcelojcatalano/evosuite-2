@@ -55,7 +55,7 @@ public class Call implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((className == null) ? 0 : className.hashCode());
-        result = prime * result + ((mname == null) ? 0 : mname.hashCode());
+        result = prime * result + mname.hashCode();
         return result;
     }
 

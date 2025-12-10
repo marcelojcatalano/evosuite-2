@@ -25,6 +25,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 /**
@@ -192,7 +194,7 @@ public class ClassPathHandler {
                 return; //already there, nothing to add
             }
 
-            targetClassPath += File.pathSeparator + element;
+            targetClassPath = Paths.get(targetClassPath,File.separator,  element).toAbsolutePath().toString();
             Properties.CP = targetClassPath;
         }
     }
@@ -202,11 +204,12 @@ public class ClassPathHandler {
             throw new IllegalArgumentException("Empty input element");
         }
 
-        File file = new File(element);
-        if (!file.exists()) {
+        File file;
+        file = new File(element);
+        if (file.isDirectory() && !file.exists() || !file.isDirectory()) {
             throw new IllegalArgumentException("Classpath element does not exist on disk at: " + element);
         }
-        if (!element.endsWith(".jar") && !file.isDirectory()) {
+        if (file.isFile() && !element.endsWith(".jar")) {
             throw new IllegalArgumentException("A classpath element should either be a jar or a folder: " + element);
         }
     }

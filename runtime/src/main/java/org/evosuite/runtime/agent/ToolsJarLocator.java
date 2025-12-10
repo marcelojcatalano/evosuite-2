@@ -91,18 +91,14 @@ public class ToolsJarLocator {
 
         String javaHome = System.getProperty("java.home");
         List<String> locations = new ArrayList<>(Arrays.asList(
-                javaHome + "/../lib/tools.jar",
-                javaHome + "/lib/tools.jar",
-                javaHome + "/../Classes/classes.jar" /* this for example happens in Mac */
+                javaHome + "/lib/tools.jar"
         ));
 
         // Fix for when EvoSuite is wrongly run with a JRE (eg on Windows if JAVA_HOME is not properly set in PATH)
         String javaHomeEnv = System.getenv("JAVA_HOME");
         if (javaHomeEnv != null && !javaHomeEnv.equals(javaHome)) {
             locations.addAll(Arrays.asList(
-                    javaHomeEnv + "/../lib/tools.jar",
-                    javaHomeEnv + "/lib/tools.jar",
-                    javaHomeEnv + "/../Classes/classes.jar"
+                    javaHomeEnv + "/lib/tools.jar"
             ));
         }
 

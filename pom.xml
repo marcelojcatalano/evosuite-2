@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.evosuite</groupId>
@@ -8,13 +8,13 @@
     <description>n/a</description>
     <version>1.2.0</version>
     <packaging>pom</packaging>
-    <url>http://www.evosuite.org/</url>
+    <url>https://www.evosuite.org/</url>
     <inceptionYear>2010</inceptionYear>
 
     <licenses>
         <license>
-            <name> GNU Lesser General Public License (LGPL), version 3</name>
-            <url>http://www.gnu.org/licenses/lgpl-3.0.en.html</url>
+            <name>GNU Lesser General Public License (LGPL), version 3</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.en.html</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -48,9 +48,9 @@
             <id>fraser</id>
             <name>Gordon Fraser</name>
             <email>Gordon.Fraser@sheffield.ac.uk</email>
-            <url>http://staffwww.dcs.shef.ac.uk/people/G.Fraser</url>
+            <url>https://staffwww.dcs.shef.ac.uk/people/G.Fraser</url>
             <organization>University of Sheffield</organization>
-            <organizationUrl>http://www.sheffield.ac.uk/dcs</organizationUrl>
+            <organizationUrl>https://www.sheffield.ac.uk/dcs</organizationUrl>
             <timezone>2</timezone>
             <roles>
                 <role>Developer</role>
@@ -60,7 +60,7 @@
             <id>arcuri</id>
             <name>Andrea Arcuri</name>
             <email>arcuri82@gmail.com</email>
-            <url>http://www.arcuriandrea.org</url>
+            <url>https://www.arcuriandrea.org</url>
             <timezone>2</timezone>
             <roles>
                 <role>Developer</role>
@@ -84,20 +84,37 @@
 
     <organization>
         <name>EvoSuite</name>
-        <url>http://www.evosuite.org/</url>
+        <url>https://www.evosuite.org/</url>
     </organization>
-
 
     <profiles>
         <profile>
             <!--  mvn source:jar javadoc:jar verify -PsignJars -DskipTests  -->
             <id>signJars</id>
             <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-gpg-plugin</artifactId>
+                            <version>3.1.0</version>
+                            <executions>
+                                <execution>
+                                    <id>sign-artifacts</id>
+                                    <phase>verify</phase>
+                                    <goals>
+                                        <goal>sign</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
+                        <version>3.1.0</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -118,78 +135,23 @@
                 <integrationTests>**/*IntTest.java</integrationTests>
             </properties -->
             <properties>
-                <systemTests />
-                <integrationTests />
+                <systemTests/>
+                <integrationTests/>
             </properties>
         </profile>
         <profile>
             <id>tools-default</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
-                <file>
-                    <exists>${java.home}/../lib/tools.jar</exists>
-                </file>
+                <jdk>1.8</jdk>
             </activation>
-            <properties>
-                <toolsjar>${java.home}/../lib/tools.jar</toolsjar>
-            </properties>
-            <dependencyManagement>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.sun</groupId>
-                        <artifactId>tools</artifactId>
-                        <version>1.0.0</version>
-                        <scope>system</scope>
-                        <systemPath>${java.home}/../lib/tools.jar</systemPath>
-                    </dependency>
-                </dependencies>
-            </dependencyManagement>
         </profile>
         <profile>
             <id>tools-jenkins</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
-                <file>
-                    <exists>${java.home}/lib/tools.jar</exists>
-                </file>
+                <jdk>1.8</jdk>
             </activation>
-            <properties>
-                <toolsjar>${java.home}/lib/tools.jar</toolsjar>
-            </properties>
-            <dependencyManagement>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.sun</groupId>
-                        <artifactId>tools</artifactId>
-                        <version>1.0.0</version>
-                        <scope>system</scope>
-                        <systemPath>${java.home}/lib/tools.jar</systemPath>
-                    </dependency>
-                </dependencies>
-            </dependencyManagement>
-        </profile>
-        <profile>
-            <id>tools-mac</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-                <file>
-                    <exists>${java.home}/../Classes/classes.jar</exists>
-                </file>
-            </activation>
-            <properties>
-                <toolsjar>${java.home}/../Classes/classes.jar</toolsjar>
-            </properties>
-            <dependencyManagement>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.sun</groupId>
-                        <artifactId>tools</artifactId>
-                        <version>1.0.0</version>
-                        <scope>system</scope>
-                        <systemPath>${java.home}/../Classes/classes.jar</systemPath>
-                    </dependency>
-                </dependencies>
-            </dependencyManagement>
         </profile>
         <profile>
             <!-- needed as profile, as getting issue with Maven Plugin :( -->
@@ -250,10 +212,6 @@
                 <exclude.tests.concolic>**/*Concolic*.java</exclude.tests.concolic>
                 <exclude.tests.mimeType>**/*TestMIMEType.java</exclude.tests.mimeType>
             </properties>
-            <dependencyManagement>
-                <dependencies>
-                </dependencies>
-            </dependencyManagement>
         </profile>
         <profile>
             <id>Java-8</id>
@@ -263,12 +221,11 @@
             <properties>
                 <compiler.target>1.8</compiler.target>
                 <compiler.source>1.8</compiler.source>
-                <exclude.tests.concolic />
-                <exclude.tests.mimeType />
+                <exclude.tests.concolic/>
+                <exclude.tests.mimeType/>
             </properties>
         </profile>
     </profiles>
-
 
     <dependencyManagement>
         <!-- It is important that _no_ GPL library is used here. Note, in some
@@ -276,6 +233,13 @@
             libraries: https://glassfish.java.net/public/CDDL+GPL_1_1.html For each library
             you want to add, add a comment regarding its used license. -->
         <dependencies>
+            <dependency>
+                <groupId>com.sun</groupId>
+                <artifactId>tools</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+
             <dependency>
                 <groupId>com.sun.xml.bind</groupId>
                 <artifactId>jaxb-core</artifactId>
@@ -333,7 +297,7 @@
                 <!-- Common Public License Version 1.0 -->
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.13.2</version>
+                <version>4.13.1</version>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
@@ -392,7 +356,7 @@
                 <!-- BSD -->
                 <groupId>com.thoughtworks.xstream</groupId>
                 <artifactId>xstream</artifactId>
-                <version>1.4.18</version>
+                <version>1.4.19</version>
             </dependency>
             <dependency>
                 <!-- Apache 2 -->
@@ -456,11 +420,23 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>repsy</id>
+            <name>My Private Maven Repository on Repsy</name>
+            <url>https://repo.repsy.io/mvn/user58998970/maven</url>
         </repository>
     </distributionManagement>
 
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        <repository>
+            <id>repsy</id>
+            <name>My Private Maven Repository on Repsy</name>
+            <url>https://repo.repsy.io/mvn/user58998970/maven</url>
+        </repository>
+    </repositories>
 
 
     <build>
@@ -668,7 +644,7 @@
                         <exclude>${exclude.tests.concolic}</exclude>
                         <exclude>${exclude.tests.mimeType}</exclude>
                     </excludes>
-                    <argLine>-Djdk.attach.allowAttachSelf=true -Xms512m -Xmx4096m </argLine>
+                    <argLine>-Djdk.attach.allowAttachSelf=true -Xms512m -Xmx4096m</argLine>
                 </configuration>
             </plugin>
             <!-- pluging to run tests after 'package' phase in 'integration-test' -->
@@ -804,7 +780,8 @@
                                         <shadedPattern>org.evosuite.shaded.org.apache</shadedPattern>
                                         <excludes>
                                             <!-- Important, otherwise AntInitializingListener would not work in Ant -->
-                                            <exclude>org.apache.tools.ant.taskdefs.optional.junit.JUnitResultFormatter</exclude>
+                                            <exclude>org.apache.tools.ant.taskdefs.optional.junit.JUnitResultFormatter
+                                            </exclude>
                                             <exclude>org.apache.tools.ant.taskdefs.optional.junit.JUnitTest</exclude>
                                             <exclude>org.apache.tools.ant.BuildException</exclude>
                                         </excludes>
@@ -818,12 +795,12 @@
                                         <shadedPattern>org.evosuite.shaded.org.objenesis</shadedPattern>
                                     </relocation>
                                     <!--<relocation>-->
-                                        <!--<pattern>org.slf4j</pattern>-->
-                                        <!--<shadedPattern>org.evosuite.shaded.org.slf4j</shadedPattern>-->
+                                    <!--<pattern>org.slf4j</pattern>-->
+                                    <!--<shadedPattern>org.evosuite.shaded.org.slf4j</shadedPattern>-->
                                     <!--</relocation>-->
                                     <!--<relocation>-->
-                                        <!--<pattern>ch.qos.logback</pattern>-->
-                                        <!--<shadedPattern>org.evosuite.shaded.ch.qos.logback</shadedPattern>-->
+                                    <!--<pattern>ch.qos.logback</pattern>-->
+                                    <!--<shadedPattern>org.evosuite.shaded.ch.qos.logback</shadedPattern>-->
                                     <!--</relocation>-->
                                 </relocations>
                             </configuration>
@@ -844,6 +821,11 @@
         <systemTests>**/*SystemTest.java</systemTests>
         <integrationTests>**/*IntTest.java</integrationTests>
         <rerunFailingTestsCount>0</rerunFailingTestsCount>
+
+        <compiler.source>1.8</compiler.source>
+        <compiler.target>1.8</compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
 
     </properties>
 

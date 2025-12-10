@@ -27,6 +27,8 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.File;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +42,7 @@ public class DependencyAnalysisTest {
         Properties.CRITERION = new Criterion[1];
         Properties.CRITERION[0] = Criterion.IBRANCH;
         List<String> classpath = new ArrayList<>();
-        String cp = System.getProperty("user.dir") + "/target/test-classes";
+        String cp = Paths.get(System.getProperty("user.dir"), File.separator, "target", File.separator,"test-classes").toString();
         classpath.add(cp);
         ClassPathHandler.getInstance().addElementToTargetProjectClassPath(cp);
         try {
@@ -62,8 +64,8 @@ public class DependencyAnalysisTest {
                         "checkFiftneen(I)Z").toString();
 
         assertEquals(
-                context1,
-                "[com.examples.with.different.packagename.context.complex.EntryPointsClass:dosmt(ILjava/lang/String;D)V com.examples.with.different.packagename.context.complex.SubClass:checkFiftneen(I)Z]");
+                "[com.examples.with.different.packagename.context.complex.EntryPointsClass:dosmt(ILjava/lang/String;D)V com.examples.with.different.packagename.context.complex.SubClass:checkFiftneen(I)Z]",
+                context1);
     }
 
     /**
@@ -78,8 +80,8 @@ public class DependencyAnalysisTest {
                         "bla(I)Z").toString();
 
         assertEquals(
-                context2,
-                "[com.examples.with.different.packagename.context.complex.EntryPointsClass:dosmt(ILjava/lang/String;D)V com.examples.with.different.packagename.context.complex.SubClass:checkFiftneen(I)Z com.examples.with.different.packagename.context.complex.SubClass:bla(I)Z]");
+                "[com.examples.with.different.packagename.context.complex.EntryPointsClass:dosmt(ILjava/lang/String;D)V com.examples.with.different.packagename.context.complex.SubClass:checkFiftneen(I)Z com.examples.with.different.packagename.context.complex.SubClass:bla(I)Z]",
+                context2);
     }
 
     /**
@@ -90,11 +92,12 @@ public class DependencyAnalysisTest {
         String context2 = DependencyAnalysis
                 .getCallGraph()
                 .getAllContextsFromTargetClass(
+
                         "com.examples.with.different.packagename.context.complex.SubSubClass",
                         "innermethod(I)Z").toString();
         assertEquals(
-                context2,
-                "[com.examples.with.different.packagename.context.complex.EntryPointsClass:dosmt(ILjava/lang/String;D)V com.examples.with.different.packagename.context.complex.SubClass:checkFiftneen(I)Z com.examples.with.different.packagename.context.complex.SubClass:bla(I)Z com.examples.with.different.packagename.context.complex.SubSubClass:innermethod(I)Z]");
+                "[com.examples.with.different.packagename.context.complex.EntryPointsClass:dosmt(ILjava/lang/String;D)V com.examples.with.different.packagename.context.complex.SubClass:checkFiftneen(I)Z com.examples.with.different.packagename.context.complex.SubClass:bla(I)Z com.examples.with.different.packagename.context.complex.SubSubClass:innermethod(I)Z]",
+                context2);
     }
 
     @Test
@@ -105,8 +108,8 @@ public class DependencyAnalysisTest {
                         "com.examples.with.different.packagename.context.complex.ParameterObject",
                         "isEnabled()Z").toString();
         assertEquals(
-                context2,
-                "[com.examples.with.different.packagename.context.complex.EntryPointsClass:doObj(Lcom/examples/with/different/packagename/context/complex/AParameterObject;)V com.examples.with.different.packagename.context.complex.ParameterObject:isEnabled()Z]");
+                "[com.examples.with.different.packagename.context.complex.EntryPointsClass:doObj(Lcom/examples/with/different/packagename/context/complex/AParameterObject;)V com.examples.with.different.packagename.context.complex.ParameterObject:isEnabled()Z]",
+                context2);
     }
 
     //

@@ -77,7 +77,7 @@ public class EvoParameters {
         time = p.getInt(TIME_EVOSUITE_PARAM, 3);
         folder = p.getValue(TARGET_FOLDER_EVOSUITE_PARAM, "src/evo");
 
-        String envJavaHome = System.getenv("JAVA_HOME");
+        String envJavaHome = System.getenv("JAVA_HOME_1.8");
         javaHome = p.getValue(JAVA_HOME, envJavaHome != null ? envJavaHome : "");
         mvnLocation = p.getValue(MVN_LOCATION, "");
         evosuiteJarLocation = p.getValue(EVOSUITE_JAR_LOCATION, "");

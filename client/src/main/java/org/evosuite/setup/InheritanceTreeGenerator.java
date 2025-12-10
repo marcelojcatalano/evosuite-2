@@ -20,6 +20,10 @@
 package org.evosuite.setup;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.mapper.Mapper;
+import com.thoughtworks.xstream.security.NoTypePermission;
+import com.thoughtworks.xstream.security.NullPermission;
+import com.thoughtworks.xstream.security.PrimitiveTypePermission;
 import org.evosuite.ClientProcess;
 import org.evosuite.PackageInfo;
 import org.evosuite.Properties;
@@ -28,6 +32,10 @@ import org.evosuite.classpath.ResourceList;
 import org.evosuite.rmi.ClientServices;
 import org.evosuite.statistics.RuntimeVariable;
 import org.evosuite.utils.LoggingUtils;
+import org.jgrapht.graph.DefaultEdge;
+import org.jgrapht.graph.DirectedMultigraph;
+import org.jgrapht.graph.EdgeReversedGraph;
+import org.jgrapht.traverse.BreadthFirstIterator;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.tree.ClassNode;
@@ -37,7 +45,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.*;
+import java.util.concurrent.*;
 import java.util.regex.Pattern;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
@@ -424,9 +437,9 @@ public class InheritanceTreeGenerator {
 
         // Write data to XML file
         try {
-            FileOutputStream stream = new FileOutputStream(new File(resourceFolder + jdkFile));
+            FileOutputStream stream = new FileOutputStream(resourceFolder + jdkFile);
             XStream xstream = new XStream();
-            XStream.setupDefaultSecurity(xstream);
+            // XStream.setupDefaultSecurity(xstream);
             xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
             xstream.toXML(inheritanceTree, stream);
         } catch (FileNotFoundException e) {
@@ -436,7 +449,8 @@ public class InheritanceTreeGenerator {
 
     public static InheritanceTree readJDKData() {
         XStream xstream = new XStream();
-        XStream.setupDefaultSecurity(xstream);
+       // XStream.setupDefaultSecurity(xstream);
+        addCommonPermissionsAndSetCommonAllowedTypeClasses(xstream);
         xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
 
         String fileName;
@@ -458,27 +472,31 @@ public class InheritanceTreeGenerator {
 
     public static InheritanceTree readInheritanceTree(String fileName) throws IOException {
         XStream xstream = new XStream();
-        XStream.setupDefaultSecurity(xstream);
+        // XStream.setupDefaultSecurity(xstream);
+
+        addCommonPermissionsAndSetCommonAllowedTypeClasses(xstream);
         xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
-        GZIPInputStream inheritance = new GZIPInputStream(new FileInputStream(new File(fileName)));
+
+        GZIPInputStream inheritance = new GZIPInputStream(Files.newInputStream(new File(fileName).toPath()));
         return (InheritanceTree) xstream.fromXML(inheritance);
     }
-
     public static InheritanceTree readUncompressedInheritanceTree(String fileName)
             throws IOException {
         XStream xstream = new XStream();
-        XStream.setupDefaultSecurity(xstream);
+       // XStream.setupDefaultSecurity(xstream);
+        addCommonPermissionsAndSetCommonAllowedTypeClasses(xstream);
         xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
-        try (InputStream inheritance = new FileInputStream(fileName)) {
+        try (InputStream inheritance = Files.newInputStream(Paths.get(fileName))) {
             return (InheritanceTree) xstream.fromXML(inheritance);
         }
     }
 
     public static void writeInheritanceTree(InheritanceTree tree, File file) throws IOException {
         XStream xstream = new XStream();
-        XStream.setupDefaultSecurity(xstream);
+       // XStream.setupDefaultSecurity(xstream);
+        addCommonPermissionsAndSetCommonAllowedTypeClasses(xstream);
         xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
-        try (GZIPOutputStream output = new GZIPOutputStream(new FileOutputStream(file))) {
+        try (GZIPOutputStream output = new GZIPOutputStream(Files.newOutputStream(file.toPath()))) {
             xstream.toXML(tree, output);
         }
     }
@@ -541,5 +559,28 @@ public class InheritanceTreeGenerator {
         generateJDKCluster(args);
         makeShadedCopy();
     }
+
+    private static void addCommonPermissionsAndSetCommonAllowedTypeClasses(XStream xstream) {
+        xstream.addPermission(NoTypePermission.NONE);
+        xstream.addPermission(PrimitiveTypePermission.PRIMITIVES);
+        xstream.addPermission(NullPermission.NULL);
+
+        xstream.allowTypeHierarchy(Collection.class);
+        xstream.allowTypeHierarchy(Map.class);
+        xstream.allowTypes(new Class[]{Mapper.Null.class});
+        // and common non primitives
+        xstream.allowTypes(new Class[]{String.class, Date.class, java.sql.Date.class, Timestamp.class, Time.class});
+        // common collection types
+        xstream.allowTypes(new Class[]{LinkedHashMap.class, LinkedHashSet.class, Set.class, TreeSet.class,
+                ArrayList.class, DirectedMultigraph.class, List.class,
+                DefaultEdge.class, BreadthFirstIterator.class, EdgeReversedGraph.class,
+                SortedSet.class, Set.class, HashSet.class,
+                NavigableSet.class, AbstractSet.class, AbstractCollection.class, Collection.class,
+                CopyOnWriteArraySet.class, ConcurrentSkipListMap.class,
+                ConcurrentSkipListSet.class, CopyOnWriteArrayList.class, CopyOnWriteArrayList.class,
+                EnumSet.class, EnumMap.class,
+                HashMap.class, TreeMap.class, ConcurrentHashMap.class});
+    }
+
 
 }

@@ -12,6 +12,7 @@
   <artifactId>evosuite-eclipse-plugin</artifactId>
   <packaging>pom</packaging>
 
+
   <profiles>
     <profile>
       <id>Java 8</id>
@@ -21,7 +22,7 @@
       <properties>
         <!-- Last version of Tycho that works with Java 8 -->
         <tycho-version>1.7.0</tycho-version>
-        <eclipse-repo.url>http://download.eclipse.org/releases/photon</eclipse-repo.url>
+        <eclipse-repo.url>https://download.eclipse.org/releases/photon/</eclipse-repo.url>
       </properties>
     </profile>
     <profile>
@@ -31,14 +32,14 @@
       </activation>
       <properties>
         <tycho-version>2.4.0</tycho-version>
-        <eclipse-repo.url>http://download.eclipse.org/releases/2021-09</eclipse-repo.url>
+        <eclipse-repo.url>https://download.eclipse.org/releases/2021-09</eclipse-repo.url>
       </properties>
     </profile>
   </profiles>
 
   <properties>
     <tycho-version>2.4.0</tycho-version>
-    <eclipse-repo.url>http://download.eclipse.org/releases/2021-09</eclipse-repo.url>
+    <eclipse-repo.url>https://download.eclipse.org/releases/2021-09</eclipse-repo.url>
   </properties>
 
   <repositories>
@@ -85,6 +86,17 @@
         </configuration>
       </plugin>
     </plugins>
+         <pluginManagement>
+          <plugins>
+            <!-- Define the tycho-packaging-plugin in pluginManagement to configure default settings -->
+            <plugin>
+              <groupId>org.eclipse.tycho</groupId>
+              <artifactId>tycho-packaging-plugin</artifactId>
+              <version>${tycho-version}</version>
+            </plugin>
+            <!-- ... and other tycho plugins like tycho-compiler-plugin, etc., all with version 1.7.0 -->
+          </plugins>
+        </pluginManagement>
   </build>
 
   <modules>

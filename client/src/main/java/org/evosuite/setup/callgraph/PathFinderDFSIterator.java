@@ -83,7 +83,9 @@ public class PathFinderDFSIterator<E> implements Iterator<E> {
 
         do {
             int levelback = 0;
-            while (!neighbors.hasNext()) { // No more nodes -> back out a level
+            while (true) {
+                assert neighbors != null;
+                if (neighbors.hasNext()) break; // No more nodes -> back out a level
                 this.stack.pop();
                 if (this.stack.isEmpty()) { // All done!
                     this.next = null;

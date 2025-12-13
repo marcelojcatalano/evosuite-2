@@ -6,7 +6,7 @@
     <artifactId>evosuite</artifactId>
     <name>EvoSuite</name>
     <description>n/a</description>
-    <version>1.2.0</version>
+    <version>1.2.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <url>https://www.evosuite.org/</url>
     <inceptionYear>2010</inceptionYear>
@@ -34,7 +34,6 @@
         <module>master</module>
         <module>client</module>
         <module>runtime</module>
-        <module>plugins</module>
         <module>standalone_runtime</module>
         <module>shaded</module>
     </modules>
@@ -145,6 +144,13 @@
                 <activeByDefault>false</activeByDefault>
                 <jdk>1.8</jdk>
             </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.sun</groupId>
+                    <artifactId>tools</artifactId>
+                    <version>1.0.0</version>
+                </dependency>
+            </dependencies>
         </profile>
         <profile>
             <id>tools-jenkins</id>
@@ -152,6 +158,13 @@
                 <activeByDefault>false</activeByDefault>
                 <jdk>1.8</jdk>
             </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.sun</groupId>
+                    <artifactId>tools</artifactId>
+                    <version>1.0.0</version>
+                </dependency>
+            </dependencies>
         </profile>
         <profile>
             <!-- needed as profile, as getting issue with Maven Plugin :( -->
@@ -173,9 +186,9 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-pmd-plugin</artifactId>
-                        <version>3.9.0</version>
+                        <version>3.28.0</version>
                         <configuration>
-                            <targetJdk>1.8</targetJdk>
+                            <targetJdk>11</targetJdk>
                         </configuration>
                     </plugin>
                     <plugin>
@@ -186,7 +199,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-report-plugin</artifactId>
-                        <version>2.22.2</version>
+                        <version>3.5.4</version>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -207,11 +220,16 @@
                 <jdk>[9,)</jdk>
             </activation>
             <properties>
-                <compiler.target>1.8</compiler.target>
-                <compiler.source>1.8</compiler.source>
                 <exclude.tests.concolic>**/*Concolic*.java</exclude.tests.concolic>
                 <exclude.tests.mimeType>**/*TestMIMEType.java</exclude.tests.mimeType>
             </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>com.sun</groupId>
+                    <artifactId>tools</artifactId>
+                    <version>1.0.0</version>
+                </dependency>
+            </dependencies>
         </profile>
         <profile>
             <id>Java-8</id>
@@ -224,6 +242,13 @@
                 <exclude.tests.concolic/>
                 <exclude.tests.mimeType/>
             </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>com.sun</groupId>
+                    <artifactId>tools</artifactId>
+                    <version>1.0.0</version>
+                </dependency>
+            </dependencies>
         </profile>
     </profiles>
 
@@ -233,12 +258,6 @@
             libraries: https://glassfish.java.net/public/CDDL+GPL_1_1.html For each library
             you want to add, add a comment regarding its used license. -->
         <dependencies>
-            <dependency>
-                <groupId>com.sun</groupId>
-                <artifactId>tools</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-
 
             <dependency>
                 <groupId>com.sun.xml.bind</groupId>
@@ -273,7 +292,7 @@
                 <!-- MIT -->
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>1.7.32</version>
+                <version>2.0.11</version>
             </dependency>
             <dependency>
                 <!-- EPL/LGPL -->
@@ -284,7 +303,7 @@
                     update it (eg after 1.1.7), need to make sure tests (eg,
                     JobExecutorIntTest and all the Maven ones) work fine
                     on Windows -->
-                <version>1.2.3</version>
+                <version>1.5.21</version>
                 <optional>true</optional>
             </dependency>
             <dependency>
@@ -356,7 +375,7 @@
                 <!-- BSD -->
                 <groupId>com.thoughtworks.xstream</groupId>
                 <artifactId>xstream</artifactId>
-                <version>1.4.19</version>
+                <version>1.4.21</version>
             </dependency>
             <dependency>
                 <!-- Apache 2 -->
@@ -577,7 +596,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.14.1</version>
                 <configuration>
                     <source>${compiler.source}</source>
                     <target>${compiler.target}</target>
@@ -627,7 +646,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.21.0</version>
+                <version>3.5.4</version>
                 <configuration>
                     <!--<rerunFailingTestsCount>${rerunFailingTestsCount}</rerunFailingTestsCount>-->
                     <forkCount>1</forkCount>
@@ -641,10 +660,18 @@
                     <excludes>
                         <exclude>${integrationTests}</exclude>
                         <exclude>${systemTests}</exclude>
-                        <exclude>${exclude.tests.concolic}</exclude>
-                        <exclude>${exclude.tests.mimeType}</exclude>
+                        <exclude>**/*Concolic*.java</exclude>
+                        <exclude>**/*TestMIMEType.java</exclude>
                     </excludes>
-                    <argLine>-Djdk.attach.allowAttachSelf=true -Xms512m -Xmx4096m</argLine>
+                    <argLine>-Djdk.attach.allowAttachSelf=true -Xms512m -Xmx4096m
+                        --add-modules ALL-SYSTEM
+                        --add-opens java.base/java.lang=ALL-UNNAMED
+                        --add-opens java.base/java.io=ALL-UNNAMED
+                        --add-opens java.base/java.util=ALL-UNNAMED
+                        --add-opens java.base/java.util.concurrent=ALL-UNNAMED
+                        --add-opens java.desktop/java.beans=ALL-UNNAMED
+                        --add-opens java.base/jdk.internal.reflect=ALL-UNNAMED
+                    </argLine>
                 </configuration>
             </plugin>
             <!-- pluging to run tests after 'package' phase in 'integration-test' -->
@@ -690,7 +717,7 @@
                     <!-- This is used differently in "runtime" pom-->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.2</version>
+                    <version>3.5.0</version>
                 </plugin>
                 <!-- <plugin> <groupId>org.jacoco</groupId> <artifactId>jacoco-maven-plugin</artifactId>
                     <version>0.7.1.201405082137</version> <executions> <execution> <id>default-prepare-agent</id>
@@ -712,7 +739,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>3.1.0</version>
+                    <version>3.6.1</version>
                     <executions>
                         <execution>
                             <phase>package</phase>
@@ -820,12 +847,14 @@
 
         <systemTests>**/*SystemTest.java</systemTests>
         <integrationTests>**/*IntTest.java</integrationTests>
+        <exclude.tests.concolic>**/*Concolic*.java</exclude.tests.concolic>
+        <exclude.tests.mimeType>**/*TestMIMEType.java</exclude.tests.mimeType>
         <rerunFailingTestsCount>0</rerunFailingTestsCount>
 
-        <compiler.source>1.8</compiler.source>
-        <compiler.target>1.8</compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <compiler.source>11</compiler.source>
+        <compiler.target>11</compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
 
     </properties>
 

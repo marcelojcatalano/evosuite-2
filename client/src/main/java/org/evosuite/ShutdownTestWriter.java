@@ -19,11 +19,11 @@
  */
 package org.evosuite;
 
+import jnr.posix.SignalHandler;
 import org.evosuite.ga.Chromosome;
 import org.evosuite.ga.stoppingconditions.StoppingConditionImpl;
 import org.evosuite.utils.LoggingUtils;
-import sun.misc.Signal;
-import sun.misc.SignalHandler;
+
 
 /**
  * <p>
@@ -60,12 +60,13 @@ public class ShutdownTestWriter<T extends Chromosome<T>> extends StoppingConditi
      * {@inheritDoc}
      */
     @Override
-    public void handle(Signal arg0) {
-        LoggingUtils.getEvoLogger().info("\n* User requested search stop");
+    public void handle(int signal) {
+        LoggingUtils.getEvoLogger().info("\n* User requested search stop (signal=" + signal + ")");
 
-        // If this is the second Ctrl+C the user _really_ wants to stop...
-        if (interrupted)
+        if (interrupted) {
             System.exit(0);
+        }
+
         interrupted = true;
     }
 

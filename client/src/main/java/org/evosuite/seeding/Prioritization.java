@@ -139,14 +139,13 @@ public class Prioritization<T> {
      * @return view of all the elements in the priority collection
      */
     public Set<T> getElements() {
-        return Collections.unmodifiableSet(elements);
+        return Collections.unmodifiableSet(priorities.keySet());
     }
 
     /**
      * clears this collection
      */
     public void clear() {
-        elements.clear();
         priorities.clear();
     }
 }

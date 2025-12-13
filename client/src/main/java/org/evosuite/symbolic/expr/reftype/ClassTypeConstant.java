@@ -19,22 +19,22 @@
  */
 package org.evosuite.symbolic.expr.reftype;
 
+import org.objectweb.asm.Type;
 import org.evosuite.symbolic.expr.ExpressionVisitor;
 
 /**
- * Symbolic representation of the null type
+ * Represents a class type.
  *
  * @author Ignacio Lebrero
  */
-public final class LiteralNullType extends LiteralClassType {
+public final class ClassTypeConstant extends NonNullReferenceTypeConstant {
 
-    //TODO(ilebrero): There should be a Null class as a concrete object -> model it evetually
-    public LiteralNullType() {
-        super(null);
+    public ClassTypeConstant(Type concreteValue, int referenceTypeId) {
+        super(concreteValue, referenceTypeId);
     }
 
     @Override
     public <K, V> K accept(ExpressionVisitor<K, V> v, V arg) {
-        return null;
+        return v.visit(this, arg);
     }
 }

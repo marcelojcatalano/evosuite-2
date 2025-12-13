@@ -19,6 +19,8 @@
  */
 package org.evosuite.strategy;
 
+import jnr.posix.POSIX;
+import jnr.posix.POSIXFactory;
 import org.evosuite.Properties;
 import org.evosuite.ShutdownTestWriter;
 import org.evosuite.TestGenerationContext;
@@ -37,7 +39,6 @@ import org.evosuite.testcase.secondaryobjectives.TestCaseSecondaryObjective;
 import org.evosuite.testsuite.RelativeSuiteLengthBloatControl;
 import org.evosuite.utils.ArrayUtil;
 import org.evosuite.utils.ResourceController;
-import sun.misc.Signal;
 
 public class PropertiesMapElitesSearchFactory
         extends PropertiesSearchAlgorithmFactory<TestChromosome> {
@@ -149,7 +150,22 @@ public class PropertiesMapElitesSearchFactory
                 ga.addStoppingCondition(ss);
             }
 
-            Signal.handle(new Signal("INT"), writer);
+            // Reemplazo de sun.misc.Signal
+            try {
+                POSIX posix = POSIXFactory.getPOSIX();
+
+                posix.signal(jnr.constants.platform.Signal.SIGINT, sig -> {
+                    try {
+                        writer.handle(sig); // ← sencillo y funcional
+                    } catch (Throwable t) {
+                        logger.warn("Error en ShutdownTestWriter.handle()", t);
+                    }
+                });
+
+                logger.info("SIGINT handler registered via jnr-posix");
+            } catch (Throwable t) {
+                logger.error("Error registrando handler POSIX", t);
+            }
         }
 
         ga.addListener(new ResourceController<>());

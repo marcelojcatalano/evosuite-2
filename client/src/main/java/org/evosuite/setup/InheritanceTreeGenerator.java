@@ -20,6 +20,8 @@
 package org.evosuite.setup;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.core.util.SerializationMembers;
+import com.thoughtworks.xstream.io.xml.StaxDriver;
 import com.thoughtworks.xstream.mapper.Mapper;
 import com.thoughtworks.xstream.security.NoTypePermission;
 import com.thoughtworks.xstream.security.NullPermission;
@@ -448,7 +450,7 @@ public class InheritanceTreeGenerator {
     }
 
     public static InheritanceTree readJDKData() {
-        XStream xstream = new XStream();
+        XStream xstream = new XStream(new StaxDriver());
        // XStream.setupDefaultSecurity(xstream);
         addCommonPermissionsAndSetCommonAllowedTypeClasses(xstream);
         xstream.allowTypesByWildcard(new String[]{"org.evosuite.**", "org.jgrapht.**"});
@@ -578,7 +580,7 @@ public class InheritanceTreeGenerator {
                 NavigableSet.class, AbstractSet.class, AbstractCollection.class, Collection.class,
                 CopyOnWriteArraySet.class, ConcurrentSkipListMap.class,
                 ConcurrentSkipListSet.class, CopyOnWriteArrayList.class, CopyOnWriteArrayList.class,
-                EnumSet.class, EnumMap.class,
+                EnumSet.class, EnumMap.class, ObjectInputStream.class, SerializationMembers.class,
                 HashMap.class, TreeMap.class, ConcurrentHashMap.class});
     }
 

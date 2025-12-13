@@ -25,3 +25,12 @@ master/dependency-reduced-pom.xml
 shaded/dependency-reduced-pom.xml
 standalone_runtime/dependency-reduced-pom.xml
 nbactions.xml
+/generated-snapshots/jdk-11_0_29/JDK_inheritance.xml
+/generated-snapshots/jdk-11_0_29/JDK_inheritance_shaded.xml
+/generated-snapshots/jdk-11_0_29/jdkPureMethods.txt
+/client/pom.xml.versionsBackup
+/master/pom.xml.versionsBackup
+/runtime/pom.xml.versionsBackup
+/shaded/pom.xml.versionsBackup
+/standalone_runtime/pom.xml.versionsBackup
+/pom.xml.versionsBackup

@@ -26,8 +26,11 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  * When running EvoSuite there are at least three different classpaths
@@ -111,51 +114,39 @@ public class ClassPathHandler {
             throw new IllegalArgumentException("No classpath elements");
         }
 
-        String cp = "";
-        boolean first = true;
-        for (String entry : elements) {
-            checkIfValidClasspathEntry(entry);
-            if (first) {
-                first = false;
-            } else {
-                cp += File.pathSeparator;
-            }
-            cp += entry;
-        }
-        return cp;
+        return Arrays.stream(elements)
+                .peek(this::checkIfValidClasspathEntry)
+                .collect(Collectors.joining(File.pathSeparator));
     }
 
-    /**
-     * Return the classpath of the target project.
-     * This should include also all the third-party jars
-     * it depends on
-     *
-     * <p>
-     * If no classpath has been set so far, the one from the property file
-     * will be used, if it exists.
-     *
-     * @return
-     */
+
     public String getTargetProjectClasspath() {
 
         if (targetClassPath == null) {
             String line = null;
-            if (Properties.CP_FILE_PATH != null) {
-                File file = new File(Properties.CP_FILE_PATH);
 
-                try (InputStream in = new BufferedInputStream(new FileInputStream(file))) {
-                    Scanner scanner = new Scanner(in);
-                    line = scanner.nextLine();
-                } catch (Exception e) {
-                    LoggingUtils.getEvoLogger().error("Error while processing " + file.getAbsolutePath() + " : " + e.getMessage());
+            if (Properties.CP_FILE_PATH != null) {
+                Path path = Paths.get(Properties.CP_FILE_PATH);
+
+                if (Files.exists(path)) {
+                    try (Scanner scanner = new Scanner(Files.newBufferedReader(path))) {
+                        if (scanner.hasNextLine()) {
+                            line = scanner.nextLine();
+                        }
+                    } catch (Exception e) {
+                        LoggingUtils.getEvoLogger().error(
+                                "Error while processing " + path.toAbsolutePath() + " : " + e.getMessage()
+                        );
+                    }
                 }
             }
 
-            targetClassPath = line != null ? line : Properties.CP;
+            targetClassPath = (line != null) ? line : Properties.CP;
         }
 
         return targetClassPath;
     }
+
 
     public static String writeClasspathToFile(String classpath) {
 
@@ -176,43 +167,54 @@ public class ClassPathHandler {
     }
 
 
-    /**
-     * Add classpath entry to the classpath of the target project
-     *
-     * @param element
-     * @throws IllegalArgumentException
-     */
-    public void addElementToTargetProjectClassPath(String element) throws IllegalArgumentException {
+    public void addElementToTargetProjectClassPath(String element) {
         checkIfValidClasspathEntry(element);
 
-        getTargetProjectClasspath(); //need to be sure it is initialized
-        if (targetClassPath == null || targetClassPath.isEmpty()) {
+        String current = getTargetProjectClasspath();
+
+        if (current == null || current.isEmpty()) {
             targetClassPath = element;
         } else {
+            // Si ya está, no dupliques
+            String[] parts = current.split(File.pathSeparator);
+            boolean alreadyPresent = Arrays.asList(parts).contains(element);
 
-            if (targetClassPath.contains(element)) {
-                return; //already there, nothing to add
+            if (alreadyPresent) {
+                return;
             }
 
-            targetClassPath = Paths.get(targetClassPath,File.separator,  element).toAbsolutePath().toString();
-            Properties.CP = targetClassPath;
+            // Agregar al classpath de forma correcta
+            targetClassPath = current + File.pathSeparator + element;
         }
+
+        // sincronizar con Properties
+        Properties.CP = targetClassPath;
     }
 
-    private void checkIfValidClasspathEntry(String element) throws IllegalArgumentException {
+
+    private void checkIfValidClasspathEntry(String element) {
         if (element == null || element.isEmpty()) {
             throw new IllegalArgumentException("Empty input element");
         }
 
-        File file;
-        file = new File(element);
-        if (file.isDirectory() && !file.exists() || !file.isDirectory()) {
+        Path path = Paths.get(element);
+
+        if (!Files.exists(path)) {
             throw new IllegalArgumentException("Classpath element does not exist on disk at: " + element);
         }
-        if (file.isFile() && !element.endsWith(".jar")) {
-            throw new IllegalArgumentException("A classpath element should either be a jar or a folder: " + element);
+
+        if (Files.isDirectory(path)) {
+            // Directorio → válido
+            return;
+        }
+
+        if (Files.isRegularFile(path) && !element.endsWith(".jar")) {
+            throw new IllegalArgumentException(
+                    "A classpath element should either be a jar or a folder: " + element
+            );
         }
     }
+
 
     /**
      * Get the project classpath as an array of elements
@@ -232,17 +234,18 @@ public class ClassPathHandler {
      * classpath of EvoSuite itself
      */
     public void changeTargetCPtoTheSameAsEvoSuite() {
+        Path outDir = Paths.get("target", "classes");
 
-        File outDir = new File("target" + File.separator + "classes");
-        if (outDir.exists()) {
-            changeTargetClassPath(new String[]{outDir.getAbsolutePath()});
+        if (Files.exists(outDir)) {
+            changeTargetClassPath(new String[]{ outDir.toAbsolutePath().toString() });
 
-            File testDir = new File("target" + File.separator + "test-classes");
-            if (testDir.exists()) {
-                addElementToTargetProjectClassPath(testDir.getAbsolutePath());
+            Path testDir = Paths.get("target", "test-classes");
+            if (Files.exists(testDir)) {
+                addElementToTargetProjectClassPath(testDir.toAbsolutePath().toString());
             }
+
         } else {
-            //TODO: just in case... not sure it would work properly
+            // fallback
             changeTargetClassPath(getEvoSuiteClassPath().split(File.pathSeparator));
         }
     }

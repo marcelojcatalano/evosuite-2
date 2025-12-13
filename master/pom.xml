@@ -1,10 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.evosuite</groupId>
         <artifactId>evosuite</artifactId>
-        <version>1.2.0</version>
+        <version>1.2.1-SNAPSHOT</version>
     </parent>
 
     <artifactId>evosuite-master</artifactId>
@@ -21,7 +22,7 @@
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
                         <artifactId>jaxb2-maven-plugin</artifactId>
-                        <version>1.6</version>
+                        <version>3.2.0</version>
                         <executions>
                             <execution>
                                 <id>xjc</id>
@@ -31,15 +32,21 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
+                            <sources>
+                                <source>${project.basedir}/src/main/resources/xsd/ctg_project_report.xsd</source>
+                            </sources>
                             <packageName>org.evosuite.xsd</packageName>
                         </configuration>
                         <dependencies>
                             <dependency>
-                                <!-- Needed to compile with Java 9 -->
-                                <groupId>javax.activation</groupId>
-                                <artifactId>javax.activation-api</artifactId>
-                                <version>1.2.0</version>
+                                <groupId>jakarta.activation</groupId>
+                                <artifactId>jakarta.activation-api</artifactId>
+                                <version>2.1.2</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>jakarta.xml.bind</groupId>
+                                <artifactId>jakarta.xml.bind-api</artifactId>
+                                <version>4.0.2</version>
                             </dependency>
                         </dependencies>
                     </plugin>
@@ -70,6 +77,13 @@
                             <schemaDirectory>${project.basedir}/src/main/resources/xsd</schemaDirectory>
                             <packageName>org.evosuite.xsd</packageName>
                         </configuration>
+                        <dependencies>
+                            <dependency>
+                                <groupId>com.sun</groupId>
+                                <artifactId>tools</artifactId>
+                                <version>1.0.0</version>
+                            </dependency>
+                        </dependencies>
                     </plugin>
                 </plugins>
             </build>
@@ -86,12 +100,6 @@
             <artifactId>evosuite-runtime</artifactId>
             <version>${project.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.sun</groupId>
-            <artifactId>tools</artifactId>
-        </dependency>
-
 
         <!--        <dependency>
                     <groupId>org.evosuite</groupId>
@@ -167,6 +175,16 @@
             <groupId>javax.activation</groupId>
             <artifactId>javax.activation-api</artifactId>
             <version>1.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.activation</groupId>
+            <artifactId>jakarta.activation-api</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>4.0.2</version>
         </dependency>
     </dependencies>
 
